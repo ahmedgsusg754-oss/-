@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>افـنـدツ⁠يـنـا🥀🖤</title>
+<style>
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:Arial,Tahoma,sans-serif;background:#08070f;color:#fff}
+body{background:radial-gradient(circle at 80% 10%,#27133d 0,#0b0912 38%,#07070c 100%);padding-bottom:78px}
+button,input{font:inherit}button{cursor:pointer}
+.hidden{display:none!important}.app{max-width:760px;margin:auto}
+header{position:sticky;top:0;z-index:20;background:rgba(8,7,15,.94);backdrop-filter:blur(14px);border-bottom:1px solid #282231;padding:14px 16px;display:flex;align-items:center;justify-content:space-between}
+.brand{font-weight:900;font-size:21px}.tag{color:#aaa0b8;font-size:12px;margin-top:4px}
+.icon{width:46px;height:46px;border:1px solid #30293b;background:#12101a;color:#fff;border-radius:15px}
+main{padding:18px 14px}.hero{padding:22px;border:1px solid #332840;border-radius:28px;background:linear-gradient(145deg,#171126,#0d0b14);box-shadow:0 20px 70px #0007}
+.hero h1{font-size:31px;line-height:1.35;margin:8px 0}.hero p{color:#b9b1c3;line-height:1.9}
+.btn{border:0;border-radius:16px;padding:13px 18px;color:#fff;font-weight:800;background:linear-gradient(135deg,#8b4dff,#b55cff);box-shadow:0 12px 28px #8b4dff33}
+.btn.alt{background:#15121f;border:1px solid #30293a;box-shadow:none}
+.row{display:flex;gap:10px;flex-wrap:wrap}.section-title{margin:26px 4px 12px;font-size:22px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}.stat{background:#100e17;border:1px solid #2b2534;border-radius:20px;padding:15px;text-align:center}.stat b{font-size:22px;display:block;margin-top:7px}
+.search{width:100%;background:#0d0c14;color:#fff;border:1px solid #2e2837;border-radius:17px;padding:14px;outline:0;margin-bottom:14px}
+.members{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.member{background:#100e17;border:1px solid #2d2736;border-radius:22px;padding:16px;text-align:center}
+.avatar{width:78px;height:78px;border-radius:24px;object-fit:cover;background:#1a1625;border:1px solid #3a3147;margin:auto;display:block}.member h3{margin:11px 0 5px}.online{color:#42e6a4;font-size:12px}.member .actions{margin-top:12px;display:flex;gap:7px}.member .actions button{flex:1;padding:10px;border-radius:13px;border:1px solid #332b40;background:#171320;color:#fff}
+nav{position:fixed;bottom:0;left:0;right:0;z-index:30;background:rgba(8,7,14,.97);border-top:1px solid #292333;display:flex;justify-content:center}
+.navin{max-width:760px;width:100%;display:grid;grid-template-columns:repeat(5,1fr)}nav button{background:none;border:0;color:#aaa2b1;padding:10px 4px 11px;font-size:12px}nav button b{display:block;font-size:21px;margin-bottom:3px}nav button.active{color:#b779ff}
+.auth{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px}.authbox{width:min(430px,100%);padding:28px;border:1px solid #332840;border-radius:28px;background:#100e18;box-shadow:0 30px 100px #0008}.authbox h1{font-size:28px;margin:8px 0}.field{margin:12px 0}.field label{display:block;color:#bbb2c5;font-size:13px;margin-bottom:7px}.field input{width:100%;padding:14px;border-radius:14px;border:1px solid #30283a;background:#0b0a11;color:#fff;outline:0}.authmsg{color:#ff9d9d;font-size:13px;min-height:20px;margin:8px 0}.switch{text-align:center;color:#aaa1b2;margin-top:15px}.switch button{background:none;border:0;color:#b879ff}
+.profile{background:#100e18;border:1px solid #30283a;border-radius:26px;padding:24px;text-align:center}.profile .avatar{width:110px;height:110px;border-radius:32px}.profile h1{margin-bottom:5px}.bio{color:#aaa1b2;line-height:1.8}.chips{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin:14px 0}.chip{background:#181320;border:1px solid #332a3d;border-radius:999px;padding:8px 12px;color:#ddd}
+.rooms{display:grid;gap:12px}.room{border:1px solid #332a40;border-radius:23px;padding:18px;background:linear-gradient(145deg,#171126,#0f0d15);display:flex;gap:13px;align-items:center}.roompic{width:66px;height:66px;border-radius:20px;object-fit:cover;background:#1b1625}.room h3{margin:0 0 5px}.room small{color:#aaa1b2}.room .roombtn{margin-right:auto}
+.empty{padding:35px 15px;text-align:center;color:#aaa1b2;border:1px dashed #393142;border-radius:20px}
+.toast{position:fixed;bottom:92px;left:50%;transform:translateX(-50%);background:#191421;border:1px solid #443750;padding:12px 17px;border-radius:14px;z-index:50;max-width:90%;text-align:center}
+@media(max-width:560px){.members{grid-template-columns:1fr 1fr}.hero h1{font-size:27px}.member{padding:13px}.avatar{width:70px;height:70px}}
+</style>
+</head>
+<body>
+
+<div id="auth" class="auth">
+  <div class="authbox">
+    <div style="font-size:42px">🥀🖤</div>
+    <h1>افـنـدツ⁠يـنـا</h1>
+    <p style="color:#aaa1b2">ادخل إلى حسابك أو أنشئ حسابًا جديدًا.</p>
+    <div id="loginForm">
+      <div class="field"><label>اسم المستخدم أو البريد</label><input id="loginId" autocomplete="username"></div>
+      <div class="field"><label>كلمة المرور</label><input id="loginPass" type="password" autocomplete="current-password"></div>
+      <div id="loginMsg" class="authmsg"></div>
+      <button class="btn" style="width:100%" onclick="login()">تسجيل الدخول</button>
+      <div class="switch">ليس لديك حساب؟ <button onclick="showRegister()">إنشاء حساب</button></div>
+    </div>
+    <div id="registerForm" class="hidden">
+      <div class="field"><label>اسم المستخدم</label><input id="regUser" autocomplete="username"></div>
+      <div class="field"><label>البريد الإلكتروني</label><input id="regEmail" type="email" autocomplete="email"></div>
+      <div class="field"><label>كلمة المرور</label><input id="regPass" type="password" autocomplete="new-password"></div>
+      <div class="field"><label>صورة الحساب (اختياري)</label><input id="regPhoto" type="file" accept="image/*"></div>
+      <div id="regMsg" class="authmsg"></div>
+      <button class="btn" style="width:100%" onclick="register()">إنشاء الحساب والدخول</button>
+      <div class="switch">لديك حساب؟ <button onclick="showLogin()">تسجيل الدخول</button></div>
+    </div>
+  </div>
+</div>
+
+<div id="site" class="app hidden">
+<header>
+  <div><div class="brand">افـنـدツ⁠يـنـا🥀🖤</div><div class="tag">مساحتك... بطريقتك</div></div>
+  <div class="row">
+    <button class="icon" onclick="openPage('profile')">👤</button>
+    <button class="icon" onclick="logout()">↪</button>
+  </div>
+</header>
+
+<main id="content"></main>
+
+<nav><div class="navin">
+  <button id="n-home" onclick="openPage('home')"><b>⌂</b>الرئيسية</button>
+  <button id="n-rooms" onclick="openPage('rooms')"><b>🎙️</b>الغرف</button>
+  <button id="n-members" onclick="openPage('members')"><b>👥</b>الأعضاء</button>
+  <button id="n-store" onclick="openPage('store')"><b>🎁</b>المتجر</button>
+  <button id="n-profile" onclick="openPage('profile')"><b>👤</b>حسابي</button>
+</div></nav>
+</div>
+
+<script>
+const KEY='afenda_users_v1', SESSION='afenda_session_v1';
+const getUsers=()=>JSON.parse(localStorage.getItem(KEY)||'[]');
+const saveUsers=u=>localStorage.setItem(KEY,JSON.stringify(u));
+const current=()=>{let id=localStorage.getItem(SESSION);return getUsers().find(u=>u.id===id)||null};
+const uid=()=>crypto.randomUUID?crypto.randomUUID():'u_'+Date.now()+Math.random().toString(16).slice(2);
+
+function showRegister(){loginForm.classList.add('hidden');registerForm.classList.remove('hidden');}
+function showLogin(){registerForm.classList.add('hidden');loginForm.classList.remove('hidden');}
+function fileData(file){return new Promise(r=>{if(!file)return r('');let x=new FileReader();x.onload=()=>r(x.result);x.readAsDataURL(file)})}
+
+async function register(){
+  let user=regUser.value.trim(),email=regEmail.value.trim().toLowerCase(),pass=regPass.value;
+  if(user.length<3||!email||pass.length<6){regMsg.textContent='اكتب البيانات بشكل صحيح. كلمة المرور 6 أحرف على الأقل.';return}
+  let users=getUsers();
+  if(users.some(u=>u.username.toLowerCase()===user.toLowerCase()||u.email===email)){regMsg.textContent='اسم المستخدم أو البريد مستخدم بالفعل.';return}
+  let photo=await fileData(regPhoto.files[0]);
+  let u={id:uid(),username:user,email,password:pass,photo,createdAt:new Date().toISOString(),coins:0,level:1,badges:[],gifts:[],bio:'',roomsOwned:[]};
+  users.push(u);saveUsers(users);localStorage.setItem(SESSION,u.id);start();
+}
+function login(){
+  let id=loginId.value.trim().toLowerCase(),pass=loginPass.value;
+  let u=getUsers().find(x=>(x.username.toLowerCase()===id||x.email===id)&&x.password===pass);
+  if(!u){loginMsg.textContent='بيانات الدخول غير صحيحة أو الحساب غير موجود.';return}
+  localStorage.setItem(SESSION,u.id);start();
+}
+function logout(){localStorage.removeItem(SESSION);location.reload()}
+function start(){auth.classList.add('hidden');site.classList.remove('hidden');openPage('home')}
+function esc(s){return String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]))}
+function avatar(u){return u.photo?`<img class="avatar" src="${u.photo}" alt="">`:`<div class="avatar" style="display:flex;align-items:center;justify-content:center;font-size:34px">👤</div>`}
+
+function openPage(p,id){
+  document.querySelectorAll('nav button').forEach(x=>x.classList.remove('active'));
+  let map={home:'n-home',rooms:'n-rooms',members:'n-members',store:'n-store',profile:'n-profile'};
+  if(map[p])document.getElementById(map[p]).classList.add('active');
+  let u=current(); if(!u){location.reload();return}
+  if(p==='home') renderHome(u);
+  if(p==='members') renderMembers();
+  if(p==='profile') renderProfile(id||u.id);
+  if(p==='rooms') renderRooms();
+  if(p==='store') renderStore();
+  scrollTo(0,0);
+}
+function renderHome(u){
+ content.innerHTML=`<section class="hero"><span style="color:#bb7cff">● متصل الآن</span><h1>أهلاً ${esc(u.username)} 🥀🖤</h1><p>هنا يبدأ حسابك الحقيقي. استكشف الأعضاء المسجلين، ادخل الغرف، وتفاعل مع مجتمع افـنـدツ⁠يـنـا.</p><div class="row"><button class="btn" onclick="openPage('rooms')">🎙️ استكشف الغرف</button><button class="btn alt" onclick="openPage('members')">👥 الأعضاء</button></div></section>
+<div class="stats"><div class="stat">🪙<b>${u.coins}</b>كوين</div><div class="stat">⭐<b>${u.level}</b>المستوى</div><div class="stat">🏅<b>${u.badges.length}</b>الأوسمة</div></div>
+<h2 class="section-title">حسابك</h2><section class="profile">${avatar(u)}<h2>${esc(u.username)}</h2><div class="bio">${esc(u.bio||'أضف نبذة من إعدادات الحساب لاحقًا.')}</div><div class="chips"><span class="chip">عضو منذ ${new Date(u.createdAt).toLocaleDateString('ar-EG')}</span><span class="chip">🪙 ${u.coins} كوين</span></div><button class="btn" onclick="openPage('profile')">فتح الملف الشخصي</button></section>`;
+}
+function renderMembers(){
+ let users=getUsers(); content.innerHTML=`<h1>👥 الأعضاء</h1><p style="color:#aaa1b2">هنا يظهر الحسابات المسجلة فعليًا فقط.</p><input class="search" id="memberSearch" placeholder="ابحث باسم المستخدم..." oninput="filterMembers()"><div id="membersList" class="members"></div>`;
+ drawMembers(users);
+}
+function drawMembers(users){
+ let me=current(); let list=users.filter(u=>u.id!==me.id);
+ membersList.innerHTML=list.length?list.map(u=>`<article class="member" onclick="openPage('profile','${u.id}')">${avatar(u)}<h3>${esc(u.username)}</h3><div class="online">● متصل</div><div class="actions"><button onclick="event.stopPropagation();openPage('profile','${u.id}')">👤 الملف</button><button onclick="event.stopPropagation();toast('الدردشة ستُربط بالسيرفر في المرحلة التالية')">💬</button></div></article>`).join(''):`<div class="empty" style="grid-column:1/-1">لا يوجد أعضاء آخرون حتى الآن.<br>عندما ينشئ مستخدم حقيقي حسابًا سيظهر هنا.</div>`;
+}
+function filterMembers(){let q=memberSearch.value.toLowerCase();drawMembers(getUsers().filter(u=>u.username.toLowerCase().includes(q)))}
+function renderProfile(id){
+ let u=getUsers().find(x=>x.id===id); if(!u){toast('الحساب غير موجود');return}
+ let me=current(),own=u.id===me.id;
+ content.innerHTML=`<button class="btn alt" onclick="openPage('${own?'home':'members'}')">← رجوع</button><div style="height:12px"></div><section class="profile">${avatar(u)}<h1>${esc(u.username)}</h1><div class="online">● متصل</div><p class="bio">${esc(u.bio||'لا توجد نبذة حتى الآن.')}</p><div class="chips"><span class="chip">⭐ المستوى ${u.level}</span><span class="chip">🪙 ${u.coins} كوين</span><span class="chip">🏅 ${u.badges.length} أوسمة</span><span class="chip">🎁 ${u.gifts.length} هدايا</span></div>${own?`<button class="btn" onclick="changePhoto()">📸 تغيير صورة الحساب</button><button class="btn alt" style="margin-right:8px" onclick="editBio()">✏️ تعديل النبذة</button>`:`<div class="row" style="justify-content:center"><button class="btn" onclick="toast('سيتم ربط الدردشة الخاصة بالحسابات في المرحلة التالية')">💬 دردشة</button><button class="btn alt" onclick="toast('سيتم ربط الهدايا والمتجر بالحسابات في المرحلة التالية')">🎁 هدية</button></div>`}</section>`;
+}
+async function changePhoto(){
+ let inp=document.createElement('input');inp.type='file';inp.accept='image/*';inp.onchange=async()=>{let users=getUsers(),u=current();u.photo=await fileData(inp.files[0]);saveUsers(users);openPage('profile')};inp.click();
+}
+function editBio(){let u=current(),v=prompt('اكتب نبذة حسابك',u.bio||'');if(v!==null){let users=getUsers();u.bio=v;saveUsers(users);openPage('profile')}}
+function renderRooms(){
+ content.innerHTML=`<h1>🎙️ الغرف</h1><p style="color:#aaa1b2">الغرف الحقيقية التي يتم إنشاؤها بالحسابات ستظهر هنا.</p><div class="rooms"><div class="empty">لا توجد غرف حقيقية بعد.<br><br><button class="btn" onclick="toast('سنضيف إنشاء وشراء الغرف وربطها بالسيرفر في المرحلة التالية')">＋ إنشاء غرفة</button></div></div>`;
+}
+function renderStore(){content.innerHTML=`<h1>🎁 المتجر</h1><section class="hero"><h2>متجر افـنـدツ⁠يـنـا</h2><p>الهدايا والكوين والاشتراكات سيتم ربطها برصيد الحساب الحقيقي عند إضافة قاعدة البيانات ونظام الدفع.</p><button class="btn" onclick="toast('المتجر جاهز للربط بنظام الدفع')">فتح المتجر</button></section>`}
+function toast(t){let x=document.createElement('div');x.className='toast';x.textContent=t;document.body.appendChild(x);setTimeout(()=>x.remove(),2500)}
+if(current())start();
+</script>
+</body>
+</html>
