@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#07060d">
+<title>افـنـدツ⁠يـنـا🥀🖤</title>
+<style>
+:root{
+  --bg:#06050b;--bg2:#0d0a16;--card:rgba(18,15,29,.86);--card2:#151126;
+  --line:rgba(255,255,255,.09);--text:#faf8ff;--muted:#a8a1b6;
+  --violet:#8b5cf6;--violet2:#c16cff;--pink:#f05bce;--gold:#f4c76b;
+  --green:#45e6a0;--red:#ff667d;--shadow:0 28px 90px rgba(0,0,0,.48);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;min-height:100vh;color:var(--text);font-family:Arial,"Tajawal",sans-serif;
+background:radial-gradient(circle at 12% 8%,rgba(139,92,246,.17),transparent 30%),
+radial-gradient(circle at 92% 24%,rgba(240,91,206,.09),transparent 28%),
+linear-gradient(145deg,#04040a,#0b0712 55%,#05050a)}
+button,input{font:inherit}button{cursor:pointer}
+.hidden{display:none!important}.no-scroll{overflow:hidden}
+.btn{min-height:48px;border:0;border-radius:15px;padding:0 17px;color:#fff;font-weight:800}
+.btn:active{transform:scale(.98)}
+.primary{background:linear-gradient(135deg,#8150f2,#b66aff);box-shadow:0 12px 30px rgba(139,92,246,.25)}
+.secondary{background:rgba(255,255,255,.045);border:1px solid var(--line)}
+.icon{width:44px;height:44px;border-radius:14px;border:1px solid var(--line);background:#11101a;color:#fff;display:grid;place-items:center}
+.pill{display:inline-flex;align-items:center;gap:7px;padding:8px 12px;border-radius:999px;background:rgba(139,92,246,.12);border:1px solid rgba(139,92,246,.25);color:#d9c9ff;font-size:12px;font-weight:800}
+.muted{color:var(--muted)}
+.toast{position:fixed;z-index:100;right:16px;bottom:92px;padding:13px 16px;border-radius:15px;background:#171326;border:1px solid var(--line);box-shadow:var(--shadow);display:none;font-size:13px}
+.toast.show{display:block}
+
+/* Gate */
+#gate{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px;position:relative;overflow:hidden}
+#gate:before,#gate:after{content:"";position:absolute;width:300px;height:300px;border-radius:50%;filter:blur(85px);opacity:.28}
+#gate:before{background:#8b5cf6;top:-100px;right:-80px}#gate:after{background:#f05bce;bottom:-130px;left:-90px}
+.gate-card{width:min(440px,100%);text-align:center;position:relative;z-index:1;padding:42px 25px;border:1px solid var(--line);background:rgba(13,11,21,.78);backdrop-filter:blur(25px);border-radius:34px;box-shadow:var(--shadow)}
+.brand-mark{width:88px;height:88px;margin:0 auto 20px;display:grid;place-items:center;border-radius:27px;font-size:39px;background:linear-gradient(145deg,#8b5cf6,#4c1d95);box-shadow:0 18px 50px rgba(139,92,246,.34)}
+.brand-name{font-size:29px;font-weight:900}.brand-sub{color:var(--muted);line-height:1.9;margin:10px auto 27px;max-width:340px}
+.gate-actions{display:grid;gap:11px}.small-note{font-size:11px;color:#716b7d;margin-top:17px}
+
+/* Modal */
+.modal{position:fixed;inset:0;background:rgba(2,2,6,.78);backdrop-filter:blur(12px);z-index:80;display:none;align-items:center;justify-content:center;padding:17px}
+.modal.show{display:flex}.modal-card{width:min(480px,100%);max-height:92vh;overflow:auto;background:#100d19;border:1px solid var(--line);border-radius:28px;padding:24px;box-shadow:var(--shadow)}
+.modal-top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:17px}.modal-top h2{margin:0;font-size:21px}
+.close{width:41px;height:41px;border-radius:13px;border:1px solid var(--line);background:#171322;color:#fff}
+.field{margin:12px 0}.field label{display:block;color:#d8d3e2;font-size:13px;margin-bottom:7px}
+.field input,.field textarea{width:100%;border:1px solid var(--line);background:#080810;color:#fff;border-radius:14px;padding:13px;outline:0}
+.field textarea{min-height:100px;resize:vertical}.field input:focus,.field textarea:focus{border-color:#8b5cf6;box-shadow:0 0 0 3px rgba(139,92,246,.12)}
+.form-msg{min-height:20px;color:#ff8fa0;font-size:13px;margin:7px 0}
+.switch{text-align:center;color:var(--muted);font-size:13px;margin-top:13px}.link{color:#c08cff;font-weight:800;cursor:pointer}
+
+/* App */
+#app{min-height:100vh}.topbar{position:sticky;top:0;z-index:35;height:68px;border-bottom:1px solid var(--line);background:rgba(6,5,11,.78);backdrop-filter:blur(22px);display:flex;align-items:center;justify-content:space-between;padding:0 max(14px,calc((100% - 1180px)/2))}
+.logo-mini{font-weight:900;font-size:18px}.logo-mini small{display:block;color:#9e96ad;font-size:10px;margin-top:3px;font-weight:600}
+.top-actions{display:flex;gap:8px}.layout{width:min(1180px,100%);margin:auto;padding:20px 15px 105px}.view{display:none}.view.active{display:block}
+.hero-dashboard{display:grid;grid-template-columns:1.35fr .65fr;gap:15px}.welcome{min-height:235px;padding:27px;border-radius:29px;border:1px solid var(--line);background:radial-gradient(circle at 85% 18%,rgba(180,108,255,.18),transparent 30%),linear-gradient(145deg,rgba(27,21,43,.94),rgba(12,11,19,.95));box-shadow:var(--shadow)}
+.welcome h1{font-size:clamp(27px,5vw,44px);margin:14px 0 8px}.welcome p{color:var(--muted);line-height:1.9;max-width:650px;margin:0 0 20px}
+.quick{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.quick-card{padding:18px 12px;border-radius:23px;border:1px solid var(--line);background:linear-gradient(145deg,#171326,#0e0d16);text-align:center}.quick-card b{font-size:22px;display:block;margin-top:9px}.quick-card span{font-size:12px;color:var(--muted)}
+.section-title{display:flex;justify-content:space-between;align-items:end;margin:28px 0 13px}.section-title h2{margin:0;font-size:22px}.section-title p{margin:5px 0 0;color:var(--muted);font-size:13px}
+.rooms{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.room{position:relative;min-height:190px;padding:19px;border:1px solid var(--line);border-radius:25px;overflow:hidden;background:linear-gradient(145deg,rgba(28,23,44,.94),rgba(11,10,17,.97));background-size:cover;background-position:center;transition:.2s}
+.room.has-cover:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,6,12,.22),rgba(7,6,12,.94) 75%);z-index:0}.room>*{position:relative;z-index:1}
+.room:hover{transform:translateY(-2px);border-color:rgba(180,108,255,.32)}
+.room-top{display:flex;justify-content:space-between;align-items:center}.room-icon{width:50px;height:50px;border-radius:17px;display:grid;place-items:center;background:#1b1830;border:1px solid var(--line);font-size:24px;overflow:hidden}.room-icon img{width:100%;height:100%;object-fit:cover}
+.live{font-size:11px;color:var(--green)}.room h3{margin:17px 0 6px;font-size:19px}.room p{margin:0;color:#b5aec2;font-size:13px;line-height:1.7}.room-foot{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:18px}.mics{display:flex;align-items:center;gap:5px;color:#c9c2d5;font-size:11px}.mic-dot{width:25px;height:25px;border-radius:9px;display:grid;place-items:center;background:#171426;border:1px solid var(--line)}.enter-room{min-height:41px;padding:0 14px}
+.room-owner{font-size:10px;color:#c8b2ff;margin-top:8px}
+
+.members{display:grid;grid-template-columns:repeat(4,1fr);gap:11px}.member{text-align:center;padding:19px 9px;border-radius:23px;border:1px solid var(--line);background:rgba(18,16,26,.75)}
+.avatar{width:62px;height:62px;margin:auto;border-radius:21px;display:grid;place-items:center;font-size:25px;background:linear-gradient(145deg,#27233d,#151322);border:1px solid var(--line);overflow:hidden}.avatar img{width:100%;height:100%;object-fit:cover}.member b{display:block;margin:10px 0 5px}.online{color:var(--green);font-size:11px}
+
+.profile-panel{display:grid;grid-template-columns:1fr .8fr;gap:14px}.profile-card,.badges-card,.shop-card,.wallet-card{padding:22px;border:1px solid var(--line);border-radius:26px;background:linear-gradient(145deg,#171326,#0d0c14)}
+.profile-head{display:flex;gap:14px;align-items:center}.big-avatar{width:82px;height:82px;border-radius:27px;display:grid;place-items:center;background:linear-gradient(145deg,#8b5cf6,#2d1a54);font-size:31px;overflow:hidden}.big-avatar img{width:100%;height:100%;object-fit:cover}.profile-head h2{margin:0 0 5px}.profile-head p{margin:0 0 8px;color:var(--muted);font-size:12px}.progress{height:8px;background:#24202e;border-radius:99px;overflow:hidden;margin:18px 0 7px}.progress i{display:block;height:100%;width:28%;background:linear-gradient(90deg,#8b5cf6,#f05bce);border-radius:99px}.stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.mini-stat{padding:12px;border-radius:15px;background:#0b0a11;border:1px solid var(--line);text-align:center}.mini-stat b{display:block}.mini-stat span{font-size:11px;color:var(--muted)}
+.badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:15px}.badge{padding:9px 11px;border-radius:13px;background:#171329;border:1px solid var(--line);font-size:12px}
+.shop-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.shop-card h3{margin:8px 0 5px}.shop-card p{color:var(--muted);font-size:12px;line-height:1.7}.price{color:var(--gold);font-weight:900;margin:11px 0}
+
+.wallet-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.wallet-card h3{margin:0 0 7px}.wallet-card .big{font-size:30px;font-weight:900;margin:7px 0;color:#fff}
+
+.room-view{min-height:600px;padding:0 0 30px}.room-stage{position:relative;min-height:570px;border-radius:30px;border:1px solid var(--line);overflow:hidden;background:#0d0b14;background-size:cover;background-position:center;box-shadow:var(--shadow)}
+.room-stage:before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,5,10,.38),rgba(6,5,10,.88) 78%)}.room-stage>*{position:relative;z-index:1}
+.room-bar{display:flex;justify-content:space-between;align-items:center;padding:17px;border-bottom:1px solid rgba(255,255,255,.08);background:rgba(6,5,10,.36);backdrop-filter:blur(14px)}
+.room-bar h2{margin:0;font-size:20px}.room-bar p{margin:4px 0 0;color:#c4bdcc;font-size:11px}
+.room-content{display:grid;grid-template-columns:1fr 320px;gap:15px;padding:15px;height:500px}.stage-center{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}.stage-center h1{font-size:clamp(28px,5vw,48px);margin:12px 0}.stage-center p{color:#bcb5c8;max-width:550px;line-height:1.8}
+.mic-seat-row{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin:20px 0}.mic-seat{width:78px;text-align:center}.mic-seat .seat{width:64px;height:64px;margin:auto;border-radius:22px;display:grid;place-items:center;background:#181529;border:1px solid rgba(255,255,255,.1);font-size:24px}.mic-seat.active .seat{box-shadow:0 0 0 3px rgba(69,230,160,.18),0 0 25px rgba(139,92,246,.28)}.mic-seat small{display:block;color:#c7c0ce;font-size:10px;margin-top:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.room-side{border:1px solid var(--line);border-radius:23px;background:rgba(9,8,14,.68);backdrop-filter:blur(15px);overflow:hidden;display:flex;flex-direction:column}.room-side-head{padding:14px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between}.room-chat{flex:1;overflow:auto;padding:12px}.room-message{padding:9px 11px;border-radius:14px;background:#171326;margin:7px 0;font-size:12px}.room-message.me{background:#6e43d6;margin-right:auto}.room-chat-form{display:flex;gap:7px;padding:9px;border-top:1px solid var(--line)}.room-chat-form input{flex:1;min-width:0;background:#080810;color:#fff;border:1px solid var(--line);border-radius:12px;padding:0 10px}
+.room-controls{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:12px}.control{min-height:43px;border-radius:13px;border:1px solid var(--line);background:#171326;color:#fff;padding:0 13px}.control.on{background:rgba(69,230,160,.12);border-color:rgba(69,230,160,.35);color:#73f2b9}
+
+.manage-list{display:grid;gap:12px}.manage-room{display:grid;grid-template-columns:70px 1fr auto;align-items:center;gap:12px;padding:13px;border:1px solid var(--line);border-radius:20px;background:#11101a}.manage-cover{width:70px;height:60px;border-radius:15px;background:#1b1830;background-size:cover;background-position:center;display:grid;place-items:center;font-size:23px}.manage-room h3{margin:0 0 5px;font-size:15px}.manage-room p{margin:0;color:var(--muted);font-size:11px}
+
+.bottom-nav{position:fixed;z-index:34;bottom:0;left:0;right:0;background:rgba(8,7,13,.92);backdrop-filter:blur(20px);border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(5,1fr);padding:7px max(7px,calc((100% - 700px)/2));padding-bottom:max(7px,env(safe-area-inset-bottom))}
+.nav-btn{background:transparent;border:0;color:#8e899a;min-height:54px;font-size:10px;font-weight:800}.nav-btn span{display:block;font-size:19px;margin-bottom:3px}.nav-btn.active{color:#c59cff}
+
+.chat-drawer{position:fixed;z-index:60;left:16px;bottom:88px;width:min(390px,calc(100% - 32px));height:510px;display:none;flex-direction:column;background:#100d19;border:1px solid var(--line);border-radius:25px;box-shadow:var(--shadow);overflow:hidden}.chat-drawer.show{display:flex}.chat-head{padding:15px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between}.messages{flex:1;overflow:auto;padding:13px}.msg{max-width:82%;padding:10px 12px;border-radius:15px;background:#1b1729;margin:7px 0;font-size:13px}.msg.me{margin-right:auto;background:#6f42d9}.chat-input{display:flex;gap:8px;padding:9px;border-top:1px solid var(--line)}.chat-input input{flex:1;min-width:0;border:1px solid var(--line);background:#080810;color:#fff;border-radius:14px;padding:0 12px}
+
+@media(max-width:850px){.hero-dashboard{grid-template-columns:1fr}.profile-panel{grid-template-columns:1fr}.members{grid-template-columns:repeat(2,1fr)}.room-content{grid-template-columns:1fr;height:auto}.room-side{height:290px}.room-stage{min-height:650px}}
+@media(max-width:600px){.topbar{height:64px;padding:0 12px}.layout{padding:14px 11px 100px}.welcome{padding:21px;min-height:270px}.quick-card{padding:13px 7px}.quick-card b{font-size:18px}.rooms{grid-template-columns:1fr}.shop-grid,.wallet-grid{grid-template-columns:1fr}.room{min-height:175px}.room-content{padding:10px}.room-stage{min-height:650px}.stage-center{min-height:310px}.members{grid-template-columns:repeat(2,1fr)}.manage-room{grid-template-columns:55px 1fr}.manage-room .manage-actions{grid-column:1/-1;display:flex;gap:7px}.manage-cover{width:55px;height:55px}}
+</style>
+</head>
+<body>
+
+<section id="gate">
+  <div class="gate-card">
+    <div class="brand-mark">🥀</div>
+    <div class="brand-name">افـنـدツ⁠يـنـا🥀🖤</div>
+    <p class="brand-sub">غرف صوتية، دردشة، أعضاء، كوين وأوسمة — تجربة عربية فخمة مصممة للموبايل.</p>
+    <div class="gate-actions">
+      <button class="btn primary" onclick="openModal('login')">🔐 تسجيل الدخول</button>
+      <button class="btn secondary" onclick="openModal('signup')">✨ إنشاء حساب</button>
+    </div>
+    <div class="small-note">النسخة الحالية تحفظ البيانات على جهازك للتجربة.</div>
+  </div>
+</section>
+
+<div id="loginModal" class="modal"><div class="modal-card">
+  <div class="modal-top"><h2>تسجيل الدخول</h2><button class="close" onclick="closeModals()">✕</button></div>
+  <form onsubmit="login(event)">
+    <div class="field"><label>اسم المستخدم أو البريد</label><input id="loginId" required autocomplete="username"></div>
+    <div class="field"><label>كلمة المرور</label><input id="loginPass" type="password" required autocomplete="current-password"></div>
+    <div id="loginMsg" class="form-msg"></div><button class="btn primary" style="width:100%">دخول إلى الموقع</button>
+  </form>
+  <div class="switch">ليس لديك حساب؟ <span class="link" onclick="switchModal('signup')">إنشاء حساب</span></div>
+</div></div>
+
+<div id="signupModal" class="modal"><div class="modal-card">
+  <div class="modal-top"><h2>إنشاء حساب</h2><button class="close" onclick="closeModals()">✕</button></div>
+  <form onsubmit="signup(event)">
+    <div class="field"><label>اسم المستخدم</label><input id="signupName" required minlength="3" autocomplete="username"></div>
+    <div class="field"><label>البريد الإلكتروني</label><input id="signupEmail" type="email" required autocomplete="email"></div>
+    <div class="field"><label>كلمة المرور</label><input id="signupPass" type="password" required minlength="6" autocomplete="new-password"></div>
+    <div id="signupMsg" class="form-msg"></div><button class="btn primary" style="width:100%">إنشاء الحساب والدخول</button>
+  </form>
+  <div class="switch">لديك حساب؟ <span class="link" onclick="switchModal('login')">تسجيل الدخول</span></div>
+</div></div>
+
+<div id="app" class="hidden">
+<header class="topbar">
+  <div class="logo-mini">🥀 افـنـدツ⁠يـنـا🖤<small>مساحتك... بطريقتك</small></div>
+  <div class="top-actions"><button class="icon" onclick="showToast('لا توجد إشعارات جديدة 🔔')">🔔</button><button class="icon" onclick="showView('profileView')">👤</button></div>
+</header>
+
+<main class="layout">
+
+<section id="homeView" class="view active">
+  <div class="hero-dashboard">
+    <div class="welcome"><span class="pill">● متصل الآن</span><h1>أهلاً <span id="userName">بك</span> 🖤</h1>
+      <p>ادخل غرفة، شارك بالمايك، دردش، اجمع الكوين وارفع مستواك. وتقدر من حسابك تشتري غرفة خاصة وتصبح مالكها وتتحكم في شكلها.</p>
+      <button class="btn primary" onclick="showView('roomsView')">🎙️ استكشف الغرف</button>
+    </div>
+    <div class="quick">
+      <div class="quick-card"><span>🪙 كوين</span><b id="coinValue">0</b></div>
+      <div class="quick-card"><span>⭐ المستوى</span><b id="levelValue">1</b></div>
+      <div class="quick-card"><span>🏅 الأوسمة</span><b id="badgeValue">0</b></div>
+    </div>
+  </div>
+
+  <div class="section-title"><div><h2>الغرف النشطة 🔥</h2><p>العداد يتغير لحظة دخولك وخروجك من الغرفة</p></div></div>
+  <div id="homeRooms" class="rooms"></div>
+
+  <div class="section-title"><div><h2>أعضاء متصلون الآن 🟢</h2><p>آخر الأعضاء الظاهرين في النسخة التجريبية</p></div></div>
+  <div class="members">
+    <div class="member"><div class="avatar">👨🏻</div><b>ساهر</b><span class="online">● متصل</span></div>
+    <div class="member"><div class="avatar">🌙</div><b>نجمة</b><span class="online">● متصلة</span></div>
+    <div class="member"><div class="avatar">🥀</div><b>قمر</b><span class="online">● متصلة</span></div>
+    <div class="member"><div class="avatar">🖤</div><b>مزاج</b><span class="online">● متصل</span></div>
+  </div>
+</section>
+
+<section id="roomsView" class="view">
+  <div class="section-title"><div><h2>🎙️ الغرف الصوتية</h2><p>الغرفة التي تملكها تظهر لك أدوات التحكم الكاملة</p></div><button class="btn primary" onclick="openCreateRoom()">➕ إنشاء غرفة</button></div>
+  <div id="allRooms" class="rooms"></div>
+</section>
+
+<section id="myRoomsView" class="view">
+  <div class="section-title"><div><h2>👑 غرفي</h2><p>عدّل اسم الغرفة والصورة الخارجية وخلفية الدردشة الداخلية</p></div></div>
+  <div id="myRooms" class="manage-list"></div>
+</section>
+
+<section id="membersView" class="view">
+  <div class="section-title"><div><h2>👥 الأعضاء</h2><p>تفاعل ودردش مع الأعضاء</p></div></div>
+  <div class="members">
+    <div class="member"><div class="avatar">👨🏻</div><b>ساهر</b><span class="online">● متصل</span><button class="btn secondary" style="margin-top:11px;min-height:40px" onclick="openChat('ساهر')">💬 دردشة</button></div>
+    <div class="member"><div class="avatar">🌙</div><b>نجمة</b><span class="online">● متصلة</span><button class="btn secondary" style="margin-top:11px;min-height:40px" onclick="openChat('نجمة')">💬 دردشة</button></div>
+    <div class="member"><div class="avatar">🥀</div><b>قمر</b><span class="online">● متصلة</span><button class="btn secondary" style="margin-top:11px;min-height:40px" onclick="openChat('قمر')">💬 دردشة</button></div>
+    <div class="member"><div class="avatar">🖤</div><b>مزاج</b><span class="online">● متصل</span><button class="btn secondary" style="margin-top:11px;min-height:40px" onclick="openChat('مزاج')">💬 دردشة</button></div>
+  </div>
+</section>
+
+<section id="profileView" class="view">
+  <div class="section-title"><div><h2>👤 حسابي</h2><p>ملفك الشخصي وتخصيص الحساب والاشتراكات</p></div></div>
+  <div class="profile-panel">
+    <div class="profile-card">
+      <div class="profile-head"><div class="big-avatar" id="profileAvatar">🥀</div><div><h2 id="profileName">المستخدم</h2><p id="profileEmail">—</p><span class="pill">عضو نشط</span></div></div>
+      <div style="display:flex;gap:8px;margin-top:16px;flex-wrap:wrap">
+        <label class="btn primary" style="display:inline-flex;align-items:center;justify-content:center;min-height:43px">📷 رفع صورتي<input id="avatarUpload" type="file" accept="image/*" hidden onchange="uploadAvatar(event)"></label>
+        <button class="btn secondary" onclick="removeAvatar()">حذف الصورة</button>
+      </div>
+      <div class="progress"><i id="levelProgress"></i></div><small style="color:var(--muted)">التقدم إلى المستوى التالي</small>
+      <div class="stats-row" style="margin-top:15px"><div class="mini-stat"><b id="profileCoins">0</b><span>كوين</span></div><div class="mini-stat"><b id="profileLevel">1</b><span>مستوى</span></div><div class="mini-stat"><b id="profileBadges">0</b><span>وسام</span></div></div>
+    </div>
+    <div class="badges-card"><h3 style="margin-top:0">🏅 أوسمتي</h3><div class="badges"><span class="badge">🌱 عضو جديد</span><span class="badge">💬 محب الدردشة</span><span class="badge">🎙️ صوت الموقع</span><span class="badge">✨ داعم</span></div><button class="btn primary" style="width:100%;margin-top:17px" onclick="showToast('متجر الأوسمة جاهز للربط بالدفع الحقيقي لاحقًا ✨')">استكشف الأوسمة</button></div>
+  </div>
+
+  <div class="section-title"><div><h2>🪙 المحفظة</h2><p>الشحن هنا تجريبي فقط حتى يتم ربط بوابة الدفع</p></div></div>
+  <div class="wallet-grid"><div class="wallet-card"><h3>رصيدك الحالي</h3><div class="big" id="walletCoins">0 🪙</div><button class="btn primary" onclick="demoRecharge()">⚡ شحن تجريبي +5000</button></div><div class="wallet-card"><h3>🎙️ شراء غرفة</h3><p class="muted">سعر الغرفة الأساسية <b style="color:#f4c76b">1500 🪙</b>. بعد الشراء تصبح الغرفة ملكك وتظهر أدوات التخصيص.</p><button class="btn secondary" onclick="openCreateRoom()">فتح متجر الغرف</button></div></div>
+
+  <div class="section-title"><div><h2>💎 الاشتراكات</h2><p>مستويات فخمة للمستخدمين</p></div></div>
+  <div class="shop-grid">
+    <div class="shop-card"><h3>✨ Plus</h3><p>شارة مميزة + أولوية الظهور + مزايا إضافية.</p><div class="price">499 🪙</div><button class="btn secondary" style="width:100%" onclick="buyPlan(499,'Plus')">شراء</button></div>
+    <div class="shop-card"><h3>👑 VIP</h3><p>شارة VIP + أولوية مايك + مزايا اجتماعية.</p><div class="price">999 🪙</div><button class="btn primary" style="width:100%" onclick="buyPlan(999,'VIP')">شراء</button></div>
+    <div class="shop-card"><h3>💎 Royal</h3><p>أعلى رتبة للمستخدمين الداعمين مع مميزات ملكية.</p><div class="price">1999 🪙</div><button class="btn secondary" style="width:100%" onclick="buyPlan(1999,'Royal')">شراء</button></div>
+  </div>
+  <button class="btn secondary" style="width:100%;margin-top:17px" onclick="logout()">🚪 تسجيل الخروج</button>
+</section>
+
+<section id="roomView" class="view"><div class="room-view"><div id="roomStage" class="room-stage"></div></div></section>
+
+</main>
+
+<nav class="bottom-nav">
+  <button class="nav-btn active" data-view="homeView" onclick="showView('homeView',this)"><span>⌂</span>الرئيسية</button>
+  <button class="nav-btn" data-view="roomsView" onclick="showView('roomsView',this)"><span>🎙️</span>الغرف</button>
+  <button class="nav-btn" data-view="membersView" onclick="showView('membersView',this)"><span>👥</span>الأعضاء</button>
+  <button class="nav-btn" data-view="profileView" onclick="showView('profileView',this)"><span>👤</span>حسابي</button>
+  <button class="nav-btn" onclick="openChat('الدردشة العامة')"><span>💬</span>دردشة</button>
+</nav>
+</div>
+
+<div id="createRoomModal" class="modal"><div class="modal-card">
+  <div class="modal-top"><h2>🎙️ شراء غرفة جديدة</h2><button class="close" onclick="closeModals()">✕</button></div>
+  <p class="muted" style="line-height:1.8">الغرفة تصبح ملكك بعد الدفع التجريبي. تقدر بعدها تغيير الاسم والصورة الخارجية وخلفية الدردشة الداخلية.</p>
+  <div class="field"><label>اسم الغرفة</label><input id="newRoomName" maxlength="35" placeholder="مثال: سهرة أبو بكر"></div>
+  <div class="field"><label>وصف الغرفة</label><textarea id="newRoomDesc" maxlength="120" placeholder="اكتب وصفًا جذابًا للغرفة"></textarea></div>
+  <div id="roomBuyMsg" class="form-msg"></div>
+  <button class="btn primary" style="width:100%" onclick="buyRoom()">👑 شراء الغرفة — 1500 🪙</button>
+</div></div>
+
+<div id="editRoomModal" class="modal"><div class="modal-card">
+  <div class="modal-top"><h2>🎨 تخصيص غرفتك</h2><button class="close" onclick="closeModals()">✕</button></div>
+  <input id="editRoomId" type="hidden">
+  <div class="field"><label>اسم الغرفة</label><input id="editName" maxlength="35"></div>
+  <div class="field"><label>الوصف</label><textarea id="editDesc" maxlength="120"></textarea></div>
+  <div class="field"><label>الصورة الأساسية الخارجية</label><input id="outerUpload" type="file" accept="image/*" onchange="previewUpload(event,'outerPreview')"><div id="outerPreview" class="muted" style="margin-top:7px;font-size:11px">اختر صورة من هاتفك</div></div>
+  <div class="field"><label>خلفية الغرفة الداخلية / خلفية الدردشة</label><input id="innerUpload" type="file" accept="image/*" onchange="previewUpload(event,'innerPreview')"><div id="innerPreview" class="muted" style="margin-top:7px;font-size:11px">اختر صورة من هاتفك</div></div>
+  <button class="btn primary" style="width:100%" onclick="saveRoomEdit()">💾 حفظ التعديلات</button>
+</div></div>
+
+<div id="chatDrawer" class="chat-drawer">
+  <div class="chat-head"><b id="chatTitle">💬 الدردشة</b><button class="close" style="width:36px;height:36px" onclick="closeChat()">✕</button></div>
+  <div id="messages" class="messages"><div class="msg">أهلاً بك في افـنـدツ⁠يـنـا 🖤</div></div>
+  <form class="chat-input" onsubmit="sendMessage(event)"><input id="chatText" placeholder="اكتب رسالتك..." autocomplete="off"><button class="btn primary" style="min-height:43px;padding:0 13px">إرسال</button></form>
+</div>
+
+<div id="toast" class="toast"></div>
+
+<script>
+const KEY="afn_user_v3";
+const OLD_KEY="afn_user_v2";
+const ROOMS_KEY="afn_rooms_v3";
+const PRESENCE_KEY="afn_presence_v3";
+const OWNER_KEY="afn_owner_created";
+const ROOM_PRICE=1500;
+let currentUser=null,currentRoom=null,currentChat="",micOn=false,roomTimer=null,uploadCache={};
+
+const defaultRooms=[
+ {id:"r1",name:"السهرة الملكية",desc:"سوالف خفيفة، تعارف وضحك حتى الصباح.",icon:"🎙️",ownerId:"system",price:1500,base:128,mics:6,outer:"",inner:""},
+ {id:"r2",name:"تعارف وأصدقاء",desc:"تعرف على ناس جدد في أجواء محترمة وهادئة.",icon:"💜",ownerId:"system",price:1500,base:96,mics:4,outer:"",inner:""},
+ {id:"r3",name:"ليل وهدوء",desc:"موسيقى وسوالف هادئة لعشاق الليل.",icon:"🌙",ownerId:"system",price:1500,base:74,mics:3,outer:"",inner:""},
+ {id:"r4",name:"كلام من القلب",desc:"شارك رأيك واستمع للآخرين بدون تعقيد.",icon:"🔥",ownerId:"system",price:1500,base:111,mics:5,outer:"",inner:""}
+];
+
+function read(k,f){try{return JSON.parse(localStorage.getItem(k)||"null")??f}catch(e){return f}}
+function write(k,v){localStorage.setItem(k,JSON.stringify(v))}
+function getUser(){let u=read(KEY,null);if(u)return u;let old=read(OLD_KEY,null);if(old){write(KEY,old);return old}return null}
+function saveUser(u){currentUser=u;write(KEY,u)}
+function getRooms(){let r=read(ROOMS_KEY,null);if(!r){r=defaultRooms;write(ROOMS_KEY,r)}return r}
+function getPresence(){return read(PRESENCE_KEY,{})}
+function setPresence(p){write(PRESENCE_KEY,p)}
+function closeModals(){document.querySelectorAll(".modal").forEach(x=>x.classList.remove("show"))}
+function openModal(t){closeModals();document.getElementById(t==="login"?"loginModal":"signupModal").classList.add("show")}
+function switchModal(t){openModal(t)}
+function openCreateRoom(){closeModals();document.getElementById("newRoomName").value="";document.getElementById("newRoomDesc").value="";document.getElementById("roomBuyMsg").textContent="";document.getElementById("createRoomModal").classList.add("show")}
+function signup(e){
+ e.preventDefault();
+ const name=signupName.value.trim(),email=signupEmail.value.trim(),pass=signupPass.value,msg=signupMsg;
+ if(pass.length<6){msg.textContent="كلمة المرور لازم تكون 6 أحرف على الأقل.";return}
+ const u={name,email,pass,coins:5000,level:1,badges:4,avatar:"",plan:"Free",createdAt:Date.now()};
+ saveUser(u);localStorage.setItem(OWNER_KEY,"1");enterApp();showToast("✨ تم إنشاء حسابك ودخلت الموقع");
+}
+function login(e){
+ e.preventDefault();const id=loginId.value.trim(),pass=loginPass.value,u=getUser();
+ if(!u){loginMsg.textContent="لا يوجد حساب محفوظ على هذا الجهاز. أنشئ حسابًا أولاً.";return}
+ if((id!==u.name&&id!==u.email)||pass!==u.pass){loginMsg.textContent="بيانات الدخول غير صحيحة.";return}
+ saveUser(u);enterApp();showToast("✅ تم تسجيل الدخول");
+}
+function enterApp(){currentUser=getUser();closeModals();gate.classList.add("hidden");app.classList.remove("hidden");refreshUser();renderRooms();showView("homeView");window.scrollTo(0,0)}
+function refreshUser(){
+ if(!currentUser)return;
+ userName.textContent=currentUser.name;profileName.textContent=currentUser.name;profileEmail.textContent=currentUser.email;
+ coinValue.textContent=currentUser.coins;levelValue.textContent=currentUser.level;badgeValue.textContent=currentUser.badges;
+ profileCoins.textContent=currentUser.coins;profileLevel.textContent=currentUser.level;profileBadges.textContent=currentUser.badges;walletCoins.textContent=currentUser.coins+" 🪙";
+ levelProgress.style.width=Math.min(100,(currentUser.coins%500)/5)+"%";
+ profileAvatar.innerHTML=currentUser.avatar?'<img src="'+currentUser.avatar+'">':"🥀";
+}
+function showView(id,btn){
+ document.querySelectorAll(".view").forEach(v=>v.classList.remove("active"));document.getElementById(id)?.classList.add("active");
+ document.querySelectorAll(".nav-btn").forEach(n=>n.classList.remove("active"));let b=btn||document.querySelector('.nav-btn[data-view="'+id+'"]');if(b)b.classList.add("active");
+ if(id==="roomsView"||id==="homeView")renderRooms();if(id==="myRoomsView")renderMyRooms();window.scrollTo({top:0,behavior:"smooth"});
+}
+function roomPresenceCount(id){
+ const p=getPresence();const now=Date.now();let arr=Array.isArray(p[id])?p[id]:[];
+ arr=arr.filter(x=>now-x.time<120000);return arr;
+}
+function joinPresence(id){
+ const p=getPresence();let arr=roomPresenceCount(id);arr=arr.filter(x=>x.user!==currentUser.name);arr.push({user:currentUser.name,time:Date.now()});p[id]=arr;setPresence(p)
+}
+function leavePresence(id){
+ const p=getPresence();let arr=roomPresenceCount(id).filter(x=>x.user!==currentUser.name);p[id]=arr;setPresence(p)
+}
+function liveCount(r){return r.base+roomPresenceCount(r.id).filter(x=>x.user!==currentUser.name).length+(currentRoom?.id===r.id?1:0)}
+function renderRooms(){
+ const rooms=getRooms();const make=(r)=>{const count=liveCount(r),isOwner=currentUser&&r.ownerId===currentUser.name;return `<article class="room ${r.outer?'has-cover':''}" style="${r.outer?`background-image:url('${r.outer}')`:''}">
+  <div class="room-top"><div class="room-icon">${r.outer?`<img src="${r.outer}">`:r.icon}</div><span class="live">● مباشر · ${count} داخل</span></div>
+  <h3>${esc(r.name)}</h3><p>${esc(r.desc)}</p><div class="room-foot"><div class="mics"><span class="mic-dot">🎙️</span>${r.mics} مايكات · ${count} مستمع</div><button class="btn primary enter-room" onclick="enterRoom('${r.id}')">دخول</button></div>
+  ${isOwner?'<div class="room-owner">👑 أنت مالك الغرفة</div>':''}</article>`};
+ homeRooms.innerHTML=rooms.slice(0,4).map(make).join("");allRooms.innerHTML=rooms.map(make).join("");
+}
+function enterRoom(id){
+ const r=getRooms().find(x=>x.id===id);if(!r)return;
+ if(currentRoom)leavePresence(currentRoom.id);currentRoom=r;joinPresence(id);micOn=false;
+ renderRoomStage();showView("roomView");document.querySelectorAll(".nav-btn").forEach(n=>n.classList.remove("active"));
+ if(roomTimer)clearInterval(roomTimer);roomTimer=setInterval(()=>{joinPresence(id);renderRoomStage();renderRooms()},10000);
+ showToast("🎙️ دخلت «"+r.name+"» — العداد اتحدث");
+}
+function leaveRoom(){
+ if(!currentRoom)return;leavePresence(currentRoom.id);const n=currentRoom.name;currentRoom=null;if(roomTimer)clearInterval(roomTimer);showView("roomsView");renderRooms();showToast("خرجت من «"+n+"» والعداد اتحدث");
+}
+function toggleMic(){micOn=!micOn;renderRoomStage();showToast(micOn?"🎙️ المايك مفتوح":"🔇 المايك مقفول")}
+function renderRoomStage(){
+ if(!currentRoom)return;const r=getRooms().find(x=>x.id===currentRoom.id)||currentRoom;currentRoom=r;joinPresence(r.id);
+ const count=liveCount(r),isOwner=r.ownerId===currentUser.name;
+ roomStage.style.backgroundImage=r.inner?`url('${r.inner}')`:"";
+ roomStage.innerHTML=`<div class="room-bar"><div><h2>${esc(r.name)}</h2><p>🟢 ${count} داخل الغرفة · 🎙️ ${r.mics} مقاعد مايك</p></div><button class="control" onclick="leaveRoom()">↩ خروج</button></div>
+ <div class="room-content"><div class="stage-center"><span class="pill">● الغرفة تعمل الآن</span><h1>${r.icon} ${esc(r.name)}</h1><p>${esc(r.desc)}</p>
+ <div class="mic-seat-row">${Array.from({length:Math.min(r.mics,8)},(_,i)=>`<div class="mic-seat ${i===0&&micOn?'active':''}"><div class="seat">${i===0&&micOn?"🎙️":"👤"}</div><small>${i===0&&micOn?esc(currentUser.name):"مقعد مايك"}</small></div>`).join("")}</div>
+ <div class="room-controls"><button class="control ${micOn?'on':''}" onclick="toggleMic()">${micOn?"🎙️ المايك مفتوح":"🔇 افتح المايك"}</button><button class="control" onclick="openChat('${esc(r.name)}')">💬 دردشة</button>${isOwner?`<button class="control" onclick="openEditRoom('${r.id}')">🎨 تخصيص الغرفة</button>`:""}</div></div>
+ <div class="room-side"><div class="room-side-head"><b>💬 دردشة الغرفة</b><span class="live">${count} داخل</span></div><div id="roomChat" class="room-chat"><div class="room-message">أهلاً بكم في الغرفة 🖤</div><div class="room-message">صوتك ومشاركتك يصنعون الجو ✨</div></div><form class="room-chat-form" onsubmit="sendRoomMessage(event)"><input id="roomText" placeholder="اكتب في الغرفة..."><button class="btn primary" style="min-height:40px;padding:0 12px">إرسال</button></form></div></div>`;
+}
+function sendRoomMessage(e){e.preventDefault();const i=document.getElementById("roomText"),t=i.value.trim();if(!t)return;const box=document.getElementById("roomChat"),d=document.createElement("div");d.className="room-message me";d.textContent=currentUser.name+": "+t;box.appendChild(d);i.value="";box.scrollTop=box.scrollHeight}
+function renderMyRooms(){
+ const mine=getRooms().filter(r=>r.ownerId===currentUser.name);
+ if(!mine.length){myRooms.innerHTML=`<div class="profile-card"><h3>لسه ما عندكش غرفة 👑</h3><p class="muted">اشترِ أول غرفة من زر «إنشاء غرفة» في صفحة الغرف. بعد الشراء تقدر تغير الاسم والصور والخلفية الداخلية.</p><button class="btn primary" onclick="openCreateRoom()">شراء أول غرفة</button></div>`;return}
+ myRooms.innerHTML=mine.map(r=>`<div class="manage-room"><div class="manage-cover" style="${r.outer?`background-image:url('${r.outer}')`:''}">${r.outer?"":"🎙️"}</div><div><h3>${esc(r.name)}</h3><p>${esc(r.desc)}</p></div><div class="manage-actions"><button class="btn primary" onclick="openEditRoom('${r.id}')">🎨 تعديل</button><button class="btn secondary" onclick="enterRoom('${r.id}')">دخول</button></div></div>`).join("");
+}
+function buyRoom(){
+ const name=newRoomName.value.trim(),desc=newRoomDesc.value.trim()||"غرفتك الخاصة في افـنـدツ⁠يـنـا";
+ if(name.length<3){roomBuyMsg.textContent="اكتب اسمًا من 3 أحرف على الأقل.";return}
+ if(currentUser.coins<ROOM_PRICE){roomBuyMsg.textContent="رصيدك غير كافٍ. استخدم الشحن التجريبي من حسابي لإضافة 5000 كوين.";return}
+ currentUser.coins-=ROOM_PRICE;const rooms=getRooms();const id="u_"+Date.now();rooms.push({id,name,desc,icon:"👑",ownerId:currentUser.name,price:ROOM_PRICE,base:0,mics:6,outer:"",inner:""});write(ROOMS_KEY,rooms);saveUser(currentUser);closeModals();refreshUser();renderRooms();showView("myRoomsView");showToast("👑 تم شراء الغرفة وأصبحت ملكك");
+}
+function openEditRoom(id){
+ const r=getRooms().find(x=>x.id===id);if(!r||r.ownerId!==currentUser.name){showToast("هذه الغرفة ليست ملكك");return}
+ editRoomId.value=r.id;editName.value=r.name;editDesc.value=r.desc;uploadCache={};outerPreview.textContent=r.outer?"الصورة الحالية محفوظة — اختر صورة جديدة للتغيير":"اختر صورة من هاتفك";innerPreview.textContent=r.inner?"الخلفية الحالية محفوظة — اختر صورة جديدة للتغيير":"اختر صورة من هاتفك";closeModals();editRoomModal.classList.add("show");
+}
+function previewUpload(e,target){const f=e.target.files?.[0];if(!f)return;const rd=new FileReader();rd.onload=()=>{uploadCache[target]=rd.result;document.getElementById(target).textContent="✅ تم اختيار الصورة"};rd.readAsDataURL(f)}
+function saveRoomEdit(){
+ const rooms=getRooms(),r=rooms.find(x=>x.id===editRoomId.value);if(!r||r.ownerId!==currentUser.name)return;
+ r.name=editName.value.trim()||r.name;r.desc=editDesc.value.trim()||r.desc;if(uploadCache.outerPreview)r.outer=uploadCache.outerPreview;if(uploadCache.innerPreview)r.inner=uploadCache.innerPreview;
+ write(ROOMS_KEY,rooms);closeModals();renderRooms();renderMyRooms();if(currentRoom?.id===r.id){currentRoom=r;renderRoomStage()}showToast("✨ تم حفظ شكل غرفتك");
+}
+function uploadAvatar(e){const f=e.target.files?.[0];if(!f)return;const rd=new FileReader();rd.onload=()=>{currentUser.avatar=rd.result;saveUser(currentUser);refreshUser();showToast("📷 تم تحديث صورتك")};rd.readAsDataURL(f)}
+function removeAvatar(){currentUser.avatar="";saveUser(currentUser);refreshUser();showToast("تم حذف الصورة")}
+function demoRecharge(){currentUser.coins+=5000;saveUser(currentUser);refreshUser();showToast("⚡ تمت إضافة 5000 كوين تجريبي")}
+function buyPlan(price,name){if(currentUser.coins<price){showToast("رصيدك غير كافٍ");return}currentUser.coins-=price;currentUser.plan=name;saveUser(currentUser);refreshUser();showToast("👑 تم تفعيل "+name+" تجريبيًا")}
+function openChat(name){document.getElementById("chatTitle").textContent="💬 "+name;document.getElementById("chatDrawer").classList.add("show");document.getElementById("chatText").focus()}
+function closeChat(){document.getElementById("chatDrawer").classList.remove("show")}
+function sendMessage(e){e.preventDefault();const i=chatText,t=i.value.trim();if(!t)return;const d=document.createElement("div");d.className="msg me";d.textContent=t;messages.appendChild(d);i.value="";messages.scrollTop=messages.scrollHeight}
+function logout(){if(currentRoom)leavePresence(currentRoom.id);currentRoom=null;if(roomTimer)clearInterval(roomTimer);currentUser=null;app.classList.add("hidden");gate.classList.remove("hidden");closeChat();showToast("تم تسجيل الخروج")}
+function showToast(t){const x=document.getElementById("toast");x.textContent=t;x.classList.add("show");clearTimeout(window.tt);window.tt=setTimeout(()=>x.classList.remove("show"),2600)}
+function esc(s){return String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]))}
+window.addEventListener("storage",()=>{if(currentUser){currentUser=getUser();renderRooms();if(currentRoom)renderRoomStage()}});
+window.addEventListener("beforeunload",()=>{if(currentRoom)leavePresence(currentRoom.id)});
+document.querySelectorAll(".modal").forEach(m=>m.addEventListener("click",e=>{if(e.target===m)closeModals()}));
+window.addEventListener("load",()=>{const u=getUser();if(u){currentUser=u;enterApp()}});
+setInterval(()=>{if(currentUser){renderRooms();if(currentRoom)renderRoomStage()}},15000);
+</script>
+</body>
+</html>
