@@ -219,3 +219,133 @@
 
 </body>
 </html>
+/* Login */
+.login-section {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 20px;
+  background: #0b0d1d;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 430px;
+  padding: 38px 30px;
+  background: #12152a;
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 24px;
+  box-shadow: 0 25px 70px rgba(0,0,0,.35);
+  text-align: right;
+}
+
+.login-logo {
+  width: 58px;
+  height: 58px;
+  margin: 0 auto 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #7554f6;
+  font-size: 26px;
+}
+
+.login-card h2 {
+  margin: 0;
+  text-align: center;
+  color: #fff;
+  font-size: 30px;
+}
+
+.login-subtitle {
+  margin: 10px 0 30px;
+  text-align: center;
+  color: #aeb3c7;
+}
+
+.login-card form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-card label {
+  margin: 12px 0 7px;
+  color: #e7e9f2;
+  font-size: 14px;
+}
+
+.login-card input[type="email"],
+.login-card input[type="password"] {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 15px;
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 12px;
+  outline: none;
+  background: #0d1020;
+  color: #fff;
+  font-size: 15px;
+}
+
+.login-card input:focus {
+  border-color: #7554f6;
+}
+
+.login-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin: 14px 0 22px;
+}
+
+.login-options a,
+.register-text a {
+  color: #947cff;
+  text-decoration: none;
+}
+
+.remember {
+  display: flex !important;
+  align-items: center;
+  gap: 7px;
+  margin: 0 !important;
+}
+
+.login-btn {
+  border: 0;
+  padding: 15px;
+  border-radius: 13px;
+  background: #7554f6;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.login-btn:active {
+  transform: scale(.98);
+}
+
+.login-divider {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin: 28px 0 20px;
+  color: #777d93;
+}
+
+.login-divider::before,
+.login-divider::after {
+  content: "";
+  height: 1px;
+  flex: 1;
+  background: rgba(255,255,255,.1);
+}
+
+.register-text {
+  text-align: center;
+  color: #aeb3c7;
+  margin: 0;
+  }
