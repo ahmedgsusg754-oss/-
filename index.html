@@ -273,52 +273,7 @@ button:active{transform:scale(.98)}
     <div class="mark">🥀</div>
     <div class="brand">افـنـدツ⁠يـنـا🥀🖤</div>
     <p>مساحة اجتماعية راقية للصوت والدردشة والتعارف. ادخل بحسابك وابدأ بناء حضورك، اجمع الكوين، احصل على الأوسمة وامتلك غرفتك الخاصة.</p>
-    <div class="gate-actions">
-      <button class="btn primary" onclick="openModal('login')">🔐 دخول الحساب</button>
-      <button class="btn secondary" onclick="openModal('signup')">✨ حساب جديد</button>
-    </div>
-    <div class="gate-note">بيانات النسخة الحالية محفوظة على هذا الجهاز.</div>
-  </div>
-</section>
-
-<div id="loginModal" class="modal">
-  <div class="modal-card">
-    <div class="modal-head"><h2>تسجيل الدخول</h2><button class="close" onclick="closeModals()">✕</button></div>
-    <form onsubmit="login(event)">
-      <div class="field"><label>اسم المستخدم أو البريد</label><input id="loginId" required autocomplete="username"></div>
-      <div class="field"><label>كلمة المرور</label><input id="loginPass" type="password" required autocomplete="current-password"></div>
-      <div id="loginMsg" class="msg"></div>
-      <button class="btn primary" style="width:100%">دخول إلى افـنـدツ⁠يـنـا</button>
-    </form>
-    <div class="switch">أول مرة هنا؟ <span class="link" onclick="switchModal('signup')">أنشئ حسابًا</span></div>
-  </div>
-</div>
-
-<div id="signupModal" class="modal">
-  <div class="modal-card">
-    <div class="modal-head"><h2>إنشاء حساب</h2><button class="close" onclick="closeModals()">✕</button></div>
-    <form onsubmit="signup(event)">
-      <div class="field"><label>اسم المستخدم</label><input id="signupName" maxlength="24" required minlength="3"></div>
-      <div class="field"><label>البريد الإلكتروني</label><input id="signupEmail" type="email" required></div>
-      <div class="field"><label>كلمة المرور</label><input id="signupPass" type="password" minlength="6" required></div>
-      <div id="signupMsg" class="msg"></div>
-      <button class="btn primary" style="width:100%">✨ إنشاء الحساب والدخول فورًا</button>
-    </form>
-    <div class="switch">عندك حساب؟ <span class="link" onclick="switchModal('login')">ادخل الآن</span></div>
-  </div>
-</div>
-
-<div id="createRoomModal" class="modal">
-  <div class="modal-card">
-    <div class="modal-head"><h2>👑 امتلاك غرفة</h2><button class="close" onclick="closeModals()">✕</button></div>
-    <p class="muted" style="line-height:1.8">بعد الشراء تصبح الغرفة مرتبطة بحسابك. تستطيع لاحقًا تعديل الاسم والوصف والصورة الخارجية وخلفية الغرفة الداخلية.</p>
-    <div class="field"><label>اسم الغرفة</label><input id="newRoomName" maxlength="35" placeholder="مثال: سهرات افـنـد"></div>
-    <div class="field"><label>وصف قصير</label><textarea id="newRoomDesc" maxlength="130" placeholder="ما الذي يميز غرفتك؟"></textarea></div>
-    <div id="roomBuyMsg" class="msg"></div>
-    <button class="btn primary" style="width:100%" onclick="buyRoom()">👑 امتلك الغرفة — 1500 🪙</button>
-  </div>
-</div>
-
+    
 <div id="editRoomModal" class="modal">
   <div class="modal-card">
     <div class="modal-head"><h2>🎨 استوديو الغرفة</h2><button class="close" onclick="closeModals()">✕</button></div>
