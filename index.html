@@ -3908,3 +3908,2874 @@ function clearNotifications(){
    الإعدادات + Owner + الهدايا + إغلاق الصفحة
 ========================================================= */
 </script>
+<script>
+/* =========================================================
+   افـنـدツينا🥀🖤
+   الجزء الثالث والأخير
+========================================================= */
+
+
+/* =========================================================
+   COINS
+========================================================= */
+
+function showCoins(){
+
+  setActiveByText("الكوينز");
+
+  const main =
+    document.getElementById("mainContent");
+
+  const me = currentUser();
+
+  main.innerHTML = `
+
+    <div class="card coins-page">
+
+      <div class="coins-hero">
+
+        <div class="coin-big">
+          🪙
+        </div>
+
+        <h1>
+          ${me.coins}
+        </h1>
+
+        <p>
+          رصيد الكوينز الخاص بك
+        </p>
+
+        <button
+          class="btn gold"
+          onclick="openCoinShop()">
+
+          🛒 شراء كوينز
+
+        </button>
+
+      </div>
+
+
+      <div class="grid">
+
+        <div class="card coin-package">
+
+          <div class="package-icon">
+            🪙
+          </div>
+
+          <h3>
+            500 كوين
+          </h3>
+
+          <p class="muted">
+            باقة البداية
+          </p>
+
+          <button
+            class="btn primary"
+            onclick="buyCoins(500)">
+
+            الحصول على 500
+
+          </button>
+
+        </div>
+
+
+        <div class="card coin-package">
+
+          <div class="package-icon">
+            💰
+          </div>
+
+          <h3>
+            2,000 كوين
+          </h3>
+
+          <p class="muted">
+            الباقة الفضية
+          </p>
+
+          <button
+            class="btn primary"
+            onclick="buyCoins(2000)">
+
+            الحصول على 2,000
+
+          </button>
+
+        </div>
+
+
+        <div class="card coin-package">
+
+          <div class="package-icon">
+            💎
+          </div>
+
+          <h3>
+            10,000 كوين
+          </h3>
+
+          <p class="muted">
+            الباقة الذهبية
+          </p>
+
+          <button
+            class="btn primary"
+            onclick="buyCoins(10000)">
+
+            الحصول على 10,000
+
+          </button>
+
+        </div>
+
+
+        <div class="card coin-package">
+
+          <div class="package-icon">
+            👑
+          </div>
+
+          <h3>
+            50,000 كوين
+          </h3>
+
+          <p class="muted">
+            باقة VIP
+          </p>
+
+          <button
+            class="btn gold"
+            onclick="buyCoins(50000)">
+
+            الحصول على 50,000
+
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <div class="card info-card">
+
+        <h3>
+          💡 ملاحظات
+        </h3>
+
+        <p>
+          الكوينز تستخدم داخل الموقع لشراء الهدايا
+          والمميزات والعناصر الموجودة في المتجر.
+        </p>
+
+        <p class="muted">
+          عمليات الدفع الحقيقية تحتاج ربط بوابة دفع
+          وخادم Backend.
+        </p>
+
+      </div>
+
+    </div>
+
+  `;
+
+}
+
+
+function openCoinShop(){
+
+  showCoins();
+
+}
+
+
+function buyCoins(amount){
+
+  const me =
+    currentUser();
+
+  /*
+   * الوضع الحالي تجريبي.
+   * عند إضافة Backend يتم استبدال هذا الجزء
+   * بنظام دفع حقيقي والتحقق من العملية على الخادم.
+   */
+
+  me.coins += amount;
+
+  me.xp += Math.floor(amount / 100);
+
+  levelUpCheck(me);
+
+  saveDB();
+
+  showCoins();
+
+  showToast(
+    `تمت إضافة ${amount.toLocaleString()} كوين تجريبيًا 🪙`
+  );
+
+}
+
+
+/* =========================================================
+   STORE
+========================================================= */
+
+function showStore(){
+
+  setActiveByText("المتجر");
+
+  const main =
+    document.getElementById("mainContent");
+
+  main.innerHTML = `
+
+    <div class="card"
+         style="padding:18px">
+
+      <div class="section-title">
+
+        <div>
+
+          <h2>
+            🛍️ متجر افـنـدツينا
+          </h2>
+
+          <p class="muted">
+            اشترِ الهدايا والإطارات والشارات
+            والمميزات باستخدام الكوينز.
+          </p>
+
+        </div>
+
+        <button
+          class="btn gold"
+          onclick="showCoins()">
+
+          🪙 ${currentUser().coins}
+
+        </button>
+
+      </div>
+
+
+      <div class="store-tabs">
+
+        <button
+          class="store-tab active"
+          onclick="renderStoreCategory('all')">
+
+          الكل
+
+        </button>
+
+        <button
+          class="store-tab"
+          onclick="renderStoreCategory('gift')">
+
+          🎁 هدايا
+
+        </button>
+
+        <button
+          class="store-tab"
+          onclick="renderStoreCategory('badge')">
+
+          🏅 شارات
+
+        </button>
+
+        <button
+          class="store-tab"
+          onclick="renderStoreCategory('frame')">
+
+          🖼️ إطارات
+
+        </button>
+
+      </div>
+
+
+      <div
+        id="storeProducts"
+        class="grid">
+
+      </div>
+
+    </div>
+
+  `;
+
+  renderStoreCategory("all");
+
+}
+
+
+const STORE_ITEMS = [
+
+  {
+    id:1,
+    name:"قلب أحمر",
+    icon:"❤️",
+    price:100,
+    category:"gift",
+    description:"هدية حب بسيطة"
+  },
+
+  {
+    id:2,
+    name:"وردة",
+    icon:"🌹",
+    price:250,
+    category:"gift",
+    description:"وردة جميلة لشخص مميز"
+  },
+
+  {
+    id:3,
+    name:"تاج",
+    icon:"👑",
+    price:1000,
+    category:"gift",
+    description:"هدية التاج الملكي"
+  },
+
+  {
+    id:4,
+    name:"ألماسة",
+    icon:"💎",
+    price:2500,
+    category:"gift",
+    description:"هدية فاخرة"
+  },
+
+  {
+    id:5,
+    name:"شارة VIP",
+    icon:"💎",
+    price:5000,
+    category:"badge",
+    description:"شارة VIP للملف الشخصي"
+  },
+
+  {
+    id:6,
+    name:"شارة ملك",
+    icon:"👑",
+    price:10000,
+    category:"badge",
+    description:"شارة خاصة"
+  },
+
+  {
+    id:7,
+    name:"إطار نيون",
+    icon:"🌈",
+    price:3000,
+    category:"frame",
+    description:"إطار لامع للملف الشخصي"
+  },
+
+  {
+    id:8,
+    name:"إطار أسود",
+    icon:"🖤",
+    price:4500,
+    category:"frame",
+    description:"إطار أسود فاخر"
+  }
+
+];
+
+
+function renderStoreCategory(category){
+
+  const box =
+    document.getElementById(
+      "storeProducts"
+    );
+
+  if(!box) return;
+
+  const items =
+    category === "all"
+    ?
+    STORE_ITEMS
+    :
+    STORE_ITEMS.filter(
+      item => item.category === category
+    );
+
+
+  box.innerHTML =
+    items.map(storeItemHTML).join("");
+
+}
+
+
+function storeItemHTML(item){
+
+  return `
+
+    <div class="card store-item">
+
+      <div class="store-item-icon">
+        ${item.icon}
+      </div>
+
+      <h3>
+        ${escapeHTML(item.name)}
+      </h3>
+
+      <p class="muted">
+        ${escapeHTML(item.description)}
+      </p>
+
+      <div class="store-price">
+        🪙 ${item.price.toLocaleString()}
+      </div>
+
+      <button
+        class="btn primary"
+        onclick="purchaseStoreItem(${item.id})">
+
+        شراء
+
+      </button>
+
+    </div>
+
+  `;
+
+}
+
+
+function purchaseStoreItem(id){
+
+  const item =
+    STORE_ITEMS.find(
+      product => product.id === id
+    );
+
+  if(!item) return;
+
+  const me =
+    currentUser();
+
+  if(me.coins < item.price){
+
+    showToast(
+      "رصيد الكوينز غير كافٍ 🪙"
+    );
+
+    return;
+
+  }
+
+
+  me.coins -= item.price;
+
+  me.inventory =
+    me.inventory || [];
+
+  me.inventory.push(item.id);
+
+  saveDB();
+
+  showToast(
+    `تم شراء ${item.name} بنجاح 🎉`
+  );
+
+  showStore();
+
+}
+
+
+/* =========================================================
+   GIFTS
+========================================================= */
+
+function openGiftPicker(title){
+
+  const me =
+    currentUser();
+
+  openModal(`
+
+    <div class="modal-head">
+
+      <h2>
+        🎁 ${escapeHTML(title)}
+      </h2>
+
+      <button
+        class="close-btn"
+        onclick="closeModal()">
+
+        ×
+
+      </button>
+
+    </div>
+
+
+    <p class="muted">
+      رصيدك:
+      🪙 ${me.coins}
+    </p>
+
+
+    <div class="gift-grid">
+
+      ${
+
+        STORE_ITEMS
+          .filter(
+            item => item.category === "gift"
+          )
+          .map(item => `
+
+            <button
+              class="gift-item"
+              onclick="
+                sendGift(${item.id});
+              ">
+
+              <span>
+                ${item.icon}
+              </span>
+
+              <strong>
+                ${escapeHTML(item.name)}
+              </strong>
+
+              <small>
+                🪙 ${item.price}
+              </small>
+
+            </button>
+
+          `)
+          .join("")
+
+      }
+
+    </div>
+
+  `);
+
+}
+
+
+function sendGift(id){
+
+  const item =
+    STORE_ITEMS.find(
+      product => product.id === id
+    );
+
+  if(!item) return;
+
+  const me =
+    currentUser();
+
+  if(me.coins < item.price){
+
+    showToast(
+      "لا يوجد لديك كوينز كافية 🪙"
+    );
+
+    return;
+
+  }
+
+
+  me.coins -= item.price;
+
+  me.xp += 5;
+
+  levelUpCheck(me);
+
+  saveDB();
+
+  closeModal();
+
+  showToast(
+    `تم إرسال ${item.icon} ${item.name} 🎁`
+  );
+
+}
+
+
+/* =========================================================
+   GAMES
+========================================================= */
+
+function showGames(){
+
+  setActiveByText("الألعاب");
+
+  const main =
+    document.getElementById("mainContent");
+
+  main.innerHTML = `
+
+    <div class="card"
+         style="padding:18px">
+
+      <div class="section-title">
+
+        <div>
+
+          <h2>
+            🎮 الألعاب
+          </h2>
+
+          <p class="muted">
+            العب واجمع XP وكوينز.
+          </p>
+
+        </div>
+
+        <span class="badge">
+          XP ${currentUser().xp}
+        </span>
+
+      </div>
+
+
+      <div class="grid">
+
+        <div class="card game-card">
+
+          <div class="game-icon">
+            🎯
+          </div>
+
+          <h3>
+            تخمين الرقم
+          </h3>
+
+          <p>
+            حاول تخمين الرقم الصحيح.
+          </p>
+
+          <button
+            class="btn primary"
+            onclick="numberGuessGame()">
+
+            العب
+
+          </button>
+
+        </div>
+
+
+        <div class="card game-card">
+
+          <div class="game-icon">
+            🪙
+          </div>
+
+          <h3>
+            رمية الكوين
+          </h3>
+
+          <p>
+            اختر وجه العملة.
+          </p>
+
+          <button
+            class="btn primary"
+            onclick="coinFlipGame()">
+
+            العب
+
+          </button>
+
+        </div>
+
+
+        <div class="card game-card">
+
+          <div class="game-icon">
+            🎲
+          </div>
+
+          <h3>
+            حجر نرد
+          </h3>
+
+          <p>
+            ارمي النرد وشاهد النتيجة.
+          </p>
+
+          <button
+            class="btn primary"
+            onclick="diceGame()">
+
+            ارمي النرد
+
+          </button>
+
+        </div>
+
+
+        <div class="card game-card">
+
+          <div class="game-icon">
+            ⚡
+          </div>
+
+          <h3>
+            اضغط بسرعة
+          </h3>
+
+          <p>
+            اختبار سرعة بسيط.
+          </p>
+
+          <button
+            class="btn primary"
+            onclick="speedGame()">
+
+            ابدأ
+
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  `;
+
+}
+
+
+function numberGuessGame(){
+
+  const secret =
+    Math.floor(
+      Math.random() * 10
+    ) + 1;
+
+  openModal(`
+
+    <div class="modal-head">
+
+      <h2>
+        🎯 تخمين الرقم
+      </h2>
+
+      <button
+        class="close-btn"
+        onclick="closeModal()">
+        ×
+      </button>
+
+    </div>
+
+    <p>
+      اختر رقمًا من 1 إلى 10.
+    </p>
+
+    <input
+      id="guessNumber"
+      type="number"
+      min="1"
+      max="10"
+      placeholder="رقم من 1 إلى 10">
+
+    <button
+      class="btn primary"
+      style="margin-top:12px"
+      onclick="checkGuess(${secret})">
+
+      تخمين
+
+    </button>
+
+  `);
+
+}
+
+
+function checkGuess(secret){
+
+  const input =
+    document.getElementById(
+      "guessNumber"
+    );
+
+  const guess =
+    Number(input.value);
+
+  if(!guess){
+
+    showToast(
+      "اختر رقمًا"
+    );
+
+    return;
+
+  }
+
+
+  const me =
+    currentUser();
+
+
+  if(guess === secret){
+
+    me.coins += 100;
+    me.xp += 50;
+
+    levelUpCheck(me);
+
+    saveDB();
+
+    closeModal();
+
+    showToast(
+      "🎉 صحيح! ربحت 100 كوين و50 XP"
+    );
+
+  }else{
+
+    showToast(
+      `خطأ 😅 الرقم كان ${secret}`
+    );
+
+  }
+
+}
+
+
+function coinFlipGame(){
+
+  const result =
+    Math.random() < .5
+    ?
+    "وجه"
+    :
+    "كتابة";
+
+  const me =
+    currentUser();
+
+  me.xp += 5;
+
+  if(result === "وجه"){
+
+    me.coins += 25;
+
+    showToast(
+      "🪙 وجه! ربحت 25 كوين"
+    );
+
+  }else{
+
+    showToast(
+      "🪙 كتابة! حاول مرة أخرى"
+    );
+
+  }
+
+  levelUpCheck(me);
+
+  saveDB();
+
+}
+
+
+function diceGame(){
+
+  const number =
+    Math.floor(
+      Math.random() * 6
+    ) + 1;
+
+  const me =
+    currentUser();
+
+  me.xp += number;
+
+  if(number === 6){
+
+    me.coins += 100;
+
+    showToast(
+      "🎲🎉 حصلت على 6 وربحت 100 كوين!"
+    );
+
+  }else{
+
+    showToast(
+      `🎲 النتيجة: ${number}`
+    );
+
+  }
+
+  levelUpCheck(me);
+
+  saveDB();
+
+}
+
+
+function speedGame(){
+
+  openModal(`
+
+    <div class="modal-head">
+
+      <h2>
+        ⚡ اضغط بسرعة
+      </h2>
+
+      <button
+        class="close-btn"
+        onclick="closeModal()">
+        ×
+      </button>
+
+    </div>
+
+    <p>
+      اضغط على الزر بأسرع ما تستطيع.
+    </p>
+
+    <button
+      id="speedButton"
+      class="speed-button"
+      onclick="speedWin()">
+
+      اضغط الآن ⚡
+
+    </button>
+
+  `);
+
+}
+
+
+function speedWin(){
+
+  const me =
+    currentUser();
+
+  me.coins += 50;
+  me.xp += 10;
+
+  levelUpCheck(me);
+
+  saveDB();
+
+  closeModal();
+
+  showToast(
+    "⚡ ممتاز! ربحت 50 كوين"
+  );
+
+}
+
+
+/* =========================================================
+   RANKING
+========================================================= */
+
+function showRanking(){
+
+  setActiveByText("الترتيب");
+
+  const main =
+    document.getElementById("mainContent");
+
+  const users =
+    [...db.users]
+      .sort(
+        (a,b) =>
+          (b.level * 10000 + b.xp) -
+          (a.level * 10000 + a.xp)
+      );
+
+
+  main.innerHTML = `
+
+    <div class="card"
+         style="padding:18px">
+
+      <div class="section-title">
+
+        <div>
+
+          <h2>
+            🏆 المتصدرون
+          </h2>
+
+          <p class="muted">
+            أفضل أعضاء افـنـدツينا🥀🖤
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="ranking-list">
+
+        ${
+          users
+            .map(
+              (user,index) =>
+                rankingHTML(
+                  user,
+                  index
+                )
+            )
+            .join("")
+        }
+
+      </div>
+
+    </div>
+
+  `;
+
+}
+
+
+function rankingHTML(user,index){
+
+  const medals =
+    [
+      "🥇",
+      "🥈",
+      "🥉"
+    ];
+
+  return `
+
+    <div
+      class="ranking-row"
+      onclick="openProfile(${user.id})">
+
+      <div class="rank-number">
+
+        ${
+          medals[index]
+          ||
+          `#${index + 1}`
+        }
+
+      </div>
+
+
+      <div class="user-avatar">
+
+        ${escapeHTML(
+          user.name.charAt(0)
+        )}
+
+      </div>
+
+
+      <div class="user-info">
+
+        <strong>
+
+          ${escapeHTML(user.name)}
+
+          ${
+            user.verified
+            ?
+            `<span style="color:#55aaff">✓</span>`
+            :
+            ""
+          }
+
+        </strong>
+
+        <small>
+          المستوى ${user.level}
+          • ${user.xp} XP
+        </small>
+
+      </div>
+
+
+      <div class="rank-score">
+
+        🪙 ${user.coins}
+
+      </div>
+
+    </div>
+
+  `;
+
+}
+
+
+/* =========================================================
+   SETTINGS
+========================================================= */
+
+function showSettings(){
+
+  setActiveByText("الإعدادات");
+
+  const main =
+    document.getElementById("mainContent");
+
+  const me =
+    currentUser();
+
+  main.innerHTML = `
+
+    <div class="card"
+         style="padding:18px">
+
+      <h2>
+        ⚙️ الإعدادات
+      </h2>
+
+
+      <div class="settings-section">
+
+        <h3>
+          الحساب
+        </h3>
+
+
+        <div class="setting-row">
+
+          <div>
+
+            <strong>
+              اسم المستخدم
+            </strong>
+
+            <small>
+              ${escapeHTML(me.name)}
+            </small>
+
+          </div>
+
+          <button
+            class="btn"
+            onclick="changeName()">
+
+            تعديل
+
+          </button>
+
+        </div>
+
+
+        <div class="setting-row">
+
+          <div>
+
+            <strong>
+              كلمة المرور
+            </strong>
+
+            <small>
+              تغيير كلمة المرور
+            </small>
+
+          </div>
+
+          <button
+            class="btn"
+            onclick="changePassword()">
+
+            تغيير
+
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <div class="settings-section">
+
+        <h3>
+          الخصوصية
+        </h3>
+
+
+        <div class="setting-row">
+
+          <div>
+
+            <strong>
+              الظهور متصل
+            </strong>
+
+            <small>
+              السماح للآخرين بمعرفة أنك متصل
+            </small>
+
+          </div>
+
+          <label class="switch">
+
+            <input
+              type="checkbox"
+              ${
+                me.online
+                ?
+                "checked"
+                :
+                ""
+              }
+              onchange="toggleOnline(this.checked)">
+
+            <span></span>
+
+          </label>
+
+        </div>
+
+
+        <div class="setting-row">
+
+          <div>
+
+            <strong>
+              الرسائل
+            </strong>
+
+            <small>
+              السماح باستقبال الرسائل
+            </small>
+
+          </div>
+
+          <label class="switch">
+
+            <input
+              type="checkbox"
+              checked
+              onchange="
+                showToast(
+                  'تم تحديث إعداد الرسائل'
+                )
+              ">
+
+            <span></span>
+
+          </label>
+
+        </div>
+
+      </div>
+
+
+      <div class="settings-section">
+
+        <h3>
+          الإشعارات
+        </h3>
+
+
+        <div class="setting-row">
+
+          <div>
+
+            <strong>
+              إشعارات الموقع
+            </strong>
+
+            <small>
+              إشعارات الرسائل والهدايا
+            </small>
+
+          </div>
+
+          <label class="switch">
+
+            <input
+              type="checkbox"
+              checked
+              onchange="
+                showToast(
+                  'تم تحديث الإشعارات'
+                )
+              ">
+
+            <span></span>
+
+          </label>
+
+        </div>
+
+      </div>
+
+
+      <div class="settings-section">
+
+        <h3>
+          البيانات
+        </h3>
+
+
+        <button
+          class="btn"
+          onclick="exportUserData()">
+
+          📥 تصدير بياناتي
+
+        </button>
+
+
+        <button
+          class="btn danger"
+          onclick="confirmResetDemo()">
+
+          🗑️ إعادة بيانات التجربة
+
+        </button>
+
+      </div>
+
+    </div>
+
+  `;
+
+}
+
+
+function toggleOnline(value){
+
+  const me =
+    currentUser();
+
+  me.online =
+    Boolean(value);
+
+  saveDB();
+
+  showToast(
+    value
+    ?
+    "أصبحت متصلًا 🟢"
+    :
+    "تم إخفاء حالة الاتصال"
+  );
+
+}
+
+
+function changeName(){
+
+  const me =
+    currentUser();
+
+  openModal(`
+
+    <div class="modal-head">
+
+      <h2>
+        ✏️ تغيير الاسم
+      </h2>
+
+      <button
+        class="close-btn"
+        onclick="closeModal()">
+        ×
+      </button>
+
+    </div>
+
+    <input
+      id="changeNameInput"
+      value="${escapeHTML(me.name)}"
+      maxlength="30">
+
+    <button
+      class="btn primary"
+      style="margin-top:12px"
+      onclick="saveChangedName()">
+
+      حفظ
+
+    </button>
+
+  `);
+
+}
+
+
+function saveChangedName(){
+
+  const input =
+    document.getElementById(
+      "changeNameInput"
+    );
+
+  const value =
+    input.value.trim();
+
+  if(value.length < 2){
+
+    showToast(
+      "الاسم قصير جدًا"
+    );
+
+    return;
+
+  }
+
+  const me =
+    currentUser();
+
+  me.name =
+    value;
+
+  saveDB();
+
+  closeModal();
+
+  renderApp();
+
+  showToast(
+    "تم تغيير الاسم بنجاح ✨"
+  );
+
+}
+
+
+function changePassword(){
+
+  openModal(`
+
+    <div class="modal-head">
+
+      <h2>
+        🔐 تغيير كلمة المرور
+      </h2>
+
+      <button
+        class="close-btn"
+        onclick="closeModal()">
+        ×
+      </button>
+
+    </div>
+
+    <input
+      id="newPassword"
+      type="password"
+      placeholder="كلمة المرور الجديدة">
+
+    <input
+      id="confirmPassword"
+      type="password"
+      placeholder="تأكيد كلمة المرور"
+      style="margin-top:10px">
+
+    <button
+      class="btn primary"
+      style="margin-top:12px"
+      onclick="savePassword()">
+
+      حفظ كلمة المرور
+
+    </button>
+
+  `);
+
+}
+
+
+function savePassword(){
+
+  const pass =
+    document.getElementById(
+      "newPassword"
+    ).value;
+
+  const confirm =
+    document.getElementById(
+      "confirmPassword"
+    ).value;
+
+  if(pass.length < 6){
+
+    showToast(
+      "كلمة المرور يجب أن تكون 6 أحرف على الأقل"
+    );
+
+    return;
+
+  }
+
+  if(pass !== confirm){
+
+    showToast(
+      "كلمتا المرور غير متطابقتين"
+    );
+
+    return;
+
+  }
+
+
+  const me =
+    currentUser();
+
+  /*
+   * هذا تخزين تجريبي محلي فقط.
+   * النظام الحقيقي يجب أن يخزن كلمة المرور
+   * بعد تشفيرها على الخادم.
+   */
+
+  me.password =
+    pass;
+
+  saveDB();
+
+  closeModal();
+
+  showToast(
+    "تم تغيير كلمة المرور 🔐"
+  );
+
+}
+
+
+function exportUserData(){
+
+  const me =
+    currentUser();
+
+  const data =
+    JSON.stringify(
+      me,
+      null,
+      2
+    );
+
+  const blob =
+    new Blob(
+      [data],
+      {
+        type:"application/json"
+      }
+    );
+
+  const url =
+    URL.createObjectURL(
+      blob
+    );
+
+  const a =
+    document.createElement("a");
+
+  a.href = url;
+
+  a.download =
+    "afendina-account.json";
+
+  a.click();
+
+  URL.revokeObjectURL(url);
+
+  showToast(
+    "تم تجهيز بيانات حسابك 📥"
+  );
+
+}
+
+
+function confirmResetDemo(){
+
+  openModal(`
+
+    <div class="modal-head">
+
+      <h2>
+        ⚠️ إعادة بيانات التجربة
+      </h2>
+
+      <button
+        class="close-btn"
+        onclick="closeModal()">
+        ×
+      </button>
+
+    </div>
+
+    <p>
+      هذا سيمسح البيانات المحلية الحالية
+      ويعيد بيانات التجربة الافتراضية.
+    </p>
+
+    <button
+      class="btn danger"
+      onclick="resetDemoData()">
+
+      تأكيد إعادة البيانات
+
+    </button>
+
+  `);
+
+}
+
+
+function resetDemoData(){
+
+  localStorage.removeItem(
+    DB_KEY
+  );
+
+  location.reload();
+
+}
+
+
+/* =========================================================
+   OWNER PANEL
+========================================================= */
+
+function showOwnerPanel(){
+
+  const me =
+    currentUser();
+
+  if(!me || !me.owner){
+
+    showToast(
+      "هذه الصفحة للـOwner فقط 👑"
+    );
+
+    return;
+
+  }
+
+
+  setActiveByText(
+    "لوحة الـOwner"
+  );
+
+
+  const main =
+    document.getElementById(
+      "mainContent"
+    );
+
+
+  const online =
+    db.users.filter(
+      user => user.online
+    ).length;
+
+
+  main.innerHTML = `
+
+    <div class="owner-panel">
+
+      <div class="owner-header card">
+
+        <div>
+
+          <span class="owner-crown">
+            👑
+          </span>
+
+          <h1>
+            لوحة تحكم الـOwner
+          </h1>
+
+          <p>
+            التحكم الكامل في إدارة
+            افـنـدツينا🥀🖤
+          </p>
+
+        </div>
+
+        <span class="owner-badge">
+          OWNER
+        </span>
+
+      </div>
+
+
+      <div class="owner-stats grid">
+
+        <div class="card owner-stat">
+
+          <strong>
+            ${db.users.length}
+          </strong>
+
+          <span>
+            👥 المستخدمون
+          </span>
+
+        </div>
+
+
+        <div class="card owner-stat">
+
+          <strong>
+            ${online}
+          </strong>
+
+          <span>
+            🟢 متصلون
+          </span>
+
+        </div>
+
+
+        <div class="card owner-stat">
+
+          <strong>
+            ${db.groups.length}
+          </strong>
+
+          <span>
+            👥 الجروبات
+          </span>
+
+        </div>
+
+
+        <div class="card owner-stat">
+
+          <strong>
+            ${db.posts.length}
+          </strong>
+
+          <span>
+            📝 المنشورات
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <div class="card owner-tools">
+
+        <h2>
+          🛠️ أدوات الإدارة
+        </h2>
+
+
+        <div class="grid">
+
+          <button
+            class="owner-tool"
+            onclick="ownerUsers()">
+
+            👥
+            <strong>
+              إدارة المستخدمين
+            </strong>
+
+            <small>
+              حظر، توثيق، تعديل الصلاحيات
+            </small>
+
+          </button>
+
+
+          <button
+            class="owner-tool"
+            onclick="ownerAnnouncements()">
+
+            📢
+            <strong>
+              إعلان عام
+            </strong>
+
+            <small>
+              إرسال إعلان لجميع الأعضاء
+            </small>
+
+          </button>
+
+
+          <button
+            class="owner-tool"
+            onclick="ownerAddCoins()">
+
+            🪙
+            <strong>
+              إضافة كوينز
+            </strong>
+
+            <small>
+              تعديل رصيد أي مستخدم
+            </small>
+
+          </button>
+
+
+          <button
+            class="owner-tool"
+            onclick="ownerVerifyUser()">
+
+            ☑️
+            <strong>
+              توثيق حساب
+            </strong>
+
+            <small>
+              منح علامة التوثيق
+            </small>
+
+          </button>
+
+
+          <button
+            class="owner-tool"
+            onclick="ownerManageGroups()">
+
+            👥
+            <strong>
+              إدارة الجروبات
+            </strong>
+
+            <small>
+              إدارة وحذف الجروبات
+            </small>
+
+          </button>
+
+
+          <button
+            class="owner-tool"
+            onclick="ownerMaintenance()">
+
+            🔧
+            <strong>
+              وضع الصيانة
+            </strong>
+
+            <small>
+              التحكم في حالة الموقع
+            </small>
+
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <div class="card owner-danger">
+
+        <h2>
+          ⚠️ منطقة حساسة
+        </h2>
+
+        <button
+          class="btn danger"
+          onclick="ownerClearPosts()">
+
+          🗑️ حذف جميع المنشورات التجريبية
+
+        </button>
+
+
+        <button
+          class="btn danger"
+          onclick="ownerClearNotifications()">
+
+          🔕 مسح إشعارات النظام
+
+        </button>
+
+      </div>
+
+    </div>
+
+  `;
+
+}
+
+
+/* =========================================================
+   OWNER USERS
+========================================================= */
+
+function ownerUsers(){
+
+  const me =
+    currentUser();
+
+  if(!me.owner) return;
+
+
+  openModal(`
+
+    <div class="modal-head">
+
+      <h2>
+        👥 إدارة المستخدمين
+      </h2>
+
+      <button
+        class="close-btn"
+        onclick="closeModal()">
+        ×
+      </button>
+
+    </div>
+
+
+    <div class="owner-users-list">
+
+      ${
+        db.users
+          .map(
+            user =>
+              `
+              <div class="owner-user-row">
+
+                <div class="user-avatar">
+                  ${escapeHTML(
+                    user.name.charAt(0)
+                  )}
+                </div>
+
+                <div class="user-info">
+
+                  <strong>
+                    ${escapeHTML(user.name)}
+                    ${
+                      user.owner
+                      ?
+                      " 👑"
+                      :
+                      ""
+                    }
+                  </strong>
+
+                  <small>
+                    ID: ${user.id}
+                    • Lv ${user.level}
+                  </small>
+
+                </div>
+
+
+                <div class="row">
+
+                  <button
+                    class="btn"
+                    onclick="ownerToggleVerify(${user.id})">
+
+                    ${
+                      user.verified
+                      ?
+                      "إلغاء التوثيق"
+                      :
+                      "توثيق"
+                    }
+
+                  </button>
+
+
+                  ${
+                    !user.owner
+                    ?
+                    `
+                    <button
+                      class="btn danger"
+                      onclick="ownerBanUser(${user.id})">
+
+                      ${
+                        user.banned
+                        ?
+                        "فك الحظر"
+                        :
+                        "حظر"
+                      }
+
+                    </button>
+                    `
+                    :
+                    ""
+                  }
+
+                </div>
+
+              </div>
+              `
+          )
+          .join("")
+      }
+
+    </div>
+
+  `);
+
+}
+
+
+function ownerToggleVerify(id){
+
+  const user =
+    getUser(id);
+
+  if(!user) return;
+
+  user.verified =
+    !user.verified;
+
+  saveDB();
+
+  ownerUsers();
+
+  showToast(
+    user.verified
+    ?
+    "تم توثيق الحساب ☑️"
+    :
+    "تم إلغاء التوثيق"
+  );
+
+}
+
+
+function ownerBanUser(id){
+
+  const user =
+    getUser(id);
+
+  if(!user || user.owner)
+    return;
+
+
+  user.banned =
+    !user.banned;
+
+  user.online =
+    false;
+
+  saveDB();
+
+  ownerUsers();
+
+  showToast(
+    user.banned
+    ?
+    "تم حظر المستخدم 🚫"
+    :
+    "تم فك الحظر عن المستخدم"
+  );
+
+}
+
+
+/* =========================================================
+   OWNER COINS
+========================================================= */
+
+function ownerAddCoins(){
+
+  openModal(`
+
+    <div class="modal-head">
+
+      <h2>
+        🪙 إضافة كوينز
+      </h2>
+
+      <button
+        class="close-btn"
+        onclick="closeModal()">
+        ×
+      </button>
+
+    </div>
+
+
+    <select id="ownerCoinUser">
+
+      ${
+        db.users
+          .map(
+            user =>
+              `
+              <option value="${user.id}">
+                ${escapeHTML(user.name)}
+              </option>
+              `
+          )
+          .join("")
+      }
+
+    </select>
+
+
+    <input
+      id="ownerCoinAmount"
+      type="number"
+      min="1"
+      placeholder="عدد الكوينز"
+      style="margin-top:10px">
+
+
+    <button
+      class="btn gold"
+      style="margin-top:12px"
+      onclick="applyOwnerCoins()">
+
+      إضافة الكوينز
+
+    </button>
+
+  `);
+
+}
+
+
+function applyOwnerCoins(){
+
+  const userId =
+    Number(
+      document.getElementById(
+        "ownerCoinUser"
+      ).value
+    );
+
+  const amount =
+    Number(
+      document.getElementById(
+        "ownerCoinAmount"
+      ).value
+    );
+
+
+  const user =
+    getUser(userId);
+
+
+  if(!user || amount <= 0){
+
+    showToast(
+      "بيانات غير صحيحة"
+    );
+
+    return;
+
+  }
+
+
+  user.coins += amount;
+
+  saveDB();
+
+  closeModal();
+
+  showToast(
+    `تمت إضافة ${amount} كوين إلى ${user.name} 🪙`
+  );
+
+}
+
+
+/* =========================================================
+   OWNER VERIFY
+========================================================= */
+
+function ownerVerifyUser(){
+
+  openModal(`
+
+    <div class="modal-head">
+
+      <h2>
+        ☑️ توثيق حساب
+      </h2>
+
+      <button
+        class="close-btn"
+        onclick="closeModal()">
+        ×
+      </button>
+
+    </div>
+
+
+    <select id="verifyUser">
+
+      ${
+        db.users
+          .filter(
+            user => !user.owner
+          )
+          .map(
+            user =>
+              `
+              <option value="${user.id}">
+                ${escapeHTML(user.name)}
+              </option>
+              `
+          )
+          .join("")
+      }
+
+    </select>
+
+
+    <button
+      class="btn primary"
+      style="margin-top:12px"
+      onclick="applyVerifyUser()">
+
+      توثيق الحساب
+
+    </button>
+
+  `);
+
+}
+
+
+function applyVerifyUser(){
+
+  const id =
+    Number(
+      document.getElementById(
+        "verifyUser"
+      ).value
+    );
+
+  const user =
+    getUser(id);
+
+  if(!user) return;
+
+  user.verified =
+    true;
+
+  saveDB();
+
+  closeModal();
+
+  showToast(
+    `تم توثيق ${user.name} ☑️`
+  );
+
+}
+
+
+/* =========================================================
+   OWNER ANNOUNCEMENTS
+========================================================= */
+
+function ownerAnnouncements(){
+
+  openModal(`
+
+    <div class="modal-head">
+
+      <h2>
+        📢 إعلان عام
+      </h2>
+
+      <button
+        class="close-btn"
+        onclick="closeModal()">
+        ×
+      </button>
+
+    </div>
+
+
+    <textarea
+      id="ownerAnnouncement"
+      placeholder="اكتب الإعلان الذي سيظهر للأعضاء..."></textarea>
+
+
+    <button
+      class="btn primary"
+      style="margin-top:12px"
+      onclick="sendOwnerAnnouncement()">
+
+      نشر الإعلان
+
+    </button>
+
+  `);
+
+}
+
+
+function sendOwnerAnnouncement(){
+
+  const input =
+    document.getElementById(
+      "ownerAnnouncement"
+    );
+
+  const text =
+    input.value.trim();
+
+  if(!text){
+
+    showToast(
+      "اكتب الإعلان أولًا"
+    );
+
+    return;
+
+  }
+
+
+  db.notifications.unshift({
+
+    icon:"📢",
+
+    text:text,
+
+    time:"الآن"
+
+  });
+
+
+  saveDB();
+
+  closeModal();
+
+  showToast(
+    "تم نشر الإعلان 📢"
+  );
+
+}
+
+
+/* =========================================================
+   OWNER GROUPS
+========================================================= */
+
+function ownerManageGroups(){
+
+  openModal(`
+
+    <div class="modal-head">
+
+      <h2>
+        👥 إدارة الجروبات
+      </h2>
+
+      <button
+        class="close-btn"
+        onclick="closeModal()">
+        ×
+      </button>
+
+    </div>
+
+
+    ${
+      db.groups
+        .map(
+          group =>
+            `
+            <div class="owner-user-row">
+
+              <div class="user-avatar">
+                ${group.icon || "💬"}
+              </div>
+
+              <div class="user-info">
+
+                <strong>
+                  ${escapeHTML(group.name)}
+                </strong>
+
+                <small>
+                  ${group.members} عضو
+                </small>
+
+              </div>
+
+              <button
+                class="btn danger"
+                onclick="ownerDeleteGroup(${group.id})">
+
+                حذف
+
+              </button>
+
+            </div>
+            `
+        )
+        .join("")
+    }
+
+  `);
+
+}
+
+
+function ownerDeleteGroup(id){
+
+  db.groups =
+    db.groups.filter(
+      group => group.id !== id
+    );
+
+  saveDB();
+
+  ownerManageGroups();
+
+  showToast(
+    "تم حذف الجروب"
+  );
+
+}
+
+
+/* =========================================================
+   OWNER MAINTENANCE
+========================================================= */
+
+function ownerMaintenance(){
+
+  db.maintenance =
+    !db.maintenance;
+
+  saveDB();
+
+  showToast(
+    db.maintenance
+    ?
+    "تم تفعيل وضع الصيانة 🔧"
+    :
+    "تم إيقاف وضع الصيانة"
+  );
+
+  showOwnerPanel();
+
+}
+
+
+function ownerClearPosts(){
+
+  if(
+    !confirm(
+      "هل تريد حذف جميع المنشورات التجريبية؟"
+    )
+  )
+    return;
+
+  db.posts = [];
+
+  saveDB();
+
+  showOwnerPanel();
+
+  showToast(
+    "تم حذف المنشورات"
+  );
+
+}
+
+
+function ownerClearNotifications(){
+
+  db.notifications = [];
+
+  saveDB();
+
+  showOwnerPanel();
+
+  showToast(
+    "تم مسح الإشعارات"
+  );
+
+}
+
+
+/* =========================================================
+   MODAL SYSTEM
+========================================================= */
+
+function openModal(content){
+
+  let modal =
+    document.getElementById(
+      "globalModal"
+    );
+
+
+  if(!modal){
+
+    modal =
+      document.createElement(
+        "div"
+      );
+
+    modal.id =
+      "globalModal";
+
+    modal.className =
+      "modal-overlay";
+
+    document.body.appendChild(
+      modal
+    );
+
+  }
+
+
+  modal.innerHTML = `
+
+    <div
+      class="modal-card"
+      onclick="event.stopPropagation()">
+
+      ${content}
+
+    </div>
+
+  `;
+
+
+  modal.style.display =
+    "flex";
+
+
+  modal.onclick =
+    function(){
+
+      closeModal();
+
+    };
+
+}
+
+
+function closeModal(){
+
+  const modal =
+    document.getElementById(
+      "globalModal"
+    );
+
+  if(modal){
+
+    modal.style.display =
+      "none";
+
+  }
+
+}
+
+
+/* =========================================================
+   TOAST
+========================================================= */
+
+function showToast(message){
+
+  let toast =
+    document.getElementById(
+      "siteToast"
+    );
+
+
+  if(!toast){
+
+    toast =
+      document.createElement(
+        "div"
+      );
+
+    toast.id =
+      "siteToast";
+
+    toast.className =
+      "site-toast";
+
+    document.body.appendChild(
+      toast
+    );
+
+  }
+
+
+  toast.textContent =
+    message;
+
+
+  toast.classList.add(
+    "show"
+  );
+
+
+  clearTimeout(
+    window.toastTimer
+  );
+
+
+  window.toastTimer =
+    setTimeout(
+      ()=>{
+        toast.classList.remove(
+          "show"
+        );
+      },
+      2600
+    );
+
+}
+
+
+/* =========================================================
+   LOGIN / LOGOUT
+========================================================= */
+
+function logoutUser(){
+
+  const me =
+    currentUser();
+
+  if(me){
+
+    me.online =
+      false;
+
+  }
+
+  db.currentUser =
+    null;
+
+  db.loggedIn =
+    false;
+
+  saveDB();
+
+  location.reload();
+
+}
+
+
+/* =========================================================
+   ESCAPE HTML
+========================================================= */
+
+function escapeHTML(value){
+
+  return String(
+    value ?? ""
+  )
+  .replace(
+    /&/g,
+    "&amp;"
+  )
+  .replace(
+    /</g,
+    "&lt;"
+  )
+  .replace(
+    />/g,
+    "&gt;"
+  )
+  .replace(
+    /"/g,
+    "&quot;"
+  )
+  .replace(
+    /'/g,
+    "&#039;"
+  );
+
+}
+
+
+/* =========================================================
+   START APP
+========================================================= */
+
+document.addEventListener(
+  "DOMContentLoaded",
+  ()=>{
+    try{
+
+      if(typeof initDB === "function"){
+        initDB();
+      }
+
+      renderApp();
+
+    }catch(error){
+
+      console.error(error);
+
+      const app =
+        document.getElementById(
+          "app"
+        );
+
+      if(app){
+
+        app.innerHTML = `
+
+          <div
+            class="card"
+            style="
+              max-width:600px;
+              margin:50px auto;
+              padding:30px;
+              text-align:center;
+            ">
+
+            <h2>
+              حدث خطأ في تشغيل الموقع ⚠️
+            </h2>
+
+            <p class="muted">
+              تأكد من أن الأجزاء الثلاثة
+              تم لصقها بالترتيب بدون حذف أي سطر.
+            </p>
+
+            <button
+              class="btn primary"
+              onclick="location.reload()">
+
+              إعادة المحاولة
+
+            </button>
+
+          </div>
+
+        `;
+
+      }
+
+    }
+  }
+);
+
+
+/* =========================================================
+   حماية أزرار ESC
+========================================================= */
+
+document.addEventListener(
+  "keydown",
+  function(event){
+
+    if(event.key === "Escape"){
+
+      closeModal();
+
+    }
+
+  }
+);
+
+
+/* =========================================================
+   حماية الضغط على Enter في الرسائل
+========================================================= */
+
+document.addEventListener(
+  "keydown",
+  function(event){
+
+    if(
+      event.key === "Enter" &&
+      !event.shiftKey
+    ){
+
+      const target =
+        event.target;
+
+      if(
+        target &&
+        target.id ===
+        "privateMessageInput"
+      ){
+
+        event.preventDefault();
+
+        sendPrivateMessage();
+
+      }
+
+      if(
+        target &&
+        target.id ===
+        "groupMessageInput"
+      ){
+
+        event.preventDefault();
+
+        sendGroupMessage();
+
+      }
+
+    }
+
+  }
+);
+
+
+/* =========================================================
+   تحديث دوري للواجهة
+========================================================= */
+
+setInterval(
+  ()=>{
+    try{
+
+      if(
+        db &&
+        db.currentUser
+      ){
+
+        const me =
+          currentUser();
+
+        if(me){
+
+          me.online =
+            true;
+
+          saveDB();
+
+        }
+
+      }
+
+    }catch(e){
+
+      console.warn(
+        "background update error",
+        e
+      );
+
+    }
+  },
+  30000
+);
+
+
+/* =========================================================
+   النهاية
+========================================================= */
+</script>
+
+</body>
+</html>
