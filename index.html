@@ -9,485 +9,440 @@
 
 <style>
 :root{
-    --bg:#09070d;
-    --card:#15101d;
-    --card2:#1d1527;
-    --line:#33243f;
-    --text:#fff;
-    --muted:#aaa0b4;
-    --purple:#9b4dff;
-    --purple2:#6b2dd6;
-    --pink:#ed65ff;
-    --gold:#ffd166;
-    --green:#43e0a0;
-    --red:#ff5577;
-    --shadow:0 15px 45px rgba(0,0,0,.45);
+--bg:#08060c;
+--card:#15101d;
+--card2:#1d1528;
+--line:#342541;
+--text:#fff;
+--muted:#aaa0b5;
+--purple:#8f43ed;
+--purple2:#6425c5;
+--pink:#dc5cff;
+--gold:#ffd166;
+--green:#48dda3;
+--red:#ff5577;
 }
 
 *{
-    box-sizing:border-box;
-}
-
-html{
-    scroll-behavior:smooth;
+box-sizing:border-box;
 }
 
 body{
-    margin:0;
-    min-height:100vh;
-    background:
-        radial-gradient(circle at 20% 0%,#3a1555 0%,transparent 35%),
-        radial-gradient(circle at 100% 30%,#241044 0%,transparent 30%),
-        var(--bg);
-    color:var(--text);
-    font-family:Tahoma,Arial,sans-serif;
+margin:0;
+min-height:100vh;
+background:
+radial-gradient(circle at 20% 0,#35104c,transparent 35%),
+radial-gradient(circle at 100% 30%,#21103b,transparent 30%),
+var(--bg);
+color:var(--text);
+font-family:Tahoma,Arial,sans-serif;
 }
 
-button,
-input,
-textarea,
-select{
-    font-family:inherit;
+button,input,textarea,select{
+font-family:inherit;
 }
 
 button{
-    cursor:pointer;
+cursor:pointer;
+}
+
+.hidden{
+display:none!important;
 }
 
 .app{
-    width:min(1150px,100%);
-    margin:auto;
-    padding:12px;
-    padding-bottom:80px;
+width:min(1150px,100%);
+margin:auto;
+padding:12px;
+padding-bottom:70px;
 }
 
 /* HEADER */
 
 header{
-    position:sticky;
-    top:0;
-    z-index:50;
-    background:rgba(9,7,13,.86);
-    backdrop-filter:blur(18px);
-    border-bottom:1px solid var(--line);
-    padding:12px;
-    margin:-12px -12px 15px;
+position:sticky;
+top:0;
+z-index:50;
+margin:-12px -12px 15px;
+padding:13px;
+background:rgba(8,6,12,.88);
+backdrop-filter:blur(18px);
+border-bottom:1px solid var(--line);
 }
 
-.header-inner{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:10px;
+.header{
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:10px;
 }
 
 .logo{
-    font-size:21px;
-    font-weight:900;
+font-size:21px;
+font-weight:900;
 }
 
 .logo small{
-    display:block;
-    color:var(--muted);
-    font-size:10px;
-    margin-top:3px;
+display:block;
+font-size:10px;
+color:var(--muted);
+margin-top:4px;
 }
 
-.header-buttons{
-    display:flex;
-    gap:7px;
+.header-actions{
+display:flex;
+gap:7px;
 }
 
 .icon-btn{
-    border:1px solid var(--line);
-    background:var(--card);
-    color:#fff;
-    padding:9px 12px;
-    border-radius:12px;
+border:1px solid var(--line);
+background:var(--card);
+color:white;
+border-radius:12px;
+padding:9px 12px;
 }
 
-/* CARDS */
-
-.card{
-    background:
-        linear-gradient(180deg,rgba(255,255,255,.025),rgba(255,255,255,.005)),
-        var(--card);
-    border:1px solid var(--line);
-    border-radius:20px;
-    padding:16px;
-    box-shadow:0 8px 30px rgba(0,0,0,.2);
-}
+/* HERO */
 
 .hero{
-    background:
-        linear-gradient(135deg,#32114b,#17101f 55%,#100b16);
-    border:1px solid #54316d;
-    border-radius:24px;
-    padding:22px;
-    box-shadow:var(--shadow);
-    margin-bottom:14px;
+background:
+linear-gradient(135deg,#32104c,#16101f 55%,#0e0913);
+border:1px solid #523067;
+border-radius:24px;
+padding:22px;
+margin-bottom:15px;
+box-shadow:0 15px 45px #0006;
 }
 
 .hero h1{
-    margin:0 0 8px;
-    font-size:28px;
+margin:0 0 8px;
+font-size:28px;
 }
 
 .hero p{
-    color:var(--muted);
-    line-height:1.8;
-    margin:0 0 17px;
+margin:0 0 17px;
+color:var(--muted);
+line-height:1.8;
 }
 
 /* STATS */
 
 .stats{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:9px;
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:9px;
 }
 
 .stat{
-    background:rgba(255,255,255,.06);
-    border:1px solid rgba(255,255,255,.08);
-    border-radius:15px;
-    padding:12px;
-    text-align:center;
+background:#ffffff0b;
+border:1px solid #ffffff10;
+border-radius:15px;
+padding:12px;
+text-align:center;
 }
 
 .stat b{
-    display:block;
-    font-size:20px;
-    margin-bottom:3px;
+display:block;
+font-size:20px;
+margin-bottom:4px;
 }
 
 .stat span{
-    color:var(--muted);
-    font-size:11px;
+font-size:11px;
+color:var(--muted);
 }
 
 /* NAV */
 
 .nav{
-    display:flex;
-    gap:8px;
-    overflow-x:auto;
-    padding-bottom:5px;
-    margin-bottom:15px;
+display:flex;
+gap:8px;
+overflow-x:auto;
+margin-bottom:15px;
+padding-bottom:4px;
 }
 
 .nav button{
-    flex:0 0 auto;
-    color:#ddd;
-    background:var(--card);
-    border:1px solid var(--line);
-    border-radius:13px;
-    padding:10px 14px;
+flex:0 0 auto;
+background:var(--card);
+border:1px solid var(--line);
+color:#ddd;
+border-radius:13px;
+padding:10px 14px;
 }
 
 .nav button.active{
-    background:linear-gradient(135deg,var(--purple2),var(--purple));
-    color:white;
-    border-color:transparent;
+background:linear-gradient(135deg,var(--purple2),var(--purple));
+color:white;
 }
 
-/* SECTIONS */
+/* CARDS */
 
-.section{
-    display:none;
-}
-
-.section.active{
-    display:block;
+.card{
+background:linear-gradient(180deg,#17111f,#100c15);
+border:1px solid var(--line);
+border-radius:20px;
+padding:16px;
 }
 
 .grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:12px;
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:12px;
 }
 
-.section-title{
-    margin:0 0 15px;
+.section{
+display:none;
+}
+
+.section.active{
+display:block;
+}
+
+h2,h3{
+margin-top:0;
+}
+
+.muted{
+color:var(--muted);
+font-size:13px;
+line-height:1.7;
 }
 
 /* BUTTONS */
 
 .btn{
-    width:100%;
-    padding:12px;
-    margin-top:9px;
-    border:0;
-    border-radius:13px;
-    background:linear-gradient(135deg,var(--purple2),var(--purple));
-    color:white;
-    font-weight:900;
+width:100%;
+border:0;
+border-radius:13px;
+padding:12px;
+margin-top:9px;
+background:linear-gradient(135deg,var(--purple2),var(--purple));
+color:white;
+font-weight:900;
 }
 
 .btn.secondary{
-    background:#211829;
-    border:1px solid var(--line);
+background:#211829;
+border:1px solid var(--line);
 }
 
 .btn.danger{
-    background:#471523;
-    color:#ff9caf;
+background:#481725;
+color:#ff9caf;
 }
 
 .btn.gold{
-    background:linear-gradient(135deg,#a66a00,#e7ad2e);
-    color:#180f00;
+background:linear-gradient(135deg,#a86d00,#e7ad2e);
+color:#1b1100;
 }
 
-/* FORM */
+/* INPUT */
 
 .form{
-    display:grid;
-    gap:8px;
+display:grid;
+gap:8px;
 }
 
 .input{
-    width:100%;
-    padding:12px;
-    background:#0d0a12;
-    color:white;
-    border:1px solid var(--line);
-    border-radius:13px;
-    outline:none;
+width:100%;
+padding:12px;
+border-radius:13px;
+border:1px solid var(--line);
+background:#0c0910;
+color:white;
+outline:none;
 }
 
 .input:focus{
-    border-color:var(--purple);
+border-color:var(--purple);
+}
+
+/* BADGES */
+
+.badge{
+display:inline-flex;
+align-items:center;
+gap:4px;
+padding:5px 9px;
+border-radius:99px;
+background:#ffffff10;
+font-size:11px;
+margin:2px;
+}
+
+.badge.owner{
+background:#513800;
+color:var(--gold);
+}
+
+.badge.level{
+color:#d8a1ff;
 }
 
 /* USER */
 
 .user{
-    display:flex;
-    align-items:center;
-    gap:12px;
+display:flex;
+align-items:center;
+gap:12px;
 }
 
 .avatar{
-    width:58px;
-    height:58px;
-    min-width:58px;
-    border-radius:18px;
-    display:grid;
-    place-items:center;
-    background:linear-gradient(135deg,var(--purple2),var(--pink));
-    font-size:25px;
-    font-weight:900;
-    overflow:hidden;
+width:60px;
+height:60px;
+min-width:60px;
+border-radius:18px;
+display:grid;
+place-items:center;
+background:linear-gradient(135deg,var(--purple2),var(--pink));
+font-size:26px;
+overflow:hidden;
 }
 
 .avatar img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-}
-
-.badge{
-    display:inline-flex;
-    align-items:center;
-    gap:4px;
-    padding:5px 9px;
-    margin:3px 2px;
-    border-radius:99px;
-    background:#ffffff10;
-    color:#ddd;
-    font-size:11px;
-}
-
-.badge.owner{
-    background:#4d3500;
-    color:var(--gold);
-}
-
-.badge.level{
-    color:#d9a5ff;
+width:100%;
+height:100%;
+object-fit:cover;
 }
 
 /* STORE */
 
 .item{
-    display:flex;
-    align-items:center;
-    gap:12px;
+display:flex;
+align-items:center;
+gap:12px;
 }
 
 .emoji{
-    font-size:42px;
+font-size:40px;
 }
 
 .price{
-    color:var(--gold);
-    font-weight:900;
-    margin-top:5px;
-}
-
-.muted{
-    color:var(--muted);
-    font-size:13px;
-    line-height:1.7;
+color:var(--gold);
+font-weight:900;
+margin-top:5px;
 }
 
 .tag{
-    color:var(--green);
-    font-size:11px;
+font-size:11px;
+color:var(--green);
 }
 
 /* LEVEL */
 
 .progress{
-    width:100%;
-    height:9px;
-    background:#2b2232;
-    border-radius:99px;
-    overflow:hidden;
-    margin:10px 0;
+height:9px;
+background:#2b2232;
+border-radius:99px;
+overflow:hidden;
+margin:10px 0;
 }
 
 .progress i{
-    display:block;
-    height:100%;
-    background:linear-gradient(90deg,var(--purple2),var(--pink));
-    border-radius:99px;
+display:block;
+height:100%;
+background:linear-gradient(90deg,var(--purple2),var(--pink));
 }
 
 /* CHAT */
 
 .chat-box{
-    height:430px;
-    overflow-y:auto;
-    background:#0d0a12;
-    border:1px solid var(--line);
-    border-radius:17px;
-    padding:12px;
+height:400px;
+overflow:auto;
+background:#0d0a12;
+border:1px solid var(--line);
+border-radius:17px;
+padding:12px;
 }
 
 .message{
-    max-width:82%;
-    background:#1b1424;
-    border-radius:15px;
-    padding:10px 12px;
-    margin:7px 0;
+max-width:82%;
+background:#1c1425;
+padding:10px 12px;
+border-radius:15px;
+margin:7px 0;
 }
 
 .message.me{
-    margin-right:auto;
-    background:#3a2050;
+margin-right:auto;
+background:#3b2050;
 }
 
 .message small{
-    display:block;
-    color:var(--muted);
-    font-size:9px;
-    margin-top:5px;
+display:block;
+color:var(--muted);
+font-size:9px;
+margin-top:5px;
 }
 
 /* TABLE */
 
 .table-wrap{
-    overflow:auto;
+overflow:auto;
 }
 
 table{
-    width:100%;
-    border-collapse:collapse;
+width:100%;
+border-collapse:collapse;
 }
 
-th,
-td{
-    padding:10px 7px;
-    border-bottom:1px solid var(--line);
-    text-align:right;
-    font-size:12px;
+th,td{
+padding:9px 6px;
+border-bottom:1px solid var(--line);
+text-align:right;
+font-size:12px;
 }
 
 /* EMPTY */
 
 .empty{
-    text-align:center;
-    color:var(--muted);
-    padding:35px 10px;
+text-align:center;
+color:var(--muted);
+padding:30px;
 }
 
 /* TOAST */
 
 .toast{
-    position:fixed;
-    left:50%;
-    bottom:20px;
-    transform:translateX(-50%);
-    z-index:100;
-    background:#1b1424;
-    border:1px solid var(--line);
-    padding:12px 20px;
-    border-radius:99px;
-    box-shadow:var(--shadow);
-    display:none;
-    white-space:nowrap;
+position:fixed;
+z-index:100;
+left:50%;
+bottom:20px;
+transform:translateX(-50%);
+background:#1c1425;
+border:1px solid var(--line);
+border-radius:99px;
+padding:12px 20px;
+display:none;
+box-shadow:0 10px 30px #0008;
+white-space:nowrap;
 }
 
-/* MODAL */
-
-.modal{
-    position:fixed;
-    inset:0;
-    z-index:90;
-    background:#000b;
-    display:none;
-    place-items:center;
-    padding:15px;
-}
-
-.modal-box{
-    width:min(500px,100%);
-    background:#120d18;
-    border:1px solid var(--line);
-    border-radius:22px;
-    padding:18px;
-}
-
-.modal-head{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-}
-
-/* RESPONSIVE */
+/* MOBILE */
 
 @media(max-width:800px){
 
-    .grid{
-        grid-template-columns:repeat(2,1fr);
-    }
+.grid{
+grid-template-columns:repeat(2,1fr);
+}
 
-    .stats{
-        grid-template-columns:repeat(2,1fr);
-    }
+.stats{
+grid-template-columns:repeat(2,1fr);
+}
+
 }
 
 @media(max-width:520px){
 
-    .app{
-        padding-left:9px;
-        padding-right:9px;
-    }
+.grid{
+grid-template-columns:1fr;
+}
 
-    header{
-        margin-left:-9px;
-        margin-right:-9px;
-    }
+.hero h1{
+font-size:23px;
+}
 
-    .grid{
-        grid-template-columns:1fr;
-    }
-
-    .hero h1{
-        font-size:23px;
-    }
 }
 </style>
 </head>
@@ -498,16 +453,29 @@ td{
 
 <header>
 
-<div class="header-inner">
+<div class="header">
 
 <div class="logo">
 هواافـنـدツ⁠يـنـا🥀🖤
 <small>مجتمع • متجر • هدايا • دردشة • مستويات</small>
 </div>
 
-<div class="header-buttons">
-<button class="icon-btn" onclick="openProfile()">👤</button>
-<button class="icon-btn" onclick="logout()">↪</button>
+<div class="header-actions">
+
+<button
+id="profileTopBtn"
+class="icon-btn"
+>
+👤
+</button>
+
+<button
+id="logoutBtn"
+class="icon-btn"
+>
+↪
+</button>
+
 </div>
 
 </div>
@@ -515,19 +483,23 @@ td{
 </header>
 
 
-<!-- AUTH -->
+<!-- ================= AUTH ================= -->
 
 <div id="authScreen">
 
 <div class="hero">
 
-<h1>مرحبًا بك 🥀🖤</h1>
+<h1>
+أهلًا بك في هواافـنـدينا 🥀
+</h1>
 
 <p>
-أنشئ أول حساب في الموقع وسيصبح تلقائيًا
-<strong style="color:#ffd166">OWNER 👑</strong>.
-<br>
-الحسابات التالية ستكون أعضاء عاديين.
+أنشئ أول حساب في الموقع.
+أول حساب يتم إنشاؤه يصبح
+<strong style="color:#ffd166">
+OWNER 👑
+</strong>
+تلقائيًا.
 </p>
 
 <div class="form">
@@ -535,18 +507,24 @@ td{
 <input
 id="authName"
 class="input"
+type="text"
 placeholder="اسم المستخدم"
-autocomplete="off"
+autocomplete="username"
 >
 
 <input
-id="authPass"
+id="authPassword"
 class="input"
 type="password"
 placeholder="كلمة المرور"
+autocomplete="current-password"
 >
 
-<button class="btn" onclick="createOrLogin()">
+<button
+id="authButton"
+class="btn"
+type="button"
+>
 إنشاء حساب / دخول
 </button>
 
@@ -557,9 +535,12 @@ placeholder="كلمة المرور"
 </div>
 
 
-<!-- APPLICATION -->
+<!-- ================= APP ================= -->
 
-<div id="appScreen" style="display:none">
+<div
+id="appScreen"
+class="hidden"
+>
 
 <div class="hero">
 
@@ -597,9 +578,14 @@ placeholder="كلمة المرور"
 </div>
 
 
+<!-- NAV -->
+
 <nav class="nav">
 
-<button class="active" data-tab="home">
+<button
+class="active"
+data-tab="home"
+>
 الرئيسية
 </button>
 
@@ -623,7 +609,11 @@ placeholder="كلمة المرور"
 👤 حسابي
 </button>
 
-<button id="ownerNav" data-tab="owner" style="display:none">
+<button
+id="ownerNav"
+data-tab="owner"
+class="hidden"
+>
 👑 OWNER
 </button>
 
@@ -632,7 +622,10 @@ placeholder="كلمة المرور"
 
 <!-- HOME -->
 
-<section id="home" class="section active">
+<section
+id="home"
+class="section active"
+>
 
 <div class="grid">
 
@@ -643,10 +636,13 @@ placeholder="كلمة المرور"
 </h3>
 
 <p class="muted">
-استلم مكافأتك اليومية واحصل على XP وعملات.
+احصل على XP وعملات كل يوم.
 </p>
 
-<button class="btn" onclick="claimDaily()">
+<button
+id="dailyButton"
+class="btn"
+>
 استلام المكافأة
 </button>
 
@@ -660,10 +656,13 @@ placeholder="كلمة المرور"
 </h3>
 
 <p class="muted">
-كل تفاعل يمنحك XP ويساعدك على رفع المستوى.
+ارفع مستواك عن طريق التفاعل.
 </p>
 
-<button class="btn" onclick="interact()">
+<button
+id="interactButton"
+class="btn"
+>
 تفاعل + XP
 </button>
 
@@ -676,10 +675,14 @@ placeholder="كلمة المرور"
 🔥 حالة الحساب
 </h3>
 
-<div id="accountState"></div>
+<div id="accountState">
+</div>
 
-<button class="btn secondary" onclick="openProfile()">
-فتح الملف
+<button
+id="homeProfileButton"
+class="btn secondary"
+>
+الملف الشخصي
 </button>
 
 </div>
@@ -687,13 +690,17 @@ placeholder="كلمة المرور"
 </div>
 
 
-<div class="card" style="margin-top:12px">
+<div
+class="card"
+style="margin-top:12px"
+>
 
 <h3>
-✨ النشاط الأخير
+✨ آخر النشاطات
 </h3>
 
-<div id="activityList"></div>
+<div id="activityList">
+</div>
 
 </div>
 
@@ -702,19 +709,26 @@ placeholder="كلمة المرور"
 
 <!-- STORE -->
 
-<section id="store" class="section">
+<section
+id="store"
+class="section"
+>
 
 <div class="card">
 
-<h2 class="section-title">
+<h2>
 🛍️ المتجر
 </h2>
 
 <p class="muted">
-OWNER يستطيع الشراء بدون خصم عملات وبدون قيود.
+OWNER يملك شراءً غير محدود بدون خصم من العملات.
 </p>
 
-<div id="storeGrid" class="grid"></div>
+<div
+id="storeGrid"
+class="grid"
+>
+</div>
 
 </div>
 
@@ -723,22 +737,34 @@ OWNER يستطيع الشراء بدون خصم عملات وبدون قيود.
 
 <!-- GIFTS -->
 
-<section id="gifts" class="section">
+<section
+id="gifts"
+class="section"
+>
 
 <div class="card">
 
-<h2 class="section-title">
-🎁 إرسال هدية
+<h2>
+🎁 الهدايا
 </h2>
 
 <p class="muted">
-اختر العضو ثم اختر الهدية.
-OWNER يرسل الهدايا بدون خصم.
+أرسل الهدايا للأعضاء.
+OWNER يرسل بدون خصم.
 </p>
 
-<select id="giftReceiver" class="input"></select>
+<select
+id="giftReceiver"
+class="input"
+>
+</select>
 
-<div id="giftGrid" class="grid" style="margin-top:12px"></div>
+<div
+id="giftGrid"
+class="grid"
+style="margin-top:12px"
+>
+</div>
 
 </div>
 
@@ -747,29 +773,37 @@ OWNER يرسل الهدايا بدون خصم.
 
 <!-- CHAT -->
 
-<section id="chat" class="section">
+<section
+id="chat"
+class="section"
+>
 
 <div class="card">
 
-<h2 class="section-title">
+<h2>
 💬 الدردشة
 </h2>
 
-<div id="chatBox" class="chat-box"></div>
+<div
+id="chatBox"
+class="chat-box"
+>
+</div>
 
-<div style="display:flex;gap:7px;margin-top:9px">
+<div
+style="display:flex;gap:7px;margin-top:9px"
+>
 
 <input
 id="chatInput"
 class="input"
 placeholder="اكتب رسالتك..."
-onkeydown="if(event.key==='Enter')sendMessage()"
 >
 
 <button
+id="sendMessageButton"
 class="btn"
 style="width:auto;margin:0;padding:0 20px"
-onclick="sendMessage()"
 >
 إرسال
 </button>
@@ -783,36 +817,46 @@ onclick="sendMessage()"
 
 <!-- LEVELS -->
 
-<section id="levels" class="section">
+<section
+id="levels"
+class="section"
+>
 
 <div class="card">
 
 <h2>
-🏆 المستويات
+🏆 المستويات والتفاعل
 </h2>
 
-<div id="levelInfo"></div>
+<div id="levelInfo">
+</div>
 
-<button class="btn" onclick="interact()">
+<button
+id="levelInteractButton"
+class="btn"
+>
 ❤️ تفاعل للحصول على XP
 </button>
 
 </div>
 
 
-<div class="grid" style="margin-top:12px">
+<div
+class="grid"
+style="margin-top:12px"
+>
 
 <div class="card">
 <h3>🥉 مبتدئ</h3>
 <p class="muted">
-المستويات 1 - 4
+المستويات 1 إلى 4
 </p>
 </div>
 
 <div class="card">
 <h3>🥈 متفاعل</h3>
 <p class="muted">
-المستويات 5 - 9
+المستويات 5 إلى 9
 </p>
 </div>
 
@@ -830,13 +874,19 @@ onclick="sendMessage()"
 
 <!-- PROFILE -->
 
-<section id="profile" class="section">
+<section
+id="profile"
+class="section"
+>
 
 <div class="card">
 
 <div class="user">
 
-<div id="profileAvatar" class="avatar">
+<div
+id="profileAvatar"
+class="avatar"
+>
 👤
 </div>
 
@@ -845,32 +895,42 @@ onclick="sendMessage()"
 <h2 id="profileName">
 </h2>
 
-<div id="profileBadges"></div>
-
+<div id="profileBadges">
 </div>
 
 </div>
 
+</div>
 
-<div class="form" style="margin-top:16px">
+
+<div
+class="form"
+style="margin-top:16px"
+>
 
 <input
-id="profileNewName"
+id="newProfileName"
 class="input"
 placeholder="اسم جديد"
 >
 
 <input
-id="profileAvatarUrl"
+id="avatarUrl"
 class="input"
 placeholder="رابط صورة الحساب - اختياري"
 >
 
-<button class="btn" onclick="saveProfile()">
+<button
+id="saveProfileButton"
+class="btn"
+>
 حفظ التعديلات
 </button>
 
-<button class="btn danger" onclick="deleteMyAccount()">
+<button
+id="deleteAccountButton"
+class="btn danger"
+>
 حذف حسابي
 </button>
 
@@ -883,7 +943,10 @@ placeholder="رابط صورة الحساب - اختياري"
 
 <!-- OWNER -->
 
-<section id="owner" class="section">
+<section
+id="owner"
+class="section"
+>
 
 <div class="card">
 
@@ -892,7 +955,7 @@ placeholder="رابط صورة الحساب - اختياري"
 </h2>
 
 <p class="muted">
-هذه اللوحة متاحة للـ OWNER فقط.
+صلاحيات الإدارة الكاملة لهذه النسخة.
 </p>
 
 
@@ -909,7 +972,7 @@ placeholder="رابط صورة الحساب - اختياري"
 </div>
 
 <div class="card">
-<h3>🛒 المشتريات</h3>
+<h3>🛒 مشترياتي</h3>
 <b id="ownerPurchases">0</b>
 </div>
 
@@ -920,16 +983,26 @@ placeholder="رابط صورة الحساب - اختياري"
 إدارة الأعضاء
 </h3>
 
-<div id="usersTable" class="table-wrap"></div>
+<div
+id="usersTable"
+class="table-wrap"
+>
+</div>
 
 
-<button class="btn" onclick="addOwnerXP()">
-✨ إضافة 100 XP لنفسي
+<button
+id="ownerXpButton"
+class="btn"
+>
+✨ +100 XP لنفسي
 </button>
 
 
-<button class="btn secondary" onclick="resetDatabase()">
-⚠️ تصفير كل الحسابات والبدء من جديد
+<button
+id="resetDatabaseButton"
+class="btn danger"
+>
+⚠️ تصفير كل الحسابات
 </button>
 
 </div>
@@ -941,17 +1014,21 @@ placeholder="رابط صورة الحساب - اختياري"
 </div>
 
 
-<div id="toast" class="toast"></div>
+<div
+id="toast"
+class="toast"
+>
+</div>
 
 
 <script>
 
-/* =========================
+/* =====================================================
    DATABASE
-========================= */
+===================================================== */
 
-const DATABASE_KEY =
-"hawafendina_database_v4";
+const DB_KEY =
+"hawafendina_final_database_2026";
 
 
 const PRODUCTS = [
@@ -961,7 +1038,7 @@ id:1,
 name:"شارة مميزة",
 emoji:"💎",
 price:120,
-description:"شارة تظهر في ملفك"
+description:"شارة مميزة للحساب"
 },
 
 {
@@ -969,7 +1046,7 @@ id:2,
 name:"إطار ملكي",
 emoji:"👑",
 price:250,
-description:"إطار فاخر للحساب"
+description:"إطار ملكي"
 },
 
 {
@@ -977,7 +1054,7 @@ id:3,
 name:"لقب أسطوري",
 emoji:"🔥",
 price:400,
-description:"لقب خاص بجانب الاسم"
+description:"لقب خاص"
 },
 
 {
@@ -985,7 +1062,7 @@ id:4,
 name:"صندوق مفاجأة",
 emoji:"🎁",
 price:180,
-description:"جائزة مفاجأة"
+description:"صندوق جائزة"
 }
 
 ];
@@ -1031,29 +1108,58 @@ xp:70
 let database =
 loadDatabase();
 
-let currentUserId = null;
+let currentUserId =
+null;
 
 
-/* =========================
-   DATABASE FUNCTIONS
-========================= */
+/* =====================================================
+   ELEMENT HELPER
+===================================================== */
+
+const $ = id =>
+document.getElementById(id);
+
+
+/* =====================================================
+   DATABASE
+===================================================== */
 
 function loadDatabase(){
 
 try{
 
+const saved =
+localStorage.getItem(DB_KEY);
+
+if(saved){
+
 const data =
-localStorage.getItem(DATABASE_KEY);
+JSON.parse(saved);
 
-if(data){
+return {
 
-return JSON.parse(data);
+users:Array.isArray(data.users)
+? data.users
+: [],
+
+messages:Array.isArray(data.messages)
+? data.messages
+: [],
+
+activity:Array.isArray(data.activity)
+? data.activity
+: []
+
+};
 
 }
 
 }catch(error){
 
-console.error(error);
+console.error(
+"Database load error:",
+error
+);
 
 }
 
@@ -1070,18 +1176,34 @@ activity:[]
 
 function saveDatabase(){
 
+try{
+
 localStorage.setItem(
-DATABASE_KEY,
+DB_KEY,
 JSON.stringify(database)
+);
+
+}catch(error){
+
+console.error(
+"Database save error:",
+error
+);
+
+showToast(
+"حدث خطأ في حفظ البيانات"
 );
 
 }
 
+}
 
-function currentUser(){
+
+function getCurrentUser(){
 
 return database.users.find(
-user => user.id === currentUserId
+user =>
+user.id === currentUserId
 );
 
 }
@@ -1091,10 +1213,16 @@ function createId(){
 
 return Date.now().toString(36)
 +
-Math.random().toString(36).slice(2);
+Math.random()
+.toString(36)
+.substring(2);
 
 }
 
+
+/* =====================================================
+   UTILS
+===================================================== */
 
 function escapeHTML(value){
 
@@ -1108,9 +1236,34 @@ return String(value ?? "")
 }
 
 
-/* =========================
-   LEVEL SYSTEM
-========================= */
+function showToast(message){
+
+const toast =
+$("toast");
+
+toast.textContent =
+message;
+
+toast.style.display =
+"block";
+
+clearTimeout(
+window.__toastTimer
+);
+
+window.__toastTimer =
+setTimeout(
+() => {
+
+toast.style.display =
+"none";
+
+},
+2500
+);
+
+}
+
 
 function calculateLevel(xp){
 
@@ -1125,7 +1278,7 @@ Math.floor(xp / 100) + 1
 function addXP(amount){
 
 const user =
-currentUser();
+getCurrentUser();
 
 if(!user){
 
@@ -1133,45 +1286,16 @@ return;
 
 }
 
-user.xp += amount;
+user.xp +=
+amount;
 
 user.level =
-calculateLevel(user.xp);
+calculateLevel(
+user.xp
+);
 
 }
 
-
-/* =========================
-   TOAST
-========================= */
-
-function showToast(message){
-
-const toast =
-document.getElementById("toast");
-
-toast.textContent =
-message;
-
-toast.style.display =
-"block";
-
-clearTimeout(window.toastTimer);
-
-window.toastTimer =
-setTimeout(() => {
-
-toast.style.display =
-"none";
-
-},2500);
-
-}
-
-
-/* =========================
-   ACTIVITY
-========================= */
 
 function addActivity(text){
 
@@ -1180,37 +1304,78 @@ database.activity.unshift({
 text:text,
 
 time:new Date()
-.toLocaleString("ar-EG")
+.toLocaleString(
+"ar-EG"
+)
 
 });
 
 database.activity =
-database.activity.slice(0,15);
-
-saveDatabase();
+database.activity.slice(
+0,
+15
+);
 
 }
 
 
-/* =========================
+/* =====================================================
    AUTH
-========================= */
+===================================================== */
 
 function createOrLogin(){
 
 const name =
-document.getElementById("authName")
-.value.trim();
+$("authName")
+.value
+.trim();
 
 const password =
-document.getElementById("authPass")
+$("authPassword")
 .value;
 
 
-if(!name || !password){
+if(!name){
 
 showToast(
-"اكتب اسم المستخدم وكلمة المرور"
+"اكتب اسم المستخدم"
+);
+
+$("authName").focus();
+
+return;
+
+}
+
+
+if(name.length < 3){
+
+showToast(
+"اسم المستخدم يجب أن يكون 3 أحرف على الأقل"
+);
+
+return;
+
+}
+
+
+if(!password){
+
+showToast(
+"اكتب كلمة المرور"
+);
+
+$("authPassword").focus();
+
+return;
+
+}
+
+
+if(password.length < 4){
+
+showToast(
+"كلمة المرور يجب أن تكون 4 أحرف على الأقل"
 );
 
 return;
@@ -1229,7 +1394,10 @@ name.toLowerCase()
 
 if(existing){
 
-if(existing.password !== password){
+if(
+existing.password !==
+password
+){
 
 showToast(
 "كلمة المرور غير صحيحة"
@@ -1248,7 +1416,7 @@ showToast(
 
 }else{
 
-const isFirstUser =
+const firstAccount =
 database.users.length === 0;
 
 
@@ -1260,13 +1428,13 @@ name:name,
 
 password:password,
 
-role:isFirstUser
+role:firstAccount
 ?
 "OWNER"
 :
 "USER",
 
-coins:isFirstUser
+coins:firstAccount
 ?
 0
 :
@@ -1298,74 +1466,127 @@ newUser.id;
 
 
 addActivity(
-isFirstUser
+firstAccount
 ?
 `تم إنشاء حساب ${name} كـ OWNER 👑`
 :
-`تم إنشاء حساب جديد: ${name}`
+`تم إنشاء حساب ${name}`
 );
+
 
 saveDatabase();
 
 
 showToast(
-isFirstUser
+firstAccount
 ?
-"تم إنشاء حساب OWNER 👑"
+"تم إنشاء OWNER بنجاح 👑"
 :
-"تم إنشاء الحساب بنجاح"
+"تم إنشاء الحساب بنجاح 🎉"
 );
 
 }
 
 
-document.getElementById(
-"authScreen"
-).style.display =
-"none";
+$("authScreen")
+.classList.add(
+"hidden"
+);
 
-
-document.getElementById(
-"appScreen"
-).style.display =
-"block";
-
+$("appScreen")
+.classList.remove(
+"hidden"
+);
 
 renderAll();
 
 }
 
 
-/* =========================
+/* =====================================================
    LOGOUT
-========================= */
+===================================================== */
 
 function logout(){
 
 currentUserId =
 null;
 
-document.getElementById(
-"appScreen"
-).style.display =
-"none";
+$("appScreen")
+.classList.add(
+"hidden"
+);
 
-document.getElementById(
-"authScreen"
-).style.display =
-"block";
+$("authScreen")
+.classList.remove(
+"hidden"
+);
+
+$("authName").value =
+"";
+
+$("authPassword").value =
+"";
 
 }
 
 
-/* =========================
-   RENDER
-========================= */
+/* =====================================================
+   NAVIGATION
+===================================================== */
+
+function openTab(tab){
+
+document
+.querySelectorAll(
+".section"
+)
+.forEach(
+section =>
+section.classList.remove(
+"active"
+)
+);
+
+
+const target =
+document.getElementById(
+tab
+);
+
+
+if(target){
+
+target.classList.add(
+"active"
+);
+
+}
+
+
+document
+.querySelectorAll(
+".nav button"
+)
+.forEach(
+button =>
+button.classList.toggle(
+"active",
+button.dataset.tab === tab
+)
+);
+
+}
+
+
+/* =====================================================
+   RENDER ALL
+===================================================== */
 
 function renderAll(){
 
 const user =
-currentUser();
+getCurrentUser();
 
 if(!user){
 
@@ -1374,25 +1595,42 @@ return;
 }
 
 
-document.getElementById(
-"welcomeText"
-).textContent =
-`مرحبًا ${user.name} ${user.role==="OWNER" ? "👑" : ""}`;
+$("welcomeText")
+.textContent =
+`مرحبًا ${user.name} ${user.role === "OWNER" ? "👑" : ""}`;
 
 
-document.getElementById(
-"roleDescription"
-).innerHTML =
+$("roleDescription")
+.innerHTML =
 user.role === "OWNER"
+
 ?
-`<span class="badge owner">👑 OWNER — صلاحيات غير محدودة</span>`
+
+`
+<span class="badge owner">
+👑 OWNER
+</span>
+
+<span class="badge">
+المتجر بلا قيود
+</span>
+
+<span class="badge">
+الهدايا بلا قيود
+</span>
+`
+
 :
-`<span class="badge">👤 عضو</span> استمر في التفاعل لرفع مستواك.`;
+
+`
+<span class="badge">
+👤 MEMBER
+</span>
+`;
 
 
-document.getElementById(
-"coinsValue"
-).textContent =
+$("coinsValue")
+.textContent =
 user.role === "OWNER"
 ?
 "∞"
@@ -1400,81 +1638,88 @@ user.role === "OWNER"
 user.coins.toLocaleString();
 
 
-document.getElementById(
-"xpValue"
-).textContent =
+$("xpValue")
+.textContent =
 user.xp.toLocaleString();
 
 
-document.getElementById(
-"levelValue"
-).textContent =
+$("levelValue")
+.textContent =
 user.level;
 
 
-document.getElementById(
-"usersValue"
-).textContent =
+$("usersValue")
+.textContent =
 database.users.length;
 
 
-document.getElementById(
-"ownerNav"
-).style.display =
-user.role === "OWNER"
-?
-"block"
-:
-"none";
+$("ownerNav")
+.classList.toggle(
+"hidden",
+user.role !== "OWNER"
+);
 
 
-document.getElementById(
-"accountState"
-).innerHTML =
+$("accountState")
+.innerHTML =
 user.role === "OWNER"
+
 ?
-`<span class="badge owner">👑 OWNER</span>
-<span class="badge">المتجر بلا قيود</span>
-<span class="badge">الهدايا بلا قيود</span>`
+
+`
+<span class="badge owner">
+👑 OWNER
+</span>
+
+<p class="muted">
+صلاحيات المتجر والهدايا غير محدودة.
+</p>
+`
+
 :
-`<span class="badge">👤 MEMBER</span>`;
+
+`
+<span class="badge">
+👤 عضو
+</span>
+
+<p class="muted">
+ارفع مستواك بالتفاعل والهدايا.
+</p>
+`;
 
 
 renderActivity();
-
 renderStore();
-
 renderGifts();
-
 renderChat();
-
 renderLevels();
-
 renderProfile();
-
 renderOwner();
 
 }
 
 
-/* =========================
+/* =====================================================
    ACTIVITY
-========================= */
+===================================================== */
 
 function renderActivity(){
 
 const box =
-document.getElementById(
-"activityList"
-);
+$("activityList");
 
 
-if(!database.activity.length){
+if(
+database.activity.length === 0
+){
 
 box.innerHTML =
-`<div class="empty">
+`
+<div class="empty">
 لا يوجد نشاط حتى الآن.
-</div>`;
+</div>
+`;
 
 return;
 
@@ -1484,36 +1729,35 @@ return;
 box.innerHTML =
 database.activity
 .slice(0,8)
-.map(item =>
-
-`<p class="muted">
+.map(
+item =>
+`
+<p class="muted">
 • ${escapeHTML(item.text)}
 <br>
-<small>${escapeHTML(item.time)}</small>
-</p>`
-
+<small>
+${escapeHTML(item.time)}
+</small>
+</p>
+`
 )
 .join("");
 
 }
 
 
-/* =========================
+/* =====================================================
    STORE
-========================= */
+===================================================== */
 
 function renderStore(){
 
-const box =
-document.getElementById(
-"storeGrid"
-);
-
-
-box.innerHTML =
-PRODUCTS.map(product =>
-
-`<div class="card">
+$("storeGrid").innerHTML =
+PRODUCTS
+.map(
+product =>
+`
+<div class="card">
 
 <div class="item">
 
@@ -1541,14 +1785,31 @@ ${product.price} 🪙
 
 <button
 class="btn"
-onclick="buyProduct(${product.id})"
+data-buy="${product.id}"
 >
 شراء
 </button>
 
-</div>`
+</div>
+`
+)
+.join("");
 
-).join("");
+
+document
+.querySelectorAll(
+"[data-buy]"
+)
+.forEach(
+button =>
+button.addEventListener(
+"click",
+() =>
+buyProduct(
+button.dataset.buy
+)
+)
+);
 
 }
 
@@ -1556,15 +1817,20 @@ onclick="buyProduct(${product.id})"
 function buyProduct(id){
 
 const user =
-currentUser();
+getCurrentUser();
 
 const product =
 PRODUCTS.find(
-item => item.id === id
+item =>
+String(item.id) ===
+String(id)
 );
 
 
-if(!product){
+if(
+!user ||
+!product
+){
 
 return;
 
@@ -1586,11 +1852,6 @@ return;
 }
 
 
-/*
-OWNER:
-لا يتم خصم أي عملات
-*/
-
 if(user.role !== "OWNER"){
 
 user.coins -=
@@ -1603,18 +1864,17 @@ user.purchases.push({
 
 name:product.name,
 
-time:Date.now()
+time:new Date()
+.toISOString()
 
 });
 
 
 addXP(10);
 
-
 addActivity(
 `${user.name} اشترى ${product.name}`
 );
-
 
 saveDatabase();
 
@@ -1627,43 +1887,1191 @@ renderAll();
 }
 
 
-/* =========================
+/* =====================================================
    GIFTS
-========================= */
+===================================================== */
 
 function renderGifts(){
 
 const receiver =
-document.getElementById(
-"giftReceiver"
-);
+$("giftReceiver");
 
 
 receiver.innerHTML =
 database.users
-.filter(user =>
+.filter(
+user =>
 user.id !== currentUserId
 )
-.map(user =>
-`<option value="${user.id}">
+.map(
+user =>
+`
+<option value="${escapeHTML(user.id)}">
 ${escapeHTML(user.name)}
  — LV.${user.level}
-</option>`
+</option>
+`
 )
 .join("");
 
 
-const grid =
-document.getElementById(
-"giftGrid"
-);
-
-
-grid.innerHTML =
-GIFTS.map(gift =>
-
-`<div class="card">
+$("giftGrid").innerHTML =
+GIFTS
+.map(
+gift =>
+`
+<div class="card">
 
 <div class="item">
 
-<div
+<div class="emoji">
+${gift.emoji}
+</div>
+
+<div>
+
+<h3>
+${gift.name}
+</h3>
+
+<div class="price">
+${gift.price} 🪙
+</div>
+
+<div class="tag">
++${gift.xp} XP
+</div>
+
+</div>
+
+</div>
+
+<button
+class="btn"
+data-gift="${gift.id}"
+>
+إرسال
+</button>
+
+</div>
+`
+)
+.join("");
+
+
+document
+.querySelectorAll(
+"[data-gift]"
+)
+.forEach(
+button =>
+button.addEventListener(
+"click",
+() =>
+sendGift(
+button.dataset.gift
+)
+)
+);
+
+}
+
+
+function sendGift(id){
+
+const sender =
+getCurrentUser();
+
+const receiverId =
+$("giftReceiver").value;
+
+const receiver =
+database.users.find(
+user =>
+user.id === receiverId
+);
+
+const gift =
+GIFTS.find(
+item =>
+String(item.id) ===
+String(id)
+);
+
+
+if(!receiver){
+
+showToast(
+"لا يوجد عضو مستلم"
+);
+
+return;
+
+}
+
+
+if(!gift){
+
+return;
+
+}
+
+
+if(
+sender.role !== "OWNER"
+&&
+sender.coins < gift.price
+){
+
+showToast(
+"رصيدك غير كافٍ 🪙"
+);
+
+return;
+
+}
+
+
+if(sender.role !== "OWNER"){
+
+sender.coins -=
+gift.price;
+
+}
+
+
+sender.giftsSent++;
+
+sender.xp +=
+gift.xp;
+
+sender.level =
+calculateLevel(
+sender.xp
+);
+
+
+receiver.xp +=
+gift.xp;
+
+receiver.level =
+calculateLevel(
+receiver.xp
+);
+
+
+addActivity(
+`${sender.name} أرسل ${gift.emoji} ${gift.name} إلى ${receiver.name}`
+);
+
+saveDatabase();
+
+showToast(
+"تم إرسال الهدية 🎁"
+);
+
+renderAll();
+
+}
+
+
+/* =====================================================
+   CHAT
+===================================================== */
+
+function renderChat(){
+
+const box =
+$("chatBox");
+
+
+if(
+database.messages.length === 0
+){
+
+box.innerHTML =
+`
+<div class="empty">
+ابدأ أول محادثة 👋
+</div>
+`;
+
+return;
+
+}
+
+
+box.innerHTML =
+database.messages
+.map(
+message =>
+`
+<div class="message
+${message.userId === currentUserId ? "me" : ""}">
+
+<b>
+${escapeHTML(message.name)}
+${message.role === "OWNER" ? " 👑" : ""}
+</b>
+
+<div>
+${escapeHTML(message.text)}
+</div>
+
+<small>
+${escapeHTML(message.time)}
+</small>
+
+</div>
+`
+)
+.join("");
+
+
+box.scrollTop =
+box.scrollHeight;
+
+}
+
+
+function sendMessage(){
+
+const input =
+$("chatInput");
+
+const text =
+input.value.trim();
+
+
+if(!text){
+
+return;
+
+}
+
+
+const user =
+getCurrentUser();
+
+
+database.messages.push({
+
+id:createId(),
+
+userId:user.id,
+
+name:user.name,
+
+role:user.role,
+
+text:text,
+
+time:new Date()
+.toLocaleTimeString(
+"ar-EG",
+{
+hour:"2-digit",
+minute:"2-digit"
+}
+)
+
+});
+
+
+user.interactions++;
+
+addXP(3);
+
+input.value =
+"";
+
+saveDatabase();
+
+renderAll();
+
+}
+
+
+/* =====================================================
+   DAILY
+===================================================== */
+
+function claimDaily(){
+
+const user =
+getCurrentUser();
+
+const today =
+new Date().toDateString();
+
+
+if(
+user.dailyClaim === today
+){
+
+showToast(
+"استلمت مكافأتك اليوم بالفعل 🎁"
+);
+
+return;
+
+}
+
+
+user.dailyClaim =
+today;
+
+
+if(
+user.role !== "OWNER"
+){
+
+user.coins +=
+200;
+
+}
+
+
+addXP(50);
+
+addActivity(
+`${user.name} استلم المكافأة اليومية`
+);
+
+saveDatabase();
+
+showToast(
+user.role === "OWNER"
+?
+"+50 XP للـOWNER 👑"
+:
+"+200 🪙 +50 XP 🎁"
+);
+
+renderAll();
+
+}
+
+
+/* =====================================================
+   INTERACTION
+===================================================== */
+
+function interact(){
+
+const user =
+getCurrentUser();
+
+
+user.interactions++;
+
+addXP(20);
+
+
+if(
+user.role !== "OWNER"
+){
+
+user.coins +=
+10;
+
+}
+
+
+addActivity(
+`${user.name} قام بتفاعل ❤️`
+);
+
+saveDatabase();
+
+showToast(
+"+20 XP ❤️"
+);
+
+renderAll();
+
+}
+
+
+/* =====================================================
+   LEVELS
+===================================================== */
+
+function renderLevels(){
+
+const user =
+getCurrentUser();
+
+const currentLevelXP =
+(user.level - 1) * 100;
+
+const nextLevelXP =
+user.level * 100;
+
+const progress =
+Math.min(
+100,
+Math.max(
+0,
+((user.xp - currentLevelXP) / 100) * 100
+)
+);
+
+
+let rank =
+"🥉 مبتدئ";
+
+
+if(user.level >= 5){
+
+rank =
+"🥈 متفاعل";
+
+}
+
+
+if(user.level >= 10){
+
+rank =
+"🥇 أسطورة";
+
+}
+
+
+$("levelInfo").innerHTML =
+
+`
+<h2>
+${rank}
+</h2>
+
+<h3>
+المستوى ${user.level}
+</h3>
+
+<p class="muted">
+XP: ${user.xp}
+<br>
+التفاعلات: ${user.interactions}
+<br>
+الهدايا المرسلة: ${user.giftsSent}
+</p>
+
+<div class="progress">
+<i style="width:${progress}%"></i>
+</div>
+
+<p class="muted">
+${Math.max(
+0,
+nextLevelXP - user.xp
+)}
+XP للمستوى التالي.
+</p>
+`;
+
+}
+
+
+/* =====================================================
+   PROFILE
+===================================================== */
+
+function renderProfile(){
+
+const user =
+getCurrentUser();
+
+
+if(user.avatar){
+
+$("profileAvatar")
+.innerHTML =
+`
+<img
+src="${escapeHTML(user.avatar)}"
+onerror="this.parentElement.textContent='👤'"
+>
+`;
+
+}else{
+
+$("profileAvatar")
+.textContent =
+"👤";
+
+}
+
+
+$("profileName")
+.textContent =
+user.name;
+
+
+$("profileBadges")
+.innerHTML =
+
+`
+<span class="badge
+${user.role === "OWNER" ? "owner" : ""}">
+${user.role === "OWNER"
+? "👑 OWNER"
+: "👤 MEMBER"}
+</span>
+
+<span class="badge level">
+LV.${user.level}
+</span>
+`;
+
+}
+
+
+function saveProfile(){
+
+const user =
+getCurrentUser();
+
+
+const newName =
+$("newProfileName")
+.value
+.trim();
+
+const avatar =
+$("avatarUrl")
+.value
+.trim();
+
+
+if(newName){
+
+const duplicate =
+database.users.some(
+item =>
+item.id !== user.id
+&&
+item.name.toLowerCase()
+===
+newName.toLowerCase()
+);
+
+
+if(duplicate){
+
+showToast(
+"هذا الاسم مستخدم بالفعل"
+);
+
+return;
+
+}
+
+
+user.name =
+newName;
+
+}
+
+
+user.avatar =
+avatar;
+
+
+saveDatabase();
+
+showToast(
+"تم حفظ الملف 👤"
+);
+
+renderAll();
+
+}
+
+
+/* =====================================================
+   DELETE ACCOUNT
+===================================================== */
+
+function deleteMyAccount(){
+
+const user =
+getCurrentUser();
+
+
+if(
+user.role === "OWNER"
+&&
+database.users.length > 1
+){
+
+showToast(
+"OWNER لا يمكن حذفه مع وجود أعضاء"
+);
+
+return;
+
+}
+
+
+if(
+!confirm(
+"هل تريد حذف حسابك نهائيًا؟"
+)
+){
+
+return;
+
+}
+
+
+database.users =
+database.users.filter(
+item =>
+item.id !== user.id
+);
+
+
+saveDatabase();
+
+logout();
+
+showToast(
+"تم حذف الحساب"
+);
+
+}
+
+
+/* =====================================================
+   OWNER
+===================================================== */
+
+function renderOwner(){
+
+const user =
+getCurrentUser();
+
+
+if(
+!user ||
+user.role !== "OWNER"
+){
+
+return;
+
+}
+
+
+$("ownerUserCount")
+.textContent =
+database.users.length;
+
+
+$("ownerPurchases")
+.textContent =
+user.purchases.length;
+
+
+$("usersTable").innerHTML =
+
+`
+<table>
+
+<tr>
+
+<th>
+الاسم
+</th>
+
+<th>
+الدور
+</th>
+
+<th>
+LV
+</th>
+
+<th>
+XP
+</th>
+
+<th>
+عملات
+</th>
+
+<th>
+إجراء
+</th>
+
+</tr>
+
+${database.users
+.map(
+member =>
+`
+
+<tr>
+
+<td>
+${escapeHTML(member.name)}
+</td>
+
+<td>
+${member.role === "OWNER"
+? "👑 OWNER"
+: "USER"}
+</td>
+
+<td>
+${member.level}
+</td>
+
+<td>
+${member.xp}
+</td>
+
+<td>
+${member.role === "OWNER"
+? "∞"
+: member.coins}
+</td>
+
+<td>
+
+${
+member.id === user.id
+
+?
+
+"أنت"
+
+:
+
+`
+
+<button
+class="icon-btn"
+data-givexp="${member.id}"
+>
++XP
+</button>
+
+<button
+class="icon-btn"
+data-delete="${member.id}"
+>
+حذف
+</button>
+`
+
+}
+
+</td>
+
+</tr>
+
+`
+)
+.join("")}
+
+</table>
+`;
+
+
+document
+.querySelectorAll(
+"[data-givexp]"
+)
+.forEach(
+button =>
+button.addEventListener(
+"click",
+() =>
+giveXP(
+button.dataset.givexp
+)
+)
+);
+
+
+document
+.querySelectorAll(
+"[data-delete]"
+)
+.forEach(
+button =>
+button.addEventListener(
+"click",
+() =>
+deleteMember(
+button.dataset.delete
+)
+)
+);
+
+}
+
+
+function giveXP(memberId){
+
+const owner =
+getCurrentUser();
+
+
+if(
+!owner ||
+owner.role !== "OWNER"
+){
+
+return;
+
+}
+
+
+const member =
+database.users.find(
+user =>
+user.id === memberId
+);
+
+
+if(!member){
+
+return;
+
+}
+
+
+member.xp +=
+100;
+
+member.level =
+calculateLevel(
+member.xp
+);
+
+saveDatabase();
+
+showToast(
+"تمت إضافة 100 XP ✨"
+);
+
+renderAll();
+
+}
+
+
+function addOwnerXP(){
+
+const user =
+getCurrentUser();
+
+
+if(
+!user ||
+user.role !== "OWNER"
+){
+
+return;
+
+}
+
+
+addXP(100);
+
+saveDatabase();
+
+showToast(
+"+100 XP 👑"
+);
+
+renderAll();
+
+}
+
+
+function deleteMember(memberId){
+
+const owner =
+getCurrentUser();
+
+
+if(
+!owner ||
+owner.role !== "OWNER"
+){
+
+return;
+
+}
+
+
+if(
+!confirm(
+"هل تريد حذف هذا العضو؟"
+)
+){
+
+return;
+
+}
+
+
+database.users =
+database.users.filter(
+user =>
+user.id !== memberId
+);
+
+saveDatabase();
+
+showToast(
+"تم حذف العضو"
+);
+
+renderAll();
+
+}
+
+
+/* =====================================================
+   RESET
+===================================================== */
+
+function resetDatabase(){
+
+const user =
+getCurrentUser();
+
+
+if(
+!user ||
+user.role !== "OWNER"
+){
+
+return;
+
+}
+
+
+if(
+!confirm(
+"سيتم حذف جميع الحسابات والدردشة والبيانات بالكامل. هل أنت متأكد؟"
+)
+){
+
+return;
+
+}
+
+
+localStorage.removeItem(
+DB_KEY
+);
+
+
+database = {
+
+users:[],
+messages:[],
+activity:[]
+
+};
+
+
+currentUserId =
+null;
+
+
+$("appScreen")
+.classList.add(
+"hidden"
+);
+
+$("authScreen")
+.classList.remove(
+"hidden"
+);
+
+
+showToast(
+"تم التصفير. أول حساب جديد سيكون OWNER 👑"
+);
+
+}
+
+
+/* =====================================================
+   EVENTS
+===================================================== */
+
+$("authButton")
+.addEventListener(
+"click",
+createOrLogin
+);
+
+
+$("authName")
+.addEventListener(
+"keydown",
+event => {
+
+if(
+event.key === "Enter"
+){
+
+createOrLogin();
+
+}
+
+}
+);
+
+
+$("authPassword")
+.addEventListener(
+"keydown",
+event => {
+
+if(
+event.key === "Enter"
+){
+
+createOrLogin();
+
+}
+
+}
+);
+
+
+$("logoutBtn")
+.addEventListener(
+"click",
+logout
+);
+
+
+$("profileTopBtn")
+.addEventListener(
+"click",
+openProfile
+);
+
+
+$("homeProfileButton")
+.addEventListener(
+"click",
+openProfile
+);
+
+
+$("dailyButton")
+.addEventListener(
+"click",
+claimDaily
+);
+
+
+$("interactButton")
+.addEventListener(
+"click",
+interact
+);
+
+
+$("levelInteractButton")
+.addEventListener(
+"click",
+interact
+);
+
+
+$("sendMessageButton")
+.addEventListener(
+"click",
+sendMessage
+);
+
+
+$("chatInput")
+.addEventListener(
+"keydown",
+event => {
+
+if(
+event.key === "Enter"
+){
+
+sendMessage();
+
+}
+
+}
+);
+
+
+$("saveProfileButton")
+.addEventListener(
+"click",
+saveProfile
+);
+
+
+$("deleteAccountButton")
+.addEventListener(
+"click",
+deleteMyAccount
+);
+
+
+$("ownerXpButton")
+.addEventListener(
+"click",
+addOwnerXP
+);
+
+
+$("resetDatabaseButton")
+.addEventListener(
+"click",
+resetDatabase
+);
+
+
+document
+.querySelectorAll(
+".nav button"
+)
+.forEach(
+button => {
+
+button.addEventListener(
+"click",
+() => {
+
+openTab(
+button.dataset.tab
+);
+
+}
+);
+
+}
+);
+
+
+/* =====================================================
+   START
+===================================================== */
+
+console.log(
+"هواافـنـدينا جاهز للعمل 🥀🖤"
+);
+
+</script>
+
+</body>
+</html>
