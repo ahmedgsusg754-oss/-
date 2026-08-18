@@ -1,0 +1,1337 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0b0d13">
+<meta name="description" content="افـنـدツينا🥀🖤 - تعارف ودردشة وأصدقاء وألعاب">
+<title>افـنـدツينا🥀🖤</title>
+
+<style>
+:root{
+  --bg:#080a0f;
+  --bg2:#0d111a;
+  --card:#121722;
+  --card2:#171d29;
+  --line:#293346;
+  --text:#f5f7fb;
+  --muted:#9da8ba;
+  --primary:#9b4dff;
+  --primary2:#ff4c9a;
+  --green:#27d98b;
+  --red:#ff526b;
+  --gold:#ffd45c;
+  --blue:#4da3ff;
+  --shadow:0 20px 70px rgba(0,0,0,.42);
+}
+
+*{
+  box-sizing:border-box;
+  -webkit-tap-highlight-color:transparent;
+}
+
+html,body{
+  margin:0;
+  padding:0;
+  min-height:100%;
+  background:
+    radial-gradient(circle at 15% 0%,#28103c 0,transparent 35%),
+    radial-gradient(circle at 90% 10%,#171c43 0,transparent 30%),
+    var(--bg);
+  color:var(--text);
+  font-family:Tahoma,Arial,sans-serif;
+}
+
+body{
+  overflow-x:hidden;
+}
+
+button,
+input,
+textarea,
+select{
+  font:inherit;
+}
+
+button{
+  border:0;
+  cursor:pointer;
+}
+
+input,
+textarea,
+select{
+  outline:none;
+}
+
+.hidden{
+  display:none!important;
+}
+
+.no-select{
+  user-select:none;
+}
+
+/* =========================
+   GLOBAL
+========================= */
+
+.container{
+  width:min(1450px,100%);
+  margin:auto;
+}
+
+.card{
+  background:
+    linear-gradient(180deg,rgba(23,29,42,.98),rgba(15,20,29,.98));
+  border:1px solid var(--line);
+  border-radius:20px;
+  box-shadow:var(--shadow);
+}
+
+.btn{
+  border:1px solid var(--line);
+  background:#202838;
+  color:#fff;
+  padding:10px 15px;
+  border-radius:12px;
+  transition:.2s;
+}
+
+.btn:hover{
+  transform:translateY(-1px);
+  background:#293348;
+}
+
+.btn:active{
+  transform:scale(.98);
+}
+
+.btn.primary{
+  background:linear-gradient(135deg,var(--primary),var(--primary2));
+  border-color:transparent;
+  font-weight:800;
+}
+
+.btn.gold{
+  background:linear-gradient(135deg,#80631d,#bd8d20);
+  border-color:#d0a63b;
+}
+
+.btn.danger{
+  background:#451e28;
+  color:#ff9bab;
+  border-color:#71303d;
+}
+
+.btn.green{
+  background:#173d31;
+  color:#72f0b9;
+  border-color:#24674e;
+}
+
+.muted{
+  color:var(--muted);
+}
+
+.badge{
+  display:inline-flex;
+  align-items:center;
+  gap:5px;
+  padding:4px 9px;
+  border-radius:999px;
+  background:#242c3b;
+  color:#dce2ec;
+  font-size:12px;
+  white-space:nowrap;
+}
+
+.online-dot{
+  display:inline-block;
+  width:9px;
+  height:9px;
+  border-radius:50%;
+  background:var(--green);
+  box-shadow:0 0 8px rgba(39,217,139,.5);
+}
+
+.section-title{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  margin-bottom:13px;
+}
+
+.section-title h2,
+.section-title h3{
+  margin:0;
+}
+
+.row{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  flex-wrap:wrap;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px;
+}
+
+/* =========================
+   AUTH
+========================= */
+
+.auth-screen{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  background:
+    radial-gradient(circle at 50% -10%,#481261 0,transparent 42%),
+    radial-gradient(circle at 0 100%,#17244c 0,transparent 35%),
+    #07090e;
+}
+
+.auth-box{
+  width:min(480px,100%);
+  padding:28px;
+  background:rgba(15,20,29,.94);
+  border:1px solid #343d51;
+  border-radius:26px;
+  box-shadow:0 30px 100px rgba(0,0,0,.65);
+  backdrop-filter:blur(18px);
+}
+
+.auth-logo{
+  text-align:center;
+  font-size:31px;
+  font-weight:1000;
+  letter-spacing:-1px;
+  margin-bottom:5px;
+}
+
+.auth-logo .pink{
+  color:#ff5ca8;
+}
+
+.auth-subtitle{
+  text-align:center;
+  color:var(--muted);
+  margin-bottom:23px;
+  line-height:1.7;
+}
+
+.auth-tabs{
+  display:flex;
+  gap:5px;
+  background:#0b1018;
+  border:1px solid var(--line);
+  border-radius:13px;
+  padding:4px;
+  margin-bottom:17px;
+}
+
+.auth-tabs button{
+  flex:1;
+  background:transparent;
+  color:var(--muted);
+  padding:10px;
+  border-radius:10px;
+}
+
+.auth-tabs button.active{
+  background:#252d3d;
+  color:#fff;
+}
+
+.field{
+  margin:12px 0;
+}
+
+.field label{
+  display:block;
+  color:#cbd2de;
+  font-size:13px;
+  margin-bottom:6px;
+}
+
+.field input,
+.field textarea,
+.field select{
+  width:100%;
+  color:#fff;
+  background:#0b1018;
+  border:1px solid #303a4d;
+  border-radius:12px;
+  padding:12px;
+}
+
+.field textarea{
+  min-height:100px;
+  resize:vertical;
+}
+
+.auth-actions{
+  display:flex;
+  gap:8px;
+  margin-top:14px;
+}
+
+.auth-actions .btn{
+  flex:1;
+}
+
+.auth-footer{
+  text-align:center;
+  color:#737e91;
+  font-size:11px;
+  line-height:1.7;
+  margin-top:18px;
+}
+
+/* =========================
+   MAIN TOPBAR
+========================= */
+
+.topbar{
+  position:sticky;
+  top:0;
+  z-index:50;
+  height:66px;
+  background:rgba(8,10,15,.88);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid var(--line);
+}
+
+.topbar-inner{
+  height:100%;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:0 14px;
+}
+
+.brand{
+  font-size:20px;
+  font-weight:1000;
+  white-space:nowrap;
+}
+
+.brand .pink{
+  color:#ff5ca8;
+}
+
+.search-box{
+  flex:1;
+  max-width:570px;
+  margin:auto;
+}
+
+.search-box input{
+  width:100%;
+  background:#151b27;
+  border:1px solid var(--line);
+  border-radius:999px;
+  padding:11px 17px;
+  color:#fff;
+}
+
+.top-actions{
+  display:flex;
+  align-items:center;
+  gap:7px;
+}
+
+.icon-btn{
+  width:40px;
+  height:40px;
+  border-radius:12px;
+  background:#171e2b;
+  color:#fff;
+  border:1px solid var(--line);
+}
+
+.profile-mini{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  padding:4px 8px 4px 4px;
+  background:#151b27;
+  border:1px solid var(--line);
+  border-radius:999px;
+}
+
+.avatar{
+  width:38px;
+  height:38px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  color:#fff;
+  font-weight:900;
+  background:linear-gradient(135deg,#733bff,#ff4d99);
+}
+
+/* =========================
+   APP LAYOUT
+========================= */
+
+.app-layout{
+  width:min(1500px,100%);
+  margin:auto;
+  padding:14px;
+  display:grid;
+  grid-template-columns:245px minmax(0,1fr) 285px;
+  gap:14px;
+}
+
+.sidebar,
+.rightbar{
+  position:sticky;
+  top:80px;
+  height:calc(100vh - 95px);
+  overflow:auto;
+  scrollbar-width:thin;
+}
+
+.sidebar-card{
+  padding:13px;
+}
+
+.side-user{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:10px;
+  background:#101620;
+  border:1px solid #242d3d;
+  border-radius:15px;
+  margin-bottom:10px;
+}
+
+.side-user-info{
+  min-width:0;
+  flex:1;
+}
+
+.side-user-info strong{
+  display:block;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+
+.side-user-info small{
+  color:var(--muted);
+}
+
+.nav-list{
+  display:flex;
+  flex-direction:column;
+  gap:3px;
+}
+
+.nav-btn{
+  width:100%;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  text-align:right;
+  background:transparent;
+  color:#aeb8c8;
+  padding:11px;
+  border-radius:12px;
+}
+
+.nav-btn:hover,
+.nav-btn.active{
+  background:#222a3a;
+  color:#fff;
+}
+
+.nav-icon{
+  width:26px;
+  text-align:center;
+  font-size:18px;
+}
+
+.owner-nav{
+  background:linear-gradient(135deg,#251432,#191222);
+  border:1px solid #693a7d;
+  color:#e6b7ff;
+}
+
+main{
+  min-width:0;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+  padding:22px;
+  margin-bottom:14px;
+  border-radius:21px;
+  border:1px solid #4a345c;
+  background:
+    radial-gradient(circle at 100% 0,#47205b 0,transparent 40%),
+    linear-gradient(135deg,#29143d,#151b29 58%,#21132c);
+  box-shadow:var(--shadow);
+}
+
+.hero h1{
+  margin:0 0 8px;
+  font-size:28px;
+}
+
+.hero p{
+  color:#c2cad8;
+  line-height:1.9;
+  margin:0 0 15px;
+  max-width:850px;
+}
+
+.hero-actions{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+}
+
+/* =========================
+   TABS
+========================= */
+
+.tabs{
+  display:flex;
+  gap:7px;
+  overflow:auto;
+  margin-bottom:13px;
+  scrollbar-width:none;
+}
+
+.tabs::-webkit-scrollbar{
+  display:none;
+}
+
+.tab-btn{
+  white-space:nowrap;
+  background:#151b27;
+  border:1px solid var(--line);
+  color:#aeb8c8;
+  padding:9px 14px;
+  border-radius:999px;
+}
+
+.tab-btn.active{
+  background:#2b2040;
+  border-color:#7650a5;
+  color:#fff;
+}
+
+/* =========================
+   POSTS
+========================= */
+
+.post-card{
+  padding:15px;
+  margin-bottom:12px;
+}
+
+.post-head{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.post-avatar{
+  width:46px;
+  height:46px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  font-weight:900;
+  background:linear-gradient(135deg,#7042ff,#ff4e9b);
+}
+
+.post-user{
+  min-width:0;
+  flex:1;
+}
+
+.post-user strong{
+  display:block;
+}
+
+.post-user small{
+  color:var(--muted);
+}
+
+.post-text{
+  color:#dce2ec;
+  line-height:1.9;
+  margin:13px 0;
+  white-space:pre-wrap;
+  word-break:break-word;
+}
+
+.post-actions{
+  display:flex;
+  gap:4px;
+  padding-top:9px;
+  border-top:1px solid var(--line);
+}
+
+.post-actions button{
+  background:transparent;
+  color:#aeb8c8;
+  padding:8px 10px;
+  border-radius:9px;
+}
+
+.post-actions button:hover{
+  background:#202838;
+  color:#fff;
+}
+
+/* =========================
+   USERS
+========================= */
+
+.user-card{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:10px;
+  background:#101620;
+  border:1px solid #242d3d;
+  border-radius:14px;
+  margin-bottom:8px;
+}
+
+.user-avatar{
+  width:43px;
+  height:43px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  font-weight:900;
+  background:linear-gradient(135deg,#4265ff,#9b42e9);
+}
+
+.user-info{
+  min-width:0;
+  flex:1;
+}
+
+.user-info strong{
+  display:block;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+.user-info small{
+  color:var(--muted);
+}
+
+/* =========================
+   RIGHT BAR
+========================= */
+
+.rightbar .card{
+  padding:13px;
+  margin-bottom:12px;
+}
+
+.stat{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  padding:9px 0;
+  border-bottom:1px solid #202938;
+}
+
+.stat:last-child{
+  border-bottom:0;
+}
+
+/* =========================
+   MODAL
+========================= */
+
+.modal{
+  position:fixed;
+  inset:0;
+  z-index:200;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:15px;
+  background:rgba(0,0,0,.72);
+  backdrop-filter:blur(5px);
+}
+
+.modal.show{
+  display:flex;
+}
+
+.modal-box{
+  width:min(620px,100%);
+  max-height:90vh;
+  overflow:auto;
+  background:#121722;
+  border:1px solid #374258;
+  border-radius:21px;
+  padding:18px;
+  box-shadow:0 30px 100px #000;
+}
+
+.modal-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  margin-bottom:15px;
+}
+
+.modal-head h2{
+  margin:0;
+}
+
+.close-btn{
+  width:38px;
+  height:38px;
+  border-radius:11px;
+  background:#252d3c;
+  color:#fff;
+}
+
+/* =========================
+   TOAST
+========================= */
+
+.toast{
+  position:fixed;
+  z-index:300;
+  left:20px;
+  bottom:20px;
+  max-width:calc(100% - 40px);
+  padding:12px 17px;
+  background:#181f2d;
+  border:1px solid #3b465b;
+  color:#fff;
+  border-radius:13px;
+  box-shadow:var(--shadow);
+  transform:translateY(30px);
+  opacity:0;
+  pointer-events:none;
+  transition:.25s;
+}
+
+.toast.show{
+  transform:translateY(0);
+  opacity:1;
+}
+
+/* =========================
+   CHAT
+========================= */
+
+.chat-window{
+  height:590px;
+  display:flex;
+  flex-direction:column;
+  overflow:hidden;
+  padding:0;
+}
+
+.chat-head{
+  padding:13px 15px;
+  border-bottom:1px solid var(--line);
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.chat-head-info{
+  flex:1;
+}
+
+.chat-head-info strong{
+  display:block;
+}
+
+.chat-head-info small{
+  color:var(--muted);
+}
+
+.chat-messages{
+  flex:1;
+  overflow:auto;
+  padding:15px;
+}
+
+.message{
+  max-width:78%;
+  padding:10px 12px;
+  border-radius:15px;
+  background:#20293a;
+  color:#e9edf5;
+  margin:7px 0;
+  line-height:1.7;
+  word-break:break-word;
+}
+
+.message.me{
+  margin-right:auto;
+  background:linear-gradient(135deg,#6735a8,#a73879);
+}
+
+.chat-input{
+  padding:10px;
+  border-top:1px solid var(--line);
+  display:flex;
+  gap:7px;
+}
+
+.chat-input input{
+  flex:1;
+  min-width:0;
+  background:#0c1119;
+  color:#fff;
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:11px;
+}
+
+/* =========================
+   GROUPS
+========================= */
+
+.group-card{
+  padding:15px;
+}
+
+.group-icon{
+  width:58px;
+  height:58px;
+  display:grid;
+  place-items:center;
+  border-radius:17px;
+  background:linear-gradient(135deg,#6b39ff,#e64298);
+  font-size:25px;
+  margin-bottom:10px;
+}
+
+.group-card h3{
+  margin:5px 0;
+}
+
+.group-card p{
+  color:var(--muted);
+  line-height:1.7;
+  min-height:45px;
+}
+
+.group-meta{
+  display:flex;
+  justify-content:space-between;
+  color:#aeb8c8;
+  font-size:13px;
+  padding:8px 0;
+  border-top:1px solid var(--line);
+}
+
+/* =========================
+   STORE / COINS
+========================= */
+
+.product-card{
+  padding:17px;
+  text-align:center;
+}
+
+.product-icon{
+  font-size:42px;
+  margin-bottom:5px;
+}
+
+.coin-balance{
+  text-align:center;
+  padding:25px;
+  margin-bottom:13px;
+  background:
+    radial-gradient(circle at 50% 0,#6a4b11,transparent 50%),
+    linear-gradient(135deg,#2c2414,#151a23);
+  border:1px solid #685526;
+  border-radius:20px;
+}
+
+.coin-balance .amount{
+  font-size:35px;
+  font-weight:1000;
+  color:#ffe48a;
+}
+
+/* =========================
+   GAMES
+========================= */
+
+.game-card{
+  padding:20px;
+  text-align:center;
+}
+
+.game-icon{
+  font-size:48px;
+}
+
+.wheel{
+  width:175px;
+  height:175px;
+  border-radius:50%;
+  margin:15px auto;
+  display:grid;
+  place-items:center;
+  border:9px solid #252d3c;
+  background:
+    conic-gradient(
+      #8b5cf6 0 45deg,
+      #ec4899 45deg 90deg,
+      #14b8a6 90deg 135deg,
+      #f59e0b 135deg 180deg,
+      #3b82f6 180deg 225deg,
+      #ef4444 225deg 270deg,
+      #22c55e 270deg 315deg,
+      #64748b 315deg
+    );
+  font-weight:1000;
+}
+
+.xo-board{
+  display:grid;
+  grid-template-columns:repeat(3,70px);
+  gap:7px;
+  justify-content:center;
+  margin:15px 0;
+}
+
+.xo-cell{
+  width:70px;
+  height:70px;
+  border-radius:13px;
+  background:#202838;
+  border:1px solid #3b465a;
+  color:#fff;
+  font-size:29px;
+  font-weight:900;
+}
+
+/* =========================
+   RANKING
+========================= */
+
+.rank-item{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:10px;
+  background:#101620;
+  border:1px solid #242d3d;
+  border-radius:14px;
+  margin-bottom:8px;
+}
+
+.rank-number{
+  width:30px;
+  text-align:center;
+  font-size:20px;
+}
+
+.rank-item .user-card{
+  margin:0;
+  padding:0;
+  background:transparent;
+  border:0;
+  flex:1;
+}
+
+/* =========================
+   OWNER PANEL
+========================= */
+
+.owner-card{
+  padding:18px;
+  border-color:#704084;
+  background:
+    radial-gradient(circle at 100% 0,#35133e,transparent 45%),
+    linear-gradient(135deg,#1c1224,#111722);
+}
+
+.owner-title{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.owner-title .crown{
+  font-size:34px;
+}
+
+.permission{
+  padding:14px;
+  border:1px solid #333d51;
+  border-radius:15px;
+  background:#101620;
+}
+
+.permission h3{
+  margin:0 0 7px;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+.mobile-bottom{
+  display:none;
+}
+
+@media(max-width:1100px){
+  .app-layout{
+    grid-template-columns:215px minmax(0,1fr);
+  }
+
+  .rightbar{
+    display:none;
+  }
+}
+
+@media(max-width:720px){
+  .topbar{
+    height:58px;
+  }
+
+  .topbar-inner{
+    padding:0 9px;
+  }
+
+  .brand{
+    font-size:17px;
+  }
+
+  .search-box{
+    display:none;
+  }
+
+  .profile-mini span{
+    display:none;
+  }
+
+  .app-layout{
+    display:block;
+    padding:8px;
+    padding-bottom:75px;
+  }
+
+  .sidebar{
+    position:static;
+    height:auto;
+    margin-bottom:9px;
+  }
+
+  .sidebar-card{
+    padding:7px;
+  }
+
+  .side-user{
+    display:none;
+  }
+
+  .nav-list{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:4px;
+  }
+
+  .nav-btn{
+    display:block;
+    text-align:center;
+    padding:8px 4px;
+    font-size:10px;
+  }
+
+  .nav-icon{
+    display:block;
+    width:auto;
+    font-size:18px;
+    margin-bottom:2px;
+  }
+
+  .mobile-bottom{
+    position:fixed;
+    display:flex;
+    align-items:center;
+    justify-content:space-around;
+    left:8px;
+    right:8px;
+    bottom:8px;
+    z-index:100;
+    padding:7px;
+    border-radius:17px;
+    background:rgba(15,20,29,.94);
+    border:1px solid #374258;
+    backdrop-filter:blur(16px);
+    box-shadow:0 15px 50px #000b;
+  }
+
+  .mobile-bottom button{
+    background:transparent;
+    color:#aeb8c8;
+    padding:5px 10px;
+    font-size:11px;
+  }
+
+  .mobile-bottom button strong{
+    display:block;
+    font-size:18px;
+  }
+
+  .grid{
+    grid-template-columns:1fr;
+  }
+
+  .hero{
+    padding:17px;
+  }
+
+  .hero h1{
+    font-size:23px;
+  }
+
+  .post-card{
+    padding:13px;
+  }
+
+  .auth-box{
+    padding:20px;
+  }
+}
+
+@media(max-width:390px){
+  .brand{
+    font-size:15px;
+  }
+
+  .icon-btn{
+    width:36px;
+    height:36px;
+  }
+
+  .avatar{
+    width:34px;
+    height:34px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div id="app"></div>
+
+<div id="modal" class="modal">
+  <div id="modalBox" class="modal-box"></div>
+</div>
+
+<div id="toast" class="toast"></div>
+
+<script>
+/* =========================================================
+   افـنـدツينا🥀🖤
+   الجزء الأول
+   البيانات المحلية + الأدوات العامة + شاشة الدخول
+========================================================= */
+
+const APP_NAME = "افـنـدツينا🥀🖤";
+const OWNER_NAME = "احمد افندينا";
+
+/*
+  هذه نسخة Front-End تجريبية.
+  البيانات محفوظة في localStorage حتى تظل موجودة بعد تحديث الصفحة.
+  قاعدة البيانات الحقيقية، المصادقة، الدفع، WebSocket،
+  رفع الملفات والمكالمات تحتاج Backend لاحقًا.
+*/
+
+const DEFAULT_DB = {
+  users:[
+    {
+      id:1,
+      name:"احمد افندينا",
+      gender:"ذكر",
+      level:25,
+      xp:8500,
+      coins:12500,
+      likes:980,
+      verified:true,
+      online:true,
+      owner:true
+    },
+    {
+      id:2,
+      name:"ليان 🌸",
+      gender:"أنثى",
+      level:18,
+      xp:5200,
+      coins:2450,
+      likes:650,
+      verified:true,
+      online:true,
+      owner:false
+    },
+    {
+      id:3,
+      name:"نور ✨",
+      gender:"أنثى",
+      level:12,
+      xp:2900,
+      coins:930,
+      likes:420,
+      verified:false,
+      online:true,
+      owner:false
+    },
+    {
+      id:4,
+      name:"سيف",
+      gender:"ذكر",
+      level:15,
+      xp:3400,
+      coins:1200,
+      likes:310,
+      verified:false,
+      online:false,
+      owner:false
+    }
+  ],
+
+  posts:[
+    {
+      id:1,
+      userId:2,
+      text:"مساء الخير للجميع 🌸 مين صاحي للدردشة؟",
+      likes:34,
+      comments:8,
+      time:"منذ 5 دقائق"
+    },
+    {
+      id:2,
+      userId:3,
+      text:"أول يوم لي هنا، أتمنى أتعرف على ناس لطيفة ❤️",
+      likes:51,
+      comments:12,
+      time:"منذ 18 دقيقة"
+    }
+  ],
+
+  groups:[
+    {
+      id:1,
+      name:"لمة افـنـدينا",
+      description:"دردشة وتعارف وأصدقاء جدد",
+      members:128,
+      online:19,
+      icon:"💬"
+    },
+    {
+      id:2,
+      name:"السهرانين 🌙",
+      description:"للناس اللي تحب السهر والدردشة",
+      members:86,
+      online:12,
+      icon:"🌙"
+    },
+    {
+      id:3,
+      name:"أصدقاء الألعاب 🎮",
+      description:"تحديات وألعاب ومسابقات",
+      members:64,
+      online:8,
+      icon:"🎮"
+    }
+  ],
+
+  messages:[
+    {
+      from:2,
+      text:"أهلًا 👋",
+      me:false,
+      time:"20:21"
+    },
+    {
+      from:1,
+      text:"أهلًا بيكي، نورتِ افـنـدينا ❤️",
+      me:true,
+      time:"20:22"
+    }
+  ],
+
+  transactions:[],
+
+  notifications:[
+    {
+      icon:"❤️",
+      text:"حصلت على إعجاب جديد",
+      time:"الآن"
+    },
+    {
+      icon:"🎁",
+      text:"لديك هدية جديدة",
+      time:"منذ 5 دقائق"
+    },
+    {
+      icon:"👥",
+      text:"تمت دعوتك إلى جروب",
+      time:"منذ 20 دقيقة"
+    }
+  ],
+
+  currentUser:1,
+  loggedIn:false
+};
+
+let db;
+
+try{
+  db = JSON.parse(
+    localStorage.getItem("afandina_database")
+  ) || structuredClone(DEFAULT_DB);
+}catch(error){
+  db = structuredClone(DEFAULT_DB);
+}
+
+function saveDB(){
+  localStorage.setItem(
+    "afandina_database",
+    JSON.stringify(db)
+  );
+}
+
+function getUser(id){
+  return db.users.find(
+    user => Number(user.id) === Number(id)
+  ) || db.users[0];
+}
+
+function currentUser(){
+  return getUser(db.currentUser);
+}
+
+funct
