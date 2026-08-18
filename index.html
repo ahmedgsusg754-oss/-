@@ -1,143 +1,794 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="utf-8">
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#0a0b12">
-<meta name="description" content="افـنـدツ⁠يـنـا🥀🖤 — تعارف ودردشة بواجهة هادئة وعصرية.">
+<meta name="theme-color" content="#08060f">
 <title>افـنـدツ⁠يـنـا🥀🖤</title>
 <style>
-:root{--bg:#07080d;--surface:#10121a;--surface2:#151824;--line:#242938;--text:#f7f7fb;--muted:#a6abba;--accent:#d8a7ff;--accent2:#8e6cff;--ok:#5ee39a;--danger:#ff6f91;--shadow:0 24px 70px rgba(0,0,0,.38)}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Arial,Tahoma,sans-serif;background:radial-gradient(circle at 50% -10%,#1b1530 0,#0b0c13 38%,var(--bg) 75%);color:var(--text);min-height:100vh}button,input,select{font:inherit}a{text-decoration:none;color:inherit}.wrap{width:min(1120px,92%);margin:auto}
-header{position:sticky;top:0;z-index:50;background:rgba(7,8,13,.82);backdrop-filter:blur(18px);border-bottom:1px solid rgba(255,255,255,.07)}.nav{height:72px;display:flex;align-items:center;justify-content:space-between;gap:16px}.brand{font-size:20px;font-weight:900;letter-spacing:.2px}.brand span{filter:drop-shadow(0 0 12px rgba(216,167,255,.25))}.navlinks{display:flex;gap:8px}.navlinks a{padding:10px 13px;color:#c8cad4;border-radius:12px}.navlinks a:hover{background:#171925;color:#fff}.navactions{display:flex;gap:8px}
-.btn{border:0;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:46px;padding:0 18px;border-radius:14px;font-weight:800;transition:.2s transform,.2s opacity,.2s background}.btn:hover{transform:translateY(-1px)}.btn:active{transform:translateY(0)}.primary{color:#fff;background:linear-gradient(135deg,#a86cff,#7656ef);box-shadow:0 12px 30px rgba(126,86,239,.22)}.ghost{color:#eee;background:#151823;border:1px solid var(--line)}.soft{color:#dfd5ff;background:rgba(143,108,255,.11);border:1px solid rgba(174,140,255,.22)}.danger{background:rgba(255,111,145,.1);color:#ff9bb2;border:1px solid rgba(255,111,145,.2)}
-.hero{padding:76px 0 52px}.heroGrid{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}.eyebrow{display:inline-flex;align-items:center;gap:8px;color:#d8c9ff;background:rgba(143,108,255,.1);border:1px solid rgba(174,140,255,.2);padding:8px 12px;border-radius:999px;font-size:13px}.hero h1{font-size:clamp(34px,7vw,64px);line-height:1.15;margin:18px 0 12px}.hero h1 .mark{display:block;color:var(--accent)}.hero p{color:var(--muted);font-size:18px;line-height:1.9;max-width:650px}.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}.heroNote{display:flex;gap:18px;flex-wrap:wrap;margin-top:22px;color:#8e94a5;font-size:13px}.heroNote span{display:inline-flex;align-items:center;gap:7px}
-.loginCard{background:linear-gradient(160deg,rgba(24,26,39,.96),rgba(12,14,22,.96));border:1px solid rgba(255,255,255,.09);border-radius:28px;padding:26px;box-shadow:var(--shadow);position:relative;overflow:hidden}.loginCard:before{content:"";position:absolute;width:180px;height:180px;border-radius:50%;background:rgba(143,108,255,.16);filter:blur(40px);top:-80px;left:-60px}.loginTop{position:relative;text-align:center}.logoOrb{width:68px;height:68px;border-radius:22px;margin:0 auto 14px;display:grid;place-items:center;background:linear-gradient(135deg,#a86cff,#5e46ce);font-size:28px;box-shadow:0 15px 35px rgba(126,86,239,.25)}.loginTop h2{margin:0 0 6px}.loginTop p{margin:0 0 20px;color:var(--muted);font-size:14px}.field{margin:12px 0}.field label{display:block;color:#c9ccd7;font-size:13px;margin:0 0 8px}.fieldBox{position:relative}.field input{width:100%;height:52px;border-radius:14px;border:1px solid var(--line);outline:none;background:#0b0d14;color:#fff;padding:0 15px}.field input:focus{border-color:#8e6cff;box-shadow:0 0 0 4px rgba(142,108,255,.1)}.fieldBox .toggle{position:absolute;left:8px;top:7px;height:38px;padding:0 10px;border:0;background:transparent;color:#8f95a7;cursor:pointer}.row{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:14px 0;font-size:13px;color:var(--muted)}.check{display:flex;align-items:center;gap:7px}.check input{accent-color:#8e6cff}.link{color:#cdbdff;cursor:pointer}.loginMessage{min-height:22px;text-align:center;color:#ffd98a;font-size:13px;margin-top:12px}.full{width:100%}.divider{display:flex;align-items:center;gap:10px;color:#707688;font-size:12px;margin:18px 0}.divider:before,.divider:after{content:"";height:1px;background:var(--line);flex:1}
-section{padding:60px 0}.sectionHead{display:flex;align-items:end;justify-content:space-between;gap:20px;margin-bottom:24px}.sectionHead h2{margin:0;font-size:30px}.sectionHead p{margin:7px 0 0;color:var(--muted)}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.card{background:rgba(16,18,26,.82);border:1px solid var(--line);border-radius:20px;padding:22px}.card h3{margin:12px 0 7px}.card p{color:var(--muted);line-height:1.8;margin:0}.icon{width:48px;height:48px;border-radius:15px;display:grid;place-items:center;background:#171a26;font-size:22px}.room{display:flex;align-items:center;justify-content:space-between;gap:14px}.roomTitle{display:flex;align-items:center;gap:12px}.online{color:var(--ok);font-size:12px;margin-top:5px}.room .btn{min-height:40px;padding:0 13px}
-.members{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.member{text-align:center}.avatar{width:70px;height:70px;border-radius:22px;margin:0 auto 12px;display:grid;place-items:center;background:linear-gradient(135deg,#25283a,#151824);font-size:30px;border:1px solid #303449}.member .online{margin-top:6px}.memberActions{display:flex;gap:7px;justify-content:center;margin-top:14px}.memberActions .btn{min-height:38px;padding:0 12px;font-size:12px}
-.notice{background:linear-gradient(135deg,rgba(143,108,255,.12),rgba(216,167,255,.05));border:1px solid rgba(174,140,255,.2);border-radius:22px;padding:24px;display:flex;align-items:center;justify-content:space-between;gap:18px}.notice p{color:#aeb3c2;line-height:1.8;margin:6px 0 0}
-.modal{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;padding:18px;background:rgba(0,0,0,.7);backdrop-filter:blur(9px)}.modal.show{display:flex}.modalBox{width:min(460px,100%);max-height:90vh;overflow:auto;background:#0e1018;border:1px solid #292d3d;border-radius:24px;padding:24px;box-shadow:var(--shadow)}.modalHead{display:flex;align-items:center;justify-content:space-between;gap:10px}.close{width:40px;height:40px;border-radius:12px;border:1px solid var(--line);background:#171a24;color:#fff;cursor:pointer;font-size:20px}.modal h2{margin:0}.modalSub{color:var(--muted);font-size:13px;line-height:1.7}.hidden{display:none!important}
-footer{padding:30px 0 50px;border-top:1px solid var(--line);color:#777f90;text-align:center;font-size:13px}.footerBrand{color:#cdbdff;font-weight:800}
-.badge{display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border-radius:999px;font-size:12px;font-weight:800;margin:4px 4px 0 0}.badge.owner{background:linear-gradient(135deg,#ffd66b,#d59b27);color:#201606}.badge.verified{background:rgba(94,227,154,.12);border:1px solid rgba(94,227,154,.25);color:#78edaa}.badge.vip{background:linear-gradient(135deg,rgba(168,108,255,.22),rgba(216,167,255,.12));border:1px solid rgba(216,167,255,.3);color:#e5d2ff}.badge.new{background:#171a24;border:1px solid var(--line);color:#bfc4d2}.dashHero{background:linear-gradient(135deg,rgba(143,108,255,.14),rgba(16,18,26,.9));border:1px solid rgba(174,140,255,.2);border-radius:24px;padding:22px;margin-bottom:16px}.dashMeta{color:var(--muted);font-size:13px;line-height:1.8}.plan{display:flex;align-items:center;justify-content:space-between;gap:15px;margin-top:14px;padding:14px;border-radius:16px;background:#0b0d14;border:1px solid var(--line)}.ownerPanel{border-color:rgba(255,214,107,.3);background:linear-gradient(135deg,rgba(255,214,107,.08),rgba(16,18,26,.9))}
-
-.coinBar{display:grid;grid-template-columns:1.2fr .8fr;gap:14px;margin-bottom:16px}.coinCard{background:linear-gradient(135deg,rgba(255,207,92,.10),rgba(143,108,255,.10));border:1px solid rgba(255,214,107,.22);border-radius:20px;padding:20px}.coinTop{display:flex;align-items:center;justify-content:space-between;gap:10px}.coinValue{font-size:30px;font-weight:900;color:#ffd66b}.coinMeta{color:var(--muted);font-size:13px;margin-top:6px}.progress{height:9px;background:#0a0c12;border-radius:999px;overflow:hidden;margin:14px 0 8px;border:1px solid var(--line)}.progress>i{display:block;height:100%;background:linear-gradient(90deg,#ffd66b,#a86cff);border-radius:inherit}.levelPill{display:inline-flex;padding:7px 10px;border-radius:999px;background:rgba(168,108,255,.12);border:1px solid rgba(168,108,255,.25);color:#dfd2ff;font-size:12px;font-weight:800}.price{font-size:24px;font-weight:900;color:#ffd66b;margin:10px 0}.mini{font-size:12px;color:var(--muted);line-height:1.7}.shopGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.shopCard{background:#11141e;border:1px solid var(--line);border-radius:18px;padding:18px}.shopCard.featured{border-color:rgba(255,214,107,.35);box-shadow:0 12px 35px rgba(255,214,107,.06)}.badge.gold{background:linear-gradient(135deg,#ffd66b,#d39a28);color:#201606}.badge.blue{background:rgba(90,170,255,.12);border:1px solid rgba(90,170,255,.25);color:#9dccff}.badge.rose{background:rgba(255,111,145,.11);border:1px solid rgba(255,111,145,.25);color:#ffb0c2}.earnList{display:grid;gap:9px;margin-top:12px}.earnItem{display:flex;justify-content:space-between;gap:12px;padding:11px 12px;border-radius:13px;background:#0b0d14;border:1px solid var(--line);font-size:13px}.earnItem b{color:#ffd66b}.coinActions{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}.coinActions .btn{min-height:40px}.purchaseNote{font-size:12px;color:#8f95a7;line-height:1.7;margin-top:12px}.owned{opacity:.72}
-@media(max-width:900px){.heroGrid{grid-template-columns:1fr}.loginCard{max-width:520px;margin:auto}.grid{grid-template-columns:1fr 1fr}.members{grid-template-columns:1fr 1fr}.navlinks{display:none}}
-@media(max-width:560px){.nav{height:64px}.brand{font-size:16px}.navactions .ghost{display:none}.hero{padding-top:44px}.hero p{font-size:16px}.grid,.members{grid-template-columns:1fr}.sectionHead{display:block}.sectionHead .btn{margin-top:14px}.notice{display:block}.notice .btn{margin-top:14px;width:100%}.actions .btn{width:100%}.actions{display:grid}}
+:root{
+  --bg:#07060d;--bg2:#0d0917;--panel:#121020;--panel2:#18132a;--line:rgba(255,255,255,.09);
+  --text:#fbf9ff;--muted:#aaa3b8;--purple:#8b5cf6;--purple2:#bd70ff;--pink:#ef64c9;
+  --gold:#f5c866;--green:#49e5a1;--red:#ff6d83;--cyan:#72d9ff;
+  --shadow:0 25px 80px rgba(0,0,0,.42);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  margin:0;min-height:100vh;color:var(--text);font-family:Arial,"Tajawal",sans-serif;
+  background:
+    radial-gradient(circle at 10% 0%,rgba(139,92,246,.18),transparent 28%),
+    radial-gradient(circle at 100% 22%,rgba(239,100,201,.10),transparent 25%),
+    linear-gradient(145deg,#05040a,#0a0711 52%,#05040a);
+}
+button,input,textarea,select{font:inherit}button{cursor:pointer}
+button:active{transform:scale(.98)}
+.hidden{display:none!important}
+.btn{
+  border:0;min-height:46px;padding:0 17px;border-radius:15px;color:#fff;font-weight:800;
+  display:inline-flex;align-items:center;justify-content:center;gap:7px
+}
+.primary{background:linear-gradient(135deg,#8050f2,#bb69ff);box-shadow:0 12px 32px rgba(139,92,246,.25)}
+.secondary{background:rgba(255,255,255,.045);border:1px solid var(--line);color:#eee}
+.danger{background:rgba(255,109,131,.10);border:1px solid rgba(255,109,131,.22);color:#ff9aac}
+.icon-btn{
+  width:44px;height:44px;border-radius:14px;background:#11101a;color:#fff;border:1px solid var(--line);
+  display:grid;place-items:center
+}
+.pill{
+  display:inline-flex;align-items:center;gap:7px;padding:8px 12px;border-radius:999px;
+  background:rgba(139,92,246,.13);border:1px solid rgba(139,92,246,.28);color:#ddccff;
+  font-size:12px;font-weight:800
+}
+.muted{color:var(--muted)}
+.toast{
+  position:fixed;z-index:200;bottom:88px;right:15px;max-width:calc(100% - 30px);
+  padding:13px 16px;border-radius:16px;background:#171327;border:1px solid var(--line);
+  box-shadow:var(--shadow);display:none;font-size:13px
+}
+.toast.show{display:block;animation:pop .18s ease-out}
+@keyframes pop{from{transform:translateY(8px);opacity:0}to{transform:none;opacity:1}}
+/* بوابة الدخول */
+#gate{
+  min-height:100vh;display:grid;place-items:center;padding:22px;position:relative;overflow:hidden
+}
+#gate:before,#gate:after{
+  content:"";position:absolute;width:330px;height:330px;border-radius:50%;filter:blur(90px);opacity:.26
+}
+#gate:before{background:#8b5cf6;right:-100px;top:-110px}
+#gate:after{background:#ef64c9;left:-120px;bottom:-130px}
+.gate{
+  width:min(470px,100%);position:relative;z-index:1;text-align:center;padding:42px 25px;
+  border:1px solid var(--line);border-radius:34px;background:rgba(13,10,22,.80);
+  backdrop-filter:blur(24px);box-shadow:var(--shadow)
+}
+.mark{
+  width:88px;height:88px;margin:0 auto 18px;border-radius:27px;display:grid;place-items:center;
+  background:linear-gradient(145deg,#8b5cf6,#4c1d95);font-size:40px;
+  box-shadow:0 18px 55px rgba(139,92,246,.32)
+}
+.brand{font-size:29px;font-weight:900}
+.gate p{color:var(--muted);line-height:1.9;margin:10px auto 27px;max-width:370px}
+.gate-actions{display:grid;gap:11px}
+.gate-note{font-size:11px;color:#777184;margin-top:16px}
+/* مودال */
+.modal{
+  position:fixed;inset:0;z-index:150;display:none;align-items:center;justify-content:center;
+  padding:16px;background:rgba(2,2,6,.78);backdrop-filter:blur(12px)
+}
+.modal.show{display:flex}
+.modal-card{
+  width:min(520px,100%);max-height:92vh;overflow:auto;padding:23px;border-radius:28px;
+  background:#100d19;border:1px solid var(--line);box-shadow:var(--shadow)
+}
+.modal-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:17px}
+.modal-head h2{margin:0;font-size:21px}
+.close{width:40px;height:40px;border-radius:13px;background:#181427;color:#fff;border:1px solid var(--line)}
+.field{margin:12px 0}
+.field label{display:block;font-size:13px;color:#ddd7e7;margin-bottom:7px}
+.field input,.field textarea,.field select{
+  width:100%;border:1px solid var(--line);background:#080810;color:#fff;border-radius:14px;
+  padding:13px;outline:none
+}
+.field textarea{min-height:95px;resize:vertical}
+.field input:focus,.field textarea:focus,.field select:focus{border-color:#8b5cf6;box-shadow:0 0 0 3px rgba(139,92,246,.11)}
+.msg{min-height:20px;color:#ff93a3;font-size:13px;margin:7px 0}
+.switch{text-align:center;color:var(--muted);font-size:13px;margin-top:13px}
+.link{color:#c18cff;font-weight:800;cursor:pointer}
+/* التطبيق */
+#app{min-height:100vh}
+.topbar{
+  position:sticky;top:0;z-index:80;height:70px;display:flex;align-items:center;justify-content:space-between;
+  padding:0 max(13px,calc((100% - 1180px)/2));border-bottom:1px solid var(--line);
+  background:rgba(6,5,11,.80);backdrop-filter:blur(22px)
+}
+.logo{font-weight:900;font-size:18px}.logo small{display:block;color:#92899f;font-size:10px;margin-top:3px}
+.top-actions{display:flex;gap:8px}
+.layout{width:min(1180px,100%);margin:auto;padding:18px 14px 105px}
+.view{display:none}.view.active{display:block}
+/* الرئيسية */
+.hero{
+  display:grid;grid-template-columns:1.35fr .65fr;gap:14px
+}
+.hero-card{
+  min-height:260px;padding:28px;border-radius:30px;border:1px solid var(--line);
+  background:
+    radial-gradient(circle at 90% 15%,rgba(189,112,255,.18),transparent 30%),
+    linear-gradient(145deg,rgba(28,22,45,.96),rgba(11,10,17,.96));
+  box-shadow:var(--shadow)
+}
+.hero-card h1{font-size:clamp(28px,5vw,46px);margin:15px 0 8px}
+.hero-card p{color:var(--muted);line-height:1.9;max-width:650px;margin:0 0 20px}
+.quick{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}
+.quick-card{
+  padding:20px 10px;border-radius:23px;border:1px solid var(--line);
+  background:linear-gradient(145deg,#171326,#0d0c15);text-align:center
+}
+.quick-card span{font-size:12px;color:var(--muted)}
+.quick-card b{display:block;font-size:23px;margin-top:9px}
+.section-head{display:flex;align-items:end;justify-content:space-between;gap:10px;margin:28px 0 13px}
+.section-head h2{margin:0;font-size:22px}.section-head p{margin:5px 0 0;color:var(--muted);font-size:13px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+/* الغرف */
+.room{
+  position:relative;min-height:205px;padding:19px;border:1px solid var(--line);border-radius:26px;
+  overflow:hidden;background:linear-gradient(145deg,#1b1630,#0c0b13);background-size:cover;background-position:center;
+  transition:.18s
+}
+.room.cover:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(5,4,9,.20),rgba(5,4,9,.94) 78%)}
+.room>*{position:relative;z-index:1}
+.room:hover{transform:translateY(-2px);border-color:rgba(189,112,255,.32)}
+.room-top{display:flex;justify-content:space-between;align-items:center}
+.room-icon{
+  width:53px;height:53px;border-radius:18px;display:grid;place-items:center;
+  background:#1a1730;border:1px solid var(--line);font-size:25px;overflow:hidden
+}
+.room-icon img{width:100%;height:100%;object-fit:cover}
+.live{color:var(--green);font-size:11px}
+.room h3{margin:17px 0 6px;font-size:19px}.room p{margin:0;color:#b9b2c4;font-size:13px;line-height:1.75}
+.room-meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.tag{padding:6px 9px;border-radius:10px;background:rgba(255,255,255,.045);border:1px solid var(--line);font-size:10px;color:#d2cbdb}
+.room-foot{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:17px}
+.owner{font-size:10px;color:#c7a5ff;margin-top:8px}
+.mics{display:flex;align-items:center;gap:5px;color:#c9c2d5;font-size:11px}
+.mic-dot{width:26px;height:26px;border-radius:9px;display:grid;place-items:center;background:#171426;border:1px solid var(--line)}
+/* أعضاء */
+.members{display:grid;grid-template-columns:repeat(4,1fr);gap:11px}
+.member{
+  text-align:center;padding:20px 9px;border-radius:23px;border:1px solid var(--line);
+  background:rgba(18,16,26,.76)
+}
+.avatar{width:66px;height:66px;margin:auto;border-radius:22px;display:grid;place-items:center;background:linear-gradient(145deg,#27233d,#151322);border:1px solid var(--line);overflow:hidden;font-size:27px}
+.avatar img{width:100%;height:100%;object-fit:cover}.member b{display:block;margin:10px 0 5px}.online{color:var(--green);font-size:11px}
+/* الحساب */
+.profile-grid{display:grid;grid-template-columns:1fr .8fr;gap:14px}
+.panel{padding:22px;border-radius:27px;border:1px solid var(--line);background:linear-gradient(145deg,#171326,#0d0c14)}
+.profile-head{display:flex;align-items:center;gap:14px}
+.big-avatar{width:88px;height:88px;border-radius:28px;display:grid;place-items:center;background:linear-gradient(145deg,#8b5cf6,#2d1a54);overflow:hidden;font-size:34px}
+.big-avatar img{width:100%;height:100%;object-fit:cover}
+.profile-head h2{margin:0 0 5px}.profile-head p{margin:0 0 8px;color:var(--muted);font-size:12px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:16px}
+.stat{padding:12px;border-radius:15px;background:#0b0a11;border:1px solid var(--line);text-align:center}.stat b{display:block}.stat span{font-size:11px;color:var(--muted)}
+.progress{height:8px;border-radius:99px;background:#24202e;overflow:hidden;margin:18px 0 7px}.progress i{display:block;height:100%;background:linear-gradient(90deg,#8b5cf6,#ef64c9);width:30%}
+.badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.badge{
+  padding:10px 11px;border-radius:14px;background:#171329;border:1px solid var(--line);font-size:12px;
+  display:inline-flex;align-items:center;gap:5px
+}
+.shop-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.product{padding:18px;border-radius:22px;border:1px solid var(--line);background:linear-gradient(145deg,#18142a,#0d0c14)}
+.product h3{margin:8px 0 5px}.product p{color:var(--muted);font-size:12px;line-height:1.7}.price{color:var(--gold);font-weight:900;margin:12px 0}
+/* المتجر */
+.market-tabs{display:flex;gap:8px;overflow:auto;padding-bottom:3px}.market-tab{white-space:nowrap}
+.market-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.gift{
+  padding:18px;border-radius:23px;border:1px solid var(--line);background:linear-gradient(145deg,#19142a,#0e0c15);
+  text-align:center
+}
+.gift-icon{font-size:42px}.gift h3{margin:8px 0 4px}.gift p{margin:0;color:var(--muted);font-size:12px}
+.gift .price{margin:12px 0}
+/* غرفي */
+.manage-list{display:grid;gap:12px}
+.manage{
+  display:grid;grid-template-columns:76px 1fr auto;align-items:center;gap:12px;
+  padding:13px;border-radius:21px;border:1px solid var(--line);background:#11101a
+}
+.cover-mini{width:76px;height:64px;border-radius:16px;background:#1a1730;background-size:cover;background-position:center;display:grid;place-items:center;font-size:24px}
+.manage h3{margin:0 0 5px;font-size:15px}.manage p{margin:0;color:var(--muted);font-size:11px}
+.manage-actions{display:flex;gap:7px}
+/* الغرفة الداخلية */
+.room-stage{
+  min-height:690px;border-radius:30px;border:1px solid var(--line);overflow:hidden;position:relative;
+  background:#0c0a13;background-size:cover;background-position:center;box-shadow:var(--shadow)
+}
+.room-stage:before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(5,4,9,.34),rgba(5,4,9,.91) 82%)}
+.room-stage>*{position:relative;z-index:1}
+.room-bar{
+  display:flex;align-items:center;justify-content:space-between;gap:10px;padding:17px;
+  background:rgba(6,5,10,.40);border-bottom:1px solid rgba(255,255,255,.08);backdrop-filter:blur(13px)
+}
+.room-bar h2{margin:0;font-size:20px}.room-bar p{margin:4px 0 0;color:#c7c0ce;font-size:11px}
+.room-content{display:grid;grid-template-columns:1fr 330px;gap:14px;padding:14px}
+.stage{
+  min-height:585px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px
+}
+.stage h1{font-size:clamp(27px,5vw,48px);margin:13px 0 7px}.stage p{color:#c0b8c9;line-height:1.8;max-width:600px}
+.seats{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin:18px 0}
+.seat-wrap{width:78px;text-align:center}.seat{
+  width:64px;height:64px;margin:auto;border-radius:22px;display:grid;place-items:center;
+  background:#181529;border:1px solid rgba(255,255,255,.10);font-size:23px
+}
+.seat-wrap.active .seat{box-shadow:0 0 0 3px rgba(73,229,161,.17),0 0 28px rgba(139,92,246,.25)}
+.seat-wrap small{display:block;color:#c8c0ce;font-size:10px;margin-top:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.room-controls{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:12px}
+.control{min-height:44px;border-radius:14px;border:1px solid var(--line);background:#171326;color:#fff;padding:0 13px}
+.control.on{background:rgba(73,229,161,.11);border-color:rgba(73,229,161,.32);color:#7bf1bb}
+.room-chat{
+  min-height:585px;border-radius:23px;border:1px solid var(--line);background:rgba(8,7,13,.68);
+  backdrop-filter:blur(15px);display:flex;flex-direction:column;overflow:hidden
+}
+.chat-head{padding:14px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between}
+.chat-messages{flex:1;overflow:auto;padding:12px}
+.chat-msg{padding:9px 11px;border-radius:14px;background:#171326;margin:7px 0;font-size:12px}
+.chat-msg.me{background:#6e43d6;margin-right:auto}
+.chat-form{display:flex;gap:7px;padding:9px;border-top:1px solid var(--line)}
+.chat-form input{flex:1;min-width:0;background:#080810;color:#fff;border:1px solid var(--line);border-radius:12px;padding:0 10px}
+/* تنقل */
+.bottom-nav{
+  position:fixed;z-index:75;left:0;right:0;bottom:0;display:grid;grid-template-columns:repeat(5,1fr);
+  background:rgba(8,7,13,.94);backdrop-filter:blur(20px);border-top:1px solid var(--line);
+  padding:7px max(7px,calc((100% - 720px)/2));padding-bottom:max(7px,env(safe-area-inset-bottom))
+}
+.nav{
+  min-height:55px;background:transparent;border:0;color:#8f899b;font-size:10px;font-weight:800
+}
+.nav span{display:block;font-size:19px;margin-bottom:3px}.nav.active{color:#c49bff}
+/* دردشة عامة */
+.drawer{
+  position:fixed;z-index:100;left:15px;bottom:88px;width:min(400px,calc(100% - 30px));height:500px;
+  display:none;flex-direction:column;background:#100d19;border:1px solid var(--line);border-radius:25px;box-shadow:var(--shadow);overflow:hidden
+}
+.drawer.show{display:flex}
+/* responsive */
+@media(max-width:850px){
+  .hero,.profile-grid{grid-template-columns:1fr}
+  .members{grid-template-columns:repeat(2,1fr)}
+  .room-content{grid-template-columns:1fr}
+  .room-chat{min-height:300px;height:300px}
+}
+@media(max-width:650px){
+  .topbar{height:64px;padding:0 11px}.layout{padding:14px 10px 101px}
+  .hero-card{padding:21px;min-height:280px}.quick-card{padding:14px 7px}.quick-card b{font-size:19px}
+  .grid{grid-template-columns:1fr}.shop-grid,.market-grid{grid-template-columns:1fr}
+  .manage{grid-template-columns:58px 1fr}.manage-actions{grid-column:1/-1}
+  .cover-mini{width:58px;height:58px}.room-stage{min-height:720px}.stage{min-height:390px}
+  .room-content{padding:9px}.section-head{align-items:start;flex-direction:column}
+}
 </style>
 </head>
 <body>
-<header><div class="wrap nav">
-  <a class="brand" href="#top" aria-label="الرئيسية"><span>افـنـدツ⁠يـنـا🥀🖤</span></a>
-  <nav class="navlinks" aria-label="التنقل"><a href="#rooms">الغرف</a><a href="#members">الأعضاء</a><a href="#features">المميزات</a></nav>
-  <div class="navactions"><button class="btn ghost" onclick="openModal('signupModal')">إنشاء حساب</button><button class="btn primary" onclick="openModal('loginModal')">تسجيل الدخول</button></div>
-</div></header>
 
-<main id="top">
-<section class="hero"><div class="wrap heroGrid">
-  <div>
-    <span class="eyebrow">✦ مساحة هادئة للتعارف والدردشة</span>
-    <h1>أهلاً بك في <span class="mark">افـنـدツ⁠يـنـا🥀🖤</span></h1>
-    <p>واجهة عصرية وسريعة للتعارف والدردشة واكتشاف أشخاص جدد. صُممت لتكون مريحة على الهاتف، بسيطة في الاستخدام، وهادئة في الشكل.</p>
-    <div class="actions"><button class="btn primary" onclick="openModal('signupModal')">🚀 ابدأ الآن</button><a class="btn ghost" href="#rooms">💬 استكشف الغرف</a></div>
-    <div class="heroNote"><span>🔒 خصوصية أفضل</span><span>⚡ تصميم سريع</span><span>📱 مناسب للهاتف</span></div>
+<section id="gate">
+  <div class="gate">
+    <div class="mark">🥀</div>
+    <div class="brand">افـنـدツ⁠يـنـا🥀🖤</div>
+    <p>مساحة اجتماعية راقية للصوت والدردشة والتعارف. ادخل بحسابك وابدأ بناء حضورك، اجمع الكوين، احصل على الأوسمة وامتلك غرفتك الخاصة.</p>
+    <div class="gate-actions">
+      <button class="btn primary" onclick="openModal('login')">🔐 دخول الحساب</button>
+      <button class="btn secondary" onclick="openModal('signup')">✨ حساب جديد</button>
+    </div>
+    <div class="gate-note">بيانات النسخة الحالية محفوظة على هذا الجهاز.</div>
   </div>
+</section>
 
-  <div class="loginCard" id="login">
-    <div class="loginTop"><div class="logoOrb">🥀</div><h2>تسجيل الدخول</h2><p>ادخل إلى حسابك في افـنـدツ⁠يـنـا🥀🖤</p></div>
+<div id="loginModal" class="modal">
+  <div class="modal-card">
+    <div class="modal-head"><h2>تسجيل الدخول</h2><button class="close" onclick="closeModals()">✕</button></div>
     <form onsubmit="login(event)">
-      <div class="field"><label for="loginUser">اسم المستخدم أو البريد الإلكتروني</label><input id="loginUser" autocomplete="username" placeholder="اكتب اسمك أو بريدك" required></div>
-      <div class="field"><label for="loginPass">كلمة المرور</label><div class="fieldBox"><input id="loginPass" type="password" autocomplete="current-password" placeholder="كلمة المرور" required minlength="6"><button class="toggle" type="button" onclick="togglePassword('loginPass',this)">إظهار</button></div></div>
-      <div class="row"><label class="check"><input id="remember" type="checkbox"> تذكرني</label><button class="link" type="button" onclick="forgotPassword()">نسيت كلمة المرور؟</button></div>
-      <button class="btn primary full" type="submit">🔐 تسجيل الدخول</button>
-      <div id="loginMessage" class="loginMessage"></div>
+      <div class="field"><label>اسم المستخدم أو البريد</label><input id="loginId" required autocomplete="username"></div>
+      <div class="field"><label>كلمة المرور</label><input id="loginPass" type="password" required autocomplete="current-password"></div>
+      <div id="loginMsg" class="msg"></div>
+      <button class="btn primary" style="width:100%">دخول إلى افـنـدツ⁠يـنـا</button>
     </form>
-    <div class="divider">أو</div>
-    <button class="btn soft full" onclick="openModal('signupModal')">✨ إنشاء حساب جديد</button>
+    <div class="switch">أول مرة هنا؟ <span class="link" onclick="switchModal('signup')">أنشئ حسابًا</span></div>
   </div>
-</div></section>
+</div>
 
-<section id="features"><div class="wrap"><div class="sectionHead"><div><h2>كل الأساسيات في مكان واحد</h2><p>أزرار واضحة وتجربة مناسبة للشاشات الصغيرة.</p></div></div><div class="grid">
-  <article class="card"><div class="icon">🛡️</div><h3>أمان وخصوصية</h3><p>واجهة لا تطلب معلومات غير ضرورية، مع فصل واضح بين الواجهة والحساب.</p></article>
-  <article class="card"><div class="icon">💬</div><h3>دردشة سهلة</h3><p>الوصول إلى الغرف والأعضاء من أزرار مباشرة بدون تعقيد.</p></article>
-  <article class="card"><div class="icon">⚡</div><h3>خفيفة وسريعة</h3><p>الصفحة تعمل بدون مكتبات خارجية، لتكون مناسبة لـ GitHub Pages والهاتف.</p></article>
-</div></div></section>
+<div id="signupModal" class="modal">
+  <div class="modal-card">
+    <div class="modal-head"><h2>إنشاء حساب</h2><button class="close" onclick="closeModals()">✕</button></div>
+    <form onsubmit="signup(event)">
+      <div class="field"><label>اسم المستخدم</label><input id="signupName" maxlength="24" required minlength="3"></div>
+      <div class="field"><label>البريد الإلكتروني</label><input id="signupEmail" type="email" required></div>
+      <div class="field"><label>كلمة المرور</label><input id="signupPass" type="password" minlength="6" required></div>
+      <div id="signupMsg" class="msg"></div>
+      <button class="btn primary" style="width:100%">✨ إنشاء الحساب والدخول فورًا</button>
+    </form>
+    <div class="switch">عندك حساب؟ <span class="link" onclick="switchModal('login')">ادخل الآن</span></div>
+  </div>
+</div>
 
-<section id="rooms"><div class="wrap"><div class="sectionHead"><div><h2>الغرف</h2><p>اختر المكان الذي يناسبك.</p></div><button class="btn ghost" onclick="showToast('سيتم فتح نظام الغرف الكامل بعد ربط قاعدة البيانات.')">+ إنشاء غرفة</button></div><div class="grid">
-  <article class="card room"><div class="roomTitle"><div class="icon">🌙</div><div><b>القاعة العامة</b><div class="online">● متصل الآن</div></div></div><button class="btn primary" onclick="joinRoom('القاعة العامة')">دخول</button></article>
-  <article class="card room"><div class="roomTitle"><div class="icon">❤️</div><div><b>تعارف وأصدقاء</b><div class="online">● متصل الآن</div></div></div><button class="btn primary" onclick="joinRoom('تعارف وأصدقاء')">دخول</button></article>
-  <article class="card room"><div class="roomTitle"><div class="icon">🎵</div><div><b>موسيقى وسهر</b><div class="online">● متصل الآن</div></div></div><button class="btn primary" onclick="joinRoom('موسيقى وسهر')">دخول</button></article>
-</div></div></section>
+<div id="createRoomModal" class="modal">
+  <div class="modal-card">
+    <div class="modal-head"><h2>👑 امتلاك غرفة</h2><button class="close" onclick="closeModals()">✕</button></div>
+    <p class="muted" style="line-height:1.8">بعد الشراء تصبح الغرفة مرتبطة بحسابك. تستطيع لاحقًا تعديل الاسم والوصف والصورة الخارجية وخلفية الغرفة الداخلية.</p>
+    <div class="field"><label>اسم الغرفة</label><input id="newRoomName" maxlength="35" placeholder="مثال: سهرات افـنـد"></div>
+    <div class="field"><label>وصف قصير</label><textarea id="newRoomDesc" maxlength="130" placeholder="ما الذي يميز غرفتك؟"></textarea></div>
+    <div id="roomBuyMsg" class="msg"></div>
+    <button class="btn primary" style="width:100%" onclick="buyRoom()">👑 امتلك الغرفة — 1500 🪙</button>
+  </div>
+</div>
 
-<section id="members"><div class="wrap"><div class="sectionHead"><div><h2>الأعضاء</h2><p>نماذج للواجهة — الأعضاء الحقيقيون يحتاجون قاعدة بيانات.</p></div><button class="btn ghost" onclick="showToast('سيتم ربط البحث بالأعضاء عند إضافة قاعدة البيانات.')">🔎 بحث</button></div><div class="members">
-  <article class="card member"><div class="avatar">👤</div><b>ساهر</b><div class="online">● متصل</div><div class="memberActions"><button class="btn soft" onclick="showToast('الدردشة الحقيقية تحتاج خدمة خلفية.')">💬 دردشة</button><button class="btn ghost" onclick="showToast('تم إرسال طلب تجريبي ❤️')">❤️</button></div></article>
-  <article class="card member"><div class="avatar">🌙</div><b>نجمة</b><div class="online">● متصلة</div><div class="memberActions"><button class="btn soft" onclick="showToast('الدردشة الحقيقية تحتاج خدمة خلفية.')">💬 دردشة</button><button class="btn ghost" onclick="showToast('تم إرسال طلب تجريبي ❤️')">❤️</button></div></article>
-  <article class="card member"><div class="avatar">🖤</div><b>مزاج</b><div class="online">● متصل</div><div class="memberActions"><button class="btn soft" onclick="showToast('الدردشة الحقيقية تحتاج خدمة خلفية.')">💬 دردشة</button><button class="btn ghost" onclick="showToast('تم إرسال طلب تجريبي ❤️')">❤️</button></div></article>
-  <article class="card member"><div class="avatar">🥀</div><b>قمر</b><div class="online">● متصلة</div><div class="memberActions"><button class="btn soft" onclick="showToast('الدردشة الحقيقية تحتاج خدمة خلفية.')">💬 دردشة</button><button class="btn ghost" onclick="showToast('تم إرسال طلب تجريبي ❤️')">❤️</button></div></article>
-</div></div></section>
+<div id="editRoomModal" class="modal">
+  <div class="modal-card">
+    <div class="modal-head"><h2>🎨 استوديو الغرفة</h2><button class="close" onclick="closeModals()">✕</button></div>
+    <input id="editRoomId" type="hidden">
+    <div class="field"><label>اسم الغرفة</label><input id="editName" maxlength="35"></div>
+    <div class="field"><label>وصف الغرفة</label><textarea id="editDesc" maxlength="130"></textarea></div>
+    <div class="field"><label>الصورة الخارجية</label><input id="outerUpload" type="file" accept="image/*" onchange="cacheImage(event,'outer')"><small id="outerPreview" class="muted">اختر صورة من الهاتف.</small></div>
+    <div class="field"><label>خلفية الغرفة من الداخل</label><input id="innerUpload" type="file" accept="image/*" onchange="cacheImage(event,'inner')"><small id="innerPreview" class="muted">تظهر خلفية المسرح والدردشة.</small></div>
+    <button class="btn primary" style="width:100%" onclick="saveRoomEdit()">💾 تطبيق التصميم</button>
+  </div>
+</div>
 
-<section><div class="wrap"><div class="notice"><div><b>جاهز تبدأ؟</b><p>أنشئ حسابًا تجريبيًا الآن. البيانات تُحفظ محليًا في جهازك فقط في هذه النسخة، وليست تسجيلًا حقيقيًا على الإنترنت.</p></div><button class="btn primary" onclick="openModal('signupModal')">إنشاء حساب</button></div></div></section>
+<div id="giftModal" class="modal">
+  <div class="modal-card">
+    <div class="modal-head"><h2>🎁 إرسال هدية</h2><button class="close" onclick="closeModals()">✕</button></div>
+    <p class="muted">اختر هدية وأرسلها للعضو داخل النسخة التجريبية.</p>
+    <div id="giftTarget" class="pill" style="margin-bottom:12px">للعضو</div>
+    <div id="giftChoices" class="market-grid"></div>
+  </div>
+</div>
+
+<div id="settingsModal" class="modal">
+  <div class="modal-card">
+    <div class="modal-head"><h2>⚙️ إعدادات الحساب</h2><button class="close" onclick="closeModals()">✕</button></div>
+    <div class="field"><label>الاسم الظاهر</label><input id="settingsName" maxlength="24"></div>
+    <div class="field"><label>نبذة قصيرة</label><textarea id="settingsBio" maxlength="140"></textarea></div>
+    <button class="btn primary" style="width:100%" onclick="saveSettings()">حفظ الملف</button>
+    <button class="btn danger" style="width:100%;margin-top:9px" onclick="logout()">🚪 تسجيل الخروج</button>
+  </div>
+</div>
+
+<div id="app" class="hidden">
+<header class="topbar">
+  <div class="logo">🥀 افـنـدツ⁠يـنـا🖤<small>مساحتك... بطريقتك</small></div>
+  <div class="top-actions">
+    <button class="icon-btn" onclick="openChat('الدردشة العامة')">💬</button>
+    <button class="icon-btn" onclick="showView('profileView')">👤</button>
+  </div>
+</header>
+
+<main class="layout">
+
+<section id="homeView" class="view active">
+  <div class="hero">
+    <div class="hero-card">
+      <span class="pill">● متصل الآن</span>
+      <h1>أهلًا <span id="userName">بك</span> 🖤</h1>
+      <p id="userBio">كل شيء جاهز لك. ادخل غرفة، افتح المايك، شارك في الدردشة، أرسل هدايا واصنع حضورك.</p>
+      <button class="btn primary" onclick="showView('roomsView')">🎙️ استكشف الغرف</button>
+    </div>
+    <div class="quick">
+      <div class="quick-card"><span>🪙 كوين</span><b id="coinValue">0</b></div>
+      <div class="quick-card"><span>⭐ المستوى</span><b id="levelValue">1</b></div>
+      <div class="quick-card"><span>🏅 أوسمة</span><b id="badgeValue">0</b></div>
+    </div>
+  </div>
+
+  <div class="section-head"><div><h2>الغرف المتاحة 🔥</h2><p>صوت، مايكات ودردشة داخل كل غرفة.</p></div><button class="btn secondary" onclick="showView('roomsView')">عرض الكل</button></div>
+  <div id="homeRooms" class="grid"></div>
+
+  <div class="section-head"><div><h2>أعضاء نشطون 🟢</h2><p>تواصل معهم أو أرسل هدية.</p></div></div>
+  <div id="homeMembers" class="members"></div>
+</section>
+
+<section id="roomsView" class="view">
+  <div class="section-head">
+    <div><h2>🎙️ الغرف الصوتية</h2><p>ادخل، تحدث، افتح المايك أو امتلك غرفتك.</p></div>
+    <button class="btn primary" onclick="openCreateRoom()">👑 امتلك غرفة</button>
+  </div>
+  <div id="allRooms" class="grid"></div>
+</section>
+
+<section id="membersView" class="view">
+  <div class="section-head"><div><h2>👥 الأعضاء</h2><p>ملفات، دردشة وهدايا.</p></div></div>
+  <div id="allMembers" class="members"></div>
+</section>
+
+<section id="marketView" class="view">
+  <div class="section-head"><div><h2>🛍️ المتجر</h2><p>هدايا، أوسمة واشتراكات فاخرة.</p></div><span class="pill">رصيدك <b id="marketCoins">0</b> 🪙</span></div>
+  <div class="market-tabs">
+    <button class="btn primary market-tab">🎁 الهدايا</button>
+    <button class="btn secondary market-tab" onclick="showView('profileView')">🏅 الأوسمة</button>
+    <button class="btn secondary market-tab" onclick="showView('profileView')">💎 الاشتراكات</button>
+  </div>
+  <div id="giftMarket" class="market-grid" style="margin-top:13px"></div>
+</section>
+
+<section id="myRoomsView" class="view">
+  <div class="section-head"><div><h2>👑 غرفي</h2><p>إدارة الاسم والصور والخلفية والمقاعد.</p></div><button class="btn primary" onclick="openCreateRoom()">➕ غرفة جديدة</button></div>
+  <div id="myRooms" class="manage-list"></div>
+</section>
+
+<section id="profileView" class="view">
+  <div class="section-head"><div><h2>👤 حسابي</h2><p>صورتك، مستواك، أوسمتك ومشترياتك.</p></div><button class="btn secondary" onclick="openSettings()">⚙️ تعديل</button></div>
+  <div class="profile-grid">
+    <div class="panel">
+      <div class="profile-head">
+        <div class="big-avatar" id="profileAvatar">🥀</div>
+        <div><h2 id="profileName">المستخدم</h2><p id="profileEmail">—</p><span class="pill">عضو نشط</span></div>
+      </div>
+      <div style="display:flex;gap:8px;margin-top:16px;flex-wrap:wrap">
+        <label class="btn primary">📷 رفع صورة<input id="avatarUpload" type="file" accept="image/*" hidden onchange="uploadAvatar(event)"></label>
+        <button class="btn secondary" onclick="removeAvatar()">إزالة الصورة</button>
+      </div>
+      <div class="progress"><i id="levelProgress"></i></div>
+      <small class="muted">التقدم إلى المستوى التالي</small>
+      <div class="stats">
+        <div class="stat"><b id="profileCoins">0</b><span>كوين</span></div>
+        <div class="stat"><b id="profileLevel">1</b><span>مستوى</span></div>
+        <div class="stat"><b id="profileBadges">0</b><span>وسام</span></div>
+      </div>
+      <button class="btn primary" style="width:100%;margin-top:15px" onclick="demoRecharge()">⚡ شحن تجريبي +5000 كوين</button>
+    </div>
+
+    <div class="panel">
+      <h3 style="margin-top:0">🏅 مجموعة الأوسمة</h3>
+      <div id="badgesList" class="badges"></div>
+      <p class="muted" style="font-size:12px;line-height:1.8">الأوسمة تعكس نشاطك ودعمك داخل المجتمع. بعض الأوسمة يمكن شراؤها من المتجر، وأخرى تُفتح بالإنجاز.</p>
+      <button class="btn secondary" style="width:100%" onclick="showToast('تابع نشاطك لفتح أوسمة جديدة ✨')">استعراض شروط الأوسمة</button>
+    </div>
+  </div>
+
+  <div class="section-head"><div><h2>💎 العضويات</h2><p>مزايا أعلى للحسابات الداعمة.</p></div></div>
+  <div class="shop-grid">
+    <div class="product"><h3>✨ Plus</h3><p>شارة مميزة، إطار ملف شخصي ولمسات إضافية.</p><div class="price">499 🪙</div><button class="btn secondary" style="width:100%" onclick="buyPlan(499,'Plus')">تفعيل</button></div>
+    <div class="product"><h3>👑 VIP</h3><p>شارة VIP، أولوية ظهور ومزايا اجتماعية.</p><div class="price">999 🪙</div><button class="btn primary" style="width:100%" onclick="buyPlan(999,'VIP')">تفعيل</button></div>
+    <div class="product"><h3>💎 Royal</h3><p>أعلى عضوية مع إطار فاخر وأولوية للمزايا.</p><div class="price">1999 🪙</div><button class="btn secondary" style="width:100%" onclick="buyPlan(1999,'Royal')">تفعيل</button></div>
+  </div>
+</section>
+
+<section id="roomView" class="view">
+  <div id="roomStage" class="room-stage"></div>
+</section>
+
 </main>
 
-<section id="dashboard" class="hidden" style="padding-top:35px"><div class="wrap">
-  <div class="dashHero">
-    <div class="sectionHead" style="margin-bottom:0"><div><h2>مرحبًا <span id="dashName">بك</span> 🖤</h2><p>أنت الآن داخل حسابك في افـنـدツ⁠يـنـا🥀🖤</p><div id="dashBadges"></div></div><button class="btn danger" onclick="logout()">تسجيل الخروج</button></div>
-    <div class="plan"><div><b id="dashPlan">الباقة الأساسية</b><div id="dashRole" class="dashMeta">عضو</div></div><button class="btn soft" onclick="openModal('plansModal')">💎 الاشتراكات</button></div>
-  </div>
-  <div class="coinBar">
-    <div class="coinCard"><div class="coinTop"><div><div class="coinMeta">رصيدك الحالي</div><div class="coinValue">🪙 <span id="dashCoins">0</span> كوين</div></div><span class="levelPill">المستوى <span id="dashLevel">1</span></span></div><div class="progress"><i id="coinProgress" style="width:0%"></i></div><div class="coinMeta"><span id="dailyEarned">0</span> / <span id="dailyCap">100</span> كوين مكتسبة اليوم • الحد يتغير حسب المستوى</div><div class="coinActions"><button class="btn primary" onclick="openModal('coinsModal')">🪙 شحن الكوين</button><button class="btn ghost" onclick="openModal('earnModal')">🎁 اكسب كوين</button></div></div>
-    <div class="coinCard"><div class="coinTop"><div><b>🏅 أوسمتك</b><div class="coinMeta">الأوسمة الفخمة تُشترى بالكوين أو تُفتح بالإنجازات.</div></div></div><div id="dashBadges" style="margin-top:8px"></div><button class="btn soft full" style="margin-top:14px" onclick="openModal('badgesModal')">🏆 متجر الأوسمة</button></div>
-  </div>
-  <div id="ownerPanel" class="card ownerPanel hidden" style="margin-bottom:16px"><h3>👑 لوحة المالك</h3><p>هذا الحساب هو أول حساب تم إنشاؤه في النسخة التجريبية، ولذلك تم تعيينه كمالك الموقع.</p><div class="actions"><button class="btn soft" onclick="showToast('إدارة الأعضاء ستُربط بقاعدة البيانات.')">👥 إدارة الأعضاء</button><button class="btn soft" onclick="showToast('إدارة الأوسمة قيد التجهيز.')">🏅 إدارة الأوسمة</button><button class="btn soft" onclick="openModal('plansModal')">💎 إدارة الاشتراكات</button></div></div>
-  <div class="grid">
-    <article class="card"><div class="icon">👤</div><h3>ملفي الشخصي</h3><p id="dashInfo">بيانات الحساب</p><button class="btn soft full" style="margin-top:15px" onclick="showToast('صفحة الملف الشخصي قيد التطوير.')">فتح الملف</button></article>
-    <article class="card"><div class="icon">💬</div><h3>الدردشة</h3><p>ابدأ استكشاف الغرف والمحادثات.</p><button class="btn primary full" style="margin-top:15px" onclick="location.hash='rooms'">استكشاف الغرف</button></article>
-    <article class="card"><div class="icon">🏅</div><h3>الأوسمة</h3><p>ستظهر أوسمة مثل المالك، موثق، VIP، وعضو جديد حسب الحساب.</p><button class="btn ghost full" style="margin-top:15px" onclick="showToast('الأوسمة الأساسية مفعّلة للحساب.')">عرض الأوسمة</button></article>
-  </div>
-</div></section>
+<nav class="bottom-nav">
+  <button class="nav active" data-view="homeView" onclick="showView('homeView',this)"><span>⌂</span>الرئيسية</button>
+  <button class="nav" data-view="roomsView" onclick="showView('roomsView',this)"><span>🎙️</span>الغرف</button>
+  <button class="nav" data-view="membersView" onclick="showView('membersView',this)"><span>👥</span>الأعضاء</button>
+  <button class="nav" data-view="marketView" onclick="showView('marketView',this)"><span>🎁</span>المتجر</button>
+  <button class="nav" data-view="profileView" onclick="showView('profileView',this)"><span>👤</span>حسابي</button>
+</nav>
+</div>
 
-<footer><div class="wrap"><span class="footerBrand">افـنـدツ⁠يـنـا🥀🖤</span> — واجهة تجريبية © 2026</div></footer>
+<div id="chatDrawer" class="drawer">
+  <div class="chat-head"><b id="chatTitle">💬 الدردشة</b><button class="close" onclick="closeChat()">✕</button></div>
+  <div id="messages" class="chat-messages"><div class="chat-msg">أهلًا بك في افـنـدツ⁠يـنـا 🖤</div></div>
+  <form class="chat-form" onsubmit="sendMessage(event)"><input id="chatText" placeholder="اكتب رسالتك..." autocomplete="off"><button class="btn primary" style="min-height:42px;padding:0 13px">إرسال</button></form>
+</div>
 
-<div class="modal" id="loginModal" role="dialog" aria-modal="true" aria-labelledby="loginTitle"><div class="modalBox"><div class="modalHead"><div><h2 id="loginTitle">تسجيل الدخول</h2><p class="modalSub">ادخل إلى حسابك بسهولة.</p></div><button class="close" onclick="closeModal('loginModal')">×</button></div><form onsubmit="loginModalSubmit(event)"><div class="field"><label>اسم المستخدم أو البريد</label><input id="mLoginUser" required autocomplete="username"></div><div class="field"><label>كلمة المرور</label><div class="fieldBox"><input id="mLoginPass" type="password" required minlength="6" autocomplete="current-password"><button class="toggle" type="button" onclick="togglePassword('mLoginPass',this)">إظهار</button></div></div><div class="row"><label class="check"><input type="checkbox"> تذكرني</label><button type="button" class="link" onclick="forgotPassword()">نسيت كلمة المرور؟</button></div><button class="btn primary full">تسجيل الدخول</button><div id="modalLoginMessage" class="loginMessage"></div></form><div class="divider">ليس لديك حساب؟</div><button class="btn soft full" onclick="closeModal('loginModal');openModal('signupModal')">إنشاء حساب جديد</button></div></div>
-
-<div class="modal" id="signupModal" role="dialog" aria-modal="true" aria-labelledby="signupTitle"><div class="modalBox"><div class="modalHead"><div><h2 id="signupTitle">إنشاء حساب</h2><p class="modalSub">النسخة الحالية تجريبية ومحلية.</p></div><button class="close" onclick="closeModal('signupModal')">×</button></div><form onsubmit="signup(event)"><div class="field"><label>اسم المستخدم</label><input id="signupName" required minlength="3" autocomplete="username" placeholder="مثال: Ahmed"></div><div class="field"><label>البريد الإلكتروني</label><input id="signupEmail" type="email" required autocomplete="email" placeholder="name@example.com"></div><div class="field"><label>كلمة المرور</label><div class="fieldBox"><input id="signupPass" type="password" required minlength="6" autocomplete="new-password"><button class="toggle" type="button" onclick="togglePassword('signupPass',this)">إظهار</button></div></div><div class="field"><label>العمر</label><input id="signupAge" type="number" min="18" max="100" required placeholder="18+"></div><label class="check" style="margin:14px 0;color:#a6abba"><input id="terms" type="checkbox" required> أوافق على شروط الاستخدام.</label><button class="btn primary full">✨ إنشاء الحساب</button><div id="signupMessage" class="loginMessage"></div></form></div></div>
-
-<div class="modal" id="plansModal" role="dialog" aria-modal="true"><div class="modalBox"><div class="modalHead"><div><h2>💎 اشتراكات افـنـد</h2><p class="modalSub">أسعار شهرية مقترحة بالكوين/القيمة المحلية. الدفع الحقيقي يُربط لاحقًا ببوابة دفع آمنة.</p></div><button class="close" onclick="closeModal('plansModal')">×</button></div><div class="shopGrid" style="margin-top:16px"><article class="shopCard"><span class="badge new">أساسي</span><h3>🌙 Basic</h3><div class="price">49 ج.م / شهر</div><p class="mini">شارة أساسية، مزايا ملف إضافية، أولوية خفيفة في الغرف.</p><button class="btn ghost full" style="margin-top:12px" onclick="selectPlan('basic')">اختيار</button></article><article class="shopCard featured"><span class="badge vip">⭐ VIP</span><h3>✨ VIP</h3><div class="price">99 ج.م / شهر</div><p class="mini">شارة VIP، إبراز الملف، مزايا دردشة إضافية، ومكافأة يومية أكبر.</p><button class="btn primary full" style="margin-top:12px" onclick="selectPlan('vip')">اختيار VIP</button></article><article class="shopCard featured"><span class="badge gold">💎 PRO</span><h3>💎 Pro</h3><div class="price">179 ج.م / شهر</div><p class="mini">شارة Pro فاخرة، إبراز أعلى، مزايا خاصة، وحد يومي يصل إلى 400 كوين حسب المستوى.</p><button class="btn primary full" style="margin-top:12px" onclick="selectPlan('pro')">اختيار Pro</button></article><article class="shopCard"><span class="badge rose">👑 Elite</span><h3>👑 Elite</h3><div class="price">299 ج.م / شهر</div><p class="mini">شارة Elite، أولوية عالية، مزايا مميزة، وحد يومي يصل إلى 500 كوين عند المستوى المؤهل.</p><button class="btn soft full" style="margin-top:12px" onclick="selectPlan('elite')">اختيار Elite</button></article></div><p class="purchaseNote">⚠️ هذه نسخة واجهة وتجربة فقط. لا يتم خصم أموال حقيقية حاليًا.</p></div></div>
-
-<div class="modal" id="coinsModal" role="dialog" aria-modal="true"><div class="modalBox"><div class="modalHead"><div><h2>🪙 شحن الكوين</h2><p class="modalSub">باقات معقولة ومناسبة للاستخدام داخل الموقع.</p></div><button class="close" onclick="closeModal('coinsModal')">×</button></div><div class="shopGrid" style="margin-top:16px"><article class="shopCard"><h3>🪙 100 كوين</h3><div class="price">10 ج.م</div><button class="btn ghost full" onclick="buyCoins(100,10)">شحن تجريبي</button></article><article class="shopCard"><h3>🔥 550 كوين</h3><div class="price">45 ج.م</div><button class="btn primary full" onclick="buyCoins(550,45)">شحن تجريبي</button></article><article class="shopCard featured"><h3>💎 1,200 كوين</h3><div class="price">85 ج.م</div><button class="btn primary full" onclick="buyCoins(1200,85)">شحن تجريبي</button></article><article class="shopCard featured"><h3>👑 3,000 كوين</h3><div class="price">190 ج.م</div><button class="btn soft full" onclick="buyCoins(3000,190)">شحن تجريبي</button></article></div><p class="purchaseNote">الزر الحالي يضيف الرصيد للتجربة فقط. عند ربط الدفع سنستبدله بعملية دفع حقيقية.</p></div></div>
-
-<div class="modal" id="earnModal" role="dialog" aria-modal="true"><div class="modalBox"><div class="modalHead"><div><h2>🎁 اكسب كوين من التفاعل</h2><p class="modalSub">كل يوم لديك حد أقصى حسب مستواك، ولا يمكن تجاوز 500 كوين.</p></div><button class="close" onclick="closeModal('earnModal')">×</button></div><div class="earnList"><div class="earnItem"><span>🎯 تسجيل الدخول اليومي</span><b>+25</b></div><div class="earnItem"><span>💬 دخول غرفة والتفاعل</span><b>+10</b></div><div class="earnItem"><span>❤️ إضافة صديق</span><b>+8</b></div><div class="earnItem"><span>📝 إكمال ملفك</span><b>+20</b></div><div class="earnItem"><span>💬 رسالة/تفاعل مفيد</span><b>+5</b></div></div><button class="btn primary full" style="margin-top:16px" onclick="claimDailyLogin()">🎁 استلام مكافأة اليوم</button></div></div>
-
-<div class="modal" id="badgesModal" role="dialog" aria-modal="true"><div class="modalBox"><div class="modalHead"><div><h2>🏆 متجر الأوسمة</h2><p class="modalSub">أوسمة فخمة بأسعار تدريجية بالكوين.</p></div><button class="close" onclick="closeModal('badgesModal')">×</button></div><div class="shopGrid" style="margin-top:16px"><article class="shopCard"><span class="badge verified">✓ موثق</span><h3>وسام الموثق</h3><div class="price">500 🪙</div><button class="btn ghost full" onclick="buyBadge('verified',500,'✓ موثق')">اقتناء الوسام</button></article><article class="shopCard"><span class="badge vip">⭐ VIP</span><h3>وسام VIP</h3><div class="price">1,500 🪙</div><button class="btn primary full" onclick="buyBadge('vip',1500,'⭐ VIP')">اقتناء الوسام</button></article><article class="shopCard"><span class="badge gold">💎 داعم</span><h3>وسام الداعم</h3><div class="price">2,500 🪙</div><button class="btn primary full" onclick="buyBadge('supporter',2500,'💎 داعم')">اقتناء الوسام</button></article><article class="shopCard"><span class="badge rose">👑 أسطوري</span><h3>وسام أسطوري</h3><div class="price">5,000 🪙</div><button class="btn soft full" onclick="buyBadge('legend',5000,'👑 أسطوري')">اقتناء الوسام</button></article></div></div></div>
-
-<div id="toast" style="position:fixed;z-index:200;bottom:22px;left:50%;transform:translateX(-50%) translateY(120px);opacity:0;transition:.25s;max-width:90%;padding:13px 17px;border-radius:14px;background:#171a24;border:1px solid #303447;box-shadow:0 15px 40px rgba(0,0,0,.35);color:#fff;font-size:13px"></div>
+<div id="toast" class="toast"></div>
 
 <script>
-const $=id=>document.getElementById(id);
-function openModal(id){$(id).classList.add('show');document.body.style.overflow='hidden'}
-function closeModal(id){$(id).classList.remove('show');document.body.style.overflow=''}
-function togglePassword(id,btn){const i=$(id);const show=i.type==='password';i.type=show?'text':'password';btn.textContent=show?'إخفاء':'إظهار'}
-function showToast(text){const t=$('toast');t.textContent=text;t.style.opacity='1';t.style.transform='translateX(-50%) translateY(0)';clearTimeout(window.toastTimer);window.toastTimer=setTimeout(()=>{t.style.opacity='0';t.style.transform='translateX(-50%) translateY(120px)'},2800)}
-function getUser(){try{return JSON.parse(localStorage.getItem('afn_user')||'null')}catch(e){return null}}
-function saveUser(u){localStorage.setItem('afn_user',JSON.stringify(u))}
-function login(e){e.preventDefault();const u=$('loginUser').value.trim(),p=$('loginPass').value,msg=$('loginMessage');const saved=getUser();if(!saved){msg.textContent='لا يوجد حساب تجريبي على هذا الجهاز. أنشئ حسابًا أولًا.';return}if((u!==saved.name&&u!==saved.email)||p!==saved.pass){msg.textContent='بيانات الدخول غير صحيحة.';return}if($('remember').checked)localStorage.setItem('afn_remember','1');msg.textContent='تم تسجيل الدخول بنجاح ✓';showToast('مرحبًا بك في افـنـدツ⁠يـنـا🥀🖤');setTimeout(()=>showDashboard(),500)}
-function loginModalSubmit(e){e.preventDefault();const u=$('mLoginUser').value.trim(),p=$('mLoginPass').value,msg=$('modalLoginMessage'),saved=getUser();if(!saved){msg.textContent='أنشئ حسابًا تجريبيًا أولًا.';return}if((u!==saved.name&&u!==saved.email)||p!==saved.pass){msg.textContent='بيانات الدخول غير صحيحة.';return}msg.textContent='تم تسجيل الدخول بنجاح ✓';showToast('تم الدخول بنجاح');setTimeout(()=>{closeModal('loginModal');showDashboard()},600)}
-function signup(e){e.preventDefault();const name=$('signupName').value.trim(),email=$('signupEmail').value.trim(),pass=$('signupPass').value,age=Number($('signupAge').value),msg=$('signupMessage');if(age<18){msg.textContent='الموقع مخصص للبالغين 18 سنة فأكثر.';return}if(getUser()){msg.textContent='يوجد حساب بالفعل على هذا الجهاز في النسخة التجريبية.';return}const isFirst=!localStorage.getItem('afn_first_account_created');const user={name,email,pass,age,role:isFirst?'owner':'member',badge:isFirst?'owner':'new',plan:isFirst?'owner':'basic',coins:0,level:1,daily:{date:todayKey(),earned:0,loginClaimed:false},badges:[],createdAt:new Date().toISOString()};saveUser(user);localStorage.setItem('afn_first_account_created','1');msg.textContent=isFirst?'🎉 تم إنشاء أول حساب — تم تعيينك مالك الموقع.':'تم إنشاء الحساب على هذا الجهاز ✓';showToast(isFirst?'👑 أنت الآن مالك افـنـدツ⁠يـنـا🥀🖤':'أهلًا بك يا '+name+' 🖤');setTimeout(()=>{closeModal('signupModal');showDashboard()},900)}
-function levelData(level){const caps={1:100,2:150,3:200,4:300,5:400,6:500};return {cap:caps[Math.min(level,6)]||500}}
-function todayKey(){return new Date().toISOString().slice(0,10)}
-function ensureEconomy(u){u.coins=Number(u.coins||0);u.level=Math.max(1,Number(u.level||1));u.daily=u.daily&&u.daily.date===todayKey()?u.daily:{date:todayKey(),earned:0,loginClaimed:false};u.badges=Array.isArray(u.badges)?u.badges:[];u.plan=u.plan||'basic';return u}
-function addCoins(amount,reason){const u=getUser();if(!u)return false;ensureEconomy(u);const cap=levelData(u.level).cap;const room=Math.max(0,cap-u.daily.earned);const gain=Math.min(amount,room);if(gain<=0){showToast('🪙 وصلت للحد اليومي لمستواك: '+cap+' كوين.');saveUser(u);return false}u.coins+=gain;u.daily.earned+=gain;saveUser(u);showDashboard();showToast('🪙 +'+gain+' كوين — '+reason);return true}
-function showDashboard(){const u=getUser();if(!u)return;ensureEconomy(u);document.querySelector('main').classList.add('hidden');$('dashboard').classList.remove('hidden');$('dashName').textContent=u.name;$('dashInfo').textContent=u.email+' • '+u.age+' سنة';const planNames={owner:'👑 باقة المالك',basic:'🌙 الباقة الأساسية',vip:'⭐ VIP',pro:'💎 Pro',elite:'👑 Elite'};$('dashPlan').textContent=planNames[u.plan]||'🌙 الباقة الأساسية';$('dashRole').textContent=u.role==='owner'?'مالك الموقع • أول حساب':u.role==='member'?'عضو':'عضو';$('dashCoins').textContent=u.coins.toLocaleString('ar-EG');$('dashLevel').textContent=u.level;const cap=levelData(u.level).cap;$('dailyEarned').textContent=u.daily.earned;$('dailyCap').textContent=cap;$('coinProgress').style.width=Math.min(100,(u.daily.earned/cap)*100)+'%';const badges=$('dashBadges');let html=u.role==='owner'?'<span class="badge owner">👑 مالك الموقع</span><span class="badge verified">✓ موثق</span>':'<span class="badge new">✨ عضو جديد</span>';if(u.plan==='vip')html+='<span class="badge vip">⭐ VIP</span>';if(u.plan==='pro')html+='<span class="badge gold">💎 PRO</span>';if(u.plan==='elite')html+='<span class="badge rose">👑 Elite</span>';u.badges.forEach(b=>{html+='<span class="badge '+b.type+'">'+b.label+'</span>'});badges.innerHTML=html;$('ownerPanel').classList.toggle('hidden',u.role!=='owner');saveUser(u);location.hash='dashboard';window.scrollTo({top:0,behavior:'smooth'})}
-function logout(){document.querySelector('main').classList.remove('hidden');$('dashboard').classList.add('hidden');location.hash='top';showToast('تم تسجيل الخروج بنجاح');}
-function selectPlan(plan){const u=getUser();if(!u){closeModal('plansModal');openModal('loginModal');return}ensureEconomy(u);if(u.role==='owner'){showToast('👑 حساب المالك يمتلك الباقة الإدارية مجانًا.');closeModal('plansModal');return}u.plan=plan;saveUser(u);closeModal('plansModal');showDashboard();showToast('💎 تم اختيار '+plan.toUpperCase()+' — الدفع الحقيقي غير مفعل في النسخة التجريبية.')}
-function buyCoins(amount,price){const u=getUser();if(!u){closeModal('coinsModal');openModal('loginModal');return}ensureEconomy(u);u.coins+=amount;saveUser(u);closeModal('coinsModal');showDashboard();showToast('🪙 تمت إضافة '+amount.toLocaleString('ar-EG')+' كوين تجريبيًا مقابل '+price+' ج.م.')}
-function buyBadge(type,cost,label){const u=getUser();if(!u){closeModal('badgesModal');openModal('loginModal');return}ensureEconomy(u);if(u.badges.some(b=>b.type===type)||u.role==='owner'){showToast(u.role==='owner'?'👑 المالك لديه شارة خاصة بالفعل.':'لديك هذا الوسام بالفعل.');return}if(u.coins<cost){showToast('رصيدك غير كافٍ. تحتاج '+cost.toLocaleString('ar-EG')+' كوين.');return}u.coins-=cost;u.badges.push({type,label});saveUser(u);closeModal('badgesModal');showDashboard();showToast('🏆 تم اقتناء '+label+' بنجاح.')}
-function claimDailyLogin(){const u=getUser();if(!u)return;ensureEconomy(u);if(u.daily.loginClaimed){showToast('🎁 استلمت مكافأة اليوم بالفعل.');return}u.daily.loginClaimed=true;saveUser(u);addCoins(25,'مكافأة الدخول اليومية');closeModal('earnModal')}
-function restoreSession(){const u=getUser();if(u&&!localStorage.getItem('afn_first_account_created')){u.role='owner';u.badge='owner';u.plan='owner';saveUser(u);localStorage.setItem('afn_first_account_created','1')}if(u){ensureEconomy(u);saveUser(u)}if(localStorage.getItem('afn_remember')==='1'&&getUser())showDashboard()}
-function forgotPassword(){showToast('في النسخة الحالية لا يوجد بريد حقيقي لاستعادة كلمة المرور. سنضيفه عند ربط خدمة البريد وقاعدة البيانات.')}
-function joinRoom(room){if(!getUser()){openModal('loginModal');showToast('سجل الدخول أولًا للدخول إلى الغرفة.');return}showToast('تم فتح غرفة «'+room+'» تجريبيًا. الدردشة الحقيقية تحتاج خادمًا وقاعدة بيانات.')}
-window.addEventListener('keydown',e=>{if(e.key==='Escape'){document.querySelectorAll('.modal.show').forEach(m=>m.classList.remove('show'));document.body.style.overflow=''}});
-document.querySelectorAll('.modal').forEach(m=>m.addEventListener('click',e=>{if(e.target===m)closeModal(m.id)}));
-restoreSession();
+const USER_KEY="afn_users_v5";
+const SESSION_KEY="afn_current_v5";
+const ROOMS_KEY="afn_rooms_v5";
+const PRESENCE_KEY="afn_presence_v5";
+const PRICE=1500;
+let currentUser=null,currentRoom=null,micOn=false,heartbeat=null,uploadCache={};
+const sessionId=Math.random().toString(36).slice(2)+Date.now();
+
+const membersSeed=[
+  {name:"ساهر",avatar:"👨🏻",online:true,bio:"أحب السوالف الهادية"},
+  {name:"نجمة",avatar:"🌙",online:true,bio:"ليل طويل ودردشة أجمل"},
+  {name:"قمر",avatar:"🥀",online:true,bio:"أوقات جميلة مع ناس جميلة"},
+  {name:"مزاج",avatar:"🖤",online:true,bio:"الدردشة أولًا"},
+  {name:"ليان",avatar:"🌸",online:true,bio:"أتعرف وأشارك"},
+  {name:"راكان",avatar:"🦅",online:true,bio:"صوت وهدوء"},
+  {name:"ندى",avatar:"✨",online:false,bio:"مرحبًا بالجميع"},
+  {name:"ليلي",avatar:"🌹",online:true,bio:"أحب الغرف الليلية"}
+];
+
+const gifts=[
+  {id:"rose",icon:"🌹",name:"وردة",price:25},
+  {id:"heart",icon:"💖",name:"قلب",price:50},
+  {id:"star",icon:"⭐",name:"نجمة",price:100},
+  {id:"crown",icon:"👑",name:"تاج",price:250},
+  {id:"diamond",icon:"💎",name:"ألماسة",price:500},
+  {id:"fire",icon:"🔥",name:"لهيب",price:750}
+];
+
+const badgeCatalog=[
+  {id:"new",icon:"🌱",name:"بداية جميلة",price:0},
+  {id:"chat",icon:"💬",name:"صاحب حضور",price:250},
+  {id:"voice",icon:"🎙️",name:"صوت مميز",price:500},
+  {id:"supporter",icon:"✨",name:"داعم",price:750},
+  {id:"vip",icon:"👑",name:"VIP",price:1000},
+  {id:"royal",icon:"💎",name:"Royal",price:2000}
+];
+
+const defaultRooms=[
+ {id:"r1",name:"السهرة الملكية",desc:"سوالف خفيفة وتعارف وضحك حتى الصباح.",icon:"🎙️",ownerId:"system",base:18,mics:8,outer:"",inner:"",category:"سهرات"},
+ {id:"r2",name:"جلسة تعارف",desc:"تعرف على ناس جدد في أجواء هادئة ومحترمة.",icon:"💜",ownerId:"system",base:11,mics:6,outer:"",inner:"",category:"تعارف"},
+ {id:"r3",name:"ليل وهدوء",desc:"مساحة هادئة للكلام والموسيقى وأصحاب الليل.",icon:"🌙",ownerId:"system",base:7,mics:5,outer:"",inner:"",category:"هدوء"},
+ {id:"r4",name:"منصة الأصدقاء",desc:"حديث مفتوح، أسئلة، ضحك وتفاعل سريع.",icon:"🔥",ownerId:"system",base:14,mics:7,outer:"",inner:"",category:"تفاعل"}
+];
+
+function read(k,f){try{const x=JSON.parse(localStorage.getItem(k));return x??f}catch(e){return f}}
+function write(k,v){localStorage.setItem(k,JSON.stringify(v))}
+function esc(s){return String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]))}
+function getUsers(){return read(USER_KEY,[])}
+function getRooms(){let r=read(ROOMS_KEY,null);if(!r){r=defaultRooms;write(ROOMS_KEY,r)}return r}
+function saveUser(){write(USER_KEY,getUsers().map(u=>u.name===currentUser.name?currentUser:u))}
+function openModal(type){closeModals();document.getElementById(type==="login"?"loginModal":"signupModal").classList.add("show")}
+function switchModal(type){openModal(type)}
+function closeModals(){document.querySelectorAll(".modal").forEach(x=>x.classList.remove("show"))}
+function showToast(t){const x=document.getElementById("toast");x.textContent=t;x.classList.add("show");clearTimeout(window.toastTimer);window.toastTimer=setTimeout(()=>x.classList.remove("show"),2600)}
+
+function signup(e){
+ e.preventDefault();
+ const name=signupName.value.trim(),email=signupEmail.value.trim(),pass=signupPass.value;
+ const users=getUsers();
+ const msg=signupMsg;msg.textContent="";
+ if(name.length<3){msg.textContent="الاسم قصير جدًا.";return}
+ if(users.some(u=>u.name.toLowerCase()===name.toLowerCase())){msg.textContent="اسم المستخدم مستخدم بالفعل.";return}
+ if(users.some(u=>u.email.toLowerCase()===email.toLowerCase())){msg.textContent="البريد مستخدم بالفعل.";return}
+ const u={name,email,pass,coins:5000,level:1,xp:0,avatar:"",bio:"أهلًا بكم في ملفي 🖤",plan:"Free",badges:["new"],gifts:0,rooms:0,createdAt:Date.now()};
+ users.push(u);write(USER_KEY,users);currentUser=u;write(SESSION_KEY,u.name);closeModals();enterApp();showToast("✨ تم إنشاء الحساب ودخولك مباشرة")}
+function login(e){
+ e.preventDefault();
+ const id=loginId.value.trim(),pass=loginPass.value,users=getUsers();
+ const u=users.find(x=>(x.name===id||x.email===id)&&x.pass===pass);
+ if(!u){loginMsg.textContent="بيانات الدخول غير صحيحة.";return}
+ currentUser=u;write(SESSION_KEY,u.name);closeModals();enterApp();showToast("✅ تم الدخول بنجاح")}
+function enterApp(){
+ document.getElementById("gate").classList.add("hidden");document.getElementById("app").classList.remove("hidden");
+ refreshUser();renderAll();showView("homeView");startPresenceRefresh();window.scrollTo(0,0)
+}
+function logout(){
+ leaveRoom(false);localStorage.removeItem(SESSION_KEY);currentUser=null;document.getElementById("app").classList.add("hidden");
+ document.getElementById("gate").classList.remove("hidden");closeChat();showToast("تم تسجيل الخروج")
+}
+function refreshUser(){
+ if(!currentUser)return;
+ userName.textContent=currentUser.name;profileName.textContent=currentUser.name;profileEmail.textContent=currentUser.email;
+ userBio.textContent=currentUser.bio||"كل شيء جاهز لك. ادخل غرفة وابدأ التفاعل.";
+ coinValue.textContent=currentUser.coins;marketCoins.textContent=currentUser.coins;
+ levelValue.textContent=currentUser.level;badgeValue.textContent=currentUser.badges.length;
+ profileCoins.textContent=currentUser.coins;profileLevel.textContent=currentUser.level;profileBadges.textContent=currentUser.badges.length;
+ const xp=currentUser.xp||0;const need=500;levelProgress.style.width=Math.min(100,(xp%need)/need*100)+"%";
+ profileAvatar.innerHTML=currentUser.avatar?'<img src="'+currentUser.avatar+'">':"🥀";
+ renderBadges()
+}
+function renderAll(){renderRooms();renderMembers();renderGifts();renderMyRooms();refreshUser()}
+function showView(id,btn){
+ document.querySelectorAll(".view").forEach(v=>v.classList.remove("active"));
+ document.getElementById(id)?.classList.add("active");
+ document.querySelectorAll(".nav").forEach(n=>n.classList.remove("active"));
+ const b=btn||document.querySelector('.nav[data-view="'+id+'"]');if(b)b.classList.add("active");
+ if(id==="roomsView"||id==="homeView")renderRooms();
+ if(id==="membersView")renderMembers();
+ if(id==="marketView")renderGifts();
+ if(id==="myRoomsView")renderMyRooms();
+ window.scrollTo({top:0,behavior:"smooth"})
+}
+
+/* حضور الغرف: يعتمد على جلسات هذا الجهاز/المتصفح ويزيل الجلسات القديمة تلقائيًا */
+function presence(){
+ const p=read(PRESENCE_KEY,{}),now=Date.now();
+ Object.keys(p).forEach(id=>p[id]=(Array.isArray(p[id])?p[id]:[]).filter(x=>now-x.time<30000));
+ write(PRESENCE_KEY,p);return p
+}
+function touchPresence(id){
+ const p=presence();let a=p[id]||[];a=a.filter(x=>x.session!==sessionId);
+ a.push({session:sessionId,user:currentUser.name,time:Date.now()});p[id]=a;write(PRESENCE_KEY,p)
+}
+function removePresence(id){
+ const p=presence();p[id]=(p[id]||[]).filter(x=>x.session!==sessionId);write(PRESENCE_KEY,p)
+}
+function roomCount(r){
+ const p=presence();return r.base+(p[r.id]||[]).length
+}
+function startPresenceRefresh(){
+ clearInterval(heartbeat);heartbeat=setInterval(()=>{if(currentUser){if(currentRoom)touchPresence(currentRoom.id);renderRooms();if(currentRoom)renderRoomStage()}},10000)
+}
+
+/* الغرف */
+function roomCard(r){
+ const owner=currentUser&&r.ownerId===currentUser.name;
+ const count=roomCount(r);
+ return `<article class="room ${r.outer?"cover":""}" style="${r.outer?`background-image:url('${r.outer}')`:''}">
+   <div class="room-top"><div class="room-icon">${r.outer?`<img src="${r.outer}">`:r.icon}</div><span class="live">● مباشر · ${count}</span></div>
+   <h3>${esc(r.name)}</h3><p>${esc(r.desc)}</p>
+   <div class="room-meta"><span class="tag">🎙️ ${r.mics} مقاعد</span><span class="tag">👥 ${count} بالداخل</span><span class="tag">${esc(r.category||"عام")}</span></div>
+   <div class="room-foot"><div class="mics"><span class="mic-dot">🎙️</span>صوت + دردشة</div><button class="btn primary" onclick="enterRoom('${r.id}')">دخول الغرفة</button></div>
+   ${owner?'<div class="owner">👑 أنت مالك الغرفة</div>':''}
+ </article>`
+}
+function renderRooms(){
+ const rooms=getRooms();homeRooms.innerHTML=rooms.slice(0,4).map(roomCard).join("");allRooms.innerHTML=rooms.map(roomCard).join("")
+}
+function enterRoom(id){
+ const r=getRooms().find(x=>x.id===id);if(!r)return;
+ if(currentRoom)removePresence(currentRoom.id);
+ currentRoom=r;micOn=false;touchPresence(id);renderRoomStage();showView("roomView");
+ document.querySelectorAll(".nav").forEach(n=>n.classList.remove("active"));
+ showToast("🎙️ دخلت «"+r.name+"» والعداد اتحدث")
+}
+function leaveRoom(back=true){
+ if(currentRoom)removePresence(currentRoom.id);currentRoom=null;micOn=false;
+ if(back){showView("roomsView");renderRooms();showToast("خرجت من الغرفة والعداد اتحدث")}
+}
+function toggleMic(){micOn=!micOn;renderRoomStage();showToast(micOn?"🎙️ المايك مفتوح":"🔇 المايك مغلق")}
+function renderRoomStage(){
+ if(!currentRoom)return;
+ const r=getRooms().find(x=>x.id===currentRoom.id)||currentRoom;currentRoom=r;touchPresence(r.id);
+ const count=roomCount(r),owner=r.ownerId===currentUser.name;
+ roomStage.style.backgroundImage=r.inner?`url('${r.inner}')`:"";
+ const seats=Array.from({length:Math.min(r.mics,10)},(_,i)=>{
+   const active=i===0&&micOn;
+   return `<div class="seat-wrap ${active?"active":""}"><div class="seat">${active?"🎙️":"👤"}</div><small>${active?esc(currentUser.name):"مقعد متاح"}</small></div>`
+ }).join("");
+ roomStage.innerHTML=`
+ <div class="room-bar"><div><h2>${esc(r.name)}</h2><p>🟢 ${count} داخل الغرفة · 🎙️ ${r.mics} مقاعد مايك</p></div><button class="control" onclick="leaveRoom()">↩ خروج</button></div>
+ <div class="room-content">
+  <div class="stage">
+   <span class="pill">● الغرفة مفتوحة الآن</span><h1>${r.icon} ${esc(r.name)}</h1><p>${esc(r.desc)}</p>
+   <div class="seats">${seats}</div>
+   <div class="room-controls">
+    <button class="control ${micOn?"on":""}" onclick="toggleMic()">${micOn?"🎙️ المايك مفتوح":"🔇 فتح المايك"}</button>
+    <button class="control" onclick="openChat('${esc(r.name)}')">💬 دردشة عامة</button>
+    <button class="control" onclick="openGiftModal(currentUser.name)">🎁 هدية</button>
+    ${owner?`<button class="control" onclick="openEditRoom('${r.id}')">🎨 إدارة الغرفة</button>`:""}
+   </div>
+  </div>
+  <div class="room-chat">
+   <div class="chat-head"><b>💬 دردشة الغرفة</b><span class="live">${count} داخل</span></div>
+   <div id="roomMessages" class="chat-messages"><div class="chat-msg">أهلًا بكم في «${esc(r.name)}» 🖤</div><div class="chat-msg">استخدم المايك أو اكتب رسالتك هنا ✨</div></div>
+   <form class="chat-form" onsubmit="sendRoomMessage(event)"><input id="roomText" placeholder="اكتب في الغرفة..."><button class="btn primary" style="min-height:42px;padding:0 12px">إرسال</button></form>
+  </div>
+ </div>`
+}
+function sendRoomMessage(e){
+ e.preventDefault();const i=document.getElementById("roomText"),t=i.value.trim();if(!t)return;
+ const box=document.getElementById("roomMessages");const d=document.createElement("div");d.className="chat-msg me";d.textContent=currentUser.name+": "+t;box.appendChild(d);i.value="";box.scrollTop=box.scrollHeight;
+ addXP(5)
+}
+
+/* أعضاء */
+function memberCard(m){
+ const isMe=m.name===currentUser.name;
+ return `<div class="member"><div class="avatar">${m.avatar}</div><b>${esc(m.name)}</b><span class="${m.online?"online":"muted"}">${m.online?"● متصل":"○ غير متصل"}</span><div style="display:flex;gap:6px;justify-content:center;margin-top:11px;flex-wrap:wrap">
+ ${!isMe?`<button class="btn secondary" style="min-height:39px;padding:0 10px" onclick="openChat('${esc(m.name)}')">💬 دردشة</button><button class="btn primary" style="min-height:39px;padding:0 10px" onclick="openGiftModal('${esc(m.name)}')">🎁</button>`:`<button class="btn secondary" style="min-height:39px;padding:0 13px" onclick="showView('profileView')">حسابي</button>`}
+ </div></div>`
+}
+function getMembers(){
+ const own=currentUser?{name:currentUser.name,avatar:currentUser.avatar?'<img src="'+currentUser.avatar+'">':"🥀",online:true,bio:currentUser.bio}:null;
+ return own?[own,...membersSeed.filter(x=>x.name!==currentUser.name)]:membersSeed
+}
+function renderMembers(){const m=getMembers();homeMembers.innerHTML=m.slice(0,4).map(memberCard).join("");allMembers.innerHTML=m.map(memberCard).join("")}
+
+/* الهدايا */
+function renderGifts(){
+ giftMarket.innerHTML=gifts.map(g=>`<div class="gift"><div class="gift-icon">${g.icon}</div><h3>${g.name}</h3><p>هدية رقمية تظهر في نشاطك.</p><div class="price">${g.price} 🪙</div><button class="btn primary" style="width:100%" onclick="openGiftModal()">إرسال</button></div>`).join("");
+ giftChoices.innerHTML=gifts.map(g=>`<div class="gift"><div class="gift-icon">${g.icon}</div><h3>${g.name}</h3><div class="price">${g.price} 🪙</div><button class="btn primary" style="width:100%" onclick="sendGift('${g.id}')">إرسال الهدية</button></div>`).join("")
+}
+let giftRecipient="";
+function openGiftModal(name=""){
+ giftRecipient=name||"لصديق تختاره";
+ giftTarget.textContent="إلى: "+giftRecipient;
+ renderGifts();closeModals();giftModal.classList.add("show")
+}
+function sendGift(id){
+ const g=gifts.find(x=>x.id===id);if(!g)return;
+ if(currentUser.coins<g.price){showToast("رصيدك غير كافٍ لهذه الهدية");return}
+ currentUser.coins-=g.price;currentUser.gifts=(currentUser.gifts||0)+1;addXP(10,false);saveUser();refreshUser();closeModals();
+ showToast(g.icon+" تم إرسال "+g.name+" إلى "+giftRecipient)
+}
+
+/* الأوسمة والشراء */
+function renderBadges(){
+ const owned=currentUser.badges||[];
+ badgesList.innerHTML=badgeCatalog.map(b=>`<span class="badge">${b.icon} ${b.name}${owned.includes(b.id)?" ✓":" 🔒"}</span>`).join("")
+}
+function buyBadge(id){
+ const b=badgeCatalog.find(x=>x.id===id);if(!b)return;
+ if((currentUser.badges||[]).includes(id)){showToast("هذا الوسام موجود لديك");return}
+ if(currentUser.coins<b.price){showToast("رصيدك غير كافٍ");return}
+ currentUser.coins-=b.price;currentUser.badges.push(id);saveUser();refreshUser();showToast("🏅 تم الحصول على "+b.name)
+}
+function buyPlan(price,name){
+ if(currentUser.coins<price){showToast("رصيدك غير كافٍ");return}
+ currentUser.coins-=price;currentUser.plan=name;
+ if(name==="VIP"&&!currentUser.badges.includes("vip"))currentUser.badges.push("vip");
+ if(name==="Royal"&&!currentUser.badges.includes("royal"))currentUser.badges.push("royal");
+ saveUser();refreshUser();showToast("👑 تم تفعيل عضوية "+name)
+}
+
+/* غرف المالك */
+function openCreateRoom(){
+ closeModals();newRoomName.value="";newRoomDesc.value="";roomBuyMsg.textContent="";createRoomModal.classList.add("show")
+}
+function buyRoom(){
+ const name=newRoomName.value.trim(),desc=newRoomDesc.value.trim()||"غرفتي الخاصة في افـنـدツ⁠يـنـا";
+ if(name.length<3){roomBuyMsg.textContent="اكتب اسمًا من 3 أحرف على الأقل.";return}
+ if(currentUser.coins<PRICE){roomBuyMsg.textContent="رصيدك غير كافٍ. يمكنك استخدام الشحن التجريبي من حسابي.";return}
+ currentUser.coins-=PRICE;currentUser.rooms=(currentUser.rooms||0)+1;
+ const rooms=getRooms();const id="u_"+Date.now();
+ rooms.push({id,name,desc,icon:"👑",ownerId:currentUser.name,base:0,mics:8,outer:"",inner:"",category:"غرف خاصة"});
+ write(ROOMS_KEY,rooms);saveUser();closeModals();refreshUser();renderRooms();renderMyRooms();showView("myRoomsView");showToast("👑 أصبحت الغرفة ملكك")
+}
+function renderMyRooms(){
+ const mine=getRooms().filter(r=>r.ownerId===currentUser.name);
+ if(!mine.length){myRooms.innerHTML=`<div class="panel"><h3>لا توجد غرف مملوكة</h3><p class="muted">امتلك أول غرفة وابدأ بتصميمها على ذوقك.</p><button class="btn primary" onclick="openCreateRoom()">👑 امتلاك غرفة</button></div>`;return}
+ myRooms.innerHTML=mine.map(r=>`<div class="manage"><div class="cover-mini" style="${r.outer?`background-image:url('${r.outer}')`:''}">${r.outer?"":"🎙️"}</div><div><h3>${esc(r.name)}</h3><p>${esc(r.desc)}</p><div class="room-meta"><span class="tag">🎙️ ${r.mics} مايك</span><span class="tag">👥 ${roomCount(r)} داخل</span></div></div><div class="manage-actions"><button class="btn primary" onclick="openEditRoom('${r.id}')">🎨 تخصيص</button><button class="btn secondary" onclick="enterRoom('${r.id}')">دخول</button></div></div>`).join("")
+}
+function openEditRoom(id){
+ const r=getRooms().find(x=>x.id===id);
+ if(!r||r.ownerId!==currentUser.name){showToast("هذه الغرفة ليست ملكك");return}
+ editRoomId.value=r.id;editName.value=r.name;editDesc.value=r.desc;uploadCache={};
+ outerPreview.textContent=r.outer?"الصورة الحالية محفوظة — اختر أخرى لتغييرها":"اختر صورة من هاتفك";
+ innerPreview.textContent=r.inner?"الخلفية الحالية محفوظة — اختر أخرى لتغييرها":"اختر صورة من هاتفك";
+ closeModals();editRoomModal.classList.add("show")
+}
+function cacheImage(e,key){
+ const f=e.target.files?.[0];if(!f)return;
+ if(f.size>3*1024*1024){showToast("اختَر صورة أقل من 3MB");e.target.value="";return}
+ const rd=new FileReader();rd.onload=()=>{uploadCache[key]=rd.result;document.getElementById(key==="outer"?"outerPreview":"innerPreview").textContent="✅ تم اختيار الصورة"};rd.readAsDataURL(f)
+}
+function saveRoomEdit(){
+ const rooms=getRooms(),r=rooms.find(x=>x.id===editRoomId.value);
+ if(!r||r.ownerId!==currentUser.name)return;
+ r.name=editName.value.trim()||r.name;r.desc=editDesc.value.trim()||r.desc;
+ if(uploadCache.outer)r.outer=uploadCache.outer;if(uploadCache.inner)r.inner=uploadCache.inner;
+ write(ROOMS_KEY,rooms);closeModals();renderRooms();renderMyRooms();
+ if(currentRoom&&currentRoom.id===r.id){currentRoom=r;renderRoomStage()}
+ showToast("✨ تم تحديث هوية الغرفة")
+}
+
+/* الحساب */
+function uploadAvatar(e){
+ const f=e.target.files?.[0];if(!f)return;
+ if(f.size>3*1024*1024){showToast("اختَر صورة أقل من 3MB");return}
+ const rd=new FileReader();rd.onload=()=>{currentUser.avatar=rd.result;saveUser();refreshUser();renderMembers();showToast("📷 تم تحديث صورتك")};rd.readAsDataURL(f)
+}
+function removeAvatar(){currentUser.avatar="";saveUser();refreshUser();renderMembers();showToast("تمت إزالة الصورة")}
+function openSettings(){settingsName.value=currentUser.name;settingsBio.value=currentUser.bio||"";closeModals();settingsModal.classList.add("show")}
+function saveSettings(){
+ const n=settingsName.value.trim();if(n.length<3){showToast("الاسم قصير جدًا");return}
+ const users=getUsers();if(n!==currentUser.name&&users.some(u=>u.name.toLowerCase()===n.toLowerCase())){showToast("الاسم مستخدم بالفعل");return}
+ const old=currentUser.name;currentUser.name=n;currentUser.bio=settingsBio.value.trim();
+ const rooms=getRooms();rooms.forEach(r=>{if(r.ownerId===old)r.ownerId=n});write(ROOMS_KEY,rooms);saveUser();write(SESSION_KEY,n);closeModals();refreshUser();renderAll();showToast("✅ تم حفظ ملفك")
+}
+function demoRecharge(){currentUser.coins+=5000;saveUser();refreshUser();showToast("⚡ أضيف 5000 كوين تجريبيًا")}
+function addXP(amount,save=true){
+ currentUser.xp=(currentUser.xp||0)+amount;
+ while(currentUser.xp>=500){currentUser.xp-=500;currentUser.level++}
+ if(save){saveUser();refreshUser()}
+}
+
+/* دردشة عامة */
+function openChat(name){chatTitle.textContent="💬 "+name;chatDrawer.classList.add("show");chatText.focus()}
+function closeChat(){chatDrawer.classList.remove("show")}
+function sendMessage(e){
+ e.preventDefault();const t=chatText.value.trim();if(!t)return;
+ const d=document.createElement("div");d.className="chat-msg me";d.textContent=currentUser.name+": "+t;messages.appendChild(d);chatText.value="";messages.scrollTop=messages.scrollHeight;addXP(3)
+}
+
+/* تحميل الجلسة */
+window.addEventListener("load",()=>{
+ const saved=localStorage.getItem(SESSION_KEY),users=getUsers(),u=users.find(x=>x.name===saved);
+ if(u){currentUser=u;enterApp()}
+});
+window.addEventListener("storage",()=>{
+ if(currentUser){currentUser=getUsers().find(x=>x.name===currentUser.name)||currentUser;refreshUser();renderRooms();renderMembers()}
+});
+window.addEventListener("beforeunload",()=>{if(currentRoom)removePresence(currentRoom.id)});
+setInterval(()=>{if(currentUser){presence();renderRooms();if(currentRoom)renderRoomStage()}},15000);
+document.querySelectorAll(".modal").forEach(m=>m.addEventListener("click",e=>{if(e.target===m)closeModals()}));
 </script>
 </body>
 </html>
