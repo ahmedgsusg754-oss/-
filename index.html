@@ -1,40 +1,1672 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#08070d">
-<title>افـنـدツ⁠يـنـا🥀🖤</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#09070d">
+
+<title>هواافـنـدツ⁠يـنـا🥀🖤</title>
+
 <style>
 :root{
-  --bg:#07060b;--panel:#11101a;--panel2:#171321;--line:#342941;
-  --text:#fff;--muted:#aaa2b3;--purple:#9b55ff;--pink:#d45cff;
-  --gold:#ffd66d;--green:#48dfa1;--danger:#ff7089
+    --bg:#09070d;
+    --card:#15101d;
+    --card2:#1d1527;
+    --line:#33243f;
+    --text:#fff;
+    --muted:#aaa0b4;
+    --purple:#9b4dff;
+    --purple2:#6b2dd6;
+    --pink:#ed65ff;
+    --gold:#ffd166;
+    --green:#43e0a0;
+    --red:#ff5577;
+    --shadow:0 15px 45px rgba(0,0,0,.45);
 }
-*{box-sizing:border-box}
-html,body{margin:0;min-height:100%;font-family:Arial,Tahoma,sans-serif;background:
-radial-gradient(circle at 85% 0,#35164c 0,#120b1b 28%,#07070b 70%);color:var(--text)}
-body{padding-bottom:82px}
-button,input,textarea,select{font:inherit}
-button{cursor:pointer}
-.hide{display:none!important}
-.app{max-width:850px;margin:auto}
+
+*{
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    margin:0;
+    min-height:100vh;
+    background:
+        radial-gradient(circle at 20% 0%,#3a1555 0%,transparent 35%),
+        radial-gradient(circle at 100% 30%,#241044 0%,transparent 30%),
+        var(--bg);
+    color:var(--text);
+    font-family:Tahoma,Arial,sans-serif;
+}
+
+button,
+input,
+textarea,
+select{
+    font-family:inherit;
+}
+
+button{
+    cursor:pointer;
+}
+
+.app{
+    width:min(1150px,100%);
+    margin:auto;
+    padding:12px;
+    padding-bottom:80px;
+}
+
+/* HEADER */
+
 header{
- position:sticky;top:0;z-index:30;display:flex;align-items:center;
- justify-content:space-between;padding:12px 15px;background:#08070df2;
- border-bottom:1px solid var(--line);backdrop-filter:blur(18px)
+    position:sticky;
+    top:0;
+    z-index:50;
+    background:rgba(9,7,13,.86);
+    backdrop-filter:blur(18px);
+    border-bottom:1px solid var(--line);
+    padding:12px;
+    margin:-12px -12px 15px;
 }
-.brand{font-size:21px;font-weight:900}.tag{font-size:11px;color:var(--muted);margin-top:4px}
-.topbtn{width:43px;height:43px;border:1px solid var(--line);background:#12101a;color:#fff;border-radius:15px}
-main{padding:16px}
-.hero,.card,.profile,.shop,.vip,.admin,.authbox{
- background:linear-gradient(145deg,#1a1225,#0d0b12);border:1px solid var(--line);
- border-radius:28px;box-shadow:0 20px 80px #0007
+
+.header-inner{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
 }
-.hero{padding:25px;position:relative;overflow:hidden}
-.hero:after{content:"🥀";position:absolute;left:-10px;bottom:-30px;font-size:120px;opacity:.06}
-.hero h1{font-size:30px;line-height:1.45;margin:12px 0}
-.muted{color:var(--muted);line-height:1.9}
+
+.logo{
+    font-size:21px;
+    font-weight:900;
+}
+
+.logo small{
+    display:block;
+    color:var(--muted);
+    font-size:10px;
+    margin-top:3px;
+}
+
+.header-buttons{
+    display:flex;
+    gap:7px;
+}
+
+.icon-btn{
+    border:1px solid var(--line);
+    background:var(--card);
+    color:#fff;
+    padding:9px 12px;
+    border-radius:12px;
+}
+
+/* CARDS */
+
+.card{
+    background:
+        linear-gradient(180deg,rgba(255,255,255,.025),rgba(255,255,255,.005)),
+        var(--card);
+    border:1px solid var(--line);
+    border-radius:20px;
+    padding:16px;
+    box-shadow:0 8px 30px rgba(0,0,0,.2);
+}
+
+.hero{
+    background:
+        linear-gradient(135deg,#32114b,#17101f 55%,#100b16);
+    border:1px solid #54316d;
+    border-radius:24px;
+    padding:22px;
+    box-shadow:var(--shadow);
+    margin-bottom:14px;
+}
+
+.hero h1{
+    margin:0 0 8px;
+    font-size:28px;
+}
+
+.hero p{
+    color:var(--muted);
+    line-height:1.8;
+    margin:0 0 17px;
+}
+
+/* STATS */
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:9px;
+}
+
+.stat{
+    background:rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:15px;
+    padding:12px;
+    text-align:center;
+}
+
+.stat b{
+    display:block;
+    font-size:20px;
+    margin-bottom:3px;
+}
+
+.stat span{
+    color:var(--muted);
+    font-size:11px;
+}
+
+/* NAV */
+
+.nav{
+    display:flex;
+    gap:8px;
+    overflow-x:auto;
+    padding-bottom:5px;
+    margin-bottom:15px;
+}
+
+.nav button{
+    flex:0 0 auto;
+    color:#ddd;
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:13px;
+    padding:10px 14px;
+}
+
+.nav button.active{
+    background:linear-gradient(135deg,var(--purple2),var(--purple));
+    color:white;
+    border-color:transparent;
+}
+
+/* SECTIONS */
+
+.section{
+    display:none;
+}
+
+.section.active{
+    display:block;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:12px;
+}
+
+.section-title{
+    margin:0 0 15px;
+}
+
+/* BUTTONS */
+
+.btn{
+    width:100%;
+    padding:12px;
+    margin-top:9px;
+    border:0;
+    border-radius:13px;
+    background:linear-gradient(135deg,var(--purple2),var(--purple));
+    color:white;
+    font-weight:900;
+}
+
+.btn.secondary{
+    background:#211829;
+    border:1px solid var(--line);
+}
+
+.btn.danger{
+    background:#471523;
+    color:#ff9caf;
+}
+
+.btn.gold{
+    background:linear-gradient(135deg,#a66a00,#e7ad2e);
+    color:#180f00;
+}
+
+/* FORM */
+
+.form{
+    display:grid;
+    gap:8px;
+}
+
+.input{
+    width:100%;
+    padding:12px;
+    background:#0d0a12;
+    color:white;
+    border:1px solid var(--line);
+    border-radius:13px;
+    outline:none;
+}
+
+.input:focus{
+    border-color:var(--purple);
+}
+
+/* USER */
+
+.user{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.avatar{
+    width:58px;
+    height:58px;
+    min-width:58px;
+    border-radius:18px;
+    display:grid;
+    place-items:center;
+    background:linear-gradient(135deg,var(--purple2),var(--pink));
+    font-size:25px;
+    font-weight:900;
+    overflow:hidden;
+}
+
+.avatar img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.badge{
+    display:inline-flex;
+    align-items:center;
+    gap:4px;
+    padding:5px 9px;
+    margin:3px 2px;
+    border-radius:99px;
+    background:#ffffff10;
+    color:#ddd;
+    font-size:11px;
+}
+
+.badge.owner{
+    background:#4d3500;
+    color:var(--gold);
+}
+
+.badge.level{
+    color:#d9a5ff;
+}
+
+/* STORE */
+
+.item{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.emoji{
+    font-size:42px;
+}
+
+.price{
+    color:var(--gold);
+    font-weight:900;
+    margin-top:5px;
+}
+
+.muted{
+    color:var(--muted);
+    font-size:13px;
+    line-height:1.7;
+}
+
+.tag{
+    color:var(--green);
+    font-size:11px;
+}
+
+/* LEVEL */
+
+.progress{
+    width:100%;
+    height:9px;
+    background:#2b2232;
+    border-radius:99px;
+    overflow:hidden;
+    margin:10px 0;
+}
+
+.progress i{
+    display:block;
+    height:100%;
+    background:linear-gradient(90deg,var(--purple2),var(--pink));
+    border-radius:99px;
+}
+
+/* CHAT */
+
+.chat-box{
+    height:430px;
+    overflow-y:auto;
+    background:#0d0a12;
+    border:1px solid var(--line);
+    border-radius:17px;
+    padding:12px;
+}
+
+.message{
+    max-width:82%;
+    background:#1b1424;
+    border-radius:15px;
+    padding:10px 12px;
+    margin:7px 0;
+}
+
+.message.me{
+    margin-right:auto;
+    background:#3a2050;
+}
+
+.message small{
+    display:block;
+    color:var(--muted);
+    font-size:9px;
+    margin-top:5px;
+}
+
+/* TABLE */
+
+.table-wrap{
+    overflow:auto;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+th,
+td{
+    padding:10px 7px;
+    border-bottom:1px solid var(--line);
+    text-align:right;
+    font-size:12px;
+}
+
+/* EMPTY */
+
+.empty{
+    text-align:center;
+    color:var(--muted);
+    padding:35px 10px;
+}
+
+/* TOAST */
+
+.toast{
+    position:fixed;
+    left:50%;
+    bottom:20px;
+    transform:translateX(-50%);
+    z-index:100;
+    background:#1b1424;
+    border:1px solid var(--line);
+    padding:12px 20px;
+    border-radius:99px;
+    box-shadow:var(--shadow);
+    display:none;
+    white-space:nowrap;
+}
+
+/* MODAL */
+
+.modal{
+    position:fixed;
+    inset:0;
+    z-index:90;
+    background:#000b;
+    display:none;
+    place-items:center;
+    padding:15px;
+}
+
+.modal-box{
+    width:min(500px,100%);
+    background:#120d18;
+    border:1px solid var(--line);
+    border-radius:22px;
+    padding:18px;
+}
+
+.modal-head{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:800px){
+
+    .grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .stats{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+@media(max-width:520px){
+
+    .app{
+        padding-left:9px;
+        padding-right:9px;
+    }
+
+    header{
+        margin-left:-9px;
+        margin-right:-9px;
+    }
+
+    .grid{
+        grid-template-columns:1fr;
+    }
+
+    .hero h1{
+        font-size:23px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="app">
+
+<header>
+
+<div class="header-inner">
+
+<div class="logo">
+هواافـنـدツ⁠يـنـا🥀🖤
+<small>مجتمع • متجر • هدايا • دردشة • مستويات</small>
+</div>
+
+<div class="header-buttons">
+<button class="icon-btn" onclick="openProfile()">👤</button>
+<button class="icon-btn" onclick="logout()">↪</button>
+</div>
+
+</div>
+
+</header>
+
+
+<!-- AUTH -->
+
+<div id="authScreen">
+
+<div class="hero">
+
+<h1>مرحبًا بك 🥀🖤</h1>
+
+<p>
+أنشئ أول حساب في الموقع وسيصبح تلقائيًا
+<strong style="color:#ffd166">OWNER 👑</strong>.
+<br>
+الحسابات التالية ستكون أعضاء عاديين.
+</p>
+
+<div class="form">
+
+<input
+id="authName"
+class="input"
+placeholder="اسم المستخدم"
+autocomplete="off"
+>
+
+<input
+id="authPass"
+class="input"
+type="password"
+placeholder="كلمة المرور"
+>
+
+<button class="btn" onclick="createOrLogin()">
+إنشاء حساب / دخول
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- APPLICATION -->
+
+<div id="appScreen" style="display:none">
+
+<div class="hero">
+
+<h1 id="welcomeText">
+مرحبًا
+</h1>
+
+<p id="roleDescription">
+</p>
+
+<div class="stats">
+
+<div class="stat">
+<b id="coinsValue">0</b>
+<span>🪙 العملات</span>
+</div>
+
+<div class="stat">
+<b id="xpValue">0</b>
+<span>✨ XP</span>
+</div>
+
+<div class="stat">
+<b id="levelValue">1</b>
+<span>🏆 المستوى</span>
+</div>
+
+<div class="stat">
+<b id="usersValue">0</b>
+<span>👥 الأعضاء</span>
+</div>
+
+</div>
+
+</div>
+
+
+<nav class="nav">
+
+<button class="active" data-tab="home">
+الرئيسية
+</button>
+
+<button data-tab="store">
+🛍️ المتجر
+</button>
+
+<button data-tab="gifts">
+🎁 الهدايا
+</button>
+
+<button data-tab="chat">
+💬 الدردشة
+</button>
+
+<button data-tab="levels">
+🏆 المستويات
+</button>
+
+<button data-tab="profile">
+👤 حسابي
+</button>
+
+<button id="ownerNav" data-tab="owner" style="display:none">
+👑 OWNER
+</button>
+
+</nav>
+
+
+<!-- HOME -->
+
+<section id="home" class="section active">
+
+<div class="grid">
+
+<div class="card">
+
+<h3>
+🎁 المكافأة اليومية
+</h3>
+
+<p class="muted">
+استلم مكافأتك اليومية واحصل على XP وعملات.
+</p>
+
+<button class="btn" onclick="claimDaily()">
+استلام المكافأة
+</button>
+
+</div>
+
+
+<div class="card">
+
+<h3>
+❤️ التفاعل
+</h3>
+
+<p class="muted">
+كل تفاعل يمنحك XP ويساعدك على رفع المستوى.
+</p>
+
+<button class="btn" onclick="interact()">
+تفاعل + XP
+</button>
+
+</div>
+
+
+<div class="card">
+
+<h3>
+🔥 حالة الحساب
+</h3>
+
+<div id="accountState"></div>
+
+<button class="btn secondary" onclick="openProfile()">
+فتح الملف
+</button>
+
+</div>
+
+</div>
+
+
+<div class="card" style="margin-top:12px">
+
+<h3>
+✨ النشاط الأخير
+</h3>
+
+<div id="activityList"></div>
+
+</div>
+
+</section>
+
+
+<!-- STORE -->
+
+<section id="store" class="section">
+
+<div class="card">
+
+<h2 class="section-title">
+🛍️ المتجر
+</h2>
+
+<p class="muted">
+OWNER يستطيع الشراء بدون خصم عملات وبدون قيود.
+</p>
+
+<div id="storeGrid" class="grid"></div>
+
+</div>
+
+</section>
+
+
+<!-- GIFTS -->
+
+<section id="gifts" class="section">
+
+<div class="card">
+
+<h2 class="section-title">
+🎁 إرسال هدية
+</h2>
+
+<p class="muted">
+اختر العضو ثم اختر الهدية.
+OWNER يرسل الهدايا بدون خصم.
+</p>
+
+<select id="giftReceiver" class="input"></select>
+
+<div id="giftGrid" class="grid" style="margin-top:12px"></div>
+
+</div>
+
+</section>
+
+
+<!-- CHAT -->
+
+<section id="chat" class="section">
+
+<div class="card">
+
+<h2 class="section-title">
+💬 الدردشة
+</h2>
+
+<div id="chatBox" class="chat-box"></div>
+
+<div style="display:flex;gap:7px;margin-top:9px">
+
+<input
+id="chatInput"
+class="input"
+placeholder="اكتب رسالتك..."
+onkeydown="if(event.key==='Enter')sendMessage()"
+>
+
+<button
+class="btn"
+style="width:auto;margin:0;padding:0 20px"
+onclick="sendMessage()"
+>
+إرسال
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- LEVELS -->
+
+<section id="levels" class="section">
+
+<div class="card">
+
+<h2>
+🏆 المستويات
+</h2>
+
+<div id="levelInfo"></div>
+
+<button class="btn" onclick="interact()">
+❤️ تفاعل للحصول على XP
+</button>
+
+</div>
+
+
+<div class="grid" style="margin-top:12px">
+
+<div class="card">
+<h3>🥉 مبتدئ</h3>
+<p class="muted">
+المستويات 1 - 4
+</p>
+</div>
+
+<div class="card">
+<h3>🥈 متفاعل</h3>
+<p class="muted">
+المستويات 5 - 9
+</p>
+</div>
+
+<div class="card">
+<h3>🥇 أسطورة</h3>
+<p class="muted">
+المستوى 10+
+</p>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- PROFILE -->
+
+<section id="profile" class="section">
+
+<div class="card">
+
+<div class="user">
+
+<div id="profileAvatar" class="avatar">
+👤
+</div>
+
+<div>
+
+<h2 id="profileName">
+</h2>
+
+<div id="profileBadges"></div>
+
+</div>
+
+</div>
+
+
+<div class="form" style="margin-top:16px">
+
+<input
+id="profileNewName"
+class="input"
+placeholder="اسم جديد"
+>
+
+<input
+id="profileAvatarUrl"
+class="input"
+placeholder="رابط صورة الحساب - اختياري"
+>
+
+<button class="btn" onclick="saveProfile()">
+حفظ التعديلات
+</button>
+
+<button class="btn danger" onclick="deleteMyAccount()">
+حذف حسابي
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- OWNER -->
+
+<section id="owner" class="section">
+
+<div class="card">
+
+<h2>
+👑 لوحة OWNER
+</h2>
+
+<p class="muted">
+هذه اللوحة متاحة للـ OWNER فقط.
+</p>
+
+
+<div class="grid">
+
+<div class="card">
+<h3>👥 الأعضاء</h3>
+<b id="ownerUserCount">0</b>
+</div>
+
+<div class="card">
+<h3>🪙 الرصيد</h3>
+<b>∞</b>
+</div>
+
+<div class="card">
+<h3>🛒 المشتريات</h3>
+<b id="ownerPurchases">0</b>
+</div>
+
+</div>
+
+
+<h3 style="margin-top:20px">
+إدارة الأعضاء
+</h3>
+
+<div id="usersTable" class="table-wrap"></div>
+
+
+<button class="btn" onclick="addOwnerXP()">
+✨ إضافة 100 XP لنفسي
+</button>
+
+
+<button class="btn secondary" onclick="resetDatabase()">
+⚠️ تصفير كل الحسابات والبدء من جديد
+</button>
+
+</div>
+
+</section>
+
+</div>
+
+</div>
+
+
+<div id="toast" class="toast"></div>
+
+
+<script>
+
+/* =========================
+   DATABASE
+========================= */
+
+const DATABASE_KEY =
+"hawafendina_database_v4";
+
+
+const PRODUCTS = [
+
+{
+id:1,
+name:"شارة مميزة",
+emoji:"💎",
+price:120,
+description:"شارة تظهر في ملفك"
+},
+
+{
+id:2,
+name:"إطار ملكي",
+emoji:"👑",
+price:250,
+description:"إطار فاخر للحساب"
+},
+
+{
+id:3,
+name:"لقب أسطوري",
+emoji:"🔥",
+price:400,
+description:"لقب خاص بجانب الاسم"
+},
+
+{
+id:4,
+name:"صندوق مفاجأة",
+emoji:"🎁",
+price:180,
+description:"جائزة مفاجأة"
+}
+
+];
+
+
+const GIFTS = [
+
+{
+id:1,
+name:"وردة",
+emoji:"🌹",
+price:30,
+xp:8
+},
+
+{
+id:2,
+name:"قلب",
+emoji:"❤️",
+price:60,
+xp:15
+},
+
+{
+id:3,
+name:"تاج",
+emoji:"👑",
+price:150,
+xp:35
+},
+
+{
+id:4,
+name:"ألماسة",
+emoji:"💎",
+price:300,
+xp:70
+}
+
+];
+
+
+let database =
+loadDatabase();
+
+let currentUserId = null;
+
+
+/* =========================
+   DATABASE FUNCTIONS
+========================= */
+
+function loadDatabase(){
+
+try{
+
+const data =
+localStorage.getItem(DATABASE_KEY);
+
+if(data){
+
+return JSON.parse(data);
+
+}
+
+}catch(error){
+
+console.error(error);
+
+}
+
+return {
+
+users:[],
+messages:[],
+activity:[]
+
+};
+
+}
+
+
+function saveDatabase(){
+
+localStorage.setItem(
+DATABASE_KEY,
+JSON.stringify(database)
+);
+
+}
+
+
+function currentUser(){
+
+return database.users.find(
+user => user.id === currentUserId
+);
+
+}
+
+
+function createId(){
+
+return Date.now().toString(36)
++
+Math.random().toString(36).slice(2);
+
+}
+
+
+function escapeHTML(value){
+
+return String(value ?? "")
+.replace(/&/g,"&amp;")
+.replace(/</g,"&lt;")
+.replace(/>/g,"&gt;")
+.replace(/"/g,"&quot;")
+.replace(/'/g,"&#039;");
+
+}
+
+
+/* =========================
+   LEVEL SYSTEM
+========================= */
+
+function calculateLevel(xp){
+
+return Math.max(
+1,
+Math.floor(xp / 100) + 1
+);
+
+}
+
+
+function addXP(amount){
+
+const user =
+currentUser();
+
+if(!user){
+
+return;
+
+}
+
+user.xp += amount;
+
+user.level =
+calculateLevel(user.xp);
+
+}
+
+
+/* =========================
+   TOAST
+========================= */
+
+function showToast(message){
+
+const toast =
+document.getElementById("toast");
+
+toast.textContent =
+message;
+
+toast.style.display =
+"block";
+
+clearTimeout(window.toastTimer);
+
+window.toastTimer =
+setTimeout(() => {
+
+toast.style.display =
+"none";
+
+},2500);
+
+}
+
+
+/* =========================
+   ACTIVITY
+========================= */
+
+function addActivity(text){
+
+database.activity.unshift({
+
+text:text,
+
+time:new Date()
+.toLocaleString("ar-EG")
+
+});
+
+database.activity =
+database.activity.slice(0,15);
+
+saveDatabase();
+
+}
+
+
+/* =========================
+   AUTH
+========================= */
+
+function createOrLogin(){
+
+const name =
+document.getElementById("authName")
+.value.trim();
+
+const password =
+document.getElementById("authPass")
+.value;
+
+
+if(!name || !password){
+
+showToast(
+"اكتب اسم المستخدم وكلمة المرور"
+);
+
+return;
+
+}
+
+
+let existing =
+database.users.find(
+user =>
+user.name.toLowerCase()
+===
+name.toLowerCase()
+);
+
+
+if(existing){
+
+if(existing.password !== password){
+
+showToast(
+"كلمة المرور غير صحيحة"
+);
+
+return;
+
+}
+
+currentUserId =
+existing.id;
+
+showToast(
+"تم تسجيل الدخول 👋"
+);
+
+}else{
+
+const isFirstUser =
+database.users.length === 0;
+
+
+const newUser = {
+
+id:createId(),
+
+name:name,
+
+password:password,
+
+role:isFirstUser
+?
+"OWNER"
+:
+"USER",
+
+coins:isFirstUser
+?
+0
+:
+500,
+
+xp:0,
+
+level:1,
+
+avatar:"",
+
+dailyClaim:"",
+
+interactions:0,
+
+giftsSent:0,
+
+purchases:[]
+
+};
+
+
+database.users.push(
+newUser
+);
+
+currentUserId =
+newUser.id;
+
+
+addActivity(
+isFirstUser
+?
+`تم إنشاء حساب ${name} كـ OWNER 👑`
+:
+`تم إنشاء حساب جديد: ${name}`
+);
+
+saveDatabase();
+
+
+showToast(
+isFirstUser
+?
+"تم إنشاء حساب OWNER 👑"
+:
+"تم إنشاء الحساب بنجاح"
+);
+
+}
+
+
+document.getElementById(
+"authScreen"
+).style.display =
+"none";
+
+
+document.getElementById(
+"appScreen"
+).style.display =
+"block";
+
+
+renderAll();
+
+}
+
+
+/* =========================
+   LOGOUT
+========================= */
+
+function logout(){
+
+currentUserId =
+null;
+
+document.getElementById(
+"appScreen"
+).style.display =
+"none";
+
+document.getElementById(
+"authScreen"
+).style.display =
+"block";
+
+}
+
+
+/* =========================
+   RENDER
+========================= */
+
+function renderAll(){
+
+const user =
+currentUser();
+
+if(!user){
+
+return;
+
+}
+
+
+document.getElementById(
+"welcomeText"
+).textContent =
+`مرحبًا ${user.name} ${user.role==="OWNER" ? "👑" : ""}`;
+
+
+document.getElementById(
+"roleDescription"
+).innerHTML =
+user.role === "OWNER"
+?
+`<span class="badge owner">👑 OWNER — صلاحيات غير محدودة</span>`
+:
+`<span class="badge">👤 عضو</span> استمر في التفاعل لرفع مستواك.`;
+
+
+document.getElementById(
+"coinsValue"
+).textContent =
+user.role === "OWNER"
+?
+"∞"
+:
+user.coins.toLocaleString();
+
+
+document.getElementById(
+"xpValue"
+).textContent =
+user.xp.toLocaleString();
+
+
+document.getElementById(
+"levelValue"
+).textContent =
+user.level;
+
+
+document.getElementById(
+"usersValue"
+).textContent =
+database.users.length;
+
+
+document.getElementById(
+"ownerNav"
+).style.display =
+user.role === "OWNER"
+?
+"block"
+:
+"none";
+
+
+document.getElementById(
+"accountState"
+).innerHTML =
+user.role === "OWNER"
+?
+`<span class="badge owner">👑 OWNER</span>
+<span class="badge">المتجر بلا قيود</span>
+<span class="badge">الهدايا بلا قيود</span>`
+:
+`<span class="badge">👤 MEMBER</span>`;
+
+
+renderActivity();
+
+renderStore();
+
+renderGifts();
+
+renderChat();
+
+renderLevels();
+
+renderProfile();
+
+renderOwner();
+
+}
+
+
+/* =========================
+   ACTIVITY
+========================= */
+
+function renderActivity(){
+
+const box =
+document.getElementById(
+"activityList"
+);
+
+
+if(!database.activity.length){
+
+box.innerHTML =
+`<div class="empty">
+لا يوجد نشاط حتى الآن.
+</div>`;
+
+return;
+
+}
+
+
+box.innerHTML =
+database.activity
+.slice(0,8)
+.map(item =>
+
+`<p class="muted">
+• ${escapeHTML(item.text)}
+<br>
+<small>${escapeHTML(item.time)}</small>
+</p>`
+
+)
+.join("");
+
+}
+
+
+/* =========================
+   STORE
+========================= */
+
+function renderStore(){
+
+const box =
+document.getElementById(
+"storeGrid"
+);
+
+
+box.innerHTML =
+PRODUCTS.map(product =>
+
+`<div class="card">
+
+<div class="item">
+
+<div class="emoji">
+${product.emoji}
+</div>
+
+<div>
+
+<h3>
+${product.name}
+</h3>
+
+<div class="muted">
+${product.description}
+</div>
+
+<div class="price">
+${product.price} 🪙
+</div>
+
+</div>
+
+</div>
+
+<button
+class="btn"
+onclick="buyProduct(${product.id})"
+>
+شراء
+</button>
+
+</div>`
+
+).join("");
+
+}
+
+
+function buyProduct(id){
+
+const user =
+currentUser();
+
+const product =
+PRODUCTS.find(
+item => item.id === id
+);
+
+
+if(!product){
+
+return;
+
+}
+
+
+if(
+user.role !== "OWNER"
+&&
+user.coins < product.price
+){
+
+showToast(
+"رصيدك غير كافٍ 🪙"
+);
+
+return;
+
+}
+
+
+/*
+OWNER:
+لا يتم خصم أي عملات
+*/
+
+if(user.role !== "OWNER"){
+
+user.coins -=
+product.price;
+
+}
+
+
+user.purchases.push({
+
+name:product.name,
+
+time:Date.now()
+
+});
+
+
+addXP(10);
+
+
+addActivity(
+`${user.name} اشترى ${product.name}`
+);
+
+
+saveDatabase();
+
+showToast(
+"تم الشراء بنجاح 🎉"
+);
+
+renderAll();
+
+}
+
+
+/* =========================
+   GIFTS
+========================= */
+
+function renderGifts(){
+
+const receiver =
+document.getElementById(
+"giftReceiver"
+);
+
+
+receiver.innerHTML =
+database.users
+.filter(user =>
+user.id !== currentUserId
+)
+.map(user =>
+`<option value="${user.id}">
+${escapeHTML(user.name)}
+ — LV.${user.level}
+</option>`
+)
+.join("");
+
+
+const grid =
+document.getElementById(
+"giftGrid"
+);
+
+
+grid.innerHTML =
+GIFTS.map(gift =>
+
+`<div class="card">
+
+<div class="item">
+
+<div.muted{color:var(--muted);line-height:1.9}
 .row{display:flex;gap:9px;flex-wrap:wrap}
 .btn{border:0;border-radius:15px;padding:13px 18px;color:#fff;background:linear-gradient(135deg,#874cff,#c15bff);font-weight:900;box-shadow:0 9px 28px #8d4cff2a}
 .btn.secondary{background:#15121e;border:1px solid var(--line);box-shadow:none}
