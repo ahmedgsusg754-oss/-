@@ -1335,3 +1335,2576 @@ function currentUser(){
 }
 
 funct
+<script>
+/* =========================================================
+   افـنـدツينا🥀🖤
+   الجزء الثاني
+   الواجهة الرئيسية + التنقل + المنشورات + المستخدمين
+========================================================= */
+
+function renderApp(){
+
+  const me = currentUser();
+
+  if(!me){
+    db.loggedIn = false;
+    saveDB();
+    renderAuth();
+    return;
+  }
+
+  document.getElementById("app").innerHTML = `
+
+    <header class="topbar">
+
+      <div class="topbar-inner container">
+
+        <div class="brand">
+          افـنـد<span class="pink">ツ</span>ينا🥀🖤
+        </div>
+
+        <div class="search-box">
+
+          <input
+            id="globalSearch"
+            type="search"
+            placeholder="🔎 ابحث عن شخص أو جروب أو منشور..."
+            oninput="globalSearch(this.value)">
+
+        </div>
+
+        <div class="top-actions">
+
+          <button
+            class="icon-btn"
+            title="الإشعارات"
+            onclick="showNotifications()">
+            🔔
+          </button>
+
+          <button
+            class="icon-btn"
+            title="الرسائل"
+            onclick="showChat()">
+            💬
+          </button>
+
+          <button
+            class="icon-btn"
+            title="الكوينز"
+            onclick="showCoins()">
+            🪙
+          </button>
+
+          <button
+            class="profile-mini"
+            onclick="openProfile(${me.id})">
+
+            <div class="avatar">
+              ${escapeHTML(me.name.charAt(0))}
+            </div>
+
+            <span>
+              ${escapeHTML(me.name)}
+            </span>
+
+          </button>
+
+        </div>
+
+      </div>
+
+    </header>
+
+
+    <div class="app-layout">
+
+      <!-- ================= SIDEBAR ================= -->
+
+      <aside class="sidebar">
+
+        <div class="card sidebar-card">
+
+          <div class="side-user">
+
+            <div class="avatar">
+              ${escapeHTML(me.name.charAt(0))}
+            </div>
+
+            <div class="side-user-info">
+
+              <strong>
+                ${escapeHTML(me.name)}
+                ${me.verified ? " ✓" : ""}
+              </strong>
+
+              <small>
+                المستوى ${me.level}
+                • 🪙 ${me.coins}
+              </small>
+
+            </div>
+
+          </div>
+
+
+          <nav class="nav-list">
+
+            <button
+              class="nav-btn active"
+              id="navHome"
+              onclick="showHome()">
+
+              <span class="nav-icon">🏠</span>
+              الرئيسية
+
+            </button>
+
+
+            <button
+              class="nav-btn"
+              onclick="showOnlineUsers()">
+
+              <span class="nav-icon">🟢</span>
+              الموجودون
+
+            </button>
+
+
+            <button
+              class="nav-btn"
+              onclick="showGroups()">
+
+              <span class="nav-icon">👥</span>
+              الجروبات
+
+            </button>
+
+
+            <button
+              class="nav-btn"
+              onclick="showChat()">
+
+              <span class="nav-icon">💬</span>
+              الرسائل
+
+            </button>
+
+
+            <button
+              class="nav-btn"
+              onclick="showCoins()">
+
+              <span class="nav-icon">🪙</span>
+              الكوينز
+
+            </button>
+
+
+            <button
+              class="nav-btn"
+              onclick="showStore()">
+
+              <span class="nav-icon">🛍️</span>
+              المتجر
+
+            </button>
+
+
+            <button
+              class="nav-btn"
+              onclick="showGames()">
+
+              <span class="nav-icon">🎮</span>
+              الألعاب
+
+            </button>
+
+
+            <button
+              class="nav-btn"
+              onclick="showRanking()">
+
+              <span class="nav-icon">🏆</span>
+              الترتيب
+
+            </button>
+
+
+            <button
+              class="nav-btn"
+              onclick="showNotifications()">
+
+              <span class="nav-icon">🔔</span>
+              الإشعارات
+
+            </button>
+
+
+            <button
+              class="nav-btn"
+              onclick="showSettings()">
+
+              <span class="nav-icon">⚙️</span>
+              الإعدادات
+
+            </button>
+
+
+            ${
+              me.owner
+              ?
+              `
+              <button
+                class="nav-btn owner-nav"
+                onclick="showOwnerPanel()">
+
+                <span class="nav-icon">👑</span>
+                لوحة الـOwner
+
+              </button>
+              `
+              :
+              ""
+            }
+
+
+            <button
+              class="nav-btn"
+              onclick="logoutUser()">
+
+              <span class="nav-icon">🚪</span>
+              تسجيل الخروج
+
+            </button>
+
+          </nav>
+
+        </div>
+
+      </aside>
+
+
+      <!-- ================= MAIN ================= -->
+
+      <main id="mainContent"></main>
+
+
+      <!-- ================= RIGHT BAR ================= -->
+
+      <aside class="rightbar">
+
+        <div class="card">
+
+          <div class="section-title">
+
+            <h3>
+              🟢 المتواجدون الآن
+            </h3>
+
+            <span class="badge">
+              <span class="online-dot"></span>
+              ${
+                db.users.filter(
+                  user => user.online
+                ).length
+              }
+            </span>
+
+          </div>
+
+          ${
+            db.users
+              .filter(user => user.online)
+              .slice(0,6)
+              .map(userCardHTML)
+              .join("")
+          }
+
+        </div>
+
+
+        <div class="card">
+
+          <div class="section-title">
+
+            <h3>
+              📊 إحصائياتك
+            </h3>
+
+          </div>
+
+          <div class="stat">
+
+            <span>
+              المستوى
+            </span>
+
+            <strong>
+              ${me.level}
+            </strong>
+
+          </div>
+
+
+          <div class="stat">
+
+            <span>
+              الخبرة
+            </span>
+
+            <strong>
+              ${me.xp} XP
+            </strong>
+
+          </div>
+
+
+          <div class="stat">
+
+            <span>
+              الكوينز
+            </span>
+
+            <strong>
+              🪙 ${me.coins}
+            </strong>
+
+          </div>
+
+
+          <div class="stat">
+
+            <span>
+              الإعجابات
+            </span>
+
+            <strong>
+              ❤️ ${me.likes}
+            </strong>
+
+          </div>
+
+        </div>
+
+
+        <div class="card">
+
+          <div class="section-title">
+
+            <h3>
+              🔥 الجروبات النشطة
+            </h3>
+
+          </div>
+
+          ${
+            db.groups
+              .slice(0,4)
+              .map(groupMiniHTML)
+              .join("")
+          }
+
+        </div>
+
+      </aside>
+
+    </div>
+
+
+    <!-- MOBILE NAV -->
+
+    <div class="mobile-bottom">
+
+      <button onclick="showHome()">
+        <strong>🏠</strong>
+        الرئيسية
+      </button>
+
+      <button onclick="showOnlineUsers()">
+        <strong>👥</strong>
+        الناس
+      </button>
+
+      <button onclick="showChat()">
+        <strong>💬</strong>
+        الدردشة
+      </button>
+
+      <button onclick="showGroups()">
+        <strong>👥</strong>
+        الجروبات
+      </button>
+
+      <button onclick="openProfile(${me.id})">
+        <strong>👤</strong>
+        حسابي
+      </button>
+
+    </div>
+  `;
+
+  showHome();
+
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+function setActiveNav(element){
+
+  document
+    .querySelectorAll(".nav-btn")
+    .forEach(btn=>{
+      btn.classList.remove("active");
+    });
+
+  if(element){
+    element.classList.add("active");
+  }
+
+}
+
+function setActiveByText(text){
+
+  document
+    .querySelectorAll(".nav-btn")
+    .forEach(btn=>{
+
+      btn.classList.toggle(
+        "active",
+        btn.textContent.includes(text)
+      );
+
+    });
+
+}
+
+
+/* =========================================================
+   HOME
+========================================================= */
+
+function showHome(){
+
+  setActiveByText("الرئيسية");
+
+  const main =
+    document.getElementById("mainContent");
+
+  if(!main) return;
+
+
+  main.innerHTML = `
+
+    <section class="hero">
+
+      <h1>
+        أهلًا بك في ${APP_NAME} 🖤
+      </h1>
+
+      <p>
+        تعارف، دردشة، أصدقاء، جروبات،
+        ألعاب، هدايا وفعاليات في مكان واحد.
+        ابدأ بالتعرف على أشخاص جدد وشارك
+        ما يدور في بالك.
+      </p>
+
+
+      <div class="hero-actions">
+
+        <button
+          class="btn primary"
+          onclick="createPost()">
+
+          ✍️ اكتب منشورًا
+
+        </button>
+
+
+        <button
+          class="btn"
+          onclick="showOnlineUsers()">
+
+          👥 تعرف على الموجودين
+
+        </button>
+
+
+        <button
+          class="btn"
+          onclick="showGroups()">
+
+          💬 اكتشف الجروبات
+
+        </button>
+
+
+        <button
+          class="btn gold"
+          onclick="showGames()">
+
+          🎮 العب الآن
+
+        </button>
+
+      </div>
+
+    </section>
+
+
+    <div class="tabs">
+
+      <button
+        class="tab-btn active"
+        onclick="showHome()">
+
+        كل المنشورات
+
+      </button>
+
+      <button
+        class="tab-btn"
+        onclick="showOnlineUsers()">
+
+        الموجودون الآن
+
+      </button>
+
+      <button
+        class="tab-btn"
+        onclick="showGroups()">
+
+        الجروبات
+
+      </button>
+
+      <button
+        class="tab-btn"
+        onclick="showRanking()">
+
+        المتصدرون
+
+      </button>
+
+    </div>
+
+
+    <div id="feed">
+
+      ${
+        db.posts.length
+        ?
+        db.posts
+          .map(postHTML)
+          .join("")
+        :
+        `
+        <div class="card" style="padding:25px;text-align:center">
+          <h3>لا توجد منشورات حتى الآن</h3>
+          <p class="muted">
+            كن أول شخص ينشر شيئًا.
+          </p>
+        </div>
+        `
+      }
+
+    </div>
+  `;
+}
+
+
+/* =========================================================
+   POST HTML
+========================================================= */
+
+function postHTML(post){
+
+  const author =
+    getUser(post.userId);
+
+  return `
+
+    <article class="card post-card">
+
+      <div class="post-head">
+
+        <div
+          class="post-avatar"
+          onclick="openProfile(${author.id})">
+
+          ${escapeHTML(
+            author.name.charAt(0)
+          )}
+
+        </div>
+
+
+        <div class="post-user">
+
+          <strong>
+            ${escapeHTML(author.name)}
+
+            ${
+              author.verified
+              ?
+              `<span
+                style="color:#58a6ff"
+                title="حساب موثق">
+                ✓
+              </span>`
+              :
+              ""
+            }
+
+          </strong>
+
+          <small>
+            ${escapeHTML(post.time)}
+            • المستوى ${author.level}
+          </small>
+
+        </div>
+
+
+        <button
+          class="icon-btn"
+          onclick="postMenu(${post.id})">
+
+          ⋮
+
+        </button>
+
+      </div>
+
+
+      <div class="post-text">
+        ${escapeHTML(post.text)}
+      </div>
+
+
+      <div class="post-actions">
+
+        <button
+          onclick="likePost(${post.id})">
+
+          ❤️ ${post.likes}
+
+        </button>
+
+
+        <button
+          onclick="commentPost(${post.id})">
+
+          💬 ${post.comments}
+
+        </button>
+
+
+        <button
+          onclick="sharePost(${post.id})">
+
+          ↗️ مشاركة
+
+        </button>
+
+
+        <button
+          onclick="sendPostGift(${post.id})">
+
+          🎁 هدية
+
+        </button>
+
+      </div>
+
+    </article>
+
+  `;
+}
+
+
+/* =========================================================
+   CREATE POST
+========================================================= */
+
+function createPost(){
+
+  openModal(`
+
+    <div class="modal-head">
+
+      <h2>
+        ✍️ منشور جديد
+      </h2>
+
+      <button
+        class="close-btn"
+        onclick="closeModal()">
+        ×
+      </button>
+
+    </div>
+
+
+    <div class="field">
+
+      <label>
+        ماذا تريد أن تقول؟
+      </label>
+
+      <textarea
+        id="newPostText"
+        placeholder="اكتب منشورك هنا..."></textarea>
+
+    </div>
+
+
+    <div class="row">
+
+      <button
+        class="btn"
+        onclick="showToast('إضافة صورة تحتاج رفع ملفات من الخادم 🖼️')">
+
+        🖼️ صورة
+
+      </button>
+
+
+      <button
+        class="btn"
+        onclick="showToast('إضافة فيديو تحتاج تخزين ملفات 🎥')">
+
+        🎥 فيديو
+
+      </button>
+
+
+      <button
+        class="btn"
+        onclick="showToast('إضافة موقع تحتاج صلاحية الموقع 📍')">
+
+        📍 موقع
+
+      </button>
+
+
+      <button
+        class="btn primary"
+        onclick="publishPost()">
+
+        نشر
+
+      </button>
+
+    </div>
+
+  `);
+
+}
+
+function publishPost(){
+
+  const input =
+    document.getElementById("newPostText");
+
+  if(!input) return;
+
+  const text =
+    input.value.trim();
+
+  if(!text){
+
+    showToast(
+      "اكتب شيئًا قبل النشر"
+    );
+
+    return;
+  }
+
+
+  db.posts.unshift({
+
+    id:Date.now(),
+
+    userId:db.currentUser,
+
+    text:text,
+
+    likes:0,
+
+    comments:0,
+
+    time:"الآن"
+
+  });
+
+
+  const me =
+    currentUser();
+
+  me.xp += 10;
+
+  levelUpCheck(me);
+
+  saveDB();
+
+  closeModal();
+
+  showHome();
+
+  showToast(
+    "تم نشر المنشور بنجاح ✨"
+  );
+
+}
+
+
+/* =========================================================
+   POST ACTIONS
+========================================================= */
+
+function likePost(id){
+
+  const post =
+    db.posts.find(
+      item => item.id === id
+    );
+
+  if(!post) return;
+
+  post.likes++;
+
+  const me =
+    currentUser();
+
+  me.xp += 2;
+  me.likes++;
+
+  levelUpCheck(me);
+
+  saveDB();
+
+  showHome();
+
+  showToast(
+    "تم تسجيل إعجابك ❤️"
+  );
+
+}
+
+
+function commentPost(id){
+
+  const post =
+    db.posts.find(
+      item => item.id === id
+    );
+
+  if(!post) return;
+
+  openModal(`
+
+    <div class="modal-head">
+
+      <h2>
+        💬 التعليقات
+      </h2>
+
+      <button
+        class="close-btn"
+        onclick="closeModal()">
+        ×
+      </button>
+
+    </div>
+
+
+    <div class="card" style="padding:12px">
+
+      <div class="muted">
+        منشور
+      </div>
+
+      <p style="line-height:1.8">
+        ${escapeHTML(post.text)}
+      </p>
+
+    </div>
+
+
+    <div class="field">
+
+      <label>
+        اكتب تعليقك
+      </label>
+
+      <input
+        id="commentText"
+        placeholder="تعليقك...">
+
+    </div>
+
+
+    <button
+      class="btn primary"
+      onclick="sendComment(${id})">
+
+      إرسال التعليق
+
+    </button>
+
+  `);
+
+}
+
+
+function sendComment(id){
+
+  const input =
+    document.getElementById(
+      "commentText"
+    );
+
+  const text =
+    input ? input.value.trim() : "";
+
+  if(!text){
+
+    showToast(
+      "اكتب تعليقًا أولًا"
+    );
+
+    return;
+  }
+
+  const post =
+    db.posts.find(
+      item => item.id === id
+    );
+
+  if(!post) return;
+
+  post.comments++;
+
+  const me =
+    currentUser();
+
+  me.xp += 3;
+
+  levelUpCheck(me);
+
+  saveDB();
+
+  closeModal();
+
+  showHome();
+
+  showToast(
+    "تم إرسال التعليق 💬"
+  );
+
+}
+
+
+function sharePost(id){
+
+  const post =
+    db.posts.find(
+      item => item.id === id
+    );
+
+  if(!post) return;
+
+  const shareText =
+    `شاهد هذا المنشور على ${APP_NAME}: ${post.text}`;
+
+  if(
+    navigator.share
+  ){
+
+    navigator.share({
+      title:APP_NAME,
+      text:shareText
+    }).catch(()=>{});
+
+  }else{
+
+    navigator.clipboard
+      ?.writeText(shareText)
+      .then(()=>{
+        showToast(
+          "تم نسخ المنشور للمشاركة 📋"
+        );
+      })
+      .catch(()=>{
+        showToast(
+          "تم تجهيز المنشور للمشاركة"
+        );
+      });
+
+  }
+
+}
+
+
+function postMenu(id){
+
+  openModal(`
+
+    <div class="modal-head">
+
+      <h2>
+        خيارات المنشور
+      </h2>
+
+      <button
+        class="close-btn"
+        onclick="closeModal()">
+        ×
+      </button>
+
+    </div>
+
+
+    <div class="row">
+
+      <button
+        class="btn"
+        onclick="showToast('تم حفظ المنشور');closeModal()">
+
+        🔖 حفظ
+
+      </button>
+
+
+      <button
+        class="btn"
+        onclick="showToast('تم إخفاء المنشور تجريبيًا');closeModal()">
+
+        🚫 إخفاء
+
+      </button>
+
+
+      <button
+        class="btn danger"
+        onclick="reportPost(${id})">
+
+        🚩 إبلاغ
+
+      </button>
+
+    </div>
+
+  `);
+
+}
+
+
+function reportPost(id){
+
+  closeModal();
+
+  showToast(
+    "تم تسجيل البلاغ تجريبيًا 🚩"
+  );
+
+}
+
+
+function sendPostGift(id){
+
+  openGiftPicker(
+    "إرسال هدية للمنشور"
+  );
+
+}
+
+
+/* =========================================================
+   USERS
+========================================================= */
+
+function userCardHTML(user){
+
+  return `
+
+    <div
+      class="user-card"
+      onclick="openProfile(${user.id})">
+
+      <div class="user-avatar">
+
+        ${escapeHTML(
+          user.name.charAt(0)
+        )}
+
+      </div>
+
+
+      <div class="user-info">
+
+        <strong>
+
+          ${escapeHTML(user.name)}
+
+          ${
+            user.verified
+            ?
+            `<span
+              style="color:#55aaff">
+              ✓
+            </span>`
+            :
+            ""
+          }
+
+        </strong>
+
+        <small>
+
+          <span class="online-dot"></span>
+
+          متصل • Lv ${user.level}
+
+        </small>
+
+      </div>
+
+    </div>
+
+  `;
+}
+
+
+function showOnlineUsers(){
+
+  setActiveByText("الموجودون");
+
+  const main =
+    document.getElementById(
+      "mainContent"
+    );
+
+  const onlineUsers =
+    db.users.filter(
+      user => user.online
+    );
+
+  main.innerHTML = `
+
+    <div class="card" style="padding:17px">
+
+      <div class="section-title">
+
+        <h2>
+          🟢 الموجودون الآن
+        </h2>
+
+        <span class="badge">
+
+          <span class="online-dot"></span>
+
+          ${onlineUsers.length} متصل
+
+        </span>
+
+      </div>
+
+
+      <div class="grid">
+
+        ${
+          onlineUsers
+            .map(userCardHTML)
+            .join("")
+        }
+
+      </div>
+
+    </div>
+
+  `;
+}
+
+
+/* =========================================================
+   PROFILE
+========================================================= */
+
+function openProfile(id){
+
+  const user =
+    getUser(id);
+
+  if(!user) return;
+
+  openModal(`
+
+    <div class="modal-head">
+
+      <h2>
+        الملف الشخصي
+      </h2>
+
+      <button
+        class="close-btn"
+        onclick="closeModal()">
+        ×
+      </button>
+
+    </div>
+
+
+    <div style="text-align:center">
+
+      <div
+        class="post-avatar"
+        style="
+          width:86px;
+          height:86px;
+          margin:auto;
+          font-size:31px;
+        ">
+
+        ${escapeHTML(
+          user.name.charAt(0)
+        )}
+
+      </div>
+
+
+      <h2 style="margin-bottom:7px">
+
+        ${escapeHTML(user.name)}
+
+        ${
+          user.verified
+          ?
+          `<span style="color:#55aaff">✓</span>`
+          :
+          ""
+        }
+
+      </h2>
+
+
+      <div class="row"
+           style="justify-content:center">
+
+        <span class="badge">
+          المستوى ${user.level}
+        </span>
+
+        ${
+          user.online
+          ?
+          `<span class="badge">
+             <span class="online-dot"></span>
+             متصل الآن
+           </span>`
+          :
+          `<span class="badge">
+             غير متصل
+           </span>`
+        }
+
+      </div>
+
+    </div>
+
+
+    <div class="grid"
+         style="margin-top:16px">
+
+      <div class="card"
+           style="padding:14px;text-align:center">
+
+        <strong>
+          ❤️ ${user.likes}
+        </strong>
+
+        <div class="muted">
+          إعجاب
+        </div>
+
+      </div>
+
+
+      <div class="card"
+           style="padding:14px;text-align:center">
+
+        <strong>
+          🪙 ${user.coins}
+        </strong>
+
+        <div class="muted">
+          كوينز
+        </div>
+
+      </div>
+
+
+      <div class="card"
+           style="padding:14px;text-align:center">
+
+        <strong>
+          ⭐ ${user.level}
+        </strong>
+
+        <div class="muted">
+          المستوى
+        </div>
+
+      </div>
+
+
+      <div class="card"
+           style="padding:14px;text-align:center">
+
+        <strong>
+          ${user.xp}
+        </strong>
+
+        <div class="muted">
+          XP
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="row"
+         style="margin-top:15px">
+
+      <button
+        class="btn primary"
+        onclick="
+          closeModal();
+          showChat();
+        ">
+
+        💬 مراسلة
+
+      </button>
+
+
+      <button
+        class="btn"
+        onclick="followUser(${user.id})">
+
+        ➕ متابعة
+
+      </button>
+
+
+      <button
+        class="btn"
+        onclick="
+          closeModal();
+          openGiftPicker('إرسال هدية إلى ${escapeHTML(user.name)}');
+        ">
+
+        🎁 هدية
+
+      </button>
+
+    </div>
+
+  `);
+
+}
+
+
+function followUser(id){
+
+  closeModal();
+
+  const user =
+    getUser(id);
+
+  showToast(
+    `تم إرسال طلب متابعة إلى ${user.name} ➕`
+  );
+
+}
+
+
+/* =========================================================
+   LEVEL SYSTEM
+========================================================= */
+
+function levelUpCheck(user){
+
+  const needed =
+    user.level * 500;
+
+  if(user.xp >= needed){
+
+    user.xp -= needed;
+    user.level++;
+
+    user.coins += 100;
+
+    db.notifications.unshift({
+
+      icon:"🎉",
+
+      text:
+        `وصلت إلى المستوى ${user.level}`,
+
+      time:"الآن"
+
+    });
+
+    showToast(
+      `🎉 مبروك! وصلت للمستوى ${user.level}`
+    );
+
+  }
+
+}
+
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+function globalSearch(value){
+
+  const query =
+    String(value || "")
+      .trim()
+      .toLowerCase();
+
+  if(!query){
+
+    showHome();
+    return;
+
+  }
+
+  const main =
+    document.getElementById(
+      "mainContent"
+    );
+
+  const users =
+    db.users.filter(
+      user =>
+        user.name
+          .toLowerCase()
+          .includes(query)
+    );
+
+  const groups =
+    db.groups.filter(
+      group =>
+        (
+          group.name +
+          " " +
+          group.description
+        )
+        .toLowerCase()
+        .includes(query)
+    );
+
+  const posts =
+    db.posts.filter(
+      post =>
+        post.text
+          .toLowerCase()
+          .includes(query)
+    );
+
+
+  main.innerHTML = `
+
+    <div class="card"
+         style="padding:17px">
+
+      <h2>
+        🔎 نتائج البحث
+      </h2>
+
+      <p class="muted">
+        نتائج البحث عن:
+        <strong>
+          ${escapeHTML(value)}
+        </strong>
+      </p>
+
+
+      <h3>
+        👥 المستخدمون
+      </h3>
+
+      <div class="grid">
+
+        ${
+          users.length
+          ?
+          users
+            .map(userCardHTML)
+            .join("")
+          :
+          `
+          <p class="muted">
+            لا توجد نتائج.
+          </p>
+          `
+        }
+
+      </div>
+
+
+      <h3 style="margin-top:20px">
+        💬 الجروبات
+      </h3>
+
+
+      ${
+        groups.length
+        ?
+        groups
+          .map(groupMiniHTML)
+          .join("")
+        :
+        `
+        <p class="muted">
+          لا توجد جروبات مطابقة.
+        </p>
+        `
+      }
+
+
+      <h3 style="margin-top:20px">
+        📝 المنشورات
+      </h3>
+
+
+      ${
+        posts.length
+        ?
+        posts
+          .map(postHTML)
+          .join("")
+        :
+        `
+        <p class="muted">
+          لا توجد منشورات مطابقة.
+        </p>
+        `
+      }
+
+    </div>
+
+  `;
+
+}
+
+
+/* =========================================================
+   GROUP MINI
+========================================================= */
+
+function groupMiniHTML(group){
+
+  return `
+
+    <div
+      class="user-card"
+      onclick="openGroup(${group.id})">
+
+      <div
+        class="user-avatar"
+        style="
+          background:
+          linear-gradient(
+            135deg,
+            #703dff,
+            #ec4295
+          );
+        ">
+
+        ${group.icon || "💬"}
+
+      </div>
+
+
+      <div class="user-info">
+
+        <strong>
+          ${escapeHTML(group.name)}
+        </strong>
+
+        <small>
+
+          👥 ${group.members}
+          • 🟢 ${group.online} متصل
+
+        </small>
+
+      </div>
+
+    </div>
+
+  `;
+
+}
+
+
+/* =========================================================
+   GROUPS
+========================================================= */
+
+function showGroups(){
+
+  setActiveByText("الجروبات");
+
+  const main =
+    document.getElementById(
+      "mainContent"
+    );
+
+
+  main.innerHTML = `
+
+    <div class="card"
+         style="padding:17px">
+
+      <div class="section-title">
+
+        <h2>
+          👥 الجروبات
+        </h2>
+
+        <button
+          class="btn primary"
+          onclick="createGroup()">
+
+          ＋ إنشاء جروب
+
+        </button>
+
+      </div>
+
+
+      <div class="grid">
+
+        ${
+          db.groups
+            .map(groupCardHTML)
+            .join("")
+        }
+
+      </div>
+
+    </div>
+
+  `;
+
+}
+
+
+function groupCardHTML(group){
+
+  return `
+
+    <div class="card group-card">
+
+      <div class="group-icon">
+
+        ${group.icon || "💬"}
+
+      </div>
+
+
+      <h3>
+        ${escapeHTML(group.name)}
+      </h3>
+
+
+      <p>
+        ${escapeHTML(group.description)}
+      </p>
+
+
+      <div class="group-meta">
+
+        <span>
+          👥 ${group.members}
+        </span>
+
+        <span>
+          🟢 ${group.online}
+        </span>
+
+      </div>
+
+
+      <button
+        class="btn primary"
+        style="width:100%;margin-top:10px"
+        onclick="openGroup(${group.id})">
+
+        دخول الجروب
+
+      </button>
+
+    </div>
+
+  `;
+
+}
+
+
+function createGroup(){
+
+  openModal(`
+
+    <div class="modal-head">
+
+      <h2>
+        إنشاء جروب جديد
+      </h2>
+
+      <button
+        class="close-btn"
+        onclick="closeModal()">
+        ×
+      </button>
+
+    </div>
+
+
+    <div class="field">
+
+      <label>
+        اسم الجروب
+      </label>
+
+      <input
+        id="newGroupName"
+        placeholder="مثال: أصحاب السهر">
+
+    </div>
+
+
+    <div class="field">
+
+      <label>
+        وصف الجروب
+      </label>
+
+      <textarea
+        id="newGroupDescription"
+        placeholder="اكتب وصف الجروب..."></textarea>
+
+    </div>
+
+
+    <div class="field">
+
+      <label>
+        الأيقونة
+      </label>
+
+      <select id="newGroupIcon">
+
+        <option>💬</option>
+        <option>🌙</option>
+        <option>❤️</option>
+        <option>🎮</option>
+        <option>🎵</option>
+        <option>🔥</option>
+        <option>👑</option>
+
+      </select>
+
+    </div>
+
+
+    <button
+      class="btn primary"
+      onclick="saveNewGroup()">
+
+      إنشاء الجروب
+
+    </button>
+
+  `);
+
+}
+
+
+function saveNewGroup(){
+
+  const name =
+    document
+      .getElementById("newGroupName")
+      .value
+      .trim();
+
+  const description =
+    document
+      .getElementById(
+        "newGroupDescription"
+      )
+      .value
+      .trim();
+
+  const icon =
+    document
+      .getElementById("newGroupIcon")
+      .value;
+
+
+  if(name.length < 2){
+
+    showToast(
+      "اكتب اسم الجروب"
+    );
+
+    return;
+
+  }
+
+
+  const id =
+    Date.now();
+
+
+  db.groups.push({
+
+    id:id,
+
+    name:name,
+
+    description:
+      description ||
+      "جروب جديد في افـنـدينا",
+
+    members:1,
+
+    online:1,
+
+    icon:icon
+
+  });
+
+
+  const me =
+    currentUser();
+
+  me.xp += 20;
+
+  levelUpCheck(me);
+
+  saveDB();
+
+  closeModal();
+
+  showGroups();
+
+  showToast(
+    "تم إنشاء الجروب بنجاح 🎉"
+  );
+
+}
+
+
+function openGroup(id){
+
+  const group =
+    db.groups.find(
+      item => item.id === id
+    );
+
+  if(!group) return;
+
+
+  openModal(`
+
+    <div class="modal-head">
+
+      <h2>
+        ${group.icon || "💬"}
+        ${escapeHTML(group.name)}
+      </h2>
+
+      <button
+        class="close-btn"
+        onclick="closeModal()">
+        ×
+      </button>
+
+    </div>
+
+
+    <p style="line-height:1.8">
+
+      ${escapeHTML(group.description)}
+
+    </p>
+
+
+    <div class="grid">
+
+      <div class="card"
+           style="padding:14px">
+
+        <strong>
+          👥 ${group.members}
+        </strong>
+
+        <div class="muted">
+          عضو
+        </div>
+
+      </div>
+
+
+      <div class="card"
+           style="padding:14px">
+
+        <strong>
+          🟢 ${group.online}
+        </strong>
+
+        <div class="muted">
+          متصل الآن
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="row"
+         style="margin-top:15px">
+
+      <button
+        class="btn primary"
+        onclick="
+          closeModal();
+          showGroupChat(${group.id});
+        ">
+
+        💬 دردشة الجروب
+
+      </button>
+
+
+      <button
+        class="btn"
+        onclick="joinGroup(${group.id})">
+
+        ➕ انضمام
+
+      </button>
+
+
+      <button
+        class="btn"
+        onclick="showToast('صفحة أعضاء الجروب جاهزة للربط')">
+
+        👥 الأعضاء
+
+      </button>
+
+    </div>
+
+  `);
+
+}
+
+
+function joinGroup(id){
+
+  const group =
+    db.groups.find(
+      item => item.id === id
+    );
+
+  if(!group) return;
+
+  group.members++;
+  group.online++;
+
+  saveDB();
+
+  closeModal();
+
+  showToast(
+    `انضممت إلى ${group.name} 👥`
+  );
+
+}
+
+
+/* =========================================================
+   GROUP CHAT
+========================================================= */
+
+function showGroupChat(groupId){
+
+  const group =
+    db.groups.find(
+      item => item.id === groupId
+    );
+
+  if(!group) return;
+
+
+  setActiveByText("الجروبات");
+
+
+  const main =
+    document.getElementById(
+      "mainContent"
+    );
+
+
+  main.innerHTML = `
+
+    <div class="card chat-window">
+
+      <div class="chat-head">
+
+        <div class="user-avatar">
+
+          ${group.icon || "💬"}
+
+        </div>
+
+
+        <div class="chat-head-info">
+
+          <strong>
+            ${escapeHTML(group.name)}
+          </strong>
+
+          <small>
+            🟢 ${group.online} متصل
+            • 👥 ${group.members} عضو
+          </small>
+
+        </div>
+
+
+        <button
+          class="icon-btn"
+          onclick="showToast('الكاميرا تحتاج WebRTC وخادم إشارات')">
+
+          📹
+
+        </button>
+
+
+        <button
+          class="icon-btn"
+          onclick="showToast('الميكروفون يحتاج صلاحية المتصفح')">
+
+          🎙️
+
+        </button>
+
+      </div>
+
+
+      <div class="chat-messages">
+
+        <div class="message">
+          أهلًا بالجميع 👋
+        </div>
+
+        <div class="message">
+          نورتوا الجروب ❤️
+        </div>
+
+        <div class="message me">
+          مساء الخير يا جماعة 🔥
+        </div>
+
+      </div>
+
+
+      <div class="chat-input">
+
+        <button
+          class="btn"
+          onclick="showToast('رفع صورة يحتاج Backend')">
+
+          🖼️
+
+        </button>
+
+
+        <input
+          id="groupMessageInput"
+          placeholder="اكتب رسالة للجروب...">
+
+
+        <button
+          class="btn primary"
+          onclick="sendGroupMessage()">
+
+          إرسال
+
+        </button>
+
+      </div>
+
+    </div>
+
+  `;
+
+}
+
+
+function sendGroupMessage(){
+
+  const input =
+    document.getElementById(
+      "groupMessageInput"
+    );
+
+  if(!input) return;
+
+  const text =
+    input.value.trim();
+
+  if(!text){
+
+    showToast(
+      "اكتب رسالة أولًا"
+    );
+
+    return;
+  }
+
+  input.value = "";
+
+  showToast(
+    "تم إرسال الرسالة تجريبيًا 💬"
+  );
+
+}
+
+
+/* =========================================================
+   CHAT
+========================================================= */
+
+function showChat(){
+
+  setActiveByText("الرسائل");
+
+  const main =
+    document.getElementById(
+      "mainContent"
+    );
+
+
+  main.innerHTML = `
+
+    <div class="card chat-window">
+
+      <div class="chat-head">
+
+        <div class="user-avatar">
+          ل
+        </div>
+
+
+        <div class="chat-head-info">
+
+          <strong>
+            ليان 🌸
+          </strong>
+
+          <small>
+            <span class="online-dot"></span>
+            متصلة الآن
+          </small>
+
+        </div>
+
+
+        <button
+          class="icon-btn"
+          onclick="startVideoCall()">
+
+          📹
+
+        </button>
+
+
+        <button
+          class="icon-btn"
+          onclick="startVoiceCall()">
+
+          📞
+
+        </button>
+
+      </div>
+
+
+      <div
+        class="chat-messages"
+        id="privateMessages">
+
+        ${
+          db.messages
+            .map(messageHTML)
+            .join("")
+        }
+
+      </div>
+
+
+      <div class="chat-input">
+
+        <button
+          class="btn"
+          onclick="showToast('إرفاق صورة يحتاج تخزين ملفات')">
+
+          🖼️
+
+        </button>
+
+
+        <button
+          class="btn"
+          onclick="showToast('التسجيل الصوتي يحتاج MediaRecorder + Backend')">
+
+          🎙️
+
+        </button>
+
+
+        <button
+          class="btn"
+          onclick="showToast('الموقع يحتاج صلاحية الموقع')">
+
+          📍
+
+        </button>
+
+
+        <input
+          id="privateMessageInput"
+          placeholder="اكتب رسالتك...">
+
+
+        <button
+          class="btn primary"
+          onclick="sendPrivateMessage()">
+
+          إرسال
+
+        </button>
+
+      </div>
+
+    </div>
+
+  `;
+
+}
+
+
+function messageHTML(message){
+
+  return `
+
+    <div
+      class="message ${message.me ? "me" : ""}">
+
+      ${escapeHTML(message.text)}
+
+      ${
+        message.time
+        ?
+        `
+        <div
+          style="
+            font-size:10px;
+            opacity:.65;
+            margin-top:3px;
+          ">
+
+          ${escapeHTML(message.time)}
+
+        </div>
+        `
+        :
+        ""
+      }
+
+    </div>
+
+  `;
+
+}
+
+
+function sendPrivateMessage(){
+
+  const input =
+    document.getElementById(
+      "privateMessageInput"
+    );
+
+  if(!input) return;
+
+  const text =
+    input.value.trim();
+
+  if(!text){
+
+    showToast(
+      "اكتب رسالة أولًا"
+    );
+
+    return;
+  }
+
+
+  const now =
+    new Date();
+
+  const time =
+    now.toLocaleTimeString(
+      "ar-EG",
+      {
+        hour:"2-digit",
+        minute:"2-digit"
+      }
+    );
+
+
+  db.messages.push({
+
+    from:db.currentUser,
+
+    text:text,
+
+    me:true,
+
+    time:time
+
+  });
+
+
+  const me =
+    currentUser();
+
+  me.xp += 1;
+
+  levelUpCheck(me);
+
+  saveDB();
+
+  showChat();
+
+}
+
+
+/* =========================================================
+   VIDEO / VOICE
+========================================================= */
+
+function startVideoCall(){
+
+  openModal(`
+
+    <div class="modal-head">
+
+      <h2>
+        📹 مكالمة فيديو
+      </h2>
+
+      <button
+        class="close-btn"
+        onclick="closeModal()">
+        ×
+      </button>
+
+    </div>
+
+    <div
+      style="
+        text-align:center;
+        padding:30px 10px;
+      ">
+
+      <div style="font-size:65px">
+        📹
+      </div>
+
+      <h3>
+        جاهز للاتصال
+      </h3>
+
+      <p class="muted">
+        تشغيل مكالمات الفيديو الحقيقية يحتاج
+        WebRTC + خادم Signaling وصلاحيات الكاميرا.
+      </p>
+
+      <button
+        class="btn primary"
+        onclick="showToast('تم إرسال طلب الاتصال تجريبيًا');closeModal()">
+
+        بدء المكالمة
+
+      </button>
+
+    </div>
+
+  `);
+
+}
+
+
+function startVoiceCall(){
+
+  showToast(
+    "تم إرسال طلب المكالمة الصوتية تجريبيًا 📞"
+  );
+
+}
+
+
+/* =========================================================
+   NOTIFICATIONS
+========================================================= */
+
+function showNotifications(){
+
+  setActiveByText("الإشعارات");
+
+  const main =
+    document.getElementById(
+      "mainContent"
+    );
+
+
+  main.innerHTML = `
+
+    <div class="card"
+         style="padding:17px">
+
+      <div class="section-title">
+
+        <h2>
+          🔔 الإشعارات
+        </h2>
+
+        <button
+          class="btn"
+          onclick="clearNotifications()">
+
+          تحديد كمقروء
+
+        </button>
+
+      </div>
+
+
+      ${
+        db.notifications.length
+        ?
+        db.notifications
+          .map(notificationHTML)
+          .join("")
+        :
+        `
+        <div
+          style="
+            text-align:center;
+            padding:30px;
+          ">
+
+          <div style="font-size:45px">
+            🔕
+          </div>
+
+          <p class="muted">
+            لا توجد إشعارات جديدة.
+          </p>
+
+        </div>
+        `
+      }
+
+    </div>
+
+  `;
+
+}
+
+
+function notificationHTML(item){
+
+  return `
+
+    <div
+      class="user-card">
+
+      <div
+        class="user-avatar"
+        style="font-size:20px">
+
+        ${item.icon}
+
+      </div>
+
+
+      <div class="user-info">
+
+        <strong>
+          ${escapeHTML(item.text)}
+        </strong>
+
+        <small>
+          ${escapeHTML(item.time)}
+        </small>
+
+      </div>
+
+    </div>
+
+  `;
+
+}
+
+
+function clearNotifications(){
+
+  db.notifications = [];
+
+  saveDB();
+
+  showNotifications();
+
+  showToast(
+    "تم مسح الإشعارات 🔕"
+  );
+
+}
+
+
+/* =========================================================
+   نهاية الجزء الثاني
+   الجزء الثالث سيكمل من هنا:
+   العملات + المتجر + الألعاب + الترتيب +
+   الإعدادات + Owner + الهدايا + إغلاق الصفحة
+========================================================= */
+</script>
