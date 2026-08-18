@@ -2,44 +2,42 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#09070d">
-
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#090711">
 <title>هواافـنـدツ⁠يـنـا🥀🖤</title>
 
 <style>
 :root{
---bg:#08060c;
---card:#15101d;
---card2:#1d1528;
---line:#342541;
+--bg:#090711;
+--panel:#14101d;
+--panel2:#1b1527;
+--line:#32263e;
 --text:#fff;
---muted:#aaa0b5;
---purple:#8f43ed;
---purple2:#6425c5;
+--muted:#aaa0b4;
+--purple:#9148f5;
+--purple2:#6425bf;
 --pink:#dc5cff;
 --gold:#ffd166;
---green:#48dda3;
+--green:#45d99b;
 --red:#ff5577;
 }
 
-*{
-box-sizing:border-box;
-}
+*{box-sizing:border-box}
 
-body{
+html,body{
 margin:0;
-min-height:100vh;
+padding:0;
+min-height:100%;
+font-family:Tahoma,Arial,sans-serif;
 background:
-radial-gradient(circle at 20% 0,#35104c,transparent 35%),
-radial-gradient(circle at 100% 30%,#21103b,transparent 30%),
+radial-gradient(circle at 15% 0,#39104d 0,transparent 32%),
+radial-gradient(circle at 100% 20%,#24103e 0,transparent 30%),
 var(--bg);
 color:var(--text);
-font-family:Tahoma,Arial,sans-serif;
 }
 
 button,input,textarea,select{
-font-family:inherit;
+font:inherit;
 }
 
 button{
@@ -51,10 +49,9 @@ display:none!important;
 }
 
 .app{
-width:min(1150px,100%);
+width:min(1100px,100%);
 margin:auto;
-padding:12px;
-padding-bottom:70px;
+padding:12px 12px 60px;
 }
 
 /* HEADER */
@@ -62,23 +59,23 @@ padding-bottom:70px;
 header{
 position:sticky;
 top:0;
-z-index:50;
+z-index:100;
 margin:-12px -12px 15px;
-padding:13px;
-background:rgba(8,6,12,.88);
-backdrop-filter:blur(18px);
+padding:12px;
+background:rgba(9,7,17,.92);
+backdrop-filter:blur(15px);
 border-bottom:1px solid var(--line);
 }
 
 .header{
 display:flex;
-align-items:center;
 justify-content:space-between;
+align-items:center;
 gap:10px;
 }
 
 .logo{
-font-size:21px;
+font-size:20px;
 font-weight:900;
 }
 
@@ -89,15 +86,15 @@ color:var(--muted);
 margin-top:4px;
 }
 
-.header-actions{
+.headerButtons{
 display:flex;
 gap:7px;
 }
 
-.icon-btn{
+.iconButton{
 border:1px solid var(--line);
-background:var(--card);
-color:white;
+background:var(--panel);
+color:#fff;
 border-radius:12px;
 padding:9px 12px;
 }
@@ -105,13 +102,13 @@ padding:9px 12px;
 /* HERO */
 
 .hero{
-background:
-linear-gradient(135deg,#32104c,#16101f 55%,#0e0913);
-border:1px solid #523067;
-border-radius:24px;
 padding:22px;
 margin-bottom:15px;
-box-shadow:0 15px 45px #0006;
+border-radius:23px;
+border:1px solid #4b2c60;
+background:
+linear-gradient(135deg,#321049,#171020 55%,#0e0a13);
+box-shadow:0 15px 45px #0007;
 }
 
 .hero h1{
@@ -120,8 +117,6 @@ font-size:28px;
 }
 
 .hero p{
-margin:0 0 17px;
-color:var(--muted);
 line-height:1.8;
 }
 
@@ -131,19 +126,20 @@ line-height:1.8;
 display:grid;
 grid-template-columns:repeat(4,1fr);
 gap:9px;
+margin-top:16px;
 }
 
 .stat{
-background:#ffffff0b;
-border:1px solid #ffffff10;
-border-radius:15px;
-padding:12px;
 text-align:center;
+padding:12px;
+border-radius:15px;
+background:#ffffff09;
+border:1px solid #ffffff0d;
 }
 
 .stat b{
 display:block;
-font-size:20px;
+font-size:21px;
 margin-bottom:4px;
 }
 
@@ -163,9 +159,9 @@ padding-bottom:4px;
 }
 
 .nav button{
-flex:0 0 auto;
-background:var(--card);
+white-space:nowrap;
 border:1px solid var(--line);
+background:var(--panel);
 color:#ddd;
 border-radius:13px;
 padding:10px 14px;
@@ -173,16 +169,17 @@ padding:10px 14px;
 
 .nav button.active{
 background:linear-gradient(135deg,var(--purple2),var(--purple));
-color:white;
+color:#fff;
 }
 
 /* CARDS */
 
 .card{
-background:linear-gradient(180deg,#17111f,#100c15);
+background:linear-gradient(180deg,#171120,#100c16);
 border:1px solid var(--line);
 border-radius:20px;
 padding:16px;
+box-shadow:0 10px 30px #0003;
 }
 
 .grid{
@@ -199,14 +196,10 @@ display:none;
 display:block;
 }
 
-h2,h3{
-margin-top:0;
-}
-
 .muted{
 color:var(--muted);
 font-size:13px;
-line-height:1.7;
+line-height:1.8;
 }
 
 /* BUTTONS */
@@ -218,30 +211,34 @@ border-radius:13px;
 padding:12px;
 margin-top:9px;
 background:linear-gradient(135deg,var(--purple2),var(--purple));
-color:white;
+color:#fff;
 font-weight:900;
 }
 
+.btn:hover{
+filter:brightness(1.12);
+}
+
 .btn.secondary{
-background:#211829;
+background:#21192c;
 border:1px solid var(--line);
 }
 
 .btn.danger{
-background:#481725;
-color:#ff9caf;
+background:#4a1828;
+color:#ffb0bd;
 }
 
 .btn.gold{
-background:linear-gradient(135deg,#a86d00,#e7ad2e);
-color:#1b1100;
+background:linear-gradient(135deg,#a76b00,#e5ad30);
+color:#1c1100;
 }
 
 /* INPUT */
 
 .form{
 display:grid;
-gap:8px;
+gap:9px;
 }
 
 .input{
@@ -250,7 +247,7 @@ padding:12px;
 border-radius:13px;
 border:1px solid var(--line);
 background:#0c0910;
-color:white;
+color:#fff;
 outline:none;
 }
 
@@ -261,23 +258,21 @@ border-color:var(--purple);
 /* BADGES */
 
 .badge{
-display:inline-flex;
-align-items:center;
-gap:4px;
+display:inline-block;
 padding:5px 9px;
+margin:2px;
 border-radius:99px;
 background:#ffffff10;
 font-size:11px;
-margin:2px;
 }
 
 .badge.owner{
-background:#513800;
+background:#503700;
 color:var(--gold);
 }
 
 .badge.level{
-color:#d8a1ff;
+color:#d9a4ff;
 }
 
 /* USER */
@@ -289,15 +284,15 @@ gap:12px;
 }
 
 .avatar{
-width:60px;
-height:60px;
-min-width:60px;
-border-radius:18px;
+width:62px;
+height:62px;
+min-width:62px;
 display:grid;
 place-items:center;
-background:linear-gradient(135deg,var(--purple2),var(--pink));
-font-size:26px;
+border-radius:18px;
 overflow:hidden;
+background:linear-gradient(135deg,var(--purple2),var(--pink));
+font-size:28px;
 }
 
 .avatar img{
@@ -306,7 +301,7 @@ height:100%;
 object-fit:cover;
 }
 
-/* STORE */
+/* ITEMS */
 
 .item{
 display:flex;
@@ -319,21 +314,16 @@ font-size:40px;
 }
 
 .price{
-color:var(--gold);
-font-weight:900;
 margin-top:5px;
-}
-
-.tag{
-font-size:11px;
-color:var(--green);
+font-weight:900;
+color:var(--gold);
 }
 
 /* LEVEL */
 
 .progress{
-height:9px;
-background:#2b2232;
+height:10px;
+background:#292130;
 border-radius:99px;
 overflow:hidden;
 margin:10px 0;
@@ -347,21 +337,21 @@ background:linear-gradient(90deg,var(--purple2),var(--pink));
 
 /* CHAT */
 
-.chat-box{
+.chatBox{
 height:400px;
 overflow:auto;
-background:#0d0a12;
-border:1px solid var(--line);
+padding:10px;
 border-radius:17px;
-padding:12px;
+background:#0c0910;
+border:1px solid var(--line);
 }
 
 .message{
 max-width:82%;
-background:#1c1425;
 padding:10px 12px;
-border-radius:15px;
 margin:7px 0;
+border-radius:15px;
+background:#1d1628;
 }
 
 .message.me{
@@ -371,14 +361,14 @@ background:#3b2050;
 
 .message small{
 display:block;
-color:var(--muted);
 font-size:9px;
+color:var(--muted);
 margin-top:5px;
 }
 
 /* TABLE */
 
-.table-wrap{
+.table{
 overflow:auto;
 }
 
@@ -390,57 +380,61 @@ border-collapse:collapse;
 th,td{
 padding:9px 6px;
 border-bottom:1px solid var(--line);
-text-align:right;
 font-size:12px;
+text-align:right;
 }
 
 /* EMPTY */
 
 .empty{
+padding:30px;
 text-align:center;
 color:var(--muted);
-padding:30px;
 }
 
 /* TOAST */
 
 .toast{
 position:fixed;
-z-index:100;
+z-index:9999;
 left:50%;
 bottom:20px;
 transform:translateX(-50%);
-background:#1c1425;
-border:1px solid var(--line);
-border-radius:99px;
-padding:12px 20px;
 display:none;
-box-shadow:0 10px 30px #0008;
+padding:12px 20px;
+border-radius:99px;
+background:#21172d;
+border:1px solid var(--line);
+box-shadow:0 10px 30px #0009;
 white-space:nowrap;
 }
 
 /* MOBILE */
 
-@media(max-width:800px){
-
-.grid{
-grid-template-columns:repeat(2,1fr);
-}
+@media(max-width:750px){
 
 .stats{
 grid-template-columns:repeat(2,1fr);
 }
 
+.grid{
+grid-template-columns:repeat(2,1fr);
 }
 
-@media(max-width:520px){
+.hero h1{
+font-size:24px;
+}
+
+}
+
+@media(max-width:500px){
 
 .grid{
 grid-template-columns:1fr;
 }
 
-.hero h1{
-font-size:23px;
+.hero{
+padding:17px;
 }
 
 }
@@ -460,18 +454,20 @@ font-size:23px;
 <small>مجتمع • متجر • هدايا • دردشة • مستويات</small>
 </div>
 
-<div class="header-actions">
+<div class="headerButtons">
 
 <button
-id="profileTopBtn"
-class="icon-btn"
+id="profileButton"
+class="iconButton"
+type="button"
 >
 👤
 </button>
 
 <button
-id="logoutBtn"
-class="icon-btn"
+id="logoutButton"
+class="iconButton"
+type="button"
 >
 ↪
 </button>
@@ -483,21 +479,22 @@ class="icon-btn"
 </header>
 
 
-<!-- ================= AUTH ================= -->
+<!-- =========================
+     AUTH
+========================= -->
 
 <div id="authScreen">
 
 <div class="hero">
 
-<h1>
-أهلًا بك في هواافـنـدينا 🥀
+<h1 id="authTitle">
+إنشاء أول حساب 👑
 </h1>
 
-<p>
-أنشئ أول حساب في الموقع.
-أول حساب يتم إنشاؤه يصبح
+<p class="muted">
+ابدأ بتأسيس الموقع. أول حساب يتم إنشاؤه يصبح
 <strong style="color:#ffd166">
-OWNER 👑
+OWNER
 </strong>
 تلقائيًا.
 </p>
@@ -505,15 +502,15 @@ OWNER 👑
 <div class="form">
 
 <input
-id="authName"
+id="usernameInput"
 class="input"
 type="text"
-placeholder="اسم المستخدم"
+placeholder="اسم الحساب"
 autocomplete="username"
 >
 
 <input
-id="authPassword"
+id="passwordInput"
 class="input"
 type="password"
 placeholder="كلمة المرور"
@@ -525,7 +522,23 @@ id="authButton"
 class="btn"
 type="button"
 >
-إنشاء حساب / دخول
+إنشاء الحساب
+</button>
+
+<button
+id="switchAuthButton"
+class="btn secondary"
+type="button"
+>
+لدي حساب بالفعل — تسجيل الدخول
+</button>
+
+<button
+id="clearDatabaseButton"
+class="btn danger"
+type="button"
+>
+تصفير الموقع بالكامل
 </button>
 
 </div>
@@ -535,10 +548,12 @@ type="button"
 </div>
 
 
-<!-- ================= APP ================= -->
+<!-- =========================
+     SITE
+========================= -->
 
 <div
-id="appScreen"
+id="siteScreen"
 class="hidden"
 >
 
@@ -548,8 +563,7 @@ class="hidden"
 مرحبًا
 </h1>
 
-<p id="roleDescription">
-</p>
+<div id="roleInfo"></div>
 
 <div class="stats">
 
@@ -580,38 +594,58 @@ class="hidden"
 
 <!-- NAV -->
 
-<nav class="nav">
+<nav
+id="navigation"
+class="nav"
+>
 
 <button
+type="button"
+data-section="homeSection"
 class="active"
-data-tab="home"
 >
 الرئيسية
 </button>
 
-<button data-tab="store">
+<button
+type="button"
+data-section="storeSection"
+>
 🛍️ المتجر
 </button>
 
-<button data-tab="gifts">
+<button
+type="button"
+data-section="giftsSection"
+>
 🎁 الهدايا
 </button>
 
-<button data-tab="chat">
+<button
+type="button"
+data-section="chatSection"
+>
 💬 الدردشة
 </button>
 
-<button data-tab="levels">
+<button
+type="button"
+data-section="levelsSection"
+>
 🏆 المستويات
 </button>
 
-<button data-tab="profile">
+<button
+type="button"
+data-section="profileSection"
+>
 👤 حسابي
 </button>
 
 <button
-id="ownerNav"
-data-tab="owner"
+id="ownerNavigation"
+type="button"
+data-section="ownerSection"
 class="hidden"
 >
 👑 OWNER
@@ -623,7 +657,7 @@ class="hidden"
 <!-- HOME -->
 
 <section
-id="home"
+id="homeSection"
 class="section active"
 >
 
@@ -636,12 +670,13 @@ class="section active"
 </h3>
 
 <p class="muted">
-احصل على XP وعملات كل يوم.
+احصل على مكافأتك اليومية وXP.
 </p>
 
 <button
 id="dailyButton"
 class="btn"
+type="button"
 >
 استلام المكافأة
 </button>
@@ -656,14 +691,15 @@ class="btn"
 </h3>
 
 <p class="muted">
-ارفع مستواك عن طريق التفاعل.
+كل تفاعل يزيد XP والمستوى.
 </p>
 
 <button
-id="interactButton"
+id="interactionButton"
 class="btn"
+type="button"
 >
-تفاعل + XP
+تفاعل +20 XP
 </button>
 
 </div>
@@ -672,17 +708,17 @@ class="btn"
 <div class="card">
 
 <h3>
-🔥 حالة الحساب
+🔥 حسابك
 </h3>
 
-<div id="accountState">
-</div>
+<div id="accountStatus"></div>
 
 <button
 id="homeProfileButton"
 class="btn secondary"
+type="button"
 >
-الملف الشخصي
+فتح الملف
 </button>
 
 </div>
@@ -696,11 +732,10 @@ style="margin-top:12px"
 >
 
 <h3>
-✨ آخر النشاطات
+✨ النشاط الأخير
 </h3>
 
-<div id="activityList">
-</div>
+<div id="activityContainer"></div>
 
 </div>
 
@@ -710,7 +745,7 @@ style="margin-top:12px"
 <!-- STORE -->
 
 <section
-id="store"
+id="storeSection"
 class="section"
 >
 
@@ -721,14 +756,13 @@ class="section"
 </h2>
 
 <p class="muted">
-OWNER يملك شراءً غير محدود بدون خصم من العملات.
+يمكن للـOWNER الشراء بدون حدود أو خصم العملات.
 </p>
 
 <div
-id="storeGrid"
+id="storeContainer"
 class="grid"
->
-</div>
+></div>
 
 </div>
 
@@ -738,7 +772,7 @@ class="grid"
 <!-- GIFTS -->
 
 <section
-id="gifts"
+id="giftsSection"
 class="section"
 >
 
@@ -748,11 +782,6 @@ class="section"
 🎁 الهدايا
 </h2>
 
-<p class="muted">
-أرسل الهدايا للأعضاء.
-OWNER يرسل بدون خصم.
-</p>
-
 <select
 id="giftReceiver"
 class="input"
@@ -760,11 +789,10 @@ class="input"
 </select>
 
 <div
-id="giftGrid"
+id="giftsContainer"
 class="grid"
 style="margin-top:12px"
->
-</div>
+></div>
 
 </div>
 
@@ -774,7 +802,7 @@ style="margin-top:12px"
 <!-- CHAT -->
 
 <section
-id="chat"
+id="chatSection"
 class="section"
 >
 
@@ -785,13 +813,12 @@ class="section"
 </h2>
 
 <div
-id="chatBox"
-class="chat-box"
->
-</div>
+id="chatContainer"
+class="chatBox"
+></div>
 
 <div
-style="display:flex;gap:7px;margin-top:9px"
+style="display:flex;gap:8px;margin-top:9px"
 >
 
 <input
@@ -801,9 +828,10 @@ placeholder="اكتب رسالتك..."
 >
 
 <button
-id="sendMessageButton"
+id="sendChatButton"
 class="btn"
 style="width:auto;margin:0;padding:0 20px"
+type="button"
 >
 إرسال
 </button>
@@ -818,7 +846,7 @@ style="width:auto;margin:0;padding:0 20px"
 <!-- LEVELS -->
 
 <section
-id="levels"
+id="levelsSection"
 class="section"
 >
 
@@ -828,44 +856,15 @@ class="section"
 🏆 المستويات والتفاعل
 </h2>
 
-<div id="levelInfo">
-</div>
+<div id="levelContainer"></div>
 
 <button
-id="levelInteractButton"
+id="levelInteractionButton"
 class="btn"
+type="button"
 >
 ❤️ تفاعل للحصول على XP
 </button>
-
-</div>
-
-
-<div
-class="grid"
-style="margin-top:12px"
->
-
-<div class="card">
-<h3>🥉 مبتدئ</h3>
-<p class="muted">
-المستويات 1 إلى 4
-</p>
-</div>
-
-<div class="card">
-<h3>🥈 متفاعل</h3>
-<p class="muted">
-المستويات 5 إلى 9
-</p>
-</div>
-
-<div class="card">
-<h3>🥇 أسطورة</h3>
-<p class="muted">
-المستوى 10+
-</p>
-</div>
 
 </div>
 
@@ -875,7 +874,7 @@ style="margin-top:12px"
 <!-- PROFILE -->
 
 <section
-id="profile"
+id="profileSection"
 class="section"
 >
 
@@ -892,11 +891,9 @@ class="avatar"
 
 <div>
 
-<h2 id="profileName">
-</h2>
+<h2 id="profileName"></h2>
 
-<div id="profileBadges">
-</div>
+<div id="profileBadges"></div>
 
 </div>
 
@@ -915,14 +912,15 @@ placeholder="اسم جديد"
 >
 
 <input
-id="avatarUrl"
+id="profileAvatarUrl"
 class="input"
-placeholder="رابط صورة الحساب - اختياري"
+placeholder="رابط صورة الحساب اختياري"
 >
 
 <button
 id="saveProfileButton"
 class="btn"
+type="button"
 >
 حفظ التعديلات
 </button>
@@ -930,6 +928,7 @@ class="btn"
 <button
 id="deleteAccountButton"
 class="btn danger"
+type="button"
 >
 حذف حسابي
 </button>
@@ -944,7 +943,7 @@ class="btn danger"
 <!-- OWNER -->
 
 <section
-id="owner"
+id="ownerSection"
 class="section"
 >
 
@@ -955,54 +954,28 @@ class="section"
 </h2>
 
 <p class="muted">
-صلاحيات الإدارة الكاملة لهذه النسخة.
+من هنا يمكنك إدارة أعضاء الموقع.
 </p>
 
-
-<div class="grid">
-
-<div class="card">
-<h3>👥 الأعضاء</h3>
-<b id="ownerUserCount">0</b>
-</div>
-
-<div class="card">
-<h3>🪙 الرصيد</h3>
-<b>∞</b>
-</div>
-
-<div class="card">
-<h3>🛒 مشترياتي</h3>
-<b id="ownerPurchases">0</b>
-</div>
-
-</div>
-
-
-<h3 style="margin-top:20px">
-إدارة الأعضاء
-</h3>
-
 <div
-id="usersTable"
-class="table-wrap"
->
-</div>
-
+id="ownerUsersContainer"
+class="table"
+></div>
 
 <button
 id="ownerXpButton"
 class="btn"
+type="button"
 >
-✨ +100 XP لنفسي
+✨ +100 XP للـOWNER
 </button>
 
-
 <button
-id="resetDatabaseButton"
+id="ownerResetButton"
 class="btn danger"
+type="button"
 >
-⚠️ تصفير كل الحسابات
+⚠️ تصفير الموقع بالكامل
 </button>
 
 </div>
@@ -1017,52 +990,57 @@ class="btn danger"
 <div
 id="toast"
 class="toast"
->
-</div>
+></div>
 
 
 <script>
 
-/* =====================================================
-   DATABASE
-===================================================== */
+"use strict";
 
-const DB_KEY =
-"hawafendina_final_database_2026";
+
+/* =========================================================
+   DATABASE
+========================================================= */
+
+const DATABASE_KEY =
+"hawafendina_database_final_2026";
 
 
 const PRODUCTS = [
 
 {
-id:1,
+id:"product_1",
 name:"شارة مميزة",
 emoji:"💎",
-price:120,
-description:"شارة مميزة للحساب"
+price:120
 },
 
 {
-id:2,
+id:"product_2",
 name:"إطار ملكي",
 emoji:"👑",
-price:250,
-description:"إطار ملكي"
+price:250
 },
 
 {
-id:3,
+id:"product_3",
 name:"لقب أسطوري",
 emoji:"🔥",
-price:400,
-description:"لقب خاص"
+price:400
 },
 
 {
-id:4,
+id:"product_4",
 name:"صندوق مفاجأة",
 emoji:"🎁",
-price:180,
-description:"صندوق جائزة"
+price:180
+},
+
+{
+id:"product_5",
+name:"جوهرة نادرة",
+emoji:"💠",
+price:700
 }
 
 ];
@@ -1071,7 +1049,7 @@ description:"صندوق جائزة"
 const GIFTS = [
 
 {
-id:1,
+id:"gift_1",
 name:"وردة",
 emoji:"🌹",
 price:30,
@@ -1079,7 +1057,7 @@ xp:8
 },
 
 {
-id:2,
+id:"gift_2",
 name:"قلب",
 emoji:"❤️",
 price:60,
@@ -1087,7 +1065,7 @@ xp:15
 },
 
 {
-id:3,
+id:"gift_3",
 name:"تاج",
 emoji:"👑",
 price:150,
@@ -1095,7 +1073,7 @@ xp:35
 },
 
 {
-id:4,
+id:"gift_4",
 name:"ألماسة",
 emoji:"💎",
 price:300,
@@ -1111,100 +1089,17 @@ loadDatabase();
 let currentUserId =
 null;
 
-
-/* =====================================================
-   ELEMENT HELPER
-===================================================== */
-
-const $ = id =>
-document.getElementById(id);
+let loginMode =
+false;
 
 
-/* =====================================================
-   DATABASE
-===================================================== */
+/* =========================================================
+   HELPERS
+========================================================= */
 
-function loadDatabase(){
+function getElement(id){
 
-try{
-
-const saved =
-localStorage.getItem(DB_KEY);
-
-if(saved){
-
-const data =
-JSON.parse(saved);
-
-return {
-
-users:Array.isArray(data.users)
-? data.users
-: [],
-
-messages:Array.isArray(data.messages)
-? data.messages
-: [],
-
-activity:Array.isArray(data.activity)
-? data.activity
-: []
-
-};
-
-}
-
-}catch(error){
-
-console.error(
-"Database load error:",
-error
-);
-
-}
-
-return {
-
-users:[],
-messages:[],
-activity:[]
-
-};
-
-}
-
-
-function saveDatabase(){
-
-try{
-
-localStorage.setItem(
-DB_KEY,
-JSON.stringify(database)
-);
-
-}catch(error){
-
-console.error(
-"Database save error:",
-error
-);
-
-showToast(
-"حدث خطأ في حفظ البيانات"
-);
-
-}
-
-}
-
-
-function getCurrentUser(){
-
-return database.users.find(
-user =>
-user.id === currentUserId
-);
+return document.getElementById(id);
 
 }
 
@@ -1215,14 +1110,10 @@ return Date.now().toString(36)
 +
 Math.random()
 .toString(36)
-.substring(2);
+.substring(2,10);
 
 }
 
-
-/* =====================================================
-   UTILS
-===================================================== */
 
 function escapeHTML(value){
 
@@ -1239,7 +1130,7 @@ return String(value ?? "")
 function showToast(message){
 
 const toast =
-$("toast");
+getElement("toast");
 
 toast.textContent =
 message;
@@ -1248,12 +1139,12 @@ toast.style.display =
 "block";
 
 clearTimeout(
-window.__toastTimer
+window.toastTimer
 );
 
-window.__toastTimer =
+window.toastTimer =
 setTimeout(
-() => {
+function(){
 
 toast.style.display =
 "none";
@@ -1265,12 +1156,132 @@ toast.style.display =
 }
 
 
+/* =========================================================
+   DATABASE LOAD
+========================================================= */
+
+function loadDatabase(){
+
+try{
+
+const raw =
+localStorage.getItem(
+DATABASE_KEY
+);
+
+if(!raw){
+
+return {
+
+users:[],
+messages:[],
+activity:[]
+
+};
+
+}
+
+const data =
+JSON.parse(raw);
+
+if(
+!data ||
+!Array.isArray(data.users)
+){
+
+throw new Error(
+"Invalid database"
+);
+
+}
+
+return {
+
+users:data.users,
+
+messages:Array.isArray(data.messages)
+?
+data.messages
+:
+[],
+
+activity:Array.isArray(data.activity)
+?
+data.activity
+:
+[]
+
+};
+
+}catch(error){
+
+console.warn(
+"Old database ignored:",
+error
+);
+
+return {
+
+users:[],
+messages:[],
+activity:[]
+
+};
+
+}
+
+}
+
+
+function saveDatabase(){
+
+try{
+
+localStorage.setItem(
+DATABASE_KEY,
+JSON.stringify(database)
+);
+
+return true;
+
+}catch(error){
+
+console.error(error);
+
+showToast(
+"تعذر حفظ البيانات"
+);
+
+return false;
+
+}
+
+}
+
+
+function getCurrentUser(){
+
+return database.users.find(
+function(user){
+
+return user.id ===
+currentUserId;
+
+}
+);
+
+}
+
+
+/* =========================================================
+   LEVELS
+========================================================= */
+
 function calculateLevel(xp){
 
-return Math.max(
-1,
-Math.floor(xp / 100) + 1
-);
+return Math.floor(
+Number(xp || 0) / 100
+) + 1;
 
 }
 
@@ -1286,8 +1297,10 @@ return;
 
 }
 
-user.xp +=
-amount;
+user.xp =
+Number(user.xp || 0)
++
+Number(amount);
 
 user.level =
 calculateLevel(
@@ -1297,6 +1310,10 @@ user.xp
 }
 
 
+/* =========================================================
+   ACTIVITY
+========================================================= */
+
 function addActivity(text){
 
 database.activity.unshift({
@@ -1304,68 +1321,44 @@ database.activity.unshift({
 text:text,
 
 time:new Date()
-.toLocaleString(
-"ar-EG"
-)
+.toLocaleString("ar-EG")
 
 });
 
 database.activity =
 database.activity.slice(
 0,
-15
+30
 );
 
 }
 
 
-/* =====================================================
+/* =========================================================
    AUTH
-===================================================== */
+========================================================= */
 
-function createOrLogin(){
+function authenticate(){
 
 const name =
-$("authName")
+getElement(
+"usernameInput"
+)
 .value
 .trim();
 
 const password =
-$("authPassword")
+getElement(
+"passwordInput"
+)
 .value;
-
-
-if(!name){
-
-showToast(
-"اكتب اسم المستخدم"
-);
-
-$("authName").focus();
-
-return;
-
-}
 
 
 if(name.length < 3){
 
 showToast(
-"اسم المستخدم يجب أن يكون 3 أحرف على الأقل"
+"اكتب اسم حساب من 3 أحرف على الأقل"
 );
-
-return;
-
-}
-
-
-if(!password){
-
-showToast(
-"اكتب كلمة المرور"
-);
-
-$("authPassword").focus();
 
 return;
 
@@ -1383,21 +1376,36 @@ return;
 }
 
 
-let existing =
+const existing =
 database.users.find(
-user =>
-user.name.toLowerCase()
+function(user){
+
+return user.name
+.toLowerCase()
 ===
-name.toLowerCase()
+name.toLowerCase();
+
+}
 );
 
 
-if(existing){
+/* LOGIN */
 
-if(
-existing.password !==
-password
-){
+if(loginMode){
+
+if(!existing){
+
+showToast(
+"هذا الحساب غير موجود"
+);
+
+return;
+
+}
+
+
+if(existing.password !==
+password){
 
 showToast(
 "كلمة المرور غير صحيحة"
@@ -1407,17 +1415,37 @@ return;
 
 }
 
+
 currentUserId =
 existing.id;
 
+openSite();
+
 showToast(
-"تم تسجيل الدخول 👋"
+"تم تسجيل الدخول بنجاح 👋"
 );
 
-}else{
+return;
+
+}
+
+
+/* CREATE */
+
+if(existing){
+
+showToast(
+"هذا الحساب موجود بالفعل"
+);
+
+return;
+
+}
+
 
 const firstAccount =
-database.users.length === 0;
+database.users.length ===
+0;
 
 
 const newUser = {
@@ -1466,34 +1494,58 @@ newUser.id;
 
 
 addActivity(
+
 firstAccount
+
 ?
-`تم إنشاء حساب ${name} كـ OWNER 👑`
+
+`تم تأسيس الموقع وإنشاء OWNER: ${name}`
+
 :
-`تم إنشاء حساب ${name}`
+
+`تم إنشاء الحساب: ${name}`
+
 );
 
 
 saveDatabase();
 
+openSite();
+
 
 showToast(
+
 firstAccount
+
 ?
+
 "تم إنشاء OWNER بنجاح 👑"
+
 :
+
 "تم إنشاء الحساب بنجاح 🎉"
+
 );
 
 }
 
 
-$("authScreen")
+/* =========================================================
+   OPEN SITE
+========================================================= */
+
+function openSite(){
+
+getElement(
+"authScreen"
+)
 .classList.add(
 "hidden"
 );
 
-$("appScreen")
+getElement(
+"siteScreen"
+)
 .classList.remove(
 "hidden"
 );
@@ -1503,61 +1555,120 @@ renderAll();
 }
 
 
-/* =====================================================
+/* =========================================================
    LOGOUT
-===================================================== */
+========================================================= */
 
 function logout(){
 
 currentUserId =
 null;
 
-$("appScreen")
+getElement(
+"siteScreen"
+)
 .classList.add(
 "hidden"
 );
 
-$("authScreen")
+getElement(
+"authScreen"
+)
 .classList.remove(
 "hidden"
 );
 
-$("authName").value =
+getElement(
+"usernameInput"
+)
+.value =
 "";
 
-$("authPassword").value =
+getElement(
+"passwordInput"
+)
+.value =
 "";
+
+loginMode =
+false;
+
+updateAuthMode();
 
 }
 
 
-/* =====================================================
-   NAVIGATION
-===================================================== */
+/* =========================================================
+   AUTH MODE
+========================================================= */
 
-function openTab(tab){
+function updateAuthMode(){
+
+getElement(
+"authTitle"
+)
+.textContent =
+loginMode
+?
+"تسجيل الدخول 👋"
+:
+"إنشاء أول حساب 👑";
+
+
+getElement(
+"authButton"
+)
+.textContent =
+loginMode
+?
+"دخول"
+:
+"إنشاء الحساب";
+
+
+getElement(
+"switchAuthButton"
+)
+.textContent =
+loginMode
+?
+"إنشاء حساب جديد"
+:
+"لدي حساب بالفعل — تسجيل الدخول";
+
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+function openSection(sectionId){
 
 document
 .querySelectorAll(
 ".section"
 )
 .forEach(
-section =>
+function(section){
+
 section.classList.remove(
 "active"
-)
+);
+
+}
 );
 
 
-const target =
-document.getElementById(
-tab
+const section =
+getElement(
+sectionId
 );
 
 
-if(target){
+if(section){
 
-target.classList.add(
+section.classList.add(
 "active"
 );
 
@@ -1566,22 +1677,26 @@ target.classList.add(
 
 document
 .querySelectorAll(
-".nav button"
+"#navigation button"
 )
 .forEach(
-button =>
+function(button){
+
 button.classList.toggle(
 "active",
-button.dataset.tab === tab
-)
+button.dataset.section ===
+sectionId
+);
+
+}
 );
 
 }
 
 
-/* =====================================================
-   RENDER ALL
-===================================================== */
+/* =========================================================
+   RENDER
+========================================================= */
 
 function renderAll(){
 
@@ -1595,13 +1710,18 @@ return;
 }
 
 
-$("welcomeText")
+getElement(
+"welcomeText"
+)
 .textContent =
 `مرحبًا ${user.name} ${user.role === "OWNER" ? "👑" : ""}`;
 
 
-$("roleDescription")
+getElement(
+"roleInfo"
+)
 .innerHTML =
+
 user.role === "OWNER"
 
 ?
@@ -1612,11 +1732,11 @@ user.role === "OWNER"
 </span>
 
 <span class="badge">
-المتجر بلا قيود
+متجر بلا قيود
 </span>
 
 <span class="badge">
-الهدايا بلا قيود
+هدايا بلا قيود
 </span>
 `
 
@@ -1629,39 +1749,54 @@ user.role === "OWNER"
 `;
 
 
-$("coinsValue")
+getElement(
+"coinsValue"
+)
 .textContent =
 user.role === "OWNER"
 ?
 "∞"
 :
-user.coins.toLocaleString();
+Number(user.coins || 0)
+.toLocaleString();
 
 
-$("xpValue")
+getElement(
+"xpValue"
+)
 .textContent =
-user.xp.toLocaleString();
+Number(user.xp || 0)
+.toLocaleString();
 
 
-$("levelValue")
+getElement(
+"levelValue"
+)
 .textContent =
-user.level;
+user.level || 1;
 
 
-$("usersValue")
+getElement(
+"usersValue"
+)
 .textContent =
 database.users.length;
 
 
-$("ownerNav")
+getElement(
+"ownerNavigation"
+)
 .classList.toggle(
 "hidden",
 user.role !== "OWNER"
 );
 
 
-$("accountState")
+getElement(
+"accountStatus"
+)
 .innerHTML =
+
 user.role === "OWNER"
 
 ?
@@ -1672,7 +1807,7 @@ user.role === "OWNER"
 </span>
 
 <p class="muted">
-صلاحيات المتجر والهدايا غير محدودة.
+لديك صلاحيات الإدارة.
 </p>
 `
 
@@ -1684,37 +1819,46 @@ user.role === "OWNER"
 </span>
 
 <p class="muted">
-ارفع مستواك بالتفاعل والهدايا.
+استمر في التفاعل لرفع المستوى.
 </p>
 `;
 
 
 renderActivity();
+
 renderStore();
+
 renderGifts();
+
 renderChat();
+
 renderLevels();
+
 renderProfile();
+
 renderOwner();
 
 }
 
 
-/* =====================================================
-   ACTIVITY
-===================================================== */
+/* =========================================================
+   ACTIVITY RENDER
+========================================================= */
 
 function renderActivity(){
 
-const box =
-$("activityList");
+const container =
+getElement(
+"activityContainer"
+);
 
 
 if(
-database.activity.length === 0
+database.activity.length ===
+0
 ){
 
-box.innerHTML =
+container.innerHTML =
 `
 <div class="empty">
 لا يوجد نشاط حتى الآن.
@@ -1726,12 +1870,13 @@ return;
 }
 
 
-box.innerHTML =
+container.innerHTML =
 database.activity
-.slice(0,8)
+.slice(0,10)
 .map(
-item =>
-`
+function(item){
+
+return `
 <p class="muted">
 • ${escapeHTML(item.text)}
 <br>
@@ -1739,24 +1884,34 @@ item =>
 ${escapeHTML(item.time)}
 </small>
 </p>
-`
+`;
+
+}
 )
 .join("");
 
 }
 
 
-/* =====================================================
+/* =========================================================
    STORE
-===================================================== */
+========================================================= */
 
 function renderStore(){
 
-$("storeGrid").innerHTML =
+const container =
+getElement(
+"storeContainer"
+);
+
+
+container.innerHTML =
 PRODUCTS
 .map(
-product =>
-`
+function(product){
+
+return `
+
 <div class="card">
 
 <div class="item">
@@ -1768,12 +1923,8 @@ ${product.emoji}
 <div>
 
 <h3>
-${product.name}
+${escapeHTML(product.name)}
 </h3>
-
-<div class="muted">
-${product.description}
-</div>
 
 <div class="price">
 ${product.price} 🪙
@@ -1784,1294 +1935,4 @@ ${product.price} 🪙
 </div>
 
 <button
-class="btn"
-data-buy="${product.id}"
->
-شراء
-</button>
-
-</div>
-`
-)
-.join("");
-
-
-document
-.querySelectorAll(
-"[data-buy]"
-)
-.forEach(
-button =>
-button.addEventListener(
-"click",
-() =>
-buyProduct(
-button.dataset.buy
-)
-)
-);
-
-}
-
-
-function buyProduct(id){
-
-const user =
-getCurrentUser();
-
-const product =
-PRODUCTS.find(
-item =>
-String(item.id) ===
-String(id)
-);
-
-
-if(
-!user ||
-!product
-){
-
-return;
-
-}
-
-
-if(
-user.role !== "OWNER"
-&&
-user.coins < product.price
-){
-
-showToast(
-"رصيدك غير كافٍ 🪙"
-);
-
-return;
-
-}
-
-
-if(user.role !== "OWNER"){
-
-user.coins -=
-product.price;
-
-}
-
-
-user.purchases.push({
-
-name:product.name,
-
-time:new Date()
-.toISOString()
-
-});
-
-
-addXP(10);
-
-addActivity(
-`${user.name} اشترى ${product.name}`
-);
-
-saveDatabase();
-
-showToast(
-"تم الشراء بنجاح 🎉"
-);
-
-renderAll();
-
-}
-
-
-/* =====================================================
-   GIFTS
-===================================================== */
-
-function renderGifts(){
-
-const receiver =
-$("giftReceiver");
-
-
-receiver.innerHTML =
-database.users
-.filter(
-user =>
-user.id !== currentUserId
-)
-.map(
-user =>
-`
-<option value="${escapeHTML(user.id)}">
-${escapeHTML(user.name)}
- — LV.${user.level}
-</option>
-`
-)
-.join("");
-
-
-$("giftGrid").innerHTML =
-GIFTS
-.map(
-gift =>
-`
-<div class="card">
-
-<div class="item">
-
-<div class="emoji">
-${gift.emoji}
-</div>
-
-<div>
-
-<h3>
-${gift.name}
-</h3>
-
-<div class="price">
-${gift.price} 🪙
-</div>
-
-<div class="tag">
-+${gift.xp} XP
-</div>
-
-</div>
-
-</div>
-
-<button
-class="btn"
-data-gift="${gift.id}"
->
-إرسال
-</button>
-
-</div>
-`
-)
-.join("");
-
-
-document
-.querySelectorAll(
-"[data-gift]"
-)
-.forEach(
-button =>
-button.addEventListener(
-"click",
-() =>
-sendGift(
-button.dataset.gift
-)
-)
-);
-
-}
-
-
-function sendGift(id){
-
-const sender =
-getCurrentUser();
-
-const receiverId =
-$("giftReceiver").value;
-
-const receiver =
-database.users.find(
-user =>
-user.id === receiverId
-);
-
-const gift =
-GIFTS.find(
-item =>
-String(item.id) ===
-String(id)
-);
-
-
-if(!receiver){
-
-showToast(
-"لا يوجد عضو مستلم"
-);
-
-return;
-
-}
-
-
-if(!gift){
-
-return;
-
-}
-
-
-if(
-sender.role !== "OWNER"
-&&
-sender.coins < gift.price
-){
-
-showToast(
-"رصيدك غير كافٍ 🪙"
-);
-
-return;
-
-}
-
-
-if(sender.role !== "OWNER"){
-
-sender.coins -=
-gift.price;
-
-}
-
-
-sender.giftsSent++;
-
-sender.xp +=
-gift.xp;
-
-sender.level =
-calculateLevel(
-sender.xp
-);
-
-
-receiver.xp +=
-gift.xp;
-
-receiver.level =
-calculateLevel(
-receiver.xp
-);
-
-
-addActivity(
-`${sender.name} أرسل ${gift.emoji} ${gift.name} إلى ${receiver.name}`
-);
-
-saveDatabase();
-
-showToast(
-"تم إرسال الهدية 🎁"
-);
-
-renderAll();
-
-}
-
-
-/* =====================================================
-   CHAT
-===================================================== */
-
-function renderChat(){
-
-const box =
-$("chatBox");
-
-
-if(
-database.messages.length === 0
-){
-
-box.innerHTML =
-`
-<div class="empty">
-ابدأ أول محادثة 👋
-</div>
-`;
-
-return;
-
-}
-
-
-box.innerHTML =
-database.messages
-.map(
-message =>
-`
-<div class="message
-${message.userId === currentUserId ? "me" : ""}">
-
-<b>
-${escapeHTML(message.name)}
-${message.role === "OWNER" ? " 👑" : ""}
-</b>
-
-<div>
-${escapeHTML(message.text)}
-</div>
-
-<small>
-${escapeHTML(message.time)}
-</small>
-
-</div>
-`
-)
-.join("");
-
-
-box.scrollTop =
-box.scrollHeight;
-
-}
-
-
-function sendMessage(){
-
-const input =
-$("chatInput");
-
-const text =
-input.value.trim();
-
-
-if(!text){
-
-return;
-
-}
-
-
-const user =
-getCurrentUser();
-
-
-database.messages.push({
-
-id:createId(),
-
-userId:user.id,
-
-name:user.name,
-
-role:user.role,
-
-text:text,
-
-time:new Date()
-.toLocaleTimeString(
-"ar-EG",
-{
-hour:"2-digit",
-minute:"2-digit"
-}
-)
-
-});
-
-
-user.interactions++;
-
-addXP(3);
-
-input.value =
-"";
-
-saveDatabase();
-
-renderAll();
-
-}
-
-
-/* =====================================================
-   DAILY
-===================================================== */
-
-function claimDaily(){
-
-const user =
-getCurrentUser();
-
-const today =
-new Date().toDateString();
-
-
-if(
-user.dailyClaim === today
-){
-
-showToast(
-"استلمت مكافأتك اليوم بالفعل 🎁"
-);
-
-return;
-
-}
-
-
-user.dailyClaim =
-today;
-
-
-if(
-user.role !== "OWNER"
-){
-
-user.coins +=
-200;
-
-}
-
-
-addXP(50);
-
-addActivity(
-`${user.name} استلم المكافأة اليومية`
-);
-
-saveDatabase();
-
-showToast(
-user.role === "OWNER"
-?
-"+50 XP للـOWNER 👑"
-:
-"+200 🪙 +50 XP 🎁"
-);
-
-renderAll();
-
-}
-
-
-/* =====================================================
-   INTERACTION
-===================================================== */
-
-function interact(){
-
-const user =
-getCurrentUser();
-
-
-user.interactions++;
-
-addXP(20);
-
-
-if(
-user.role !== "OWNER"
-){
-
-user.coins +=
-10;
-
-}
-
-
-addActivity(
-`${user.name} قام بتفاعل ❤️`
-);
-
-saveDatabase();
-
-showToast(
-"+20 XP ❤️"
-);
-
-renderAll();
-
-}
-
-
-/* =====================================================
-   LEVELS
-===================================================== */
-
-function renderLevels(){
-
-const user =
-getCurrentUser();
-
-const currentLevelXP =
-(user.level - 1) * 100;
-
-const nextLevelXP =
-user.level * 100;
-
-const progress =
-Math.min(
-100,
-Math.max(
-0,
-((user.xp - currentLevelXP) / 100) * 100
-)
-);
-
-
-let rank =
-"🥉 مبتدئ";
-
-
-if(user.level >= 5){
-
-rank =
-"🥈 متفاعل";
-
-}
-
-
-if(user.level >= 10){
-
-rank =
-"🥇 أسطورة";
-
-}
-
-
-$("levelInfo").innerHTML =
-
-`
-<h2>
-${rank}
-</h2>
-
-<h3>
-المستوى ${user.level}
-</h3>
-
-<p class="muted">
-XP: ${user.xp}
-<br>
-التفاعلات: ${user.interactions}
-<br>
-الهدايا المرسلة: ${user.giftsSent}
-</p>
-
-<div class="progress">
-<i style="width:${progress}%"></i>
-</div>
-
-<p class="muted">
-${Math.max(
-0,
-nextLevelXP - user.xp
-)}
-XP للمستوى التالي.
-</p>
-`;
-
-}
-
-
-/* =====================================================
-   PROFILE
-===================================================== */
-
-function renderProfile(){
-
-const user =
-getCurrentUser();
-
-
-if(user.avatar){
-
-$("profileAvatar")
-.innerHTML =
-`
-<img
-src="${escapeHTML(user.avatar)}"
-onerror="this.parentElement.textContent='👤'"
->
-`;
-
-}else{
-
-$("profileAvatar")
-.textContent =
-"👤";
-
-}
-
-
-$("profileName")
-.textContent =
-user.name;
-
-
-$("profileBadges")
-.innerHTML =
-
-`
-<span class="badge
-${user.role === "OWNER" ? "owner" : ""}">
-${user.role === "OWNER"
-? "👑 OWNER"
-: "👤 MEMBER"}
-</span>
-
-<span class="badge level">
-LV.${user.level}
-</span>
-`;
-
-}
-
-
-function saveProfile(){
-
-const user =
-getCurrentUser();
-
-
-const newName =
-$("newProfileName")
-.value
-.trim();
-
-const avatar =
-$("avatarUrl")
-.value
-.trim();
-
-
-if(newName){
-
-const duplicate =
-database.users.some(
-item =>
-item.id !== user.id
-&&
-item.name.toLowerCase()
-===
-newName.toLowerCase()
-);
-
-
-if(duplicate){
-
-showToast(
-"هذا الاسم مستخدم بالفعل"
-);
-
-return;
-
-}
-
-
-user.name =
-newName;
-
-}
-
-
-user.avatar =
-avatar;
-
-
-saveDatabase();
-
-showToast(
-"تم حفظ الملف 👤"
-);
-
-renderAll();
-
-}
-
-
-/* =====================================================
-   DELETE ACCOUNT
-===================================================== */
-
-function deleteMyAccount(){
-
-const user =
-getCurrentUser();
-
-
-if(
-user.role === "OWNER"
-&&
-database.users.length > 1
-){
-
-showToast(
-"OWNER لا يمكن حذفه مع وجود أعضاء"
-);
-
-return;
-
-}
-
-
-if(
-!confirm(
-"هل تريد حذف حسابك نهائيًا؟"
-)
-){
-
-return;
-
-}
-
-
-database.users =
-database.users.filter(
-item =>
-item.id !== user.id
-);
-
-
-saveDatabase();
-
-logout();
-
-showToast(
-"تم حذف الحساب"
-);
-
-}
-
-
-/* =====================================================
-   OWNER
-===================================================== */
-
-function renderOwner(){
-
-const user =
-getCurrentUser();
-
-
-if(
-!user ||
-user.role !== "OWNER"
-){
-
-return;
-
-}
-
-
-$("ownerUserCount")
-.textContent =
-database.users.length;
-
-
-$("ownerPurchases")
-.textContent =
-user.purchases.length;
-
-
-$("usersTable").innerHTML =
-
-`
-<table>
-
-<tr>
-
-<th>
-الاسم
-</th>
-
-<th>
-الدور
-</th>
-
-<th>
-LV
-</th>
-
-<th>
-XP
-</th>
-
-<th>
-عملات
-</th>
-
-<th>
-إجراء
-</th>
-
-</tr>
-
-${database.users
-.map(
-member =>
-`
-
-<tr>
-
-<td>
-${escapeHTML(member.name)}
-</td>
-
-<td>
-${member.role === "OWNER"
-? "👑 OWNER"
-: "USER"}
-</td>
-
-<td>
-${member.level}
-</td>
-
-<td>
-${member.xp}
-</td>
-
-<td>
-${member.role === "OWNER"
-? "∞"
-: member.coins}
-</td>
-
-<td>
-
-${
-member.id === user.id
-
-?
-
-"أنت"
-
-:
-
-`
-
-<button
-class="icon-btn"
-data-givexp="${member.id}"
->
-+XP
-</button>
-
-<button
-class="icon-btn"
-data-delete="${member.id}"
->
-حذف
-</button>
-`
-
-}
-
-</td>
-
-</tr>
-
-`
-)
-.join("")}
-
-</table>
-`;
-
-
-document
-.querySelectorAll(
-"[data-givexp]"
-)
-.forEach(
-button =>
-button.addEventListener(
-"click",
-() =>
-giveXP(
-button.dataset.givexp
-)
-)
-);
-
-
-document
-.querySelectorAll(
-"[data-delete]"
-)
-.forEach(
-button =>
-button.addEventListener(
-"click",
-() =>
-deleteMember(
-button.dataset.delete
-)
-)
-);
-
-}
-
-
-function giveXP(memberId){
-
-const owner =
-getCurrentUser();
-
-
-if(
-!owner ||
-owner.role !== "OWNER"
-){
-
-return;
-
-}
-
-
-const member =
-database.users.find(
-user =>
-user.id === memberId
-);
-
-
-if(!member){
-
-return;
-
-}
-
-
-member.xp +=
-100;
-
-member.level =
-calculateLevel(
-member.xp
-);
-
-saveDatabase();
-
-showToast(
-"تمت إضافة 100 XP ✨"
-);
-
-renderAll();
-
-}
-
-
-function addOwnerXP(){
-
-const user =
-getCurrentUser();
-
-
-if(
-!user ||
-user.role !== "OWNER"
-){
-
-return;
-
-}
-
-
-addXP(100);
-
-saveDatabase();
-
-showToast(
-"+100 XP 👑"
-);
-
-renderAll();
-
-}
-
-
-function deleteMember(memberId){
-
-const owner =
-getCurrentUser();
-
-
-if(
-!owner ||
-owner.role !== "OWNER"
-){
-
-return;
-
-}
-
-
-if(
-!confirm(
-"هل تريد حذف هذا العضو؟"
-)
-){
-
-return;
-
-}
-
-
-database.users =
-database.users.filter(
-user =>
-user.id !== memberId
-);
-
-saveDatabase();
-
-showToast(
-"تم حذف العضو"
-);
-
-renderAll();
-
-}
-
-
-/* =====================================================
-   RESET
-===================================================== */
-
-function resetDatabase(){
-
-const user =
-getCurrentUser();
-
-
-if(
-!user ||
-user.role !== "OWNER"
-){
-
-return;
-
-}
-
-
-if(
-!confirm(
-"سيتم حذف جميع الحسابات والدردشة والبيانات بالكامل. هل أنت متأكد؟"
-)
-){
-
-return;
-
-}
-
-
-localStorage.removeItem(
-DB_KEY
-);
-
-
-database = {
-
-users:[],
-messages:[],
-activity:[]
-
-};
-
-
-currentUserId =
-null;
-
-
-$("appScreen")
-.classList.add(
-"hidden"
-);
-
-$("authScreen")
-.classList.remove(
-"hidden"
-);
-
-
-showToast(
-"تم التصفير. أول حساب جديد سيكون OWNER 👑"
-);
-
-}
-
-
-/* =====================================================
-   EVENTS
-===================================================== */
-
-$("authButton")
-.addEventListener(
-"click",
-createOrLogin
-);
-
-
-$("authName")
-.addEventListener(
-"keydown",
-event => {
-
-if(
-event.key === "Enter"
-){
-
-createOrLogin();
-
-}
-
-}
-);
-
-
-$("authPassword")
-.addEventListener(
-"keydown",
-event => {
-
-if(
-event.key === "Enter"
-){
-
-createOrLogin();
-
-}
-
-}
-);
-
-
-$("logoutBtn")
-.addEventListener(
-"click",
-logout
-);
-
-
-$("profileTopBtn")
-.addEventListener(
-"click",
-openProfile
-);
-
-
-$("homeProfileButton")
-.addEventListener(
-"click",
-openProfile
-);
-
-
-$("dailyButton")
-.addEventListener(
-"click",
-claimDaily
-);
-
-
-$("interactButton")
-.addEventListener(
-"click",
-interact
-);
-
-
-$("levelInteractButton")
-.addEventListener(
-"click",
-interact
-);
-
-
-$("sendMessageButton")
-.addEventListener(
-"click",
-sendMessage
-);
-
-
-$("chatInput")
-.addEventListener(
-"keydown",
-event => {
-
-if(
-event.key === "Enter"
-){
-
-sendMessage();
-
-}
-
-}
-);
-
-
-$("saveProfileButton")
-.addEventListener(
-"click",
-saveProfile
-);
-
-
-$("deleteAccountButton")
-.addEventListener(
-"click",
-deleteMyAccount
-);
-
-
-$("ownerXpButton")
-.addEventListener(
-"click",
-addOwnerXP
-);
-
-
-$("resetDatabaseButton")
-.addEventListener(
-"click",
-resetDatabase
-);
-
-
-document
-.querySelectorAll(
-".nav button"
-)
-.forEach(
-button => {
-
-button.addEventListener(
-"click",
-() => {
-
-openTab(
-button.dataset.tab
-);
-
-}
-);
-
-}
-);
-
-
-/* =====================================================
-   START
-===================================================== */
-
-console.log(
-"هواافـنـدينا جاهز للعمل 🥀🖤"
-);
-
-</script>
-
-</body>
-</html>
+typ
