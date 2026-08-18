@@ -552,3 +552,1557 @@ if(me())boot();
 </script>
 </body>
 </html>
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#08070d">
+<title>افـنـدツ⁠يـنـا🥀🖤</title>
+
+<style>
+:root{
+  --bg:#07060b;
+  --panel:#11101a;
+  --panel2:#171321;
+  --line:#342941;
+  --text:#fff;
+  --muted:#aaa2b3;
+  --purple:#9b55ff;
+  --pink:#d45cff;
+  --gold:#ffd66d;
+  --green:#48dfa1;
+  --danger:#ff7089;
+}
+
+*{
+  box-sizing:border-box;
+}
+
+html,body{
+  margin:0;
+  min-height:100%;
+  font-family:Arial,Tahoma,sans-serif;
+  background:
+    radial-gradient(circle at 85% 0,#35164c 0,#120b1b 28%,#07070b 70%);
+  color:var(--text);
+}
+
+body{
+  padding-bottom:85px;
+}
+
+button,
+input,
+textarea,
+select{
+  font:inherit;
+}
+
+button{
+  cursor:pointer;
+}
+
+.hide{
+  display:none!important;
+}
+
+.app{
+  max-width:900px;
+  margin:auto;
+}
+
+/* HEADER */
+
+header{
+  position:sticky;
+  top:0;
+  z-index:50;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  padding:12px 15px;
+  background:#08070df2;
+  border-bottom:1px solid var(--line);
+  backdrop-filter:blur(18px);
+}
+
+.brand{
+  font-size:21px;
+  font-weight:900;
+}
+
+.tag{
+  color:var(--muted);
+  font-size:11px;
+  margin-top:4px;
+}
+
+.topActions{
+  display:flex;
+  gap:7px;
+}
+
+.topbtn{
+  width:43px;
+  height:43px;
+  border:1px solid var(--line);
+  background:#12101a;
+  color:#fff;
+  border-radius:15px;
+}
+
+/* MAIN */
+
+main{
+  padding:16px;
+}
+
+.hero,
+.card,
+.profile,
+.shop,
+.vip,
+.admin,
+.authbox{
+  background:
+    linear-gradient(145deg,#1a1225,#0d0b12);
+  border:1px solid var(--line);
+  border-radius:28px;
+  box-shadow:0 20px 80px #0007;
+}
+
+.hero{
+  padding:25px;
+  position:relative;
+  overflow:hidden;
+}
+
+.hero:after{
+  content:"🥀";
+  position:absolute;
+  left:-10px;
+  bottom:-35px;
+  font-size:130px;
+  opacity:.05;
+}
+
+.hero h1{
+  font-size:30px;
+  line-height:1.45;
+  margin:15px 0 8px;
+}
+
+.heroGlow{
+  display:inline-block;
+  padding:7px 12px;
+  border-radius:999px;
+  background:#24152f;
+  border:1px solid #5c3974;
+  color:#ddb4ff;
+  font-size:12px;
+  font-weight:bold;
+}
+
+.muted{
+  color:var(--muted);
+  line-height:1.9;
+}
+
+.row{
+  display:flex;
+  gap:9px;
+  flex-wrap:wrap;
+}
+
+.btn{
+  border:0;
+  border-radius:15px;
+  padding:13px 18px;
+  color:#fff;
+  background:
+    linear-gradient(135deg,#874cff,#c15bff);
+  font-weight:900;
+  box-shadow:0 9px 28px #8d4cff2a;
+}
+
+.btn.secondary{
+  background:#15121e;
+  border:1px solid var(--line);
+  box-shadow:none;
+}
+
+.btn.gold{
+  background:
+    linear-gradient(135deg,#b7771f,#ffe18a,#b7761e);
+  color:#241707;
+}
+
+.btn.danger{
+  background:#32141e;
+  border:1px solid #6b2637;
+}
+
+/* STATS */
+
+.stats{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
+  margin-top:12px;
+}
+
+.stat{
+  background:#100e16;
+  border:1px solid var(--line);
+  border-radius:20px;
+  padding:14px;
+  text-align:center;
+  color:var(--muted);
+}
+
+.stat b{
+  display:block;
+  color:#fff;
+  font-size:20px;
+  margin-top:5px;
+}
+
+/* TITLES */
+
+.title{
+  font-size:22px;
+  margin:27px 3px 12px;
+}
+
+/* MEMBERS */
+
+.members{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:11px;
+}
+
+.member{
+  padding:14px;
+  text-align:center;
+  background:#100e16;
+  border:1px solid var(--line);
+  border-radius:22px;
+  transition:.2s;
+}
+
+.member:hover{
+  transform:translateY(-3px);
+  border-color:#7445a1;
+}
+
+.avatar{
+  display:block;
+  width:78px;
+  height:78px;
+  margin:auto;
+  border-radius:26px;
+  object-fit:cover;
+  background:#1b1725;
+  border:1px solid #40364d;
+}
+
+.member h3{
+  margin:10px 0 5px;
+}
+
+.online{
+  color:var(--green);
+  font-size:12px;
+}
+
+/* VIP */
+
+.vipmark{
+  display:inline-block;
+  padding:4px 8px;
+  border-radius:999px;
+  background:
+    linear-gradient(135deg,#ffe28b,#fff0b8,#c58d2c);
+  color:#211707;
+  font-size:10px;
+  font-weight:900;
+}
+
+/* SEARCH */
+
+.search,
+.field input,
+.field textarea,
+.field select{
+  width:100%;
+  background:#0b0a11;
+  color:#fff;
+  border:1px solid var(--line);
+  border-radius:15px;
+  padding:14px;
+  outline:0;
+}
+
+.search{
+  margin-bottom:12px;
+}
+
+textarea{
+  resize:vertical;
+}
+
+/* PROFILE */
+
+.profile{
+  padding:27px;
+  text-align:center;
+}
+
+.profile .avatar{
+  width:120px;
+  height:120px;
+  border-radius:38px;
+}
+
+.chips{
+  display:flex;
+  justify-content:center;
+  gap:7px;
+  flex-wrap:wrap;
+  margin:15px 0;
+}
+
+.chip{
+  padding:8px 12px;
+  border:1px solid var(--line);
+  border-radius:999px;
+  background:#17131f;
+  color:#ddd;
+}
+
+/* STORE */
+
+.shop,
+.vip,
+.admin{
+  padding:21px;
+}
+
+.giftgrid,
+.plans,
+.adminGrid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:11px;
+}
+
+.gift,
+.plan,
+.adminBox{
+  background:#14111c;
+  border:1px solid var(--line);
+  border-radius:21px;
+  padding:17px;
+  text-align:center;
+}
+
+.gift{
+  transition:.2s;
+}
+
+.gift:hover{
+  transform:translateY(-3px);
+  border-color:#7546a0;
+}
+
+.giftIcon{
+  font-size:46px;
+  margin-bottom:5px;
+}
+
+.gift b,
+.plan b{
+  display:block;
+  margin:6px 0;
+}
+
+.coin{
+  color:var(--gold);
+  font-weight:900;
+}
+
+.legend{
+  margin-top:4px;
+  overflow:hidden;
+  border-radius:25px;
+  border:1px solid #73551d;
+  background:
+    linear-gradient(145deg,#20180b,#0d0b08);
+}
+
+.legendArt{
+  width:100%;
+  display:block;
+  height:205px;
+}
+
+.legendBody{
+  text-align:center;
+  padding:18px;
+}
+
+.legendBody h2{
+  color:var(--gold);
+  margin:5px 0 8px;
+}
+
+.price{
+  font-size:20px;
+  color:var(--gold);
+  font-weight:900;
+}
+
+/* OWNER */
+
+.ownerBox{
+  padding:15px;
+  border:1px solid #7154a7;
+  background:#211633;
+  border-radius:20px;
+}
+
+/* TOGGLES */
+
+.toggle{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  padding:13px;
+  border-bottom:1px solid #2a2233;
+}
+
+.toggle:last-child{
+  border-bottom:0;
+}
+
+/* HISTORY */
+
+.historyItem{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:12px;
+  background:#100e16;
+  border:1px solid var(--line);
+  border-radius:16px;
+  margin-top:8px;
+}
+
+.historyItem .grow{
+  flex:1;
+}
+
+/* AUTH */
+
+.auth{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:18px;
+}
+
+.authbox{
+  width:min(460px,100%);
+  padding:28px;
+}
+
+.authLogo{
+  font-size:48px;
+}
+
+.authTitle{
+  margin-bottom:5px;
+}
+
+.field{
+  margin:12px 0;
+}
+
+.field label{
+  display:block;
+  color:#bbb2c4;
+  font-size:13px;
+  margin-bottom:7px;
+}
+
+.msg{
+  min-height:20px;
+  color:#ff9eae;
+  font-size:13px;
+  margin:5px 0;
+}
+
+.successMsg{
+  color:var(--green);
+}
+
+.switch{
+  text-align:center;
+  color:var(--muted);
+  margin-top:14px;
+}
+
+.switch button{
+  border:0;
+  background:none;
+  color:#bc7cff;
+}
+
+/* MODAL */
+
+.modal{
+  position:fixed;
+  inset:0;
+  z-index:100;
+  background:#0009;
+  display:flex;
+  align-items:flex-end;
+  justify-content:center;
+  padding:12px;
+}
+
+.modalBox{
+  width:min(620px,100%);
+  max-height:88vh;
+  overflow:auto;
+  background:#12101a;
+  border:1px solid var(--line);
+  border-radius:28px;
+  padding:20px;
+  box-shadow:0 30px 100px #000b;
+}
+
+.modalTop{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+}
+
+.close{
+  width:40px;
+  height:40px;
+  border:1px solid var(--line);
+  background:#17131f;
+  color:#fff;
+  border-radius:13px;
+}
+
+.empty{
+  border:1px dashed #44374d;
+  border-radius:20px;
+  padding:35px 15px;
+  text-align:center;
+  color:var(--muted);
+}
+
+.small{
+  font-size:12px;
+}
+
+/* NAV */
+
+nav{
+  position:fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  z-index:40;
+  background:#08070ef7;
+  border-top:1px solid var(--line);
+  backdrop-filter:blur(15px);
+}
+
+.navin{
+  max-width:900px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+}
+
+nav button{
+  border:0;
+  background:none;
+  color:#aaa2b0;
+  padding:9px 2px 11px;
+  font-size:10px;
+}
+
+nav b{
+  display:block;
+  font-size:20px;
+  margin-bottom:3px;
+}
+
+nav .active{
+  color:#bc7cff;
+}
+
+/* TOAST */
+
+.toast{
+  position:fixed;
+  z-index:120;
+  bottom:96px;
+  left:50%;
+  transform:translateX(-50%);
+  background:#1b1623;
+  border:1px solid #4a3a51;
+  border-radius:14px;
+  padding:12px 16px;
+  max-width:90%;
+  text-align:center;
+}
+
+/* MOBILE */
+
+@media(max-width:520px){
+
+  .members,
+  .giftgrid,
+  .plans,
+  .adminGrid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .hero h1{
+    font-size:26px;
+  }
+
+  .profile .avatar{
+    width:106px;
+    height:106px;
+  }
+
+  .btn{
+    padding:12px 14px;
+  }
+
+}
+
+@media(max-width:380px){
+
+  .members,
+  .giftgrid,
+  .plans,
+  .adminGrid,
+  .stats{
+    grid-template-columns:1fr;
+  }
+
+}
+</style>
+</head>
+
+<body>
+
+<!-- =====================================================
+     تسجيل الدخول / إنشاء الحساب
+===================================================== -->
+
+<section id="auth" class="auth">
+
+<div class="authbox">
+
+<div class="authLogo">
+🥀🖤
+</div>
+
+<h1 class="authTitle">
+افـنـدツ⁠يـنـا
+</h1>
+
+<p class="muted">
+تعارف ودردشة وحسابات وهدايا
+— مساحتك بطريقتك.
+</p>
+
+
+<!-- LOGIN -->
+
+<div id="loginBox">
+
+<div class="field">
+
+<label>
+اسم المستخدم أو البريد
+</label>
+
+<input
+id="li"
+autocomplete="username"
+placeholder="اسم المستخدم أو البريد">
+
+</div>
+
+
+<div class="field">
+
+<label>
+كلمة المرور
+</label>
+
+<input
+id="lp"
+type="password"
+autocomplete="current-password"
+placeholder="كلمة المرور">
+
+</div>
+
+
+<div id="lm" class="msg"></div>
+
+
+<button
+class="btn"
+style="width:100%"
+onclick="login()">
+
+🔓 دخول إلى الموقع
+
+</button>
+
+
+<!-- زر نسيت كلمة المرور -->
+
+<button
+class="btn secondary"
+style="width:100%;margin-top:10px"
+onclick="forgotPassword()">
+
+🔐 هل نسيت كلمة المرور؟
+
+</button>
+
+
+<div class="switch">
+
+ليس لديك حساب؟
+
+<button onclick="toggleAuth()">
+إنشاء حساب
+</button>
+
+</div>
+
+</div>
+
+
+<!-- REGISTER -->
+
+<div id="regBox" class="hide">
+
+<div class="field">
+
+<label>
+اسم المستخدم
+</label>
+
+<input
+id="ru"
+autocomplete="username"
+placeholder="اسم المستخدم">
+
+</div>
+
+
+<div class="field">
+
+<label>
+البريد الإلكتروني
+</label>
+
+<input
+id="re"
+type="email"
+autocomplete="email"
+placeholder="example@email.com">
+
+</div>
+
+
+<div class="field">
+
+<label>
+كلمة المرور
+</label>
+
+<input
+id="rp"
+type="password"
+autocomplete="new-password"
+placeholder="6 أحرف على الأقل">
+
+</div>
+
+
+<div class="field">
+
+<label>
+صورة الحساب
+</label>
+
+<input
+id="rpic"
+type="file"
+accept="image/*">
+
+</div>
+
+
+<div id="rm" class="msg"></div>
+
+
+<button
+class="btn"
+style="width:100%"
+onclick="register()">
+
+✨ إنشاء الحساب والدخول
+
+</button>
+
+
+<div class="switch">
+
+لديك حساب؟
+
+<button onclick="toggleAuth()">
+تسجيل الدخول
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     الموقع
+===================================================== -->
+
+<div id="site" class="app hide">
+
+<header>
+
+<div>
+
+<div class="brand">
+افـنـدツ⁠يـنـا🥀🖤
+</div>
+
+<div class="tag">
+مساحتك... بطريقتك
+</div>
+
+</div>
+
+
+<div class="topActions">
+
+<button
+class="topbtn"
+onclick="page('profile')">
+
+👤
+
+</button>
+
+
+<button
+class="topbtn"
+onclick="logout()">
+
+↪
+
+</button>
+
+</div>
+
+</header>
+
+
+<main id="main"></main>
+
+
+<nav>
+
+<div class="navin">
+
+<button
+id="homeN"
+onclick="page('home')">
+
+<b>⌂</b>
+الرئيسية
+
+</button>
+
+
+<button
+id="membersN"
+onclick="page('members')">
+
+<b>👥</b>
+الأعضاء
+
+</button>
+
+
+<button
+id="vipN"
+onclick="page('vip')">
+
+<b>👑</b>
+VIP
+
+</button>
+
+
+<button
+id="storeN"
+onclick="page('store')">
+
+<b>🎁</b>
+المتجر
+
+</button>
+
+
+<button
+id="profileN"
+onclick="page('profile')">
+
+<b>👤</b>
+حسابي
+
+</button>
+
+</div>
+
+</nav>
+
+</div>
+
+
+<!-- =====================================================
+     MODAL
+===================================================== -->
+
+<div
+id="modal"
+class="modal hide"
+onclick="if(event.target===this)closeModal()">
+
+<div
+class="modalBox"
+id="modalBox">
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     FORGOT PASSWORD MODAL
+===================================================== -->
+
+<div
+id="forgotModal"
+class="modal hide"
+onclick="if(event.target===this)closeForgot()">
+
+<div class="modalBox">
+
+<div class="modalTop">
+
+<h2>
+🔐 استعادة كلمة المرور
+</h2>
+
+<button
+class="close"
+onclick="closeForgot()">
+
+×
+
+</button>
+
+</div>
+
+
+<p class="muted">
+
+اكتب اسم المستخدم أو البريد الإلكتروني
+للعثور على حسابك.
+
+</p>
+
+
+<div class="field">
+
+<label>
+اسم المستخدم أو البريد الإلكتروني
+</label>
+
+<input
+id="forgotUser"
+autocomplete="username"
+placeholder="اسم المستخدم أو البريد">
+
+</div>
+
+
+<div id="forgotMsg" class="msg"></div>
+
+
+<button
+class="btn"
+style="width:100%"
+onclick="resetPassword()">
+
+🔑 متابعة
+
+</button>
+
+</div>
+
+</div>
+
+
+<script>
+
+/* =====================================================
+   البيانات
+===================================================== */
+
+const UKEY = "afn_final_users";
+const SKEY = "afn_final_session";
+const OWNERKEY = "afn_final_owner";
+
+
+/* =====================================================
+   الهدايا
+===================================================== */
+
+const gifts = [
+
+{
+ id:"rose",
+ name:"وردة",
+ icon:"🌹",
+ price:10,
+ desc:"هدية لطيفة وبسيطة."
+},
+
+{
+ id:"diamond",
+ name:"ألماسة",
+ icon:"💎",
+ price:100,
+ desc:"هدية مميزة."
+},
+
+{
+ id:"crown",
+ name:"تاج",
+ icon:"👑",
+ price:500,
+ desc:"للشخص الذي يستحق التميز."
+},
+
+{
+ id:"fire",
+ name:"لهيب",
+ icon:"🔥",
+ price:1000,
+ desc:"هدية قوية ومميزة."
+},
+
+{
+ id:"legend",
+ name:"أسطورة الموقع",
+ icon:"🏛️",
+ price:50000,
+ desc:"أغلى هدية في المتجر."
+}
+
+];
+
+
+/* =====================================================
+   أدوات
+===================================================== */
+
+const users = () =>
+ JSON.parse(
+  localStorage.getItem(UKEY) || "[]"
+ );
+
+
+const saveU = data =>
+ localStorage.setItem(
+  UKEY,
+  JSON.stringify(data)
+ );
+
+
+const me = () =>
+ users().find(
+  x =>
+  x.id ===
+  localStorage.getItem(SKEY)
+ );
+
+
+const makeId = () =>
+ Date.now().toString(36) +
+ Math.random().toString(36).slice(2);
+
+
+const fmt = n =>
+ Number(n || 0)
+ .toLocaleString("ar-EG");
+
+
+const esc = s =>
+ String(s ?? "")
+ .replace(
+  /[&<>"']/g,
+  c => ({
+   "&":"&amp;",
+   "<":"&lt;",
+   ">":"&gt;",
+   '"':"&quot;",
+   "'":"&#039;"
+  }[c])
+ );
+
+
+/* =====================================================
+   TOAST
+===================================================== */
+
+function toast(text){
+
+ const el =
+  document.createElement("div");
+
+ el.className = "toast";
+
+ el.textContent = text;
+
+ document.body.appendChild(el);
+
+ setTimeout(
+  () => el.remove(),
+  2600
+ );
+
+}
+
+
+/* =====================================================
+   قراءة الصورة
+===================================================== */
+
+function readFile(file){
+
+ return new Promise(resolve => {
+
+  if(!file){
+   resolve("");
+   return;
+  }
+
+  const reader =
+   new FileReader();
+
+  reader.onload = () =>
+   resolve(reader.result);
+
+  reader.readAsDataURL(file);
+
+ });
+
+}
+
+
+/* =====================================================
+   تبديل الدخول والتسجيل
+===================================================== */
+
+function toggleAuth(){
+
+ loginBox.classList.toggle("hide");
+
+ regBox.classList.toggle("hide");
+
+ lm.textContent = "";
+
+ rm.textContent = "";
+
+}
+
+
+/* =====================================================
+   التسجيل
+===================================================== */
+
+async function register(){
+
+ const username =
+  ru.value.trim();
+
+ const email =
+  re.value.trim().toLowerCase();
+
+ const password =
+  rp.value;
+
+
+ if(
+  username.length < 3 ||
+  !email ||
+  password.length < 6
+ ){
+
+  rm.textContent =
+   "⚠️ اكتب اسمًا صحيحًا وبريدًا وكلمة مرور 6 أحرف على الأقل.";
+
+  return;
+
+ }
+
+
+ const list = users();
+
+
+ const exists =
+  list.some(
+   x =>
+   x.username.toLowerCase() ===
+   username.toLowerCase() ||
+   x.email === email
+  );
+
+
+ if(exists){
+
+  rm.textContent =
+   "❌ اسم المستخدم أو البريد مستخدم بالفعل.";
+
+  return;
+
+ }
+
+
+ const first =
+  list.length === 0;
+
+
+ const account = {
+
+  id:makeId(),
+
+  username,
+
+  email,
+
+  password,
+
+  photo:
+   await readFile(
+    rpic.files[0]
+   ),
+
+  created:
+   new Date().toISOString(),
+
+  coins:
+   first ? 100000 : 100,
+
+  level:
+   first ? 100 : 1,
+
+  badges:
+   first
+   ? ["👑 مالك الموقع"]
+   : [],
+
+  giftsReceived:[],
+
+  giftsSent:[],
+
+  bio:"",
+
+  vip:first,
+
+  role:
+   first
+   ? "OWNER"
+   : "USER"
+
+ };
+
+
+ list.push(account);
+
+ saveU(list);
+
+
+ if(first){
+
+  localStorage.setItem(
+   OWNERKEY,
+   account.id
+  );
+
+ }
+
+
+ localStorage.setItem(
+  SKEY,
+  account.id
+ );
+
+
+ boot();
+
+}
+
+
+/* =====================================================
+   الدخول
+===================================================== */
+
+function login(){
+
+ const query =
+  li.value.trim().toLowerCase();
+
+ const password =
+  lp.value;
+
+ const list =
+  users();
+
+
+ const account =
+  list.find(
+   x =>
+   (
+    x.username
+     .toLowerCase() === query ||
+    x.email === query
+   ) &&
+   x.password === password
+  );
+
+
+ if(!account){
+
+  lm.textContent =
+   "❌ الحساب غير موجود أو بيانات الدخول غير صحيحة.";
+
+  return;
+
+ }
+
+
+ localStorage.setItem(
+  SKEY,
+  account.id
+ );
+
+
+ boot();
+
+}
+
+
+/* =====================================================
+   تسجيل الخروج
+===================================================== */
+
+function logout(){
+
+ localStorage.removeItem(SKEY);
+
+ location.reload();
+
+}
+
+
+/* =====================================================
+   تشغيل الموقع
+===================================================== */
+
+function boot(){
+
+ auth.classList.add("hide");
+
+ site.classList.remove("hide");
+
+ page("home");
+
+}
+
+
+/* =====================================================
+   الصورة
+===================================================== */
+
+function pic(
+ account,
+ className="avatar"
+){
+
+ if(account.photo){
+
+  return `
+  <img
+   class="${className}"
+   src="${account.photo}"
+   alt="">
+  `;
+
+ }
+
+
+ return `
+ <div
+  class="${className}"
+  style="
+   display:flex;
+   align-items:center;
+   justify-content:center;
+   font-size:34px;
+  ">
+
+  👤
+
+ </div>
+ `;
+
+}
+
+
+/* =====================================================
+   التنقل
+===================================================== */
+
+function nav(pageName){
+
+ document
+  .querySelectorAll("nav button")
+  .forEach(
+   button =>
+    button.classList.remove("active")
+  );
+
+
+ const button =
+  document.getElementById(
+   pageName + "N"
+  );
+
+
+ if(button)
+  button.classList.add("active");
+
+}
+
+
+function page(name,arg){
+
+ if(!me()){
+
+  location.reload();
+
+  return;
+
+ }
+
+
+ nav(name);
+
+
+ if(name === "home")
+  home();
+
+
+ if(name === "members")
+  members();
+
+
+ if(name === "profile")
+  profile(
+   arg || me().id
+  );
+
+
+ if(name === "vip")
+  vip();
+
+
+ if(name === "store")
+  store();
+
+
+ window.scrollTo(0,0);
+
+}
+
+
+/* =====================================================
+   الرئيسية
+===================================================== */
+
+function home(){
+
+ const account = me();
+
+ const owner =
+  account.role === "OWNER";
+
+
+ main.innerHTML = `
+
+ <section class="hero">
+
+  <span class="heroGlow">
+   ● الحساب متصل
+  </span>
+
+
+  ${
+   owner
+   ?
+   `
+   <div
+    class="ownerBox"
+    style="margin-top:12px">
+
+    👑 <b>OWNER</b>
+
+    <br>
+
+    أنت
