@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#08080d" />
+  <meta name="color-scheme" content="dark" />
+
+  <title>افـنـدツينا🥀🖤</title>
+  <meta
+    name="description"
+    content="افـنـدツينا🥀🖤 — مجتمع عربي للتعارف والدردشة والتواصل."
+  />
+
+  <style>
+    :root {
+      --bg: #07070b;
+      --bg-2: #0c0b12;
+      --card: rgba(20, 18, 29, 0.72);
+      --card-strong: rgba(27, 24, 38, 0.92);
+      --line: rgba(255,255,255,.09);
+      --text: #fff;
+      --muted: #a8a3b5;
+      --accent: #d946ef;
+      --accent-2: #7c3aed;
+      --gold: #f5c76a;
+      --danger: #ef4444;
+      --success: #22c55e;
+      --shadow: 0 24px 70px rgba(0,0,0,.45);
+      --radius: 24px;
+      --header-h: 76px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 15% 15%, rgba(124,58,237,.22), transparent 28%),
+        radial-gradient(circle at 85% 10%, rgba(217,70,239,.16), transparent 25%),
+        radial-gradient(circle at 50% 100%, rgba(245,199,106,.08), transparent 30%),
+        linear-gradient(135deg, #050507 0%, #0b0910 45%, #09070d 100%);
+      font-family:
+        "Tajawal",
+        "Cairo",
+        "Noto Kufi Arabic",
+        Arial,
+        sans-serif;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -1;
+      background:
+        linear-gradient(
+          115deg,
+          transparent 0%,
+          rgba(255,255,255,.025) 45%,
+          transparent 55%
+        );
+      animation: backgroundMove 14s linear infinite;
+    }
+
+    @keyframes backgroundMove {
+      0% { transform: translateX(-10%); }
+      50% { transform: translateX(10%); }
+      100% { transform: translateX(-10%); }
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    textarea,
+    select {
+      font: inherit;
+    }
+
+    button {
+      border: 0;
+      cursor: pointer;
+    }
+
+    .app {
+      min-height: 100vh;
+    }
+
+    /* =========================
+       HEADER
+    ========================= */
+
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      height: var(--header-h);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 0 22px;
+      background: rgba(7,7,11,.78);
+      backdrop-filter: blur(22px);
+      -webkit-backdrop-filter: blur(22px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      min-width: max-content;
+    }
+
+    .brand-mark {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border-radius: 15px;
+      font-size: 22px;
+      background:
+        linear-gradient(145deg, rgba(217,70,239,.28), rgba(124,58,237,.18));
+      border: 1px solid rgba(217,70,239,.25);
+      box-shadow:
+        0 0 28px rgba(217,70,239,.13),
+        inset 0 0 18px rgba(255,255,255,.03);
+    }
+
+    .brand-name {
+      font-size: 18px;
+      font-weight: 900;
+      letter-spacing: .2px;
+    }
+
+    .brand-sub {
+      margin-top: 2px;
+      color: var(--muted);
+      font-size: 10px;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-inline: auto;
+    }
+
+    .nav-btn {
+      position: relative;
+      padding: 11px 15px;
+      color: var(--muted);
+      background: transparent;
+      border-radius: 13px;
+      transition: .25s ease;
+    }
+
+    .nav-btn:hover,
+    .nav-btn.active {
+      color: #fff;
+      background: rgba(255,255,255,.06);
+    }
+
+    .nav-btn.active::after {
+      content: "";
+      position: absolute;
+      left: 25%;
+      right: 25%;
+      bottom: 3px;
+      height: 2px;
+      border-radius: 99px;
+      background: linear-gradient(90deg, var(--accent-2), var(--accent));
+      box-shadow: 0 0 14px rgba(217,70,239,.8);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .icon-btn {
+      width: 43px;
+      height: 43px;
+      display: grid;
+      place-items: center;
+      color: #ddd;
+      background: rgba(255,255,255,.045);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      transition: .25s ease;
+    }
+
+    .icon-btn:hover {
+      transform: translateY(-2px);
+      background: rgba(255,255,255,.09);
+      border-color: rgba(217,70,239,.35);
+    }
+
+    /* =========================
+       MAIN
+    ========================= */
+
+    main {
+      width: min(1400px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 34px 0 100px;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 470px;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 34px;
+      background:
+        radial-gradient(circle at 50% 45%, rgba(217,70,239,.16), transparent 28%),
+        radial-gradient(circle at 25% 75%, rgba(124,58,237,.18), transparent 25%),
+        linear-gradient(145deg, rgba(20,18,28,.94), rgba(8,8,13,.94));
+      box-shadow: var(--shadow);
+    }
+
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(2px);
+      pointer-events: none;
+    }
+
+    .hero::before {
+      width: 330px;
+      height: 330px;
+      right: -90px;
+      top: -120px;
+      background: rgba(217,70,239,.13);
+      animation: floatOrb 8s ease-in-out infinite;
+    }
+
+    .hero::after {
+      width: 280px;
+      height: 280px;
+      left: -80px;
+      bottom: -110px;
+      background: rgba(124,58,237,.14);
+      animation: floatOrb 10s ease-in-out infinite reverse;
+    }
+
+    @keyframes floatOrb {
+      0%,100% { transform: translate3d(0,0,0); }
+      50% { transform: translate3d(25px,-20px,0); }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      width: min(760px, 92%);
+      text-align: center;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 14px;
+      margin-bottom: 20px;
+      border-radius: 99px;
+      color: #e9d5ff;
+      background: rgba(124,58,237,.11);
+      border: 1px solid rgba(167,139,250,.18);
+      font-size: 12px;
+    }
+
+    .pulse-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--success);
+      box-shadow: 0 0 0 6px rgba(34,197,94,.08);
+    }
+
+    .hero h1 {
+      font-size: clamp(38px, 7vw, 78px);
+      line-height: 1.05;
+      font-weight: 1000;
+      letter-spacing: -2px;
+      background: linear-gradient(
+        100deg,
+        #fff,
+        #f1d9ff 38%,
+        #d946ef 70%,
+        #8b5cf6
+      );
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: 0 20px 60px rgba(217,70,239,.12);
+    }
+
+    .hero p {
+      max-width: 650px;
+      margin: 22px auto 0;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 2;
+    }
+
+    .hero-actions {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .primary-btn,
+    .secondary-btn {
+      min-height: 50px;
+      padding: 0 24px;
+      border-radius: 15px;
+      transition: .25s ease;
+    }
+
+    .primary-btn {
+      color: #fff;
+      font-weight: 800;
+      background: linear-gradient(135deg, #8b5cf6, #d946ef);
+      box-shadow: 0 14px 32px rgba(139,92,246,.22);
+    }
+
+    .primary-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 20px 40px rgba(217,70,239,.28);
+    }
+
+    .secondary-btn {
+      color: #eee;
+      background: rgba(255,255,255,.045);
+      border: 1px solid var(--line);
+    }
+
+    .secondary-btn:hover {
+      transform: translateY(-3px);
+      background: rgba(255,255,255,.08);
+    }
+
+    /* =========================
+       SECTIONS
+    ========================= */
+
+    .section {
+      margin-top: 34px;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-size: 21px;
+      font-weight: 900;
+    }
+
+    .section-desc {
+      margin-top: 5px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .section-link {
+      color: #d8b4fe;
+      font-size: 13px;
+    }
+
+    /* =========================
+       EMPTY STATE
+    ========================= */
+
+    .empty-card {
+      min-height: 230px;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 35px 20px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: 0 16px 50px rgba(0,0,0,.2);
+    }
+
+    .empty-icon {
+      width: 64px;
+      height: 64px;
+      display: grid;
+      place-items: center;
+      margin: 0 auto 14px;
+      border-radius: 20px;
+      font-size: 28px;
+      background: rgba(255,255,255,.045);
+      border: 1px solid var(--line);
+    }
+
+    .empty-card h3 {
+      font-size: 17px;
+      margin-bottom: 7px;
+    }
+
+    .empty-card p {
+      max-width: 520px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.9;
+    }
+
+    /* =========================
+       FEATURE CARDS
+    ========================= */
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+    }
+
+    .feature {
+      position: relative;
+      overflow: hidden;
+      padding: 23px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      transition: .3s ease;
+    }
+
+    .feature:hover {
+      transform: translateY(-5px);
+      border-color: rgba(217,70,239,.25);
+      box-shadow: 0 20px 55px rgba(0,0,0,.24);
+    }
+
+    .feature-icon {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 17px;
+      border-radius: 16px;
+      font-size: 22px;
+      background: linear-gradient(
+        135deg,
+        rgba(124,58,237,.18),
+        rgba(217,70,239,.1)
+      );
+    }
+
+    .feature h3 {
+      font-size: 16px;
+      margin-bottom: 9px;
+    }
+
+    .feature p {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.9;
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      width: min(1400px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 25px 0 35px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      text-align: center;
+      font-size: 12px;
+    }
+
+    /* =========================
+       TOAST
+    ========================= */
+
+    .toast-container {
+      position: fixed;
+      z-index: 5000;
+      left: 18px;
+      bottom: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      width: min(360px, calc(100% - 36px));
+    }
+
+    .toast {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 16px;
+      color: #fff;
+      background: rgba(20,18,28,.94);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      box-shadow: 0 18px 45px rgba(0,0,0,.4);
+      backdrop-filter: blur(18px);
+      animation: toastIn .3s ease both;
+      font-size: 13px;
+    }
+
+    @keyframes toastIn {
+      from {
+        opacity: 0;
+        transform: translateY(15px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* =========================
+       MODAL
+    ========================= */
+
+    .modal-layer {
+      position: fixed;
+      inset: 0;
+      z-index: 4000;
+      display: none;
+      place-items: center;
+      padding: 18px;
+      background: rgba(0,0,0,.72);
+      backdrop-filter: blur(12px);
+    }
+
+    .modal-layer.show {
+      display: grid;
+      animation: fadeIn .2s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .modal {
+      width: min(480px, 100%);
+      padding: 25px;
+      background: var(--card-strong);
+      border: 1px solid var(--line);
+      border-radius: 25px;
+      box-shadow: 0 30px 90px rgba(0,0,0,.55);
+      animation: modalIn .25s ease;
+    }
+
+    @keyframes modalIn {
+      from {
+        opacity: 0;
+        transform: scale(.94) translateY(12px);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+      }
+    }
+
+    .modal-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+
+    .modal-title {
+      font-size: 19px;
+      font-weight: 900;
+    }
+
+    .close-btn {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      color: #ccc;
+      background: rgba(255,255,255,.05);
+    }
+
+    .modal p {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.9;
+    }
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 850px) {
+      .nav {
+        display: none;
+      }
+
+      .features {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: 430px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      :root {
+        --header-h: 67px;
+      }
+
+      .header {
+        padding: 0 13px;
+      }
+
+      .brand-mark {
+        width: 39px;
+        height: 39px;
+        border-radius: 13px;
+      }
+
+      .brand-name {
+        font-size: 15px;
+      }
+
+      .brand-sub {
+        display: none;
+      }
+
+      .header-actions .icon-btn:nth-child(1) {
+        display: none;
+      }
+
+      main {
+        width: min(100% - 20px, 1400px);
+        padding-top: 18px;
+      }
+
+      .hero {
+        min-height: 490px;
+        border-radius: 26px;
+      }
+
+      .hero h1 {
+        font-size: 43px;
+        letter-spacing: -1.5px;
+      }
+
+      .hero p {
+        font-size: 13px;
+        line-height: 2;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .primary-btn,
+      .secondary-btn {
+        width: 100%;
+      }
+
+      .section {
+        margin-top: 25px;
+      }
+
+      footer {
+        width: calc(100% - 20px);
+      }
+    }
+
+    /* احترام تقليل الحركة */
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="app">
+
+    <!-- =========================
+         HEADER
+    ========================== -->
+    <header class="header">
+
+      <a href="#" class="brand" aria-label="افـنـدينا">
+        <div class="brand-mark">🥀</div>
+
+        <div>
+          <div class="brand-name">افـنـدツينا🥀🖤</div>
+          <div class="brand-sub">مكانك للتواصل والتعارف</div>
+        </div>
+      </a>
+
+      <nav class="nav" aria-label="التنقل الرئيسي">
+        <button class="nav-btn active" data-scroll="home">
+          الرئيسية
+        </button>
+
+        <button class="nav-btn" data-scroll="features">
+          المميزات
+        </button>
+
+        <button class="nav-btn" data-scroll="about">
+          عن الموقع
+        </button>
+      </nav>
+
+      <div class="header-actions">
+
+        <button
+          class="icon-btn"
+          id="themeInfoBtn"
+          aria-label="معلومات التصميم"
+          title="معلومات"
+        >
+          ✦
+        </button>
+
+        <button
+          class="icon-btn"
+          id="menuBtn"
+          aria-label="القائمة"
+          title="القائمة"
+        >
+          ☰
+        </button>
+
+      </div>
+    </header>
+
+
+    <!-- =========================
+         MAIN
+    ========================== -->
+
+    <main>
+
+      <!-- HERO -->
+      <section class="hero" id="home">
+
+        <div class="hero-content">
+
+          <div class="hero-badge">
+            <span class="pulse-dot"></span>
+            منصة افـنـدينا
+          </div>
+
+          <h1>
+            افـنـدツينا🥀🖤
+          </h1>
+
+          <p>
+            مساحة عربية عصرية للتواصل والتعارف والدردشة،
+            بتجربة بسيطة وأنيقة تحافظ على خصوصيتك وتضعك
+            في قلب المجتمع.
+          </p>
+
+          <div class="hero-actions">
+
+            <button
+              class="primary-btn"
+              id="startBtn"
+            >
+              ابدأ الآن
+            </button>
+
+            <button
+              class="secondary-btn"
+              id="loginBtn"
+            >
+              تسجيل الدخول
+            </button>
+
+          </div>
+
+        </div>
+      </section>
+
+
+      <!-- =========================
+           LIVE CONTENT
+           لا يتم عرض أي بيانات وهمية
+      ========================== -->
+
+      <section class="section" id="rooms">
+
+        <div class="section-head">
+
+          <div>
+            <h2 class="section-title">
+              الغرف والمجتمعات
+            </h2>
+
+            <p class="section-desc">
+              ستظهر الغرف الحقيقية هنا بعد اتصال الموقع بالخادم.
+            </p>
+          </div>
+
+          <span class="section-link">
+            مباشر
+          </span>
+
+        </div>
+
+        <div class="empty-card">
+
+          <div>
+
+            <div class="empty-icon">
+              💬
+            </div>
+
+            <h3>
+              لا توجد غرف محمّلة حاليًا
+            </h3>
+
+            <p>
+              لم تتم إضافة أي غرف وهمية أو بيانات تجريبية.
+              عند ربط قاعدة البيانات وواجهة الخادم ستظهر
+              الغرف الحقيقية هنا تلقائيًا.
+            </p>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- =========================
+           FEATURES
+      ========================== -->
+
+      <section class="section" id="features">
+
+        <div class="section-head">
+
+          <div>
+            <h2 class="section-title">
+              كل شيء في مكان واحد
+            </h2>
+
+            <p class="section-desc">
+              بنية جاهزة للتوسع وربط الوظائف الحقيقية.
+            </p>
+          </div>
+
+        </div>
+
+        <div class="features">
+
+          <article class="feature">
+
+            <div class="feature-icon">
+              💬
+            </div>
+
+            <h3>
+              دردشة حقيقية
+            </h3>
+
+            <p>
+              الواجهة مجهزة لتستقبل نظام المحادثات الحقيقي
+              عند ربط WebSocket أو API الخاص بالخادم.
+            </p>
+
+          </article>
+
+
+          <article class="feature">
+
+            <div class="feature-icon">
+              👤
+            </div>
+
+            <h3>
+              حسابك الشخصي
+            </h3>
+
+            <p>
+              يمكن ربط الملف الشخصي بالمصادقة وقاعدة البيانات
+              لعرض الاسم والصورة والمنشورات والمعلومات الحقيقية.
+            </p>
+
+          </article>
+
+
+          <article class="feature">
+
+            <div class="feature-icon">
+              🔐
+            </div>
+
+            <h3>
+              أمان وخصوصية
+            </h3>
+
+            <p>
+              لا يتم وضع كلمات مرور أو بيانات مستخدمين حقيقية
+              داخل ملف الواجهة. المصادقة يجب أن تتم من خلال الخادم.
+            </p>
+
+          </article>
+
+        </div>
+
+      </section>
+
+
+      <!-- =========================
+           ABOUT
+      ========================== -->
+
+      <section class="section" id="about">
+
+        <div class="empty-card">
+
+          <div>
+
+            <div class="empty-icon">
+              🖤
+            </div>
+
+            <h3>
+              افـنـدツينا🥀🖤
+            </h3>
+
+            <p>
+              هذا الملف هو واجهة الموقع الأساسية فقط.
+              لا يدّعي وجود مستخدمين أو غرف أو إحصائيات
+              غير موجودة فعليًا. كل البيانات الديناميكية
+              يجب أن تأت
