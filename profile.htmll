@@ -1,0 +1,1248 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#090914">
+<title>الملف الشخصي | افـنـدツينا🥀🖤</title>
+
+<style>
+:root{
+  --bg:#080811;
+  --card:#11111d;
+  --card2:#171726;
+  --text:#fff;
+  --muted:#9292a8;
+  --border:rgba(255,255,255,.09);
+  --pink:#ff3f81;
+  --purple:#9d4edd;
+  --blue:#4db8ff;
+  --danger:#ff496c;
+  --success:#39d98a;
+}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:Tahoma,Arial,sans-serif;
+}
+
+body{
+  background:
+    radial-gradient(circle at 80% 0%,rgba(157,78,221,.22),transparent 30%),
+    radial-gradient(circle at 10% 90%,rgba(77,184,255,.12),transparent 30%),
+    var(--bg);
+  color:var(--text);
+  min-height:100vh;
+}
+
+button,
+input,
+textarea,
+select{
+  font:inherit;
+}
+
+button{
+  cursor:pointer;
+}
+
+.topbar{
+  height:66px;
+  position:sticky;
+  top:0;
+  z-index:100;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 18px;
+  background:rgba(8,8,17,.86);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid var(--border);
+}
+
+.brand{
+  font-weight:900;
+  font-size:19px;
+  background:linear-gradient(90deg,#ff4f9a,#a76cff,#4db8ff);
+  -webkit-background-clip:text;
+  color:transparent;
+}
+
+.top-actions{
+  display:flex;
+  gap:8px;
+}
+
+.icon-btn{
+  width:40px;
+  height:40px;
+  border:1px solid var(--border);
+  border-radius:13px;
+  background:#151521;
+  color:#fff;
+}
+
+.page{
+  width:min(1100px,100%);
+  margin:auto;
+  padding:20px 14px 100px;
+}
+
+.profile-card{
+  overflow:hidden;
+  border:1px solid var(--border);
+  background:rgba(17,17,29,.94);
+  border-radius:24px;
+  box-shadow:0 20px 60px rgba(0,0,0,.3);
+}
+
+.cover{
+  height:220px;
+  position:relative;
+  background:
+    linear-gradient(135deg,rgba(255,63,129,.65),rgba(157,78,221,.65),rgba(77,184,255,.55)),
+    #18182a;
+  background-size:cover;
+  background-position:center;
+}
+
+.cover::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(transparent 40%,rgba(0,0,0,.65));
+}
+
+.cover-actions{
+  position:absolute;
+  z-index:2;
+  top:14px;
+  left:14px;
+  display:flex;
+  gap:8px;
+}
+
+.cover-btn{
+  border:1px solid rgba(255,255,255,.2);
+  background:rgba(0,0,0,.4);
+  color:#fff;
+  border-radius:11px;
+  padding:9px 12px;
+  backdrop-filter:blur(10px);
+}
+
+.profile-main{
+  padding:0 22px 22px;
+  position:relative;
+}
+
+.avatar-wrap{
+  position:relative;
+  width:112px;
+  margin-top:-56px;
+  z-index:4;
+}
+
+.avatar{
+  width:112px;
+  height:112px;
+  border-radius:50%;
+  border:5px solid var(--card);
+  background:#252538;
+  object-fit:cover;
+  display:block;
+}
+
+.online{
+  position:absolute;
+  width:19px;
+  height:19px;
+  bottom:8px;
+  left:8px;
+  border-radius:50%;
+  background:var(--success);
+  border:4px solid var(--card);
+}
+
+.info{
+  margin-top:12px;
+}
+
+.name-row{
+  display:flex;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:8px;
+}
+
+.name{
+  font-size:24px;
+  font-weight:900;
+}
+
+.verified{
+  font-size:13px;
+  background:#318cff;
+  width:21px;
+  height:21px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+}
+
+.owner{
+  padding:5px 9px;
+  border-radius:8px;
+  background:linear-gradient(135deg,#8f4cff,#ff3f81);
+  font-size:11px;
+  font-weight:bold;
+}
+
+.username{
+  color:var(--muted);
+  margin-top:4px;
+  direction:ltr;
+  text-align:right;
+}
+
+.bio{
+  color:#c4c4d2;
+  line-height:1.8;
+  margin-top:12px;
+  max-width:700px;
+}
+
+.meta{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:12px;
+}
+
+.meta span{
+  padding:7px 10px;
+  background:#191925;
+  border:1px solid var(--border);
+  color:#b8b8c8;
+  border-radius:10px;
+  font-size:12px;
+}
+
+.stats{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:8px;
+  margin-top:18px;
+}
+
+.stat{
+  text-align:center;
+  padding:13px 5px;
+  background:#151521;
+  border:1px solid var(--border);
+  border-radius:14px;
+}
+
+.stat strong{
+  display:block;
+  font-size:18px;
+}
+
+.stat span{
+  color:var(--muted);
+  font-size:11px;
+}
+
+.profile-buttons{
+  display:flex;
+  gap:9px;
+  margin-top:16px;
+}
+
+.btn{
+  border:0;
+  border-radius:13px;
+  padding:12px 16px;
+  color:#fff;
+  background:#20202f;
+  border:1px solid var(--border);
+}
+
+.btn.primary{
+  background:linear-gradient(135deg,var(--purple),var(--pink));
+  border:0;
+}
+
+.btn.danger{
+  color:#ff91a5;
+}
+
+.content{
+  margin-top:16px;
+  display:grid;
+  grid-template-columns:minmax(0,2fr) minmax(260px,1fr);
+  gap:16px;
+}
+
+.panel{
+  background:rgba(17,17,29,.94);
+  border:1px solid var(--border);
+  border-radius:20px;
+  padding:18px;
+}
+
+.panel-title{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:15px;
+}
+
+.panel-title h3{
+  font-size:17px;
+}
+
+.panel-title span{
+  color:var(--muted);
+  font-size:12px;
+}
+
+.post-create{
+  display:flex;
+  gap:10px;
+}
+
+.mini-avatar{
+  width:42px;
+  height:42px;
+  flex:none;
+  border-radius:50%;
+  object-fit:cover;
+  background:#252538;
+}
+
+.fake-input{
+  flex:1;
+  min-height:42px;
+  border:1px solid var(--border);
+  background:#151521;
+  border-radius:13px;
+  color:#88889b;
+  display:flex;
+  align-items:center;
+  padding:0 13px;
+  cursor:pointer;
+}
+
+.post{
+  padding:15px 0;
+  border-bottom:1px solid var(--border);
+}
+
+.post:last-child{
+  border-bottom:0;
+}
+
+.post-head{
+  display:flex;
+  align-items:center;
+  gap:9px;
+}
+
+.post-user strong{
+  display:block;
+  font-size:13px;
+}
+
+.post-user small{
+  color:var(--muted);
+}
+
+.post-text{
+  line-height:1.8;
+  color:#ddd;
+  margin:12px 0;
+  white-space:pre-wrap;
+}
+
+.post-image{
+  width:100%;
+  max-height:500px;
+  object-fit:cover;
+  border-radius:15px;
+  display:block;
+  background:#191925;
+}
+
+.post-actions{
+  display:flex;
+  gap:8px;
+  margin-top:10px;
+}
+
+.post-actions button{
+  border:0;
+  color:#aaaabd;
+  background:#171723;
+  padding:8px 12px;
+  border-radius:10px;
+}
+
+.post-actions button.liked{
+  color:#ff5b8f;
+}
+
+.empty{
+  text-align:center;
+  color:var(--muted);
+  padding:35px 10px;
+}
+
+.about-row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  padding:12px 0;
+  border-bottom:1px solid var(--border);
+}
+
+.about-row:last-child{
+  border-bottom:0;
+}
+
+.about-row span{
+  color:var(--muted);
+  font-size:12px;
+}
+
+.about-row strong{
+  font-size:13px;
+}
+
+.owner-panel{
+  display:none;
+  margin-top:16px;
+  border:1px solid rgba(255,190,60,.18);
+  background:linear-gradient(135deg,rgba(157,78,221,.12),rgba(255,63,129,.08));
+}
+
+.owner-panel.show{
+  display:block;
+}
+
+.owner-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:8px;
+}
+
+.owner-action{
+  text-align:right;
+  border:1px solid var(--border);
+  background:#171722;
+  color:#fff;
+  border-radius:13px;
+  padding:13px;
+}
+
+.owner-action b{
+  display:block;
+  font-size:13px;
+}
+
+.owner-action small{
+  display:block;
+  color:var(--muted);
+  margin-top:4px;
+  font-size:10px;
+}
+
+.modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  z-index:500;
+  background:rgba(0,0,0,.7);
+  backdrop-filter:blur(8px);
+  align-items:center;
+  justify-content:center;
+  padding:15px;
+}
+
+.modal.show{
+  display:flex;
+}
+
+.modal-box{
+  width:min(520px,100%);
+  max-height:90vh;
+  overflow:auto;
+  background:#11111d;
+  border:1px solid var(--border);
+  border-radius:22px;
+  padding:20px;
+  box-shadow:0 30px 80px rgba(0,0,0,.5);
+}
+
+.modal-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:18px;
+}
+
+.close{
+  border:0;
+  background:#20202d;
+  color:#fff;
+  width:36px;
+  height:36px;
+  border-radius:11px;
+}
+
+.field{
+  margin-bottom:13px;
+}
+
+.field label{
+  display:block;
+  color:#c6c6d3;
+  font-size:12px;
+  margin-bottom:7px;
+}
+
+.field input,
+.field textarea,
+.field select{
+  width:100%;
+  border:1px solid var(--border);
+  outline:0;
+  background:#0d0d17;
+  color:#fff;
+  border-radius:12px;
+  padding:12px;
+}
+
+.field textarea{
+  min-height:120px;
+  resize:vertical;
+}
+
+.modal-actions{
+  display:flex;
+  gap:8px;
+  margin-top:15px;
+}
+
+.modal-actions .btn{
+  flex:1;
+}
+
+.toast{
+  position:fixed;
+  bottom:20px;
+  left:50%;
+  transform:translate(-50%,20px);
+  opacity:0;
+  pointer-events:none;
+  z-index:1000;
+  background:#1c1c2a;
+  border:1px solid var(--border);
+  color:#fff;
+  padding:12px 16px;
+  border-radius:13px;
+  transition:.25s;
+  box-shadow:0 15px 40px rgba(0,0,0,.4);
+}
+
+.toast.show{
+  opacity:1;
+  transform:translate(-50%,0);
+}
+
+@media(max-width:800px){
+  .content{
+    grid-template-columns:1fr;
+  }
+
+  .cover{
+    height:190px;
+  }
+}
+
+@media(max-width:520px){
+  .page{
+    padding:10px 9px 90px;
+  }
+
+  .topbar{
+    padding:0 10px;
+  }
+
+  .profile-main{
+    padding:0 14px 18px;
+  }
+
+  .cover{
+    height:160px;
+  }
+
+  .avatar-wrap{
+    width:94px;
+    margin-top:-47px;
+  }
+
+  .avatar{
+    width:94px;
+    height:94px;
+  }
+
+  .name{
+    font-size:21px;
+  }
+
+  .profile-buttons .btn{
+    flex:1;
+    padding:11px 8px;
+    font-size:12px;
+  }
+
+  .owner-grid{
+    grid-template-columns:1fr;
+  }
+
+  .stats{
+    gap:5px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header class="topbar">
+
+  <div class="brand">افـنـدツينا🥀🖤</div>
+
+  <div class="top-actions">
+    <button class="icon-btn" onclick="goHome()">⌂</button>
+    <button class="icon-btn" onclick="logout()">↪</button>
+  </div>
+
+</header>
+
+
+<main class="page">
+
+<section class="profile-card">
+
+  <div class="cover" id="cover">
+
+    <div class="cover-actions">
+      <button class="cover-btn" onclick="openEdit()">
+        ✏️ تعديل
+      </button>
+
+      <button class="cover-btn" onclick="changeCover()">
+        🖼️ الغلاف
+      </button>
+    </div>
+
+  </div>
+
+
+  <div class="profile-main">
+
+    <div class="avatar-wrap">
+
+      <img
+        id="avatar"
+        class="avatar"
+        src=""
+        alt="الصورة الشخصية"
+      >
+
+      <span class="online"></span>
+
+    </div>
+
+
+    <div class="info">
+
+      <div class="name-row">
+
+        <h1 id="profileName" class="name">
+          المستخدم
+        </h1>
+
+        <span id="verified" class="verified">
+          ✓
+        </span>
+
+        <span id="ownerBadge" class="owner" style="display:none">
+          👑 OWNER
+        </span>
+
+      </div>
+
+
+      <div id="username" class="username">
+        @user
+      </div>
+
+
+      <p id="bio" class="bio">
+        مرحبًا بك في ملفي الشخصي 🖤
+      </p>
+
+
+      <div class="meta">
+
+        <span id="ageMeta">
+          🎂 العمر: —
+        </span>
+
+        <span id="genderMeta">
+          👤 —
+        </span>
+
+        <span>
+          📍 افـنـدينا
+        </span>
+
+      </div>
+
+
+      <div class="stats">
+
+        <div class="stat">
+          <strong id="postsCount">0</strong>
+          <span>منشور</span>
+        </div>
+
+        <div class="stat">
+          <strong id="followersCount">0</strong>
+          <span>متابع</span>
+        </div>
+
+        <div class="stat">
+          <strong id="followingCount">0</strong>
+          <span>يتابع</span>
+        </div>
+
+      </div>
+
+
+      <div class="profile-buttons">
+
+        <button
+          class="btn primary"
+          onclick="openEdit()"
+        >
+          ✏️ تعديل الملف
+        </button>
+
+        <button
+          class="btn"
+          onclick="createPost()"
+        >
+          ➕ منشور
+        </button>
+
+        <button
+          class="btn danger"
+          onclick="logout()"
+        >
+          خروج
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<div class="content">
+
+  <section>
+
+    <div class="panel">
+
+      <div class="panel-title">
+        <h3>منشورات المستخدم</h3>
+        <span id="postTitleCount">0 منشور</span>
+      </div>
+
+
+      <div class="post-create">
+
+        <img
+          id="miniAvatar"
+          class="mini-avatar"
+          src=""
+          alt=""
+        >
+
+        <div
+          class="fake-input"
+          onclick="createPost()"
+        >
+          ماذا تريد أن تنشر اليوم؟ ✨
+        </div>
+
+      </div>
+
+
+      <div id="postsContainer"></div>
+
+    </div>
+
+
+    <div
+      id="ownerPanel"
+      class="panel owner-panel"
+    >
+
+      <div class="panel-title">
+        <h3>👑 مركز تحكم الـOwner</h3>
+        <span>صلاحيات الإدارة</span>
+      </div>
+
+      <div class="owner-grid">
+
+        <button class="owner-action" onclick="ownerAction('users')">
+          <b>👥 إدارة المستخدمين</b>
+          <small>حظر، حذف، تعديل وإدارة الحسابات</small>
+        </button>
+
+        <button class="owner-action" onclick="ownerAction('rooms')">
+          <b>💬 إدارة الغرف</b>
+          <small>الغرف والمشرفون والرسائل</small>
+        </button>
+
+        <button class="owner-action" onclick="ownerAction('reports')">
+          <b>🚨 البلاغات</b>
+          <small>مراجعة البلاغات والمخالفات</small>
+        </button>
+
+        <button class="owner-action" onclick="ownerAction('store')">
+          <b>🛍️ المتجر</b>
+          <small>المنتجات والعملات والهدايا</small>
+        </button>
+
+        <button class="owner-action" onclick="ownerAction('posts')">
+          <b>📝 المحتوى</b>
+          <small>المنشورات والتعليقات والصور</small>
+        </button>
+
+        <button class="owner-action" onclick="ownerAction('settings')">
+          <b>⚙️ إعدادات الموقع</b>
+          <small>التحكم الكامل في إعدادات الموقع</small>
+        </button>
+
+        <button class="owner-action" onclick="ownerAction('admins')">
+          <b>🛡️ المشرفون</b>
+          <small>إدارة الرتب والصلاحيات</small>
+        </button>
+
+        <button class="owner-action" onclick="ownerAction('statistics')">
+          <b>📊 الإحصائيات</b>
+          <small>إحصائيات الموقع والنشاط</small>
+        </button>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <aside>
+
+    <div class="panel">
+
+      <div class="panel-title">
+        <h3>عن الحساب</h3>
+      </div>
+
+      <div class="about-row">
+        <span>البريد</span>
+        <strong id="emailInfo">—</strong>
+      </div>
+
+      <div class="about-row">
+        <span>العمر</span>
+        <strong id="ageInfo">—</strong>
+      </div>
+
+      <div class="about-row">
+        <span>الجنس</span>
+        <strong id="genderInfo">—</strong>
+      </div>
+
+      <div class="about-row">
+        <span>نوع الحساب</span>
+        <strong id="roleInfo">عضو</strong>
+      </div>
+
+      <div class="about-row">
+        <span>الحالة</span>
+        <strong id="statusInfo">نشط</strong>
+      </div>
+
+    </div>
+
+
+    <div class="panel" style="margin-top:16px">
+
+      <div class="panel-title">
+        <h3>إعدادات الحساب</h3>
+      </div>
+
+      <button
+        class="btn"
+        style="width:100%;margin-bottom:8px"
+        onclick="openEdit()"
+      >
+        ✏️ تعديل المعلومات
+      </button>
+
+      <button
+        class="btn"
+        style="width:100%;margin-bottom:8px"
+        onclick="privacySettings()"
+      >
+        🔒 الخصوصية
+      </button>
+
+      <button
+        class="btn danger"
+        style="width:100%"
+        onclick="logout()"
+      >
+        🚪 تسجيل الخروج
+      </button>
+
+    </div>
+
+  </aside>
+
+</div>
+
+</main>
+
+
+<!-- نافذة تعديل الملف -->
+
+<div id="editModal" class="modal">
+
+  <div class="modal-box">
+
+    <div class="modal-head">
+
+      <h3>تعديل الملف الشخصي</h3>
+
+      <button
+        class="close"
+        onclick="closeModal('editModal')"
+      >
+        ×
+      </button>
+
+    </div>
+
+
+    <div class="field">
+      <label>الاسم</label>
+      <input id="editName" maxlength="30">
+    </div>
+
+
+    <div class="field">
+      <label>العمر</label>
+      <input id="editAge" type="number" min="13" max="100">
+    </div>
+
+
+    <div class="field">
+      <label>الجنس</label>
+
+      <select id="editGender">
+        <option value="male">ذكر</option>
+        <option value="female">أنثى</option>
+      </select>
+    </div>
+
+
+    <div class="field">
+      <label>النبذة</label>
+      <textarea
+        id="editBio"
+        maxlength="250"
+        placeholder="اكتب نبذة عن نفسك..."
+      ></textarea>
+    </div>
+
+
+    <div class="field">
+      <label>رابط صورة الملف الشخصي</label>
+      <input
+        id="editAvatar"
+        type="url"
+        placeholder="https://..."
+      >
+    </div>
+
+
+    <div class="modal-actions">
+
+      <button
+        class="btn"
+        onclick="closeModal('editModal')"
+      >
+        إلغاء
+      </button>
+
+      <button
+        class="btn primary"
+        onclick="saveProfile()"
+      >
+        حفظ التغييرات
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- نافذة المنشور -->
+
+<div id="postModal" class="modal">
+
+  <div class="modal-box">
+
+    <div class="modal-head">
+
+      <h3>إنشاء منشور ✨</h3>
+
+      <button
+        class="close"
+        onclick="closeModal('postModal')"
+      >
+        ×
+      </button>
+
+    </div>
+
+
+    <div class="field">
+
+      <label>ماذا تريد أن تقول؟</label>
+
+      <textarea
+        id="postText"
+        maxlength="1000"
+        placeholder="اكتب منشورك هنا..."
+      ></textarea>
+
+    </div>
+
+
+    <div class="field">
+
+      <label>رابط صورة اختياري</label>
+
+      <input
+        id="postImage"
+        type="url"
+        placeholder="https://..."
+      >
+
+    </div>
+
+
+    <div class="modal-actions">
+
+      <button
+        class="btn"
+        onclick="closeModal('postModal')"
+      >
+        إلغاء
+      </button>
+
+      <button
+        class="btn primary"
+        onclick="savePost()"
+      >
+        نشر
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<div id="toast" class="toast"></div>
+
+
+<script>
+
+/*
+====================================================
+ نظام الحساب
+====================================================
+*/
+
+const STORAGE_USERS = "afandina_users";
+const STORAGE_CURRENT = "afandina_current_user";
+
+
+function getUsers(){
+
+  try{
+    return JSON.parse(
+      localStorage.getItem(STORAGE_USERS) || "[]"
+    );
+  }catch(e){
+    return [];
+  }
+}
+
+
+function saveUsers(users){
+
+  localStorage.setItem(
+    STORAGE_USERS,
+    JSON.stringify(users)
+  );
+}
+
+
+function getCurrentUser(){
+
+  try{
+
+    return JSON.parse(
+      localStorage.getItem(STORAGE_CURRENT)
+    );
+
+  }catch(e){
+
+    return null;
+  }
+}
+
+
+/*
+====================================================
+ التحقق من تسجيل الدخول
+====================================================
+*/
+
+let currentUser = getCurrentUser();
+
+if(!currentUser){
+
+  showToast("يجب تسجيل الدخول أولًا.");
+
+  setTimeout(()=>{
+    window.location.href = "auth.html";
+  },900);
+
+}
+
+
+/*
+====================================================
+ بيانات افتراضية
+====================================================
+*/
+
+function ensureUserData(){
+
+  if(!currentUser) return;
+
+  if(!Array.isArray(currentUser.posts)){
+    currentUser.posts = [];
+  }
+
+  if(!Array.isArray(currentUser.followers)){
+    currentUser.followers = [];
+  }
+
+  if(!Array.isArray(currentUser.following)){
+    currentUser.following = [];
+  }
+
+  if(!currentUser.bio){
+    currentUser.bio = "مرحبًا بكم في افـنـدツينا🥀🖤";
+  }
+
+  if(!currentUser.avatar){
+    currentUser.avatar =
+      "https://ui-avatars.com/api/?name=" +
+      encodeURIComponent(currentUser.name || "User") +
+      "&background=19192a&color=fff&size=300";
+  }
+
+  if(!currentUser.status){
+    currentUser.status = "active";
+  }
+}
+
+
+/*
+====================================================
+ تحميل الصفحة
+====================================================
+*/
+
+function loadProfile(){
+
+  if(!currentUser) return;
+
+  ensureUserData();
+
+  document.getElementById("profileName").textContent =
+    currentUser.name || "مستخدم";
+
+  document.getElementById("username").textContent =
+    "@" +
+    String(currentUser.name || "user")
+    .replace(/\s+/g,"")
+    .toLowerCase();
+
+  document.getElementById("bio").textContent =
+    currentUser.bio || "لا توجد نبذة.";
+
+  document.getElementById("ageMeta").textContent =
+    "🎂 العمر: " + (currentUser.age || "—");
+
+  document.getElementById("genderMeta").textContent =
+    currentUser.gender === "female"
+      ? "👩 أنثى"
+      : "👨 ذكر";
+
+  document.getElementById("ageInfo").textContent =
+    currentUser.age || "—";
+
+  document.getElementById("genderInfo").textContent =
+    currentUser.gender === "female"
+      ? "أنثى"
+      : "ذكر";
+
+  document.getElementById("emailInfo").textContent =
+    currentUser.email || "—";
+
+  document.getElementById("roleInfo").textContent =
+    currentUser.rol
