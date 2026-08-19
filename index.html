@@ -1,0 +1,1205 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0b0d14">
+<meta name="description" content="افـنـدツينا🥀🖤 — مجتمع عربي للتعارف والدردشة والمشاركة">
+<title>افـنـدツينا🥀🖤</title>
+
+<style>
+:root{
+  --bg:#080a10;
+  --bg2:#0d1018;
+  --card:rgba(20,24,35,.78);
+  --card2:#151a26;
+  --border:rgba(255,255,255,.08);
+  --text:#f6f7fb;
+  --muted:#929aaa;
+  --primary:#8b6cf6;
+  --primary-dark:#6242c9;
+  --pink:#d66a9f;
+  --success:#43d18a;
+  --danger:#ef6575;
+  --shadow:0 20px 60px rgba(0,0,0,.28);
+}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  min-height:100vh;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Tahoma,
+    Arial,
+    sans-serif;
+  color:var(--text);
+  background:
+    radial-gradient(circle at 15% 10%,rgba(139,108,246,.10),transparent 28%),
+    radial-gradient(circle at 85% 20%,rgba(214,106,159,.07),transparent 25%),
+    var(--bg);
+  overflow-x:hidden;
+}
+
+button,
+a,
+input{
+  font:inherit;
+}
+
+button{
+  cursor:pointer;
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible{
+  outline:2px solid var(--primary);
+  outline-offset:3px;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.header{
+  position:fixed;
+  top:0;
+  right:0;
+  left:0;
+  height:74px;
+  z-index:1000;
+  border-bottom:1px solid var(--border);
+  background:rgba(8,10,16,.78);
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+}
+
+.header-inner{
+  width:min(1180px,calc(100% - 30px));
+  height:100%;
+  margin:auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-weight:800;
+}
+
+.logo-mark{
+  width:43px;
+  height:43px;
+  border-radius:14px;
+  display:grid;
+  place-items:center;
+  font-size:21px;
+  background:
+    linear-gradient(135deg,
+      rgba(139,108,246,.95),
+      rgba(214,106,159,.85)
+    );
+  box-shadow:
+    0 10px 30px rgba(139,108,246,.20);
+}
+
+.logo-text{
+  line-height:1.15;
+}
+
+.logo-text strong{
+  display:block;
+  font-size:15px;
+}
+
+.logo-text span{
+  display:block;
+  margin-top:3px;
+  color:var(--muted);
+  font-size:10px;
+  font-weight:500;
+}
+
+.nav{
+  display:flex;
+  align-items:center;
+  gap:5px;
+}
+
+.nav a{
+  color:#aeb5c4;
+  font-size:13px;
+  padding:9px 12px;
+  border-radius:10px;
+  transition:.2s ease;
+}
+
+.nav a:hover,
+.nav a.active{
+  color:#fff;
+  background:rgba(255,255,255,.055);
+}
+
+.header-actions{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.btn{
+  border:1px solid transparent;
+  border-radius:11px;
+  padding:10px 15px;
+  transition:.2s ease;
+}
+
+.btn:hover{
+  transform:translateY(-1px);
+}
+
+.btn-ghost{
+  background:transparent;
+  border-color:var(--border);
+  color:#dce1eb;
+}
+
+.btn-primary{
+  color:#fff;
+  border-color:rgba(139,108,246,.25);
+  background:
+    linear-gradient(135deg,
+      var(--primary),
+      var(--primary-dark)
+    );
+  box-shadow:0 9px 25px rgba(98,66,201,.18);
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+  position:relative;
+  min-height:720px;
+  padding:150px 20px 100px;
+  display:flex;
+  align-items:center;
+}
+
+.hero::before{
+  content:"";
+  position:absolute;
+  width:420px;
+  height:420px;
+  right:-180px;
+  top:130px;
+  border-radius:50%;
+  background:rgba(139,108,246,.08);
+  filter:blur(80px);
+  pointer-events:none;
+}
+
+.hero::after{
+  content:"";
+  position:absolute;
+  width:350px;
+  height:350px;
+  left:-160px;
+  bottom:0;
+  border-radius:50%;
+  background:rgba(214,106,159,.06);
+  filter:blur(80px);
+  pointer-events:none;
+}
+
+.hero-inner{
+  position:relative;
+  z-index:2;
+  width:min(1180px,100%);
+  margin:auto;
+  display:grid;
+  grid-template-columns:1.05fr .95fr;
+  align-items:center;
+  gap:70px;
+}
+
+.hero-content{
+  max-width:650px;
+}
+
+.hero-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:8px 12px;
+  border-radius:30px;
+  border:1px solid var(--border);
+  background:rgba(255,255,255,.035);
+  color:#c8ceda;
+  font-size:11px;
+  margin-bottom:22px;
+}
+
+.hero-badge i{
+  width:7px;
+  height:7px;
+  border-radius:50%;
+  background:var(--success);
+  box-shadow:0 0 12px rgba(67,209,138,.6);
+}
+
+.hero h1{
+  font-size:clamp(38px,5vw,67px);
+  line-height:1.08;
+  letter-spacing:-1.8px;
+  margin-bottom:22px;
+}
+
+.hero h1 span{
+  background:
+    linear-gradient(100deg,#b49cff,#e79bc0);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+
+.hero-description{
+  color:var(--muted);
+  font-size:16px;
+  line-height:2;
+  max-width:570px;
+  margin-bottom:30px;
+}
+
+.hero-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+}
+
+.hero-actions .btn{
+  padding:13px 20px;
+}
+
+.hero-note{
+  margin-top:20px;
+  color:#697284;
+  font-size:11px;
+}
+
+/* =========================
+   PREVIEW
+========================= */
+
+.preview{
+  position:relative;
+  width:100%;
+  max-width:480px;
+  margin:auto;
+}
+
+.preview-glow{
+  position:absolute;
+  inset:15% 5%;
+  background:rgba(139,108,246,.13);
+  filter:blur(60px);
+}
+
+.preview-card{
+  position:relative;
+  padding:16px;
+  border-radius:24px;
+  border:1px solid var(--border);
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.055),
+      rgba(255,255,255,.018)
+    );
+  box-shadow:var(--shadow);
+}
+
+.preview-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:5px 3px 15px;
+}
+
+.preview-title{
+  display:flex;
+  align-items:center;
+  gap:9px;
+}
+
+.preview-mini-logo{
+  width:36px;
+  height:36px;
+  border-radius:11px;
+  display:grid;
+  place-items:center;
+  background:linear-gradient(135deg,var(--primary),var(--pink));
+}
+
+.preview-title strong{
+  display:block;
+  font-size:12px;
+}
+
+.preview-title span{
+  display:block;
+  color:var(--muted);
+  font-size:9px;
+  margin-top:3px;
+}
+
+.preview-dots{
+  display:flex;
+  gap:4px;
+}
+
+.preview-dots i{
+  width:5px;
+  height:5px;
+  border-radius:50%;
+  background:#4d5565;
+}
+
+.preview-body{
+  display:grid;
+  gap:10px;
+}
+
+.room-card{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:14px;
+  border:1px solid var(--border);
+  background:rgba(255,255,255,.025);
+  border-radius:15px;
+}
+
+.room-icon{
+  width:44px;
+  height:44px;
+  flex:none;
+  display:grid;
+  place-items:center;
+  border-radius:13px;
+  background:rgba(139,108,246,.10);
+  font-size:19px;
+}
+
+.room-info{
+  min-width:0;
+  flex:1;
+}
+
+.room-info strong{
+  display:block;
+  font-size:12px;
+}
+
+.room-info span{
+  display:block;
+  color:var(--muted);
+  font-size:9px;
+  margin-top:4px;
+}
+
+.room-online{
+  color:var(--success);
+  font-size:9px;
+}
+
+/* =========================
+   FEATURES
+========================= */
+
+.section{
+  padding:85px 20px;
+}
+
+.section-inner{
+  width:min(1180px,100%);
+  margin:auto;
+}
+
+.section-heading{
+  text-align:center;
+  max-width:650px;
+  margin:0 auto 42px;
+}
+
+.section-heading span{
+  color:#a794e9;
+  font-size:11px;
+}
+
+.section-heading h2{
+  font-size:30px;
+  margin:9px 0 12px;
+}
+
+.section-heading p{
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.9;
+}
+
+.features{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px;
+}
+
+.feature{
+  padding:24px;
+  border:1px solid var(--border);
+  border-radius:18px;
+  background:rgba(255,255,255,.025);
+  transition:.25s ease;
+}
+
+.feature:hover{
+  transform:translateY(-4px);
+  border-color:rgba(139,108,246,.28);
+  background:rgba(255,255,255,.035);
+}
+
+.feature-icon{
+  width:45px;
+  height:45px;
+  display:grid;
+  place-items:center;
+  border-radius:13px;
+  background:rgba(139,108,246,.10);
+  margin-bottom:17px;
+  font-size:19px;
+}
+
+.feature h3{
+  font-size:15px;
+  margin-bottom:8px;
+}
+
+.feature p{
+  color:var(--muted);
+  font-size:11px;
+  line-height:1.9;
+}
+
+/* =========================
+   CTA
+========================= */
+
+.cta{
+  padding:30px 20px 90px;
+}
+
+.cta-box{
+  width:min(980px,100%);
+  margin:auto;
+  padding:45px;
+  border-radius:24px;
+  border:1px solid var(--border);
+  background:
+    radial-gradient(circle at 80% 20%,rgba(139,108,246,.12),transparent 30%),
+    rgba(255,255,255,.025);
+  text-align:center;
+}
+
+.cta-box h2{
+  font-size:30px;
+  margin-bottom:10px;
+}
+
+.cta-box p{
+  color:var(--muted);
+  font-size:13px;
+  margin-bottom:24px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer{
+  border-top:1px solid var(--border);
+  padding:28px 20px;
+}
+
+.footer-inner{
+  width:min(1180px,100%);
+  margin:auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+}
+
+.footer p{
+  color:#697284;
+  font-size:10px;
+}
+
+.footer-links{
+  display:flex;
+  gap:15px;
+}
+
+.footer-links a{
+  color:#7d8697;
+  font-size:10px;
+}
+
+.footer-links a:hover{
+  color:#fff;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+.mobile-menu{
+  display:none;
+  width:42px;
+  height:42px;
+  border:1px solid var(--border);
+  background:rgba(255,255,255,.035);
+  color:#fff;
+  border-radius:11px;
+}
+
+.mobile-menu span,
+.mobile-menu span::before,
+.mobile-menu span::after{
+  content:"";
+  display:block;
+  width:18px;
+  height:2px;
+  background:#dce1eb;
+  margin:auto;
+  border-radius:10px;
+}
+
+.mobile-menu span::before{
+  transform:translateY(-6px);
+}
+
+.mobile-menu span::after{
+  transform:translateY(4px);
+}
+
+.mobile-nav{
+  position:fixed;
+  top:74px;
+  right:12px;
+  left:12px;
+  z-index:999;
+  display:none;
+  padding:10px;
+  border:1px solid var(--border);
+  border-radius:16px;
+  background:rgba(13,16,24,.97);
+  box-shadow:var(--shadow);
+}
+
+.mobile-nav.open{
+  display:grid;
+}
+
+.mobile-nav a{
+  padding:13px;
+  border-radius:10px;
+  color:#b9c0ce;
+  font-size:13px;
+}
+
+.mobile-nav a:hover{
+  background:rgba(255,255,255,.05);
+  color:#fff;
+}
+
+@media(max-width:900px){
+
+  .nav{
+    display:none;
+  }
+
+  .mobile-menu{
+    display:block;
+  }
+
+  .hero{
+    min-height:auto;
+    padding-top:125px;
+  }
+
+  .hero-inner{
+    grid-template-columns:1fr;
+    gap:50px;
+    text-align:center;
+  }
+
+  .hero-content{
+    margin:auto;
+  }
+
+  .hero-description{
+    margin-left:auto;
+    margin-right:auto;
+  }
+
+  .hero-actions{
+    justify-content:center;
+  }
+
+  .preview{
+    max-width:560px;
+  }
+
+  .features{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+@media(max-width:600px){
+
+  .header-inner{
+    width:calc(100% - 20px);
+  }
+
+  .logo-text{
+    display:none;
+  }
+
+  .header-actions .btn-ghost{
+    display:none;
+  }
+
+  .hero{
+    padding:115px 15px 70px;
+  }
+
+  .hero h1{
+    font-size:39px;
+    letter-spacing:-1px;
+  }
+
+  .hero-description{
+    font-size:13px;
+    line-height:1.9;
+  }
+
+  .hero-actions{
+    flex-direction:column;
+  }
+
+  .hero-actions .btn{
+    width:100%;
+  }
+
+  .section{
+    padding:65px 15px;
+  }
+
+  .section-heading h2{
+    font-size:25px;
+  }
+
+  .features{
+    grid-template-columns:1fr;
+  }
+
+  .cta{
+    padding:15px 15px 70px;
+  }
+
+  .cta-box{
+    padding:32px 20px;
+  }
+
+  .cta-box h2{
+    font-size:24px;
+  }
+
+  .footer-inner{
+    flex-direction:column;
+    text-align:center;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header class="header">
+
+  <div class="header-inner">
+
+    <a href="index.html" class="logo">
+      <div class="logo-mark">🥀</div>
+
+      <div class="logo-text">
+        <strong>افـنـدツينا🥀🖤</strong>
+        <span>مجتمعك العربي</span>
+      </div>
+    </a>
+
+    <nav class="nav">
+      <a href="#home" class="active">الرئيسية</a>
+      <a href="#features">المميزات</a>
+      <a href="#about">عن الموقع</a>
+    </nav>
+
+    <div class="header-actions">
+
+      <a href="auth.html" class="btn btn-ghost">
+        تسجيل الدخول
+      </a>
+
+      <a href="auth.html?mode=register" class="btn btn-primary">
+        إنشاء حساب
+      </a>
+
+      <button
+        class="mobile-menu"
+        id="mobileMenu"
+        aria-label="فتح القائمة"
+        type="button"
+      >
+        <span></span>
+      </button>
+
+    </div>
+
+  </div>
+
+</header>
+
+<nav class="mobile-nav" id="mobileNav">
+
+  <a href="#home">الرئيسية</a>
+  <a href="#features">المميزات</a>
+  <a href="#about">عن الموقع</a>
+  <a href="auth.html">تسجيل الدخول</a>
+  <a href="auth.html?mode=register">إنشاء حساب</a>
+
+</nav>
+
+<main>
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+  <div class="hero-inner">
+
+    <div class="hero-content">
+
+      <div class="hero-badge">
+        <i></i>
+        مجتمع عربي جديد — أهلاً بك
+      </div>
+
+      <h1>
+        مكان يجمعك
+        <span>بالناس اللي يشبهونك</span>
+      </h1>
+
+      <p class="hero-description">
+        افـنـدツينا🥀🖤 مساحة عربية هادئة للتعارف والدردشة
+        والمشاركة والتواصل، بواجهة بسيطة وتجربة مريحة على الجوال
+        والكمبيوتر.
+      </p>
+
+      <div class="hero-actions">
+
+        <a
+          href="auth.html?mode=register"
+          class="btn btn-primary"
+        >
+          ابدأ الآن
+        </a>
+
+        <a
+          href="auth.html?mode=guest"
+          class="btn btn-ghost"
+        >
+          دخول كزائر
+        </a>
+
+      </div>
+
+      <p class="hero-note">
+        لا تحتاج إلى تعقيد — ادخل واستكشف المجتمع.
+      </p>
+
+    </div>
+
+    <div class="preview">
+
+      <div class="preview-glow"></div>
+
+      <div class="preview-card">
+
+        <div class="preview-top">
+
+          <div class="preview-title">
+
+            <div class="preview-mini-logo">
+              🥀
+            </div>
+
+            <div>
+              <strong>الغرف العربية</strong>
+              <span>اكتشف الأماكن النشطة الآن</span>
+            </div>
+
+          </div>
+
+          <div class="preview-dots">
+            <i></i>
+            <i></i>
+            <i></i>
+          </div>
+
+        </div>
+
+        <div class="preview-body">
+
+          <div class="room-card">
+
+            <div class="room-icon">💬</div>
+
+            <div class="room-info">
+              <strong>السهرة العربية</strong>
+              <span>دردشة وتعارف وأجواء هادئة</span>
+            </div>
+
+            <div class="room-online">
+              ● 84
+            </div>
+
+          </div>
+
+          <div class="room-card">
+
+            <div class="room-icon">🌙</div>
+
+            <div class="room-info">
+              <strong>ليالي افـنـدينا</strong>
+              <span>أصدقاء ونقاشات متنوعة</span>
+            </div>
+
+            <div class="room-online">
+              ● 41
+            </div>
+
+          </div>
+
+          <div class="room-card">
+
+            <div class="room-icon">🌹</div>
+
+            <div class="room-info">
+              <strong>أصدقاء جدد</strong>
+              <span>تعرف على أعضاء المجتمع</span>
+            </div>
+
+            <div class="room-online">
+              ● 27
+            </div>
+
+          </div>
+
+          <div class="room-card">
+
+            <div class="room-icon">✨</div>
+
+            <div class="room-info">
+              <strong>استراحة افـنـدينا</strong>
+              <span>مكان مفتوح للجميع</span>
+            </div>
+
+            <div class="room-online">
+              ● 19
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- FEATURES -->
+
+<section class="section" id="features">
+
+  <div class="section-inner">
+
+    <div class="section-heading">
+
+      <span>لماذا افـنـدツينا؟</span>
+
+      <h2>
+        كل ما تحتاجه في مكان واحد
+      </h2>
+
+      <p>
+        صممنا التجربة لتكون بسيطة وسريعة ومرتبة،
+        مع الحفاظ على مساحة مريحة للتواصل والمشاركة.
+      </p>
+
+    </div>
+
+    <div class="features">
+
+      <article class="feature">
+
+        <div class="feature-icon">
+          💬
+        </div>
+
+        <h3>
+          غرف دردشة
+        </h3>
+
+        <p>
+          ادخل الغرف العامة وتحدث مع أعضاء المجتمع
+          واستمتع بالمحادثات في أجواء منظمة.
+        </p>
+
+      </article>
+
+      <article class="feature">
+
+        <div class="feature-icon">
+          👤
+        </div>
+
+        <h3>
+          ملف شخصي
+        </h3>
+
+        <p>
+          أنشئ ملفك الشخصي وأضف صورتك ومعلوماتك
+          ومنشوراتك وتعرّف على الآخرين.
+        </p>
+
+      </article>
+
+      <article class="feature">
+
+        <div class="feature-icon">
+          📝
+        </div>
+
+        <h3>
+          منشورات
+        </h3>
+
+        <p>
+          شارك أفكارك ومنشوراتك وتفاعل مع أعضاء
+          المجتمع من خلال الإعجابات والتعليقات.
+        </p>
+
+      </article>
+
+      <article class="feature">
+
+        <div class="feature-icon">
+          🔔
+        </div>
+
+        <h3>
+          إشعارات
+        </h3>
+
+        <p>
+          تابع التفاعلات والرسائل والتنبيهات المهمة
+          من خلال مركز إشعارات واضح.
+        </p>
+
+      </article>
+
+      <article class="feature">
+
+        <div class="feature-icon">
+          🛡️
+        </div>
+
+        <h3>
+          حماية وإدارة
+        </h3>
+
+        <p>
+          نظام بلاغات وإدارة وصلاحيات مصمم ليكون
+          أساسًا لمنصة منظمة وآمنة.
+        </p>
+
+      </article>
+
+      <article class="feature">
+
+        <div class="feature-icon">
+          📱
+        </div>
+
+        <h3>
+          يعمل على الجوال
+        </h3>
+
+        <p>
+          واجهة متجاوبة بالكامل لتستمتع بالموقع
+          من الهاتف أو الجهاز اللوحي أو الكمبيوتر.
+        </p>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ABOUT -->
+
+<section class="section" id="about">
+
+  <div class="section-inner">
+
+    <div class="section-heading">
+
+      <span>افـنـدツينا🥀🖤</span>
+
+      <h2>
+        مجتمع بتجربة أبسط وأهدأ
+      </h2>
+
+      <p>
+        هدف الموقع هو بناء مساحة عربية تجمع الدردشة
+        والتعارف والمشاركة في تجربة واحدة مرتبة وسهلة الاستخدام.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- CTA -->
+
+<section class="cta">
+
+  <div class="cta-box">
+
+    <h2>
+      مستعد تبدأ؟
+    </h2>
+
+    <p>
+      أنشئ حسابك وابدأ استكشاف افـنـدツينا🥀🖤.
+    </p>
+
+    <a
+      href="auth.html?mode=register"
+      class="btn btn-primary"
+    >
+      إنشاء حساب الآن
+    </a>
+
+  </div>
+
+</section>
+
+</main>
+
+<footer class="footer">
+
+  <div class="footer-inner">
+
+    <p>
+      © <span id="year"></span> افـنـدツينا🥀🖤 — جميع الحقوق محفوظة
+    </p>
+
+    <div class="footer-links">
+      <a href="#about">عن الموقع</a>
+      <a href="#">الخصوصية</a>
+      <a href="#">الشروط</a>
+    </div>
+
+  </div>
+
+</footer>
+
+<script>
+"use strict";
+
+const mobileMenu = document.getElementById("mobileMenu");
+const mobileNav = document.getElementById("mobileNav");
+
+mobileMenu.addEventListener("click", () => {
+  mobileNav.classList.toggle("open");
+});
+
+mobileNav.querySelectorAll("a").forEach(link => {
+  link.addEventListener("click", () => {
+    mobileNav.classList.remove("open");
+  });
+});
+
+document.getElementById("year").textContent =
+  new Date().getFullYear();
+
+/*
+====================================================
+نقطة الربط المستقبلية
+====================================================
+
+عند بناء server.js سيتم ربط هذه الصفحة مع:
+- حالة تسجيل الدخول
+- بيانات المستخدم
+- عدد المستخدمين المتصلين
+- الغرف الحقيقية
+- الإشعارات
+- الجلسات
+- API
+- قاعدة البيانات
+
+ولا يتم وضع كلمات مرور أو مفاتيح سرية داخل index.html.
+====================================================
+*/
+</script>
+
+</body>
+</html>
