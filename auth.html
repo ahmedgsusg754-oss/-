@@ -1,0 +1,1112 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover">
+<meta name="theme-color" content="#07070c">
+<meta name="description" content="افـنـدツينا🥀🖤 - تسجيل الدخول وإنشاء الحساب">
+<title>افـنـدツينا🥀🖤 | تسجيل الدخول</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap');
+
+:root{
+  --bg:#050507;
+  --card:rgba(17,17,23,.78);
+  --card2:rgba(255,255,255,.045);
+  --border:rgba(255,255,255,.09);
+  --text:#fff;
+  --muted:#9b9ba8;
+  --accent:#ff2d68;
+  --accent2:#8b5cf6;
+  --success:#20d99b;
+  --danger:#ff526d;
+  --shadow:0 30px 90px rgba(0,0,0,.55);
+}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html,body{
+  width:100%;
+  min-height:100%;
+}
+
+body{
+  font-family:'Cairo',sans-serif;
+  color:var(--text);
+  background:
+    radial-gradient(circle at 15% 10%,rgba(255,45,104,.16),transparent 30%),
+    radial-gradient(circle at 85% 85%,rgba(139,92,246,.17),transparent 32%),
+    linear-gradient(145deg,#030305,#09090f 50%,#040406);
+  overflow-x:hidden;
+}
+
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  background-image:
+    radial-gradient(circle,rgba(255,255,255,.12) 1px,transparent 1px);
+  background-size:42px 42px;
+  opacity:.12;
+  mask-image:linear-gradient(to bottom,black,transparent);
+}
+
+/* ---------- شاشة التحميل ---------- */
+
+.loader{
+  position:fixed;
+  inset:0;
+  z-index:9999;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#050507;
+  transition:.55s ease;
+}
+
+.loader.hide{
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+}
+
+.loader-box{
+  text-align:center;
+}
+
+.loader-logo{
+  width:75px;
+  height:75px;
+  margin:auto;
+  border-radius:24px;
+  display:grid;
+  place-items:center;
+  font-size:30px;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  box-shadow:0 0 45px rgba(255,45,104,.35);
+  animation:pulse 1.4s infinite;
+}
+
+.loader-text{
+  margin-top:16px;
+  color:#aaa;
+  font-size:13px;
+}
+
+/* ---------- الخلفية ---------- */
+
+.orb{
+  position:fixed;
+  width:280px;
+  height:280px;
+  border-radius:50%;
+  filter:blur(80px);
+  opacity:.15;
+  pointer-events:none;
+}
+
+.orb.one{
+  top:-100px;
+  right:-70px;
+  background:#ff2d68;
+}
+
+.orb.two{
+  bottom:-100px;
+  left:-80px;
+  background:#7c3aed;
+}
+
+/* ---------- الصفحة ---------- */
+
+.page{
+  position:relative;
+  z-index:2;
+  width:100%;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:28px 16px;
+}
+
+.wrapper{
+  width:min(1050px,100%);
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:24px;
+  align-items:stretch;
+}
+
+/* ---------- الجانب التعريفي ---------- */
+
+.hero{
+  min-height:620px;
+  position:relative;
+  overflow:hidden;
+  border:1px solid var(--border);
+  border-radius:32px;
+  padding:42px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  background:
+    linear-gradient(145deg,rgba(255,45,104,.12),rgba(139,92,246,.05)),
+    rgba(10,10,15,.65);
+  box-shadow:var(--shadow);
+  backdrop-filter:blur(25px);
+}
+
+.hero::after{
+  content:"";
+  position:absolute;
+  width:250px;
+  height:250px;
+  left:-90px;
+  top:-90px;
+  border-radius:50%;
+  background:rgba(255,45,104,.12);
+  filter:blur(25px);
+}
+
+.brand{
+  position:relative;
+  z-index:2;
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+
+.brand-logo{
+  width:58px;
+  height:58px;
+  border-radius:19px;
+  display:grid;
+  place-items:center;
+  font-size:25px;
+  background:linear-gradient(135deg,#ff2d68,#9f3cff);
+  box-shadow:0 15px 35px rgba(255,45,104,.25);
+}
+
+.brand-name{
+  font-size:20px;
+  font-weight:900;
+}
+
+.brand-sub{
+  font-size:11px;
+  color:var(--muted);
+  margin-top:2px;
+}
+
+.hero-content{
+  position:relative;
+  z-index:2;
+}
+
+.hero h1{
+  font-size:clamp(34px,5vw,58px);
+  line-height:1.15;
+  font-weight:900;
+  margin-bottom:20px;
+  letter-spacing:-1.5px;
+}
+
+.gradient-text{
+  background:linear-gradient(90deg,#fff,#ff6d99,#a78bfa);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+
+.hero p{
+  color:#aaaab6;
+  line-height:2;
+  font-size:14px;
+  max-width:450px;
+}
+
+.features{
+  position:relative;
+  z-index:2;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+
+.feature{
+  padding:15px;
+  border:1px solid var(--border);
+  background:rgba(255,255,255,.035);
+  border-radius:18px;
+}
+
+.feature-icon{
+  font-size:20px;
+  margin-bottom:7px;
+}
+
+.feature strong{
+  display:block;
+  font-size:13px;
+}
+
+.feature span{
+  display:block;
+  color:#858592;
+  font-size:10px;
+  margin-top:3px;
+}
+
+/* ---------- صندوق المصادقة ---------- */
+
+.auth-card{
+  min-height:620px;
+  border:1px solid var(--border);
+  border-radius:32px;
+  background:var(--card);
+  box-shadow:var(--shadow);
+  backdrop-filter:blur(28px);
+  padding:34px;
+  position:relative;
+  overflow:hidden;
+}
+
+.auth-card::before{
+  content:"";
+  position:absolute;
+  width:170px;
+  height:170px;
+  right:-80px;
+  top:-80px;
+  background:rgba(255,45,104,.12);
+  filter:blur(25px);
+  border-radius:50%;
+}
+
+.auth-head{
+  position:relative;
+  z-index:2;
+  margin-bottom:24px;
+}
+
+.auth-head h2{
+  font-size:27px;
+  font-weight:900;
+}
+
+.auth-head p{
+  color:var(--muted);
+  font-size:12px;
+  margin-top:5px;
+}
+
+/* ---------- التبديل ---------- */
+
+.tabs{
+  position:relative;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  padding:5px;
+  border:1px solid var(--border);
+  background:rgba(0,0,0,.25);
+  border-radius:16px;
+  margin-bottom:23px;
+}
+
+.tab{
+  border:0;
+  background:transparent;
+  color:#858592;
+  padding:12px;
+  border-radius:12px;
+  font-family:inherit;
+  font-weight:800;
+  cursor:pointer;
+  transition:.25s;
+}
+
+.tab.active{
+  color:#fff;
+  background:linear-gradient(135deg,rgba(255,45,104,.9),rgba(139,92,246,.9));
+  box-shadow:0 8px 25px rgba(255,45,104,.16);
+}
+
+/* ---------- النماذج ---------- */
+
+.form{
+  display:none;
+  animation:fadeUp .35s ease;
+}
+
+.form.active{
+  display:block;
+}
+
+.field{
+  margin-bottom:15px;
+}
+
+.field label{
+  display:block;
+  color:#c8c8d1;
+  font-size:11px;
+  font-weight:700;
+  margin:0 3px 7px;
+}
+
+.input-wrap{
+  position:relative;
+}
+
+.input{
+  width:100%;
+  height:52px;
+  border:1px solid rgba(255,255,255,.09);
+  outline:none;
+  border-radius:15px;
+  background:rgba(255,255,255,.045);
+  color:#fff;
+  padding:0 16px;
+  font-family:inherit;
+  font-size:13px;
+  transition:.25s;
+}
+
+.input.password{
+  padding-left:50px;
+}
+
+.input:focus{
+  border-color:rgba(255,45,104,.65);
+  background:rgba(255,255,255,.065);
+  box-shadow:0 0 0 4px rgba(255,45,104,.08);
+}
+
+.input::placeholder{
+  color:#666673;
+}
+
+.eye{
+  position:absolute;
+  left:8px;
+  top:7px;
+  width:38px;
+  height:38px;
+  border:0;
+  border-radius:11px;
+  background:transparent;
+  color:#777783;
+  cursor:pointer;
+  font-size:16px;
+}
+
+.eye:hover{
+  color:#fff;
+  background:rgba(255,255,255,.06);
+}
+
+.row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  margin:4px 2px 17px;
+}
+
+.remember{
+  display:flex;
+  align-items:center;
+  gap:7px;
+  color:#8e8e99;
+  font-size:10px;
+  cursor:pointer;
+}
+
+.remember input{
+  accent-color:var(--accent);
+}
+
+.forgot{
+  color:#ff6a93;
+  font-size:10px;
+  border:0;
+  background:none;
+  cursor:pointer;
+  font-family:inherit;
+}
+
+.main-btn{
+  width:100%;
+  min-height:53px;
+  border:0;
+  border-radius:16px;
+  color:#fff;
+  font-family:inherit;
+  font-size:13px;
+  font-weight:900;
+  cursor:pointer;
+  position:relative;
+  overflow:hidden;
+  background:linear-gradient(135deg,#ff225f,#8b42ef);
+  box-shadow:0 14px 30px rgba(255,45,104,.2);
+  transition:.25s;
+}
+
+.main-btn::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:-100%;
+  width:70%;
+  height:100%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.2),transparent);
+  transform:skewX(-20deg);
+  transition:.6s;
+}
+
+.main-btn:hover::before{
+  left:140%;
+}
+
+.main-btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 18px 35px rgba(255,45,104,.28);
+}
+
+.main-btn:active{
+  transform:scale(.98);
+}
+
+.divider{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  color:#666673;
+  font-size:10px;
+  margin:20px 0;
+}
+
+.divider::before,
+.divider::after{
+  content:"";
+  flex:1;
+  height:1px;
+  background:rgba(255,255,255,.07);
+}
+
+.guest-btn{
+  width:100%;
+  min-height:50px;
+  border:1px solid rgba(255,255,255,.1);
+  background:rgba(255,255,255,.035);
+  border-radius:15px;
+  color:#ddd;
+  font-family:inherit;
+  font-weight:800;
+  font-size:12px;
+  cursor:pointer;
+  transition:.25s;
+}
+
+.guest-btn:hover{
+  background:rgba(255,255,255,.07);
+  border-color:rgba(255,255,255,.18);
+}
+
+.terms{
+  text-align:center;
+  color:#62626e;
+  font-size:9px;
+  line-height:1.8;
+  margin-top:18px;
+}
+
+.terms b{
+  color:#9696a2;
+}
+
+/* ---------- إشعار ---------- */
+
+.toast-container{
+  position:fixed;
+  top:20px;
+  right:20px;
+  z-index:10000;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  width:min(370px,calc(100% - 40px));
+}
+
+.toast{
+  position:relative;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:14px;
+  border-radius:17px;
+  border:1px solid rgba(255,255,255,.1);
+  background:rgba(17,17,23,.94);
+  box-shadow:0 20px 50px rgba(0,0,0,.45);
+  backdrop-filter:blur(20px);
+  animation:toastIn .4s ease;
+  overflow:hidden;
+}
+
+.toast.hide{
+  animation:toastOut .35s ease forwards;
+}
+
+.toast-icon{
+  width:39px;
+  height:39px;
+  flex:none;
+  border-radius:13px;
+  display:grid;
+  place-items:center;
+  font-size:17px;
+}
+
+.toast.success .toast-icon{
+  background:rgba(32,217,155,.12);
+  color:#20d99b;
+}
+
+.toast.error .toast-icon{
+  background:rgba(255,82,109,.12);
+  color:#ff526d;
+}
+
+.toast.info .toast-icon{
+  background:rgba(139,92,246,.13);
+  color:#a78bfa;
+}
+
+.toast-text{
+  min-width:0;
+}
+
+.toast-title{
+  font-size:12px;
+  font-weight:900;
+}
+
+.toast-message{
+  color:#8d8d99;
+  font-size:10px;
+  margin-top:2px;
+  line-height:1.6;
+}
+
+/* ---------- مودال استعادة كلمة السر ---------- */
+
+.modal{
+  position:fixed;
+  inset:0;
+  z-index:9000;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  background:rgba(0,0,0,.72);
+  backdrop-filter:blur(12px);
+  opacity:0;
+  visibility:hidden;
+  transition:.25s;
+}
+
+.modal.show{
+  opacity:1;
+  visibility:visible;
+}
+
+.modal-box{
+  width:min(430px,100%);
+  background:#111117;
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:25px;
+  padding:28px;
+  box-shadow:0 30px 100px rgba(0,0,0,.6);
+  transform:translateY(15px) scale(.98);
+  transition:.3s;
+}
+
+.modal.show .modal-box{
+  transform:translateY(0) scale(1);
+}
+
+.modal-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:20px;
+}
+
+.modal-top h3{
+  font-size:20px;
+}
+
+.close{
+  width:36px;
+  height:36px;
+  border:0;
+  border-radius:11px;
+  background:rgba(255,255,255,.05);
+  color:#aaa;
+  cursor:pointer;
+  font-size:18px;
+}
+
+/* ---------- حالة الدخول ---------- */
+
+.logged-user{
+  display:none;
+  text-align:center;
+  padding:25px 0 5px;
+}
+
+.logged-user.show{
+  display:block;
+  animation:fadeUp .4s ease;
+}
+
+.avatar{
+  width:75px;
+  height:75px;
+  margin:0 auto 14px;
+  border-radius:24px;
+  display:grid;
+  place-items:center;
+  font-size:29px;
+  font-weight:900;
+  background:linear-gradient(135deg,#ff2d68,#8b5cf6);
+  box-shadow:0 15px 40px rgba(255,45,104,.25);
+}
+
+.welcome{
+  color:#9999a5;
+  font-size:11px;
+}
+
+.username{
+  font-size:22px;
+  font-weight:900;
+  margin-top:2px;
+}
+
+.user-actions{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  margin-top:20px;
+}
+
+.action-btn{
+  height:48px;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,.09);
+  background:rgba(255,255,255,.04);
+  color:#fff;
+  font-family:inherit;
+  font-weight:800;
+  cursor:pointer;
+}
+
+.action-btn.primary{
+  background:linear-gradient(135deg,#ff225f,#8b42ef);
+  border:0;
+}
+
+/* ---------- الحركات ---------- */
+
+@keyframes pulse{
+  0%,100%{transform:scale(1);box-shadow:0 0 35px rgba(255,45,104,.25)}
+  50%{transform:scale(1.06);box-shadow:0 0 55px rgba(255,45,104,.4)}
+}
+
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(8px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+@keyframes toastIn{
+  from{opacity:0;transform:translateX(30px)}
+  to{opacity:1;transform:translateX(0)}
+}
+
+@keyframes toastOut{
+  to{opacity:0;transform:translateX(30px)}
+}
+
+/* ---------- الموبايل ---------- */
+
+@media(max-width:800px){
+  .page{
+    padding:16px;
+  }
+
+  .wrapper{
+    grid-template-columns:1fr;
+  }
+
+  .hero{
+    min-height:auto;
+    padding:27px;
+    border-radius:25px;
+  }
+
+  .hero h1{
+    font-size:38px;
+  }
+
+  .hero-content{
+    margin:38px 0;
+  }
+
+  .auth-card{
+    min-height:auto;
+    padding:24px;
+    border-radius:25px;
+  }
+
+  .features{
+    grid-template-columns:1fr 1fr;
+  }
+}
+
+@media(max-width:480px){
+  .hero{
+    display:none;
+  }
+
+  .auth-card{
+    width:100%;
+    padding:22px 18px;
+  }
+
+  .auth-head h2{
+    font-size:24px;
+  }
+
+  .toast-container{
+    top:12px;
+    right:12px;
+    width:calc(100% - 24px);
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="loader" id="loader">
+  <div class="loader-box">
+    <div class="loader-logo">🥀</div>
+    <div class="loader-text">جاري تجهيز عالم افـنـدツينا...</div>
+  </div>
+</div>
+
+<div class="orb one"></div>
+<div class="orb two"></div>
+
+<div class="toast-container" id="toastContainer"></div>
+
+<div class="page">
+
+  <main class="wrapper">
+
+    <!-- الجانب التعريفي -->
+    <section class="hero">
+
+      <div class="brand">
+        <div class="brand-logo">🥀</div>
+
+        <div>
+          <div class="brand-name">افـنـدツينا🥀🖤</div>
+          <div class="brand-sub">عالمك... ناسك... حكايتك</div>
+        </div>
+      </div>
+
+      <div class="hero-content">
+        <h1>
+          أهلاً بك في
+          <span class="gradient-text">عالمك الجديد</span>
+        </h1>
+
+        <p>
+          سجّل دخولك وابدأ رحلتك داخل مجتمع افـنـدツينا.
+          تعرّف على أشخاص جدد، ادخل الغرف، تحدث، شارك
+          واستمتع بتجربة اجتماعية مصممة بشكل مختلف.
+        </p>
+      </div>
+
+      <div class="features">
+
+        <div class="feature">
+          <div class="feature-icon">💬</div>
+          <strong>دردشة مباشرة</strong>
+          <span>تواصل واستمتع بالمحادثات</span>
+        </div>
+
+        <div class="feature">
+          <div class="feature-icon">🏠</div>
+          <strong>غرف متنوعة</strong>
+          <span>ادخل الغرفة التي تناسبك</span>
+        </div>
+
+        <div class="feature">
+          <div class="feature-icon">👑</div>
+          <strong>ملفك الخاص</strong>
+          <span>اصنع هويتك داخل الموقع</span>
+        </div>
+
+        <div class="feature">
+          <div class="feature-icon">🔔</div>
+          <strong>إشعارات فورية</strong>
+          <span>لن تفوّت أي جديد</span>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- بطاقة تسجيل الدخول -->
+    <section class="auth-card">
+
+      <div class="auth-head">
+        <h2 id="authTitle">مرحباً بعودتك 👋</h2>
+        <p id="authSubtitle">سجّل دخولك للوصول إلى حسابك</p>
+      </div>
+
+      <div class="tabs">
+        <button class="tab active" id="loginTab" onclick="switchTab('login')">
+          تسجيل الدخول
+        </button>
+
+        <button class="tab" id="registerTab" onclick="switchTab('register')">
+          إنشاء حساب
+        </button>
+      </div>
+
+
+      <!-- تسجيل الدخول -->
+
+      <form class="form active" id="loginForm" onsubmit="login(event)">
+
+        <div class="field">
+          <label>اسم المستخدم أو البريد الإلكتروني</label>
+
+          <div class="input-wrap">
+            <input
+              class="input"
+              id="loginIdentifier"
+              type="text"
+              autocomplete="username"
+              placeholder="اكتب اسم المستخدم"
+              required
+            >
+          </div>
+        </div>
+
+
+        <div class="field">
+          <label>كلمة المرور</label>
+
+          <div class="input-wrap">
+            <input
+              class="input password"
+              id="loginPassword"
+              type="password"
+              autocomplete="current-password"
+              placeholder="اكتب كلمة المرور"
+              required
+            >
+
+            <button
+              class="eye"
+              type="button"
+              onclick="togglePassword('loginPassword',this)"
+              aria-label="إظهار كلمة المرور"
+            >👁</button>
+          </div>
+        </div>
+
+
+        <div class="row">
+
+          <label class="remember">
+            <input type="checkbox" id="rememberMe">
+            تذكرني
+          </label>
+
+          <button
+            class="forgot"
+            type="button"
+            onclick="openForgot()"
+          >
+            نسيت كلمة المرور؟
+          </button>
+
+        </div>
+
+
+        <button class="main-btn" type="submit">
+          دخول إلى افـنـدツينا ✦
+        </button>
+
+        <div class="divider">
+          أو
+        </div>
+
+        <button
+          class="guest-btn"
+          type="button"
+          onclick="guestLogin()"
+        >
+          🚀 الدخول كزائر
+        </button>
+
+        <div class="terms">
+          بتسجيل الدخول أنت توافق على
+          <b>شروط الاستخدام</b>
+          و
+          <b>سياسة الخصوصية</b>
+        </div>
+
+      </form>
+
+
+      <!-- إنشاء حساب -->
+
+      <form class="form" id="registerForm" onsubmit="register(event)">
+
+        <div class="field">
+          <label>اسم المستخدم</label>
+
+          <div class="input-wrap">
+            <input
+              class="input"
+              id="registerUsername"
+              type="text"
+              autocomplete="username"
+              minlength="3"
+              maxlength="20"
+              placeholder="مثال: Ahmed_2026"
+              required
+            >
+          </div>
+        </div>
+
+
+        <div class="field">
+          <label>البريد الإلكتروني</label>
+
+          <div class="input-wrap">
+            <input
+              class="input"
+              id="registerEmail"
+              type="email"
+              autocomplete="email"
+              placeholder="example@email.com"
+              required
+            >
+          </div>
+        </div>
+
+
+        <div class="field">
+          <label>كلمة المرور</label>
+
+          <div class="input-wrap">
+            <input
+              class="input password"
+              id="registerPassword"
+              type="password"
+              autocomplete="new-password"
+              minlength="6"
+              placeholder="6 أحرف على الأقل"
+              required
+            >
+
+            <button
+              class="eye"
+              type="button"
+              onclick="togglePassword('registerPassword',this)"
+            >👁</button>
+          </div>
+        </div>
+
+
+        <div class="field">
+          <label>تأكيد كلمة المرور</label>
+
+          <div class="input-wrap">
+            <input
+              class="input password"
+              id="registerConfirm"
+              type="password"
+              autocomplete="new-password"
+              placeholder="أعد كتابة كلمة المرور"
+              required
+            >
+
+            <button
+              class="eye"
+              type="button"
+              onclick="togglePassword('registerConfirm',this)"
+            >👁</button>
+          </div>
+        </div>
+
+
+        <button class="main-btn" type="submit">
+          إنشاء حساب جديد ✨
+        </button>
+
+
+        <div class="terms">
+          بإنشاء الحساب أنت توافق على
+          <b>شروط الاستخدام</b>
+          و
+          <b>سياسة الخصوصية</b>
+        </div>
+
+      </form>
+
+
+      <!-- المستخدم المسجل بالفعل -->
+
+      <div class="logged-user" id="loggedUser">
+
+        <div class="avatar" id="userAvatar">A</div>
+
+        <div class="welcome">
+          أهلاً بعودتك
+        </div>
+
+        <div class="username" id="loggedUsername">
+          المستخدم
+        </div>
+
+        <div class="user-actions">
+
+          <button
+            class="action-btn primary"
+            onclick="enterSite()"
+          >
+            دخول للموقع
+          </button>
+
+          <button
+            class="action-btn"
+            onclick="logout()"
+          >
+         
