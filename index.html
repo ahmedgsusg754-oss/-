@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>موقع افـنـدツ⁠يـنـا🥀🖤 | نظام المحادثة المتكامل</title>
+    <!-- استدعاء خط Cairo الفخم والناعم من Google Fonts -->
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* نظام الألوان الملكي الهادئ والشيك جداً (Luxury Dark Theme) */
+        :root {
+            --bg-main: #0b0c10;
+            --panel-bg: #14161d;
+            --accent-color: #d4af37; /* ذهبي ملكي ناعم */
+            --accent-muted: rgba(212, 175, 55, 0.1);
+            --text-main: #f1f3f5;
+            --text-muted: #7e8b9b;
+            --border-color: #1e222b;
+            --incoming-msg: #1d212c;
+            --outgoing-msg: #d4af37;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        /* حاوية موقع افندنينا الرئيسية */
+        .site-wrapper {
+            width: 95vw;
+            max-width: 1200px;
+            height: 90vh;
+            background-color: var(--panel-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.6);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        /* الهيدر العلوي للموقع */
+        .site-header {
+            padding: 15px 25px;
+            background: linear-gradient(to left, #101218, var(--panel-bg));
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .site-logo {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .vip-badge {
+            background: var(--accent-muted);
+            border: 1px solid var(--accent-color);
+            color: var(--accent-color);
+            font-size: 0.75rem;
+            padding: 2px 8px;
+            border-radius: 6px;
+            font-weight: 600;
+        }
+
+        /* جسم الموقع المقسم إلى 3 أقسام مثل نظام حركشات */
+        .main-content {
+            flex: 1;
+            display: flex;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* 1. القائمة الجانبية للغرف */
+        .sidebar-rooms {
+            width: 250px;
+            background-color: #101217;
+            border-left: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            padding: 15px 10px;
+            gap: 8px;
+        }
+
+        .section-title {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 5px 10px;
+            margin-bottom: 5px;
+        }
+
+        .room-item {
+            padding: 12px 15px;
+            border-radius: 12px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            transition: all 0.2s ease;
+        }
+
+        .room-item:hover, .room-item.active {
+            background-color: var(--border-color);
+            color: var(--accent-color);
+        }
+
+        /* 2. منطقة الشات والدردشة المركزية */
+        .chat-area {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            background-color: var(--panel-bg);
+        }
+
+        .room-header {
+            padding: 15px 20px;
+            border-bottom: 1px solid var(--border-color);
+            font-weight: 600;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .chat-messages {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        /* تصميم فقاعات رسائل المستخدمين */
+        .msg-block {
+            max-width: 70%;
+            padding: 12px 16px;
+            border-radius: 14px;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            animation: slideIn 0.25s ease forwards;
+            position: relative;
+        }
+
+        .msg-block.incoming {
+            background-color: var(--incoming-msg);
+            color: var(--text-main);
+            align-self: flex-start;
+            border-bottom-right-radius: 2px;
+        }
+
+        .msg-block.outgoing {
+            background-color: var(--outgoing-msg);
+            color: #0b0c10;
+            align-self: flex-end;
+            border-bottom-left-radius: 2px;
+            font-weight: 600;
+        }
+
+        .msg-user {
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+            display: block;
+            color: var(--accent-color);
+        }
+
+        .msg-block.outgoing .msg-user {
+            color: #2b2b2b;
+        }
+
+        .msg-time {
+            font-size: 0.7rem;
+            margin-top: 5px;
+            display: block;
+            opacity: 0.6;
+            text-align: left;
+        }
+
+        /* منطقة الإدخال السفلية للكتابة */
+        .chat-footer {
+            padding: 15px 20px;
+            background-color: #101217;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .input-box-container {
+            display: flex;
+            gap: 12px;
+            background-color: var(--panel-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            padding: 5px 5px 5px 12px;
+            align-items: center;
+        }
+
+        .chat-input {
+            flex: 1;
+            background: none;
+            border: none;
+            outline: none;
+            color: var(--text-main);
+            font-size: 0.95rem;
+            padding: 10px 0;
+        }
+
+        .send-btn {
+            background-color: var(--accent-color);
+            color: #0b0c10;
+            border: none;
+            padding: 10px 22px;
+            border-radius: 10px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .send-btn:hover {
+            opacity: 0.9;
+            transform: scale(0.98);
+        }
+
+        /* 3. قائمة الأعضاء المتصلين بالموقع */
+        .sidebar-users {
+            width: 220px;
+            background-color: #101217;
+            border-right: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            padding: 15px 10px;
+            gap: 8px;
+        }
+
+        .user-card {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 10px;
+            border-radius: 10px;
+            font-size: 0.85rem;
+        }
+
+        .status-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background-color: #10b981; /* أخضر متصل */
+            box-shadow: 0 0 8px #10b981;
+        }
+
+        .status-dot.away {
+            background-color: #f59e0b; /* برتقالي بالخارج */
+            box-shadow: 0 0 8px #f59e0b;
+        }
+
+        /* أنيميشن التمرير وتأثير ظهور الرسائل */
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        ::-webkit-scrollbar { width: 5px; }
+        ::-webkit-scrollbar-thumb { background: #232733; border-radius: 10px; }
+
+        /* توافق الهواتف الذكية وتخفي القوائم الجانبية تلقائياً في الشاشات الصغيرة لتظل الواجهة شيك */
+        @media (max-width: 768px) {
+            .sidebar-rooms, .sidebar-users { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="site-wrapper">
+        <!-- هيدر الموقع -->
+        <header class="site-header">
+            <div class="site-logo">
+                <span>افـنـدツ⁠يـنـا🥀🖤</span>
+                <span class="vip-badge">PREMIUM SITE</span>
+            </div>
+        </header>
+
+        <!-- الهيكل الداخلي للموقع -->
+        <main class="main-content">
+            
+            <!-- قائمة الغرف الجانبية (نظام حركشات) -->
+            <aside class="sidebar-rooms">
+                <div class="section-title">الغرف النشطة</div>
+                <div class="room-item active" onclick="changeRoom('الدردشة العامة 💬')">الدردشة العامة 💬</div>
+                <div class="room-item" onclick="changeRoom('مجلس الملوك VIP 👑')">مجلس الملوك VIP 👑</div>
+                <div class="room-item" onclick="changeRoom('غرفة الخواطر والهدوء 🥀')">غرفة الخواطر والهدوء 🥀</div>
+            </aside>
+
+            <!-- ساحة المحادثة المركزية -->
+            <section class="chat-area">
+                <div class="room-header" id="currentRoomTitle">الدردشة العامة 💬</div>
+                
+                <div class="chat-messages" id="chatContainer">
+                    <div class="msg-block incoming">
+                        <span class="msg-user">المشرف العام</span>
+                        أهلاً بكم في موقع افـنـدツ⁠يـنـا🥀🖤. تم ضبط وتهيئة النظام البرمجي بالكامل على بيئة دردشة هادئة وشيك جداً.
+                        <span class="message-time msg-time">الآن</span>
+                    </div>
+                </div>
+
