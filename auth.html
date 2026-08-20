@@ -2,23 +2,19 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover">
 <meta name="theme-color" content="#08070d">
 <meta name="color-scheme" content="dark">
 
 <title>افـنـدツينا🥀🖤 — المصادقة</title>
 
-<meta
-  name="description"
-  content="تسجيل الدخول وإنشاء حساب واستعادة كلمة المرور في افـنـدツينا🥀🖤"
->
+<meta name="description" content="تسجيل الدخول وإنشاء الحساب واستعادة كلمة المرور في افـنـدツينا🥀🖤">
 
 <style>
 :root{
   --bg:#07060b;
   --bg2:#0d0b13;
   --card:rgba(255,255,255,.065);
-  --card-hover:rgba(255,255,255,.09);
   --border:rgba(255,255,255,.10);
   --text:#fff;
   --muted:#a5a1b2;
@@ -53,23 +49,13 @@ body{
     Tahoma,
     Arial,
     sans-serif;
+
   background:
-    radial-gradient(
-      circle at 15% 15%,
-      rgba(152,88,255,.18),
-      transparent 30%
-    ),
-    radial-gradient(
-      circle at 85% 20%,
-      rgba(209,92,255,.12),
-      transparent 28%
-    ),
-    radial-gradient(
-      circle at 50% 100%,
-      rgba(152,88,255,.08),
-      transparent 35%
-    ),
+    radial-gradient(circle at 15% 15%,rgba(152,88,255,.18),transparent 30%),
+    radial-gradient(circle at 85% 20%,rgba(209,92,255,.12),transparent 28%),
+    radial-gradient(circle at 50% 100%,rgba(152,88,255,.08),transparent 35%),
     linear-gradient(135deg,#05050a,#0b0911 50%,#06060a);
+
   overflow-x:hidden;
 }
 
@@ -85,10 +71,6 @@ button{
 button:disabled{
   opacity:.55;
   cursor:not-allowed;
-}
-
-input{
-  outline:none;
 }
 
 .hidden{
@@ -140,7 +122,7 @@ input{
 }
 
 /* =========================
-   LAYOUT
+   PAGE
 ========================= */
 
 .page{
@@ -173,10 +155,8 @@ input{
   display:grid;
   place-items:center;
   border-radius:15px;
-  background:
-    linear-gradient(135deg,var(--primary),var(--primary2));
-  box-shadow:
-    0 14px 35px rgba(152,88,255,.30);
+  background:linear-gradient(135deg,var(--primary),var(--primary2));
+  box-shadow:0 14px 35px rgba(152,88,255,.30);
   font-size:23px;
 }
 
@@ -232,10 +212,8 @@ input{
   place-items:center;
   margin:0 auto 14px;
   border-radius:21px;
-  background:
-    linear-gradient(135deg,var(--primary),var(--primary2));
-  box-shadow:
-    0 15px 38px rgba(152,88,255,.27);
+  background:linear-gradient(135deg,var(--primary),var(--primary2));
+  box-shadow:0 15px 38px rgba(152,88,255,.27);
   font-size:29px;
 }
 
@@ -276,7 +254,7 @@ input{
 }
 
 .tab:hover{
-  color:var(--text);
+  color:#fff;
   background:rgba(255,255,255,.045);
 }
 
@@ -341,7 +319,7 @@ input{
   padding:11px 13px;
   border:1px solid var(--border);
   border-radius:13px;
-  color:var(--text);
+  color:#fff;
   background:rgba(255,255,255,.045);
   transition:.2s ease;
 }
@@ -356,16 +334,17 @@ input{
 
 .input:focus{
   border-color:rgba(152,88,255,.65);
-  box-shadow:
-    0 0 0 3px rgba(152,88,255,.09);
+  box-shadow:0 0 0 3px rgba(152,88,255,.09);
 }
 
 .input.invalid{
-  border-color:rgba(255,85,124,.65);
+  border-color:rgba(255,85,124,.70);
+  box-shadow:0 0 0 3px rgba(255,85,124,.07);
 }
 
 .input.valid{
-  border-color:rgba(66,220,145,.45);
+  border-color:rgba(66,220,145,.50);
+  box-shadow:0 0 0 3px rgba(66,220,145,.05);
 }
 
 .password-input{
@@ -439,11 +418,6 @@ input{
   accent-color:var(--primary);
 }
 
-.check-row a{
-  color:#c7a7ff;
-  text-decoration:none;
-}
-
 /* =========================
    BUTTON
 ========================= */
@@ -459,18 +433,15 @@ input{
   border:1px solid rgba(152,88,255,.35);
   border-radius:14px;
   color:#fff;
-  background:
-    linear-gradient(135deg,var(--primary),var(--primary2));
-  box-shadow:
-    0 13px 32px rgba(152,88,255,.20);
+  background:linear-gradient(135deg,var(--primary),var(--primary2));
+  box-shadow:0 13px 32px rgba(152,88,255,.20);
   transition:.2s ease;
   font-weight:850;
 }
 
 .submit:hover:not(:disabled){
   transform:translateY(-2px);
-  box-shadow:
-    0 17px 38px rgba(152,88,255,.27);
+  box-shadow:0 17px 38px rgba(152,88,255,.27);
 }
 
 .submit:active:not(:disabled){
@@ -581,8 +552,7 @@ input{
 ========================= */
 
 button:focus-visible,
-input:focus-visible,
-a:focus-visible{
+input:focus-visible{
   outline:2px solid rgba(209,92,255,.8);
   outline-offset:3px;
 }
@@ -653,12 +623,12 @@ a:focus-visible{
 
   <div class="auth-wrapper">
 
-    <div class="brand" aria-label="افـنـدツينا">
+    <div class="brand">
       <div class="brand-logo">🥀</div>
       <div class="brand-name">افـنـدツينا🥀🖤</div>
     </div>
 
-    <section class="auth-card" aria-label="المصادقة">
+    <section class="auth-card">
 
       <div class="heading">
 
@@ -681,9 +651,7 @@ a:focus-visible{
         aria-live="polite"
       ></div>
 
-      <!-- =========================
-           LOGIN / REGISTER TABS
-      ========================== -->
+      <!-- التبويبات -->
 
       <div class="tabs" id="mainTabs">
 
@@ -691,7 +659,6 @@ a:focus-visible{
           type="button"
           class="tab active"
           id="loginTab"
-          aria-controls="loginForm"
           aria-selected="true"
         >
           تسجيل الدخول
@@ -701,7 +668,6 @@ a:focus-visible{
           type="button"
           class="tab"
           id="registerTab"
-          aria-controls="registerForm"
           aria-selected="false"
         >
           إنشاء حساب
@@ -709,9 +675,7 @@ a:focus-visible{
 
       </div>
 
-      <!-- =========================
-           LOGIN
-      ========================== -->
+      <!-- تسجيل الدخول -->
 
       <form
         class="form active"
@@ -732,7 +696,6 @@ a:focus-visible{
             id="loginIdentifier"
             name="identifier"
             type="text"
-            inputmode="email"
             autocomplete="username"
             minlength="3"
             maxlength="254"
@@ -767,7 +730,6 @@ a:focus-visible{
               type="button"
               data-password-toggle="loginPassword"
               aria-label="إظهار كلمة المرور"
-              title="إظهار كلمة المرور"
             >
               👁
             </button>
@@ -794,14 +756,12 @@ a:focus-visible{
           type="submit"
         >
           <span class="button-text">تسجيل الدخول</span>
-          <span class="spinner hidden" aria-hidden="true"></span>
+          <span class="spinner hidden"></span>
         </button>
 
       </form>
 
-      <!-- =========================
-           REGISTER
-      ========================== -->
+      <!-- إنشاء حساب -->
 
       <form
         class="form"
@@ -825,13 +785,13 @@ a:focus-visible{
             autocomplete="username"
             minlength="3"
             maxlength="30"
-            pattern="[A-Za-z0-9_\u0600-\u06FF]+"
             required
             placeholder="اختر اسم المستخدم"
+            dir="auto"
           >
 
           <div class="field-hint">
-            من 3 إلى 30 حرفًا أو رقمًا.
+            من 3 إلى 30 حرفًا أو رقمًا، بدون مسافات أو رموز غير مسموحة.
           </div>
 
         </div>
@@ -851,6 +811,7 @@ a:focus-visible{
             maxlength="254"
             required
             placeholder="example@email.com"
+            dir="ltr"
           >
 
         </div>
@@ -880,7 +841,6 @@ a:focus-visible{
               type="button"
               data-password-toggle="registerPassword"
               aria-label="إظهار كلمة المرور"
-              title="إظهار كلمة المرور"
             >
               👁
             </button>
@@ -889,14 +849,13 @@ a:focus-visible{
 
           <div class="password-strength">
 
-            <div
-              class="strength-bars"
-              aria-hidden="true"
-            >
+            <div class="strength-bars">
+
               <span class="strength-bar"></span>
               <span class="strength-bar"></span>
               <span class="strength-bar"></span>
               <span class="strength-bar"></span>
+
             </div>
 
             <span
@@ -935,7 +894,6 @@ a:focus-visible{
               type="button"
               data-password-toggle="registerConfirm"
               aria-label="إظهار كلمة المرور"
-              title="إظهار كلمة المرور"
             >
               👁
             </button>
@@ -965,14 +923,12 @@ a:focus-visible{
           type="submit"
         >
           <span class="button-text">إنشاء الحساب</span>
-          <span class="spinner hidden" aria-hidden="true"></span>
+          <span class="spinner hidden"></span>
         </button>
 
       </form>
 
-      <!-- =========================
-           FORGOT PASSWORD
-      ========================== -->
+      <!-- نسيت كلمة المرور -->
 
       <form
         class="form"
@@ -997,6 +953,7 @@ a:focus-visible{
             maxlength="254"
             required
             placeholder="أدخل بريد حسابك"
+            dir="ltr"
           >
 
         </div>
@@ -1006,8 +963,11 @@ a:focus-visible{
           id="forgotSubmit"
           type="submit"
         >
-          <span class="button-text">إرسال طلب الاستعادة</span>
-          <span class="spinner hidden" aria-hidden="true"></span>
+          <span class="button-text">
+            إرسال طلب الاستعادة
+          </span>
+
+          <span class="spinner hidden"></span>
         </button>
 
         <button
@@ -1020,9 +980,7 @@ a:focus-visible{
 
       </form>
 
-      <!-- =========================
-           RESET PASSWORD
-      ========================== -->
+      <!-- تغيير كلمة المرور -->
 
       <form
         class="form"
@@ -1057,7 +1015,6 @@ a:focus-visible{
               type="button"
               data-password-toggle="resetPassword"
               aria-label="إظهار كلمة المرور"
-              title="إظهار كلمة المرور"
             >
               👁
             </button>
@@ -1091,7 +1048,6 @@ a:focus-visible{
               type="button"
               data-password-toggle="resetConfirm"
               aria-label="إظهار كلمة المرور"
-              title="إظهار كلمة المرور"
             >
               👁
             </button>
@@ -1105,8 +1061,11 @@ a:focus-visible{
           id="resetSubmit"
           type="submit"
         >
-          <span class="button-text">تغيير كلمة المرور</span>
-          <span class="spinner hidden" aria-hidden="true"></span>
+          <span class="button-text">
+            تغيير كلمة المرور
+          </span>
+
+          <span class="spinner hidden"></span>
         </button>
 
         <button
@@ -1132,13 +1091,26 @@ a:focus-visible{
 <script>
 "use strict";
 
-/*
- * هذا الملف لا يحتوي على حسابات تجريبية
- * ولا كلمات مرور وهمية
- * ولا بيانات مستخدمين.
- *
- * لا يتم حفظ كلمات المرور في localStorage أو sessionStorage.
- */
+/* =========================================================
+   افـنـدツينا🥀🖤
+   AUTH SYSTEM
+   =========================================================
+
+   مهم:
+   هذا الملف لا ينشئ حسابات وهمية.
+   لا يخزن كلمات المرور.
+   لا يضع كلمات مرور داخل المتصفح.
+   التحقق الموجود هنا للتحقق من إدخال المستخدم فقط.
+
+   يجب أن تكون خدمات المصادقة في الخادم هي المسؤولة
+   عن إنشاء الحساب وتسجيل الدخول وتخزين كلمات المرور
+   بشكل آمن.
+========================================================= */
+
+
+/* =========================================================
+   HELPERS
+========================================================= */
 
 const $ = (selector, root = document) =>
   root.querySelector(selector);
@@ -1146,9 +1118,10 @@ const $ = (selector, root = document) =>
 const $$ = (selector, root = document) =>
   [...root.querySelectorAll(selector)];
 
-/* =========================
+
+/* =========================================================
    ELEMENTS
-========================= */
+========================================================= */
 
 const pageTitle = $("#pageTitle");
 const pageSubtitle = $("#pageSubtitle");
@@ -1167,9 +1140,16 @@ const forgotLink = $("#forgotLink");
 const backToLogin = $("#backToLogin");
 const resetBackToLogin = $("#resetBackToLogin");
 
+const loginIdentifier = $("#loginIdentifier");
 const loginPassword = $("#loginPassword");
+
+const registerUsername = $("#registerUsername");
+const registerEmail = $("#registerEmail");
 const registerPassword = $("#registerPassword");
 const registerConfirm = $("#registerConfirm");
+const termsCheck = $("#termsCheck");
+
+const forgotEmail = $("#forgotEmail");
 
 const resetPassword = $("#resetPassword");
 const resetConfirm = $("#resetConfirm");
@@ -1177,9 +1157,10 @@ const resetConfirm = $("#resetConfirm");
 const strengthText = $("#strengthText");
 const strengthBars = $$(".strength-bar");
 
-/* =========================
+
+/* =========================================================
    ALERT
-========================= */
+========================================================= */
 
 let alertTimer = null;
 
@@ -1196,12 +1177,14 @@ function showAlert(message, type = "error") {
   });
 
   alertTimer = setTimeout(() => {
+
     alertBox.className = "alert";
     alertBox.textContent = "";
+
   }, 9000);
 }
 
-function clearAlert(){
+function clearAlert() {
 
   clearTimeout(alertTimer);
 
@@ -1209,36 +1192,45 @@ function clearAlert(){
   alertBox.textContent = "";
 }
 
-/* =========================
-   FORM SWITCHING
-========================= */
 
-function hideAllForms(){
+/* =========================================================
+   PAGE SWITCHING
+========================================================= */
 
-  [loginForm, registerForm, forgotForm, resetForm]
-    .forEach(form => form.classList.remove("active"));
+function hideAllForms() {
+
+  [
+    loginForm,
+    registerForm,
+    forgotForm,
+    resetForm
+  ].forEach(form => {
+
+    form.classList.remove("active");
+
+  });
 }
 
-function showMainTabs(){
+function showTabs() {
 
   mainTabs.classList.remove("hidden");
 }
 
-function hideMainTabs(){
+function hideTabs() {
 
   mainTabs.classList.add("hidden");
 }
 
-function updateHeading(title, subtitle){
+function updateHeading(title, subtitle) {
 
   pageTitle.textContent = title;
   pageSubtitle.textContent = subtitle;
 }
 
-function showLogin(){
+function showLogin() {
 
   hideAllForms();
-  showMainTabs();
+  showTabs();
 
   loginForm.classList.add("active");
 
@@ -1256,10 +1248,10 @@ function showLogin(){
   clearAlert();
 }
 
-function showRegister(){
+function showRegister() {
 
   hideAllForms();
-  showMainTabs();
+  showTabs();
 
   registerForm.classList.add("active");
 
@@ -1277,10 +1269,10 @@ function showRegister(){
   clearAlert();
 }
 
-function showForgot(){
+function showForgot() {
 
   hideAllForms();
-  hideMainTabs();
+  hideTabs();
 
   forgotForm.classList.add("active");
 
@@ -1292,10 +1284,10 @@ function showForgot(){
   clearAlert();
 }
 
-function showReset(){
+function showReset() {
 
   hideAllForms();
-  hideMainTabs();
+  hideTabs();
 
   resetForm.classList.add("active");
 
@@ -1307,63 +1299,95 @@ function showReset(){
   clearAlert();
 }
 
-/* =========================
+
+/* =========================================================
    TABS
-========================= */
+========================================================= */
 
 loginTab.addEventListener("click", showLogin);
 registerTab.addEventListener("click", showRegister);
 
 forgotLink.addEventListener("click", showForgot);
-
 backToLogin.addEventListener("click", showLogin);
-
 resetBackToLogin.addEventListener("click", showLogin);
 
-/* =========================
-   PASSWORD VISIBILITY
-========================= */
 
-$$("[data-password-toggle]").forEach(button => {
+/* =========================================================
+   USERNAME
+========================================================= */
 
-  button.addEventListener("click", () => {
+/*
+   الإصلاح الأساسي:
 
-    const targetId =
-      button.getAttribute("data-password-toggle");
+   يقبل:
+   - الحروف العربية
+   - الحروف الإنجليزية
+   - الأرقام العربية
+   - الأرقام الإنجليزية
+   - الشرطة السفلية
 
-    const input = document.getElementById(targetId);
+   الطول:
+   3 إلى 30
 
-    if(!input) return;
+   يمنع:
+   - المسافات
+   - الإيموجي
+   - الرموز الغريبة
+   - النص الفارغ
 
-    const visible = input.type === "text";
+   استخدام Unicode Property Escapes يجعل التحقق
+   أفضل من حصر العربية في نطاق Unicode ضيق.
+*/
 
-    input.type = visible ? "password" : "text";
+function normalizeUsername(value) {
 
-    button.textContent = visible ? "👁" : "🙈";
+  return String(value || "")
+    .normalize("NFC")
+    .trim();
+}
 
-    button.setAttribute(
-      "aria-label",
-      visible
-        ? "إظهار كلمة المرور"
-        : "إخفاء كلمة المرور"
-    );
+function validUsername(value) {
 
-    button.setAttribute(
-      "title",
-      visible
-        ? "إظهار كلمة المرور"
-        : "إخفاء كلمة المرور"
-    );
+  const username = normalizeUsername(value);
 
-  });
+  if(username.length < 3 || username.length > 30) {
+    return false;
+  }
 
-});
+  try {
 
-/* =========================
-   PASSWORD STRENGTH
-========================= */
+    return /^[\p{L}\p{N}_]+$/u.test(username);
 
-function passwordScore(password){
+  } catch {
+
+    return /^[A-Za-z0-9_\u0600-\u06FF]+$/.test(username);
+
+  }
+}
+
+
+/* =========================================================
+   EMAIL
+========================================================= */
+
+function validEmail(value) {
+
+  const email = String(value || "")
+    .trim();
+
+  if(!email || email.length > 254) {
+    return false;
+  }
+
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+
+/* =========================================================
+   PASSWORD
+========================================================= */
+
+function passwordScore(password) {
 
   let score = 0;
 
@@ -1380,23 +1404,30 @@ function passwordScore(password){
   if(/\d/.test(password))
     score++;
 
-  if(/[^A-Za-z0-9\u0600-\u06FF]/.test(password))
+  if(/[^\p{L}\p{N}]/u.test(password))
     score++;
 
   return Math.min(score, 4);
 }
 
-function updatePasswordStrength(){
+function updatePasswordStrength() {
 
   const password = registerPassword.value;
   const score = passwordScore(password);
 
   strengthBars.forEach((bar, index) => {
 
-    bar.style.background =
-      index < score
-        ? "linear-gradient(90deg,#9858ff,#d15cff)"
-        : "rgba(255,255,255,.08)";
+    if(index < score){
+
+      bar.style.background =
+        "linear-gradient(90deg,#9858ff,#d15cff)";
+
+    }else{
+
+      bar.style.background =
+        "rgba(255,255,255,.08)";
+
+    }
 
   });
 
@@ -1436,24 +1467,153 @@ registerPassword.addEventListener(
   updatePasswordStrength
 );
 
-/* =========================
-   VALIDATION
-========================= */
 
-function validEmail(value){
+/* =========================================================
+   VISIBILITY
+========================================================= */
 
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+$$("[data-password-toggle]").forEach(button => {
+
+  button.addEventListener("click", () => {
+
+    const targetId =
+      button.getAttribute("data-password-toggle");
+
+    const input =
+      document.getElementById(targetId);
+
+    if(!input) return;
+
+    const visible =
+      input.type === "text";
+
+    input.type =
+      visible ? "password" : "text";
+
+    button.textContent =
+      visible ? "👁" : "🙈";
+
+    button.setAttribute(
+      "aria-label",
+      visible
+        ? "إظهار كلمة المرور"
+        : "إخفاء كلمة المرور"
+    );
+
+  });
+
+});
+
+
+/* =========================================================
+   VISUAL FIELD VALIDATION
+========================================================= */
+
+function setFieldState(input, valid) {
+
+  const hasValue =
+    String(input.value || "").length > 0;
+
+  input.classList.toggle(
+    "valid",
+    Boolean(valid && hasValue)
+  );
+
+  input.classList.toggle(
+    "invalid",
+    Boolean(!valid && hasValue)
+  );
 }
 
-function validUsername(value){
 
-  return /^[A-Za-z0-9_\u0600-\u06FF]{3,30}$/.test(value);
-}
+/* Username */
 
-function validateLogin(){
+registerUsername.addEventListener(
+  "input",
+  () => {
+
+    const value =
+      normalizeUsername(registerUsername.value);
+
+    /*
+      تنظيف المسافات الخارجية فقط.
+      لا نحذف أي حرف من اختيار المستخدم.
+    */
+
+    if(registerUsername.value !== value){
+
+      registerUsername.value = value;
+
+    }
+
+    setFieldState(
+      registerUsername,
+      validUsername(value)
+    );
+
+  }
+);
+
+
+/* Email */
+
+registerEmail.addEventListener(
+  "input",
+  () => {
+
+    setFieldState(
+      registerEmail,
+      validEmail(registerEmail.value)
+    );
+
+  }
+);
+
+
+/* Confirm password */
+
+registerConfirm.addEventListener(
+  "input",
+  () => {
+
+    setFieldState(
+      registerConfirm,
+      registerConfirm.value.length >= 8 &&
+      registerConfirm.value === registerPassword.value
+    );
+
+  }
+);
+
+
+/* Password */
+
+registerPassword.addEventListener(
+  "input",
+  () => {
+
+    if(registerConfirm.value){
+
+      setFieldState(
+        registerConfirm,
+        registerConfirm.value.length >= 8 &&
+        registerConfirm.value === registerPassword.value
+      );
+
+    }
+
+  }
+);
+
+
+/* =========================================================
+   LOGIN VALIDATION
+========================================================= */
+
+function validateLogin() {
 
   const identifier =
-    $("#loginIdentifier").value.trim();
+    loginIdentifier.value.trim();
 
   const password =
     loginPassword.value;
@@ -1464,6 +1624,8 @@ function validateLogin(){
       "أدخل البريد الإلكتروني أو اسم المستخدم بشكل صحيح."
     );
 
+    loginIdentifier.focus();
+
     return false;
   }
 
@@ -1473,19 +1635,26 @@ function validateLogin(){
       "كلمة المرور يجب ألا تقل عن 6 أحرف."
     );
 
+    loginPassword.focus();
+
     return false;
   }
 
   return true;
 }
 
-function validateRegister(){
+
+/* =========================================================
+   REGISTER VALIDATION
+========================================================= */
+
+function validateRegister() {
 
   const username =
-    $("#registerUsername").value.trim();
+    normalizeUsername(registerUsername.value);
 
   const email =
-    $("#registerEmail").value.trim();
+    registerEmail.value.trim();
 
   const password =
     registerPassword.value;
@@ -1493,14 +1662,23 @@ function validateRegister(){
   const confirmation =
     registerConfirm.value;
 
-  const terms =
-    $("#termsCheck").checked;
+  /*
+    نعيد القيمة المنظفة إلى الحقل.
+  */
+
+  registerUsername.value = username;
+
+  /*
+    التحقق الجديد من اسم المستخدم.
+  */
 
   if(!validUsername(username)){
 
     showAlert(
-      "اسم المستخدم يجب أن يكون من 3 إلى 30 حرفًا أو رقمًا."
+      "اسم المستخدم يجب أن يكون من 3 إلى 30 حرفًا أو رقمًا، بدون مسافات أو رموز غير مسموحة."
     );
+
+    registerUsername.focus();
 
     return false;
   }
@@ -1510,6 +1688,8 @@ function validateRegister(){
     showAlert(
       "أدخل بريدًا إلكترونيًا صحيحًا."
     );
+
+    registerEmail.focus();
 
     return false;
   }
@@ -1520,6 +1700,8 @@ function validateRegister(){
       "كلمة المرور يجب ألا تقل عن 8 أحرف."
     );
 
+    registerPassword.focus();
+
     return false;
   }
 
@@ -1529,14 +1711,18 @@ function validateRegister(){
       "كلمتا المرور غير متطابقتين."
     );
 
+    registerConfirm.focus();
+
     return false;
   }
 
-  if(!terms){
+  if(!termsCheck.checked){
 
     showAlert(
       "يجب الموافقة على الشروط قبل إنشاء الحساب."
     );
+
+    termsCheck.focus();
 
     return false;
   }
@@ -1544,10 +1730,15 @@ function validateRegister(){
   return true;
 }
 
-function validateForgot(){
+
+/* =========================================================
+   FORGOT VALIDATION
+========================================================= */
+
+function validateForgot() {
 
   const email =
-    $("#forgotEmail").value.trim();
+    forgotEmail.value.trim();
 
   if(!validEmail(email)){
 
@@ -1555,13 +1746,20 @@ function validateForgot(){
       "أدخل بريدًا إلكترونيًا صحيحًا."
     );
 
+    forgotEmail.focus();
+
     return false;
   }
 
   return true;
 }
 
-function validateReset(){
+
+/* =========================================================
+   RESET VALIDATION
+========================================================= */
+
+function validateReset() {
 
   const password =
     resetPassword.value;
@@ -1575,6 +1773,8 @@ function validateReset(){
       "كلمة المرور الجديدة يجب ألا تقل عن 8 أحرف."
     );
 
+    resetPassword.focus();
+
     return false;
   }
 
@@ -1584,70 +1784,20 @@ function validateReset(){
       "كلمتا المرور غير متطابقتين."
     );
 
+    resetConfirm.focus();
+
     return false;
   }
 
   return true;
 }
 
-/* =========================
-   VISUAL VALIDATION
-========================= */
 
-function validateField(input, valid){
+/* =========================================================
+   LOADING
+========================================================= */
 
-  input.classList.toggle(
-    "valid",
-    Boolean(valid && input.value)
-  );
-
-  input.classList.toggle(
-    "invalid",
-    Boolean(!valid && input.value)
-  );
-}
-
-$("#registerUsername")
-  .addEventListener("input", event => {
-
-    const value =
-      event.target.value.trim();
-
-    validateField(
-      event.target,
-      validUsername(value)
-    );
-
-  });
-
-$("#registerEmail")
-  .addEventListener("input", event => {
-
-    validateField(
-      event.target,
-      validEmail(event.target.value.trim())
-    );
-
-  });
-
-registerConfirm.addEventListener(
-  "input",
-  event => {
-
-    validateField(
-      event.target,
-      event.target.value === registerPassword.value &&
-      event.target.value.length >= 8
-    );
-
-  }
-);
-
-/* =========================
-   BUTTON LOADING
-========================= */
-
-function setLoading(button, loading){
+function setLoading(button, loading) {
 
   const text =
     $(".button-text", button);
@@ -1663,6 +1813,7 @@ function setLoading(button, loading){
       "hidden",
       loading
     );
+
   }
 
   if(spinner){
@@ -1671,24 +1822,30 @@ function setLoading(button, loading){
       "hidden",
       !loading
     );
+
   }
 }
 
-/* =========================
-   RESPONSE HANDLING
-========================= */
 
-async function parseResponse(response){
+/* =========================================================
+   RESPONSE
+========================================================= */
 
-  const contentType =
+async function parseResponse(response) {
+
+  const type =
     response.headers.get("content-type") || "";
 
-  if(contentType.includes("application/json")){
+  if(type.includes("application/json")){
 
     try{
+
       return await response.json();
+
     }catch{
+
       return {};
+
     }
 
   }
@@ -1701,7 +1858,7 @@ async function parseResponse(response){
   };
 }
 
-function responseMessage(data){
+function responseMessage(data) {
 
   if(!data) return "";
 
@@ -1714,18 +1871,12 @@ function responseMessage(data){
   );
 }
 
-/* =========================
+
+/* =========================================================
    SAFE REDIRECT
-========================= */
+========================================================= */
 
-function redirectAfterSuccess(data){
-
-  /*
-   * لا يوجد رابط تحويل وهمي داخل الملف.
-   *
-   * إذا أعاد الخادم رابط تحويل صحيحًا،
-   * يستخدمه الملف.
-   */
+function redirectAfterSuccess(data) {
 
   if(
     data &&
@@ -1733,7 +1884,13 @@ function redirectAfterSuccess(data){
     data.redirect.trim()
   ){
 
-    const url = data.redirect.trim();
+    const url =
+      data.redirect.trim();
+
+    /*
+      نسمح فقط بالمسارات الداخلية.
+      لا نقبل روابط خارجية من رد الخادم.
+    */
 
     if(
       url.startsWith("/") &&
@@ -1741,470 +1898,127 @@ function redirectAfterSuccess(data){
     ){
 
       window.location.assign(url);
-      return true;
+
+      return;
+
     }
+
   }
 
   /*
-   * في حال كان المستخدم موجودًا بالفعل
-   * في صفحة المصادقة، الانتقال الافتراضي
-   * يكون إلى الصفحة الرئيسية للموقع.
-   */
+    إذا لم يرسل الخادم مسارًا،
+    يعود المتصفح إلى المسار الرئيسي.
+  */
 
   window.location.assign("/");
-
-  return true;
 }
 
-/* =========================
-   LOGIN
-========================= */
 
-loginForm.addEventListener(
-  "submit",
-  async event => {
+/* =========================================================
+   COMMON REQUEST
+========================================================= */
 
-    event.preventDefault();
+async function submitAuthForm(
+  form,
+  button,
+  successMessage,
+  errorMessage
+){
 
-    clearAlert();
+  const action =
+    form.getAttribute("action");
 
-    if(!validateLogin())
-      return;
+  /*
+    لا نضع Endpoint وهميًا داخل الملف.
+    يجب أن يحدد الخادم action الحقيقي للنموذج.
+  */
 
-    /*
-     * لا يتم اختراع endpoint داخل JavaScript.
-     * النموذج نفسه يرسل إلى action المحدد له.
-     *
-     * إذا كان action فارغًا، يتم إيقاف الطلب
-     * بدل إرسال بيانات إلى مكان غير معروف.
-     */
+  if(!action){
 
-    const action =
-      loginForm.getAttribute("action");
-
-    if(!action){
-
-      showAlert(
-        "لم يتم تحديد عنوان خدمة تسجيل الدخول في الصفحة."
-      );
-
-      return;
-    }
-
-    const button =
-      $("#loginSubmit");
-
-    setLoading(button, true);
-
-    try{
-
-      const response =
-        await fetch(action, {
-          method:"POST",
-          headers:{
-            "Accept":"application/json",
-            "Content-Type":"application/x-www-form-urlencoded;charset=UTF-8"
-          },
-          body:new URLSearchParams(
-            new FormData(loginForm)
-          ),
-          credentials:"include",
-          redirect:"manual"
-        });
-
-      const data =
-        await parseResponse(response);
-
-      if(response.ok){
-
-        showAlert(
-          responseMessage(data) ||
-          "تم تسجيل الدخول بنجاح.",
-          "success"
-        );
-
-        setTimeout(
-          () => redirectAfterSuccess(data),
-          350
-        );
-
-        return;
-      }
-
-      if(response.status === 401){
-
-        showAlert(
-          responseMessage(data) ||
-          "بيانات تسجيل الدخول غير صحيحة."
-        );
-
-      }else if(response.status === 403){
-
-        showAlert(
-          responseMessage(data) ||
-          "لا يسمح لك بتنفيذ عملية تسجيل الدخول."
-        );
-
-      }else if(response.status === 429){
-
-        showAlert(
-          responseMessage(data) ||
-          "تم تجاوز عدد المحاولات المسموح بها. حاول لاحقًا.",
-          "warning"
-        );
-
-      }else{
-
-        showAlert(
-          responseMessage(data) ||
-          "تعذر تسجيل الدخول حاليًا."
-        );
-      }
-
-    }catch(error){
-
-      showAlert(
-        "تعذر الاتصال بخدمة المصادقة."
-      );
-
-    }finally{
-
-      setLoading(button, false);
-    }
-
-  }
-);
-
-/* =========================
-   REGISTER
-========================= */
-
-registerForm.addEventListener(
-  "submit",
-  async event => {
-
-    event.preventDefault();
-
-    clearAlert();
-
-    if(!validateRegister())
-      return;
-
-    const action =
-      registerForm.getAttribute("action");
-
-    if(!action){
-
-      showAlert(
-        "لم يتم تحديد عنوان خدمة إنشاء الحساب في الصفحة."
-      );
-
-      return;
-    }
-
-    const button =
-      $("#registerSubmit");
-
-    setLoading(button, true);
-
-    try{
-
-      const response =
-        await fetch(action, {
-          method:"POST",
-          headers:{
-            "Accept":"application/json",
-            "Content-Type":"application/x-www-form-urlencoded;charset=UTF-8"
-          },
-          body:new URLSearchParams(
-            new FormData(registerForm)
-          ),
-          credentials:"include",
-          redirect:"manual"
-        });
-
-      const data =
-        await parseResponse(response);
-
-      if(response.ok){
-
-        showAlert(
-          responseMessage(data) ||
-          "تم إنشاء الحساب بنجاح.",
-          "success"
-        );
-
-        setTimeout(
-          () => redirectAfterSuccess(data),
-          350
-        );
-
-        return;
-      }
-
-      if(response.status === 409){
-
-        showAlert(
-          responseMessage(data) ||
-          "بيانات الحساب مستخدمة بالفعل."
-        );
-
-      }else if(response.status === 422){
-
-        showAlert(
-          responseMessage(data) ||
-          "راجع البيانات المدخلة."
-        );
-
-      }else if(response.status === 429){
-
-        showAlert(
-          responseMessage(data) ||
-          "تم تجاوز عدد المحاولات المسموح بها. حاول لاحقًا.",
-          "warning"
-        );
-
-      }else{
-
-        showAlert(
-          responseMessage(data) ||
-          "تعذر إنشاء الحساب حاليًا."
-        );
-      }
-
-    }catch(error){
-
-      showAlert(
-        "تعذر الاتصال بخدمة المصادقة."
-      );
-
-    }finally{
-
-      setLoading(button, false);
-    }
-
-  }
-);
-
-/* =========================
-   FORGOT PASSWORD
-========================= */
-
-forgotForm.addEventListener(
-  "submit",
-  async event => {
-
-    event.preventDefault();
-
-    clearAlert();
-
-    if(!validateForgot())
-      return;
-
-    const action =
-      forgotForm.getAttribute("action");
-
-    if(!action){
-
-      showAlert(
-        "لم يتم تحديد عنوان خدمة استعادة كلمة المرور."
-      );
-
-      return;
-    }
-
-    const button =
-      $("#forgotSubmit");
-
-    setLoading(button, true);
-
-    try{
-
-      const response =
-        await fetch(action, {
-          method:"POST",
-          headers:{
-            "Accept":"application/json",
-            "Content-Type":"application/x-www-form-urlencoded;charset=UTF-8"
-          },
-          body:new URLSearchParams(
-            new FormData(forgotForm)
-          ),
-          credentials:"include",
-          redirect:"manual"
-        });
-
-      const data =
-        await parseResponse(response);
-
-      if(response.ok){
-
-        showAlert(
-          responseMessage(data) ||
-          "إذا كان البريد مسجلًا، سيتم إرسال تعليمات الاستعادة إليه.",
-          "success"
-        );
-
-        forgotForm.reset();
-
-      }else{
-
-        showAlert(
-          responseMessage(data) ||
-          "تعذر تنفيذ طلب الاستعادة."
-        );
-      }
-
-    }catch(error){
-
-      showAlert(
-        "تعذر الاتصال بخدمة استعادة كلمة المرور."
-      );
-
-    }finally{
-
-      setLoading(button, false);
-    }
-
-  }
-);
-
-/* =========================
-   RESET PASSWORD
-========================= */
-
-resetForm.addEventListener(
-  "submit",
-  async event => {
-
-    event.preventDefault();
-
-    clearAlert();
-
-    if(!validateReset())
-      return;
-
-    const action =
-      resetForm.getAttribute("action");
-
-    if(!action){
-
-      showAlert(
-        "لم يتم تحديد عنوان خدمة تغيير كلمة المرور."
-      );
-
-      return;
-    }
-
-    const button =
-      $("#resetSubmit");
-
-    setLoading(button, true);
-
-    try{
-
-      const response =
-        await fetch(action, {
-          method:"POST",
-          headers:{
-            "Accept":"application/json",
-            "Content-Type":"application/x-www-form-urlencoded;charset=UTF-8"
-          },
-          body:new URLSearchParams(
-            new FormData(resetForm)
-          ),
-          credentials:"include",
-          redirect:"manual"
-        });
-
-      const data =
-        await parseResponse(response);
-
-      if(response.ok){
-
-        showAlert(
-          responseMessage(data) ||
-          "تم تغيير كلمة المرور بنجاح.",
-          "success"
-        );
-
-        resetForm.reset();
-
-        setTimeout(
-          showLogin,
-          900
-        );
-
-      }else{
-
-        showAlert(
-          responseMessage(data) ||
-          "تعذر تغيير كلمة المرور."
-        );
-      }
-
-    }catch(error){
-
-      showAlert(
-        "تعذر الاتصال بخدمة تغيير كلمة المرور."
-      );
-
-    }finally{
-
-      setLoading(button, false);
-    }
-
-  }
-);
-
-/* =========================
-   RESET TOKEN DETECTION
-========================= */
-
-function hasResetToken(){
-
-  const params =
-    new URLSearchParams(
-      window.location.search
+    showAlert(
+      "خدمة المصادقة غير مرتبطة بالخادم بعد."
     );
 
-  return Boolean(
-    params.get("token") ||
-    params.get("reset_token")
-  );
-}
+    return false;
+  }
 
-if(hasResetToken()){
+  setLoading(button, true);
 
-  showReset();
-}
+  try{
 
-/* =========================
-   PREVENT ACCIDENTAL RESUBMIT
-========================= */
+    const response =
+      await fetch(action, {
 
-window.addEventListener(
-  "pageshow",
-  event => {
+        method:"POST",
 
-    if(event.persisted){
+        headers:{
+          "Accept":"application/json",
+          "Content-Type":
+            "application/x-www-form-urlencoded;charset=UTF-8"
+        },
 
-      $$(".submit").forEach(button => {
-        setLoading(button, false);
+        body:
+          new URLSearchParams(
+            new FormData(form)
+          ),
+
+        credentials:"include",
+
+        redirect:"manual"
+
       });
 
+    const data =
+      await parseResponse(response);
+
+    if(response.ok){
+
+      showAlert(
+        responseMessage(data) ||
+        successMessage,
+        "success"
+      );
+
+      setTimeout(() => {
+
+        redirectAfterSuccess(data);
+
+      },350);
+
+      return true;
     }
 
-  }
-);
+    if(response.status === 401){
 
-/* =========================
-   INITIAL STATE
-========================= */
+      showAlert(
+        responseMessage(data) ||
+        "بيانات تسجيل الدخول غير صحيحة."
+      );
 
-showLogin();
+    }else if(response.status === 403){
 
-</script>
+      showAlert(
+        responseMessage(data) ||
+        "لا يسمح بتنفيذ هذه العملية."
+      );
 
-</body>
-</html>
+    }else if(response.status === 409){
+
+      showAlert(
+        responseMessage(data) ||
+        "الحساب أو البيانات مستخدمة بالفعل."
+      );
+
+    }else if(response.status === 422){
+
+      showAlert(
+        responseMessage(data) ||
+        errorMessage ||
+        "راجع البيانات المدخلة."
+      );
+
+    }else if(response.status === 429){
+
+      showAlert(
+        responseMessage(data) ||
+        "تم تجاوز عدد المح
