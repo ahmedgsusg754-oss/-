@@ -1,0 +1,5255 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>افـنـدツينا🥀🖤</title>
+
+  <meta
+    name="description"
+    content="افـنـدツينا🥀🖤 — منصة اجتماعية عربية للتواصل والدردشة."
+  >
+
+  <meta name="theme-color" content="#08070d">
+
+  <style>
+    :root {
+      --bg: #07070b;
+      --bg-soft: #0d0c13;
+      --card: rgba(255,255,255,.055);
+      --card-hover: rgba(255,255,255,.075);
+      --border: rgba(255,255,255,.09);
+
+      --text: #fff;
+      --muted: #9998a9;
+
+      --primary: #9b5cff;
+      --primary-2: #d45cff;
+      --success: #43dc91;
+      --danger: #ff557c;
+      --warning: #ffc857;
+
+      --sidebar: 265px;
+      --topbar: 70px;
+
+      --radius: 20px;
+      --radius-small: 13px;
+      --radius-large: 28px;
+
+      --shadow: 0 25px 80px rgba(0,0,0,.45);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      overflow-x: hidden;
+
+      color: var(--text);
+
+      font-family:
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Tahoma,
+        Arial,
+        sans-serif;
+
+      background:
+        radial-gradient(
+          circle at 10% 10%,
+          rgba(155,92,255,.14),
+          transparent 28%
+        ),
+        radial-gradient(
+          circle at 90% 20%,
+          rgba(212,92,255,.10),
+          transparent 28%
+        ),
+        linear-gradient(
+          135deg,
+          #06060a,
+          #0b0911 50%,
+          #07070b
+        );
+    }
+
+    body::before {
+      content: "";
+
+      position: fixed;
+      inset: 0;
+
+      z-index: -2;
+
+      background:
+        linear-gradient(
+          rgba(255,255,255,.012) 1px,
+          transparent 1px
+        ),
+        linear-gradient(
+          90deg,
+          rgba(255,255,255,.012) 1px,
+          transparent 1px
+        );
+
+      background-size: 45px 45px;
+
+      mask-image:
+        linear-gradient(
+          to bottom,
+          black,
+          transparent
+        );
+    }
+
+    body::after {
+      content: "";
+
+      position: fixed;
+
+      width: 520px;
+      height: 520px;
+
+      right: -230px;
+      top: 20%;
+
+      border-radius: 50%;
+
+      background:
+        rgba(155,92,255,.07);
+
+      filter: blur(110px);
+
+      pointer-events: none;
+
+      z-index: -1;
+    }
+
+    body.light {
+      --bg: #f6f5fa;
+      --bg-soft: #ffffff;
+      --card: rgba(0,0,0,.035);
+      --card-hover: rgba(0,0,0,.06);
+      --border: rgba(0,0,0,.10);
+
+      --text: #17151d;
+      --muted: #706d7b;
+
+      background:
+        linear-gradient(
+          135deg,
+          #f7f5ff,
+          #fff
+        );
+    }
+
+    body.light::before {
+      opacity: .3;
+    }
+
+    body.light .sidebar,
+    body.light .topbar {
+      background:
+        rgba(255,255,255,.82);
+    }
+
+    button,
+    input,
+    textarea,
+    select {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    ::selection {
+      background: rgba(155,92,255,.35);
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    .disabled {
+      pointer-events: none;
+      opacity: .5;
+    }
+
+    /* =========================
+       APP
+    ========================= */
+
+    .app {
+      min-height: 100vh;
+    }
+
+    /* =========================
+       SIDEBAR
+    ========================= */
+
+    .sidebar {
+      width: var(--sidebar);
+      height: 100vh;
+
+      position: fixed;
+      right: 0;
+      top: 0;
+
+      z-index: 1500;
+
+      display: flex;
+      flex-direction: column;
+
+      padding: 18px 14px;
+
+      border-left:
+        1px solid var(--border);
+
+      background:
+        rgba(9,9,14,.78);
+
+      backdrop-filter: blur(22px);
+      -webkit-backdrop-filter: blur(22px);
+
+      transition:
+        transform .3s ease;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      padding: 5px 8px 23px;
+
+      font-weight: 900;
+      font-size: 17px;
+    }
+
+    .brand-icon {
+      width: 44px;
+      height: 44px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 14px;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--primary),
+          var(--primary-2)
+        );
+
+      box-shadow:
+        0 12px 30px rgba(155,92,255,.28);
+    }
+
+    .sidebar-title {
+      padding: 0 10px 9px;
+
+      color: #6f6c7c;
+
+      font-size: 10px;
+      font-weight: 800;
+    }
+
+    .side-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .side-link {
+      width: 100%;
+      min-height: 48px;
+
+      display: flex;
+      align-items: center;
+      gap: 12px;
+
+      padding: 0 12px;
+
+      border: 1px solid transparent;
+      border-radius: 14px;
+
+      color: var(--muted);
+
+      background: transparent;
+
+      font-size: 13px;
+      font-weight: 750;
+
+      transition:
+        .2s ease;
+    }
+
+    .side-link:hover {
+      color: var(--text);
+
+      background:
+        rgba(255,255,255,.055);
+
+      transform:
+        translateX(-2px);
+    }
+
+    .side-link.active {
+      color: #fff;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(155,92,255,.22),
+          rgba(212,92,255,.08)
+        );
+
+      border-color:
+        rgba(155,92,255,.18);
+    }
+
+    .side-icon {
+      width: 28px;
+
+      text-align: center;
+
+      font-size: 17px;
+    }
+
+    .sidebar-bottom {
+      margin-top: auto;
+    }
+
+    .auth-buttons {
+      display: grid;
+      gap: 8px;
+    }
+
+    /* =========================
+       BUTTONS
+    ========================= */
+
+    .btn {
+      min-height: 44px;
+
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+
+      padding: 0 17px;
+
+      border: 1px solid var(--border);
+      border-radius: 13px;
+
+      color: var(--text);
+
+      background:
+        rgba(255,255,255,.045);
+
+      transition:
+        transform .2s ease,
+        background .2s ease,
+        border-color .2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+
+      background:
+        var(--card-hover);
+    }
+
+    .btn-primary {
+      border-color:
+        rgba(155,92,255,.3);
+
+      color: #fff;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--primary),
+          var(--primary-2)
+        );
+
+      box-shadow:
+        0 12px 30px rgba(155,92,255,.2);
+    }
+
+    .btn-danger {
+      border-color:
+        rgba(255,85,124,.25);
+
+      color: #ff9db5;
+
+      background:
+        rgba(255,85,124,.08);
+    }
+
+    .btn-success {
+      border-color:
+        rgba(67,220,145,.25);
+
+      color: #8ef1bd;
+
+      background:
+        rgba(67,220,145,.08);
+    }
+
+    .btn-full {
+      width: 100%;
+    }
+
+    /* =========================
+       MAIN
+    ========================= */
+
+    .main {
+      width: calc(100% - var(--sidebar));
+
+      margin-right: var(--sidebar);
+
+      min-height: 100vh;
+    }
+
+    /* =========================
+       TOPBAR
+    ========================= */
+
+    .topbar {
+      height: var(--topbar);
+
+      position: sticky;
+      top: 0;
+
+      z-index: 1200;
+
+      display: flex;
+      align-items: center;
+
+      padding:
+        0 27px;
+
+      border-bottom:
+        1px solid var(--border);
+
+      background:
+        rgba(7,7,11,.70);
+
+      backdrop-filter:
+        blur(20px);
+
+      -webkit-backdrop-filter:
+        blur(20px);
+    }
+
+    .mobile-menu {
+      width: 42px;
+      height: 42px;
+
+      display: none;
+      place-items: center;
+
+      margin-left: 9px;
+
+      border:
+        1px solid var(--border);
+
+      border-radius: 12px;
+
+      color: var(--text);
+
+      background:
+        var(--card);
+    }
+
+    .search {
+      width: min(440px, 48vw);
+
+      position: relative;
+    }
+
+    .search input {
+      width: 100%;
+      height: 43px;
+
+      padding:
+        0 43px 0 15px;
+
+      border:
+        1px solid var(--border);
+
+      border-radius: 13px;
+
+      outline: none;
+
+      color: var(--text);
+
+      background:
+        rgba(255,255,255,.045);
+    }
+
+    .search input:focus {
+      border-color:
+        rgba(155,92,255,.45);
+    }
+
+    .search-icon {
+      position: absolute;
+
+      right: 14px;
+      top: 50%;
+
+      transform:
+        translateY(-50%);
+
+      color: #858493;
+
+      pointer-events: none;
+    }
+
+    .top-actions {
+      margin-right: auto;
+
+      display: flex;
+      align-items: center;
+
+      gap: 8px;
+    }
+
+    .icon-btn {
+      width: 43px;
+      height: 43px;
+
+      position: relative;
+
+      display: grid;
+      place-items: center;
+
+      border:
+        1px solid var(--border);
+
+      border-radius: 13px;
+
+      color: var(--text);
+
+      background:
+        var(--card);
+
+      transition:
+        .2s ease;
+    }
+
+    .icon-btn:hover {
+      transform:
+        translateY(-2px);
+
+      background:
+        var(--card-hover);
+    }
+
+    .notification-dot {
+      position: absolute;
+
+      width: 7px;
+      height: 7px;
+
+      top: 8px;
+      right: 8px;
+
+      border-radius: 50%;
+
+      background:
+        var(--danger);
+
+      box-shadow:
+        0 0 12px rgba(255,85,124,.8);
+    }
+
+    /* =========================
+       CONTENT
+    ========================= */
+
+    .content {
+      width:
+        min(
+          1120px,
+          calc(100% - 42px)
+        );
+
+      margin:
+        0 auto;
+
+      padding:
+        32px 0 70px;
+    }
+
+    .view {
+      display: none;
+    }
+
+    .view.active {
+      display: block;
+
+      animation:
+        view-in .25s ease;
+    }
+
+    @keyframes view-in {
+      from {
+        opacity: 0;
+        transform:
+          translateY(8px);
+      }
+
+      to {
+        opacity: 1;
+        transform:
+          none;
+      }
+    }
+
+    /* =========================
+       WELCOME
+    ========================= */
+
+    .welcome {
+      position: relative;
+      overflow: hidden;
+
+      padding: 35px;
+
+      border:
+        1px solid var(--border);
+
+      border-radius:
+        var(--radius-large);
+
+      background:
+        radial-gradient(
+          circle at 85% 20%,
+          rgba(155,92,255,.16),
+          transparent 34%
+        ),
+        var(--card);
+
+      box-shadow:
+        0 20px 60px rgba(0,0,0,.18);
+    }
+
+    .welcome::after {
+      content: "🥀";
+
+      position: absolute;
+
+      left: 28px;
+      bottom: -38px;
+
+      font-size: 135px;
+
+      opacity: .045;
+
+      transform:
+        rotate(-15deg);
+
+      pointer-events: none;
+    }
+
+    .welcome-label {
+      color:
+        #c9a9ff;
+
+      font-size: 11px;
+      font-weight: 850;
+
+      margin-bottom: 9px;
+    }
+
+    .welcome h1 {
+      font-size:
+        clamp(
+          28px,
+          5vw,
+          48px
+        );
+
+      letter-spacing:
+        -1.5px;
+
+      margin-bottom:
+        12px;
+    }
+
+    .welcome p {
+      max-width:
+        720px;
+
+      color:
+        var(--muted);
+
+      font-size:
+        14px;
+
+      line-height:
+        1.9;
+    }
+
+    .welcome-actions {
+      display: flex;
+      flex-wrap: wrap;
+
+      gap: 10px;
+
+      margin-top: 24px;
+    }
+
+    /* =========================
+       SECTION
+    ========================= */
+
+    .section {
+      margin-top:
+        35px;
+    }
+
+    .section-head {
+      display: flex;
+
+      align-items: flex-end;
+      justify-content: space-between;
+
+      gap: 15px;
+
+      margin-bottom:
+        17px;
+    }
+
+    .section-head h2 {
+      font-size:
+        21px;
+    }
+
+    .section-head p {
+      margin-top:
+        5px;
+
+      color:
+        var(--muted);
+
+      font-size:
+        12px;
+    }
+
+    /* =========================
+       EMPTY
+    ========================= */
+
+    .empty {
+      min-height:
+        250px;
+
+      display: flex;
+      flex-direction: column;
+
+      align-items: center;
+      justify-content: center;
+
+      padding:
+        30px;
+
+      text-align:
+        center;
+
+      border:
+        1px dashed rgba(255,255,255,.12);
+
+      border-radius:
+        var(--radius);
+
+      background:
+        rgba(255,255,255,.025);
+    }
+
+    .empty-icon {
+      width: 65px;
+      height: 65px;
+
+      display: grid;
+      place-items: center;
+
+      margin-bottom:
+        15px;
+
+      border-radius:
+        20px;
+
+      color:
+        #c8adff;
+
+      background:
+        rgba(155,92,255,.09);
+
+      font-size:
+        27px;
+    }
+
+    .empty h3 {
+      font-size:
+        17px;
+
+      margin-bottom:
+        7px;
+    }
+
+    .empty p {
+      max-width:
+        530px;
+
+      color:
+        var(--muted);
+
+      font-size:
+        12px;
+
+      line-height:
+        1.8;
+    }
+
+    /* =========================
+       ACTION GRID
+    ========================= */
+
+    .actions-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap:
+        12px;
+    }
+
+    .action {
+      min-height:
+        145px;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      padding:
+        20px;
+
+      border:
+        1px solid var(--border);
+
+      border-radius:
+        var(--radius);
+
+      color:
+        var(--text);
+
+      background:
+        var(--card);
+
+      text-align:
+        right;
+
+      transition:
+        .25s ease;
+    }
+
+    .action:hover {
+      transform:
+        translateY(-5px);
+
+      border-color:
+        rgba(155,92,255,.25);
+
+      background:
+        var(--card-hover);
+    }
+
+    .action-icon {
+      width: 43px;
+      height: 43px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius:
+        14px;
+
+      background:
+        rgba(155,92,255,.09);
+
+      font-size:
+        18px;
+    }
+
+    .action strong {
+      font-size:
+        14px;
+    }
+
+    .action span {
+      display: block;
+
+      margin-top:
+        5px;
+
+      color:
+        var(--muted);
+
+      font-size:
+        11px;
+
+      line-height:
+        1.6;
+    }
+
+    /* =========================
+       PROFILE
+    ========================= */
+
+    .profile-card {
+      display: grid;
+
+      grid-template-columns:
+        auto 1fr auto;
+
+      align-items: center;
+
+      gap: 20px;
+
+      padding:
+        25px;
+
+      border:
+        1px solid var(--border);
+
+      border-radius:
+        var(--radius);
+
+      background:
+        var(--card);
+    }
+
+    .avatar {
+      width: 82px;
+      height: 82px;
+
+      display: grid;
+      place-items: center;
+
+      overflow: hidden;
+
+      border:
+        2px solid rgba(155,92,255,.3);
+
+      border-radius:
+        50%;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--primary),
+          var(--primary-2)
+        );
+
+      font-size:
+        30px;
+
+      font-weight:
+        900;
+    }
+
+    .avatar img {
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+    }
+
+    .profile-info h2 {
+      font-size:
+        20px;
+    }
+
+    .profile-info p {
+      margin-top:
+        5px;
+
+      color:
+        var(--muted);
+
+      font-size:
+        12px;
+    }
+
+    /* =========================
+       FORM
+    ========================= */
+
+    .form-grid {
+      display: grid;
+      gap: 14px;
+    }
+
+    .field {
+      display: grid;
+      gap: 7px;
+    }
+
+    .field label {
+      color:
+        #d5d2df;
+
+      font-size:
+        12px;
+
+      font-weight:
+        750;
+    }
+
+    .field input,
+    .field textarea,
+    .field select {
+      width: 100%;
+
+      min-height: 46px;
+
+      padding:
+        10px 13px;
+
+      outline: none;
+
+      border:
+        1px solid var(--border);
+
+      border-radius:
+        13px;
+
+      color:
+        var(--text);
+
+      background:
+        rgba(255,255,255,.045);
+    }
+
+    .field textarea {
+      min-height:
+        110px;
+
+      resize:
+        vertical;
+    }
+
+    .field input:focus,
+    .field textarea:focus,
+    .field select:focus {
+      border-color:
+        rgba(155,92,255,.45);
+    }
+
+    .password-wrap {
+      position:
+        relative;
+    }
+
+    .password-wrap input {
+      padding-left:
+        48px;
+    }
+
+    .password-toggle {
+      position:
+        absolute;
+
+      left: 6px;
+      top: 50%;
+
+      transform:
+        translateY(-50%);
+
+      width: 37px;
+      height: 37px;
+
+      display: grid;
+      place-items: center;
+
+      border: 0;
+
+      border-radius:
+        10px;
+
+      color:
+        var(--muted);
+
+      background:
+        transparent;
+    }
+
+    /* =========================
+       AUTH
+    ========================= */
+
+    .auth-panel {
+      max-width:
+        560px;
+
+      margin:
+        20px auto;
+
+      padding:
+        28px;
+
+      border:
+        1px solid var(--border);
+
+      border-radius:
+        25px;
+
+      background:
+        var(--card);
+
+      box-shadow:
+        var(--shadow);
+    }
+
+    .auth-tabs {
+      display:
+        grid;
+
+      grid-template-columns:
+        repeat(2, 1fr);
+
+      gap:
+        7px;
+
+      padding:
+        5px;
+
+      margin-bottom:
+        22px;
+
+      border-radius:
+        14px;
+
+      background:
+        rgba(255,255,255,.04);
+    }
+
+    .auth-tab {
+      min-height:
+        43px;
+
+      border:
+        0;
+
+      border-radius:
+        11px;
+
+      color:
+        var(--muted);
+
+      background:
+        transparent;
+    }
+
+    .auth-tab.active {
+      color:
+        #fff;
+
+      background:
+        rgba(155,92,255,.18);
+    }
+
+    .auth-footer {
+      margin-top:
+        18px;
+
+      text-align:
+        center;
+
+      color:
+        var(--muted);
+
+      font-size:
+        12px;
+    }
+
+    .text-button {
+      border:
+        0;
+
+      color:
+        #c8aaff;
+
+      background:
+        transparent;
+
+      font-weight:
+        750;
+    }
+
+    .text-button:hover {
+      text-decoration:
+        underline;
+    }
+
+    /* =========================
+       SETTINGS
+    ========================= */
+
+    .settings-list {
+      display:
+        grid;
+
+      gap:
+        10px;
+    }
+
+    .setting-row {
+      min-height:
+        64px;
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        space-between;
+
+      gap:
+        15px;
+
+      padding:
+        14px 17px;
+
+      border:
+        1px solid var(--border);
+
+      border-radius:
+        15px;
+
+      background:
+        var(--card);
+    }
+
+    .setting-row strong {
+      display:
+        block;
+
+      font-size:
+        13px;
+    }
+
+    .setting-row span {
+      display:
+        block;
+
+      margin-top:
+        4px;
+
+      color:
+        var(--muted);
+
+      font-size:
+        11px;
+    }
+
+    .switch {
+      width:
+        48px;
+
+      height:
+        27px;
+
+      position:
+        relative;
+
+      border:
+        0;
+
+      border-radius:
+        20px;
+
+      background:
+        #33313b;
+    }
+
+    .switch::after {
+      content:
+        "";
+
+      width:
+        21px;
+
+      height:
+        21px;
+
+      position:
+        absolute;
+
+      top:
+        3px;
+
+      right:
+        24px;
+
+      border-radius:
+        50%;
+
+      background:
+        #fff;
+
+      transition:
+        .2s ease;
+    }
+
+    .switch.on {
+      background:
+        var(--primary);
+    }
+
+    .switch.on::after {
+      right:
+        3px;
+    }
+
+    /* =========================
+       MODAL
+    ========================= */
+
+    .modal {
+      position:
+        fixed;
+
+      inset:
+        0;
+
+      z-index:
+        4000;
+
+      display:
+        none;
+
+      place-items:
+        center;
+
+      padding:
+        18px;
+
+      background:
+        rgba(0,0,0,.72);
+
+      backdrop-filter:
+        blur(9px);
+    }
+
+    .modal.open {
+      display:
+        grid;
+    }
+
+    .modal-card {
+      width:
+        min(
+          480px,
+          100%
+        );
+
+      max-height:
+        calc(100vh - 36px);
+
+      overflow:
+        auto;
+
+      padding:
+        25px;
+
+      border:
+        1px solid var(--border);
+
+      border-radius:
+        24px;
+
+      background:
+        #111019;
+
+      box-shadow:
+        var(--shadow);
+
+      animation:
+        modal-in .25s ease;
+    }
+
+    body.light .modal-card {
+      background:
+        #fff;
+    }
+
+    @keyframes modal-in {
+      from {
+        opacity: 0;
+        transform:
+          translateY(15px)
+          scale(.97);
+      }
+
+      to {
+        opacity: 1;
+        transform:
+          none;
+      }
+    }
+
+    .modal-head {
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        space-between;
+
+      margin-bottom:
+        20px;
+    }
+
+    .modal-head h3 {
+      font-size:
+        18px;
+    }
+
+    .modal-close {
+      width:
+        38px;
+
+      height:
+        38px;
+
+      display:
+        grid;
+
+      place-items:
+        center;
+
+      border:
+        1px solid var(--border);
+
+      border-radius:
+        11px;
+
+      color:
+        var(--text);
+
+      background:
+        var(--card);
+    }
+
+    /* =========================
+       TOAST
+    ========================= */
+
+    .toast-container {
+      position:
+        fixed;
+
+      left:
+        18px;
+
+      bottom:
+        18px;
+
+      z-index:
+        6000;
+
+      display:
+        grid;
+
+      gap:
+        8px;
+
+      width:
+        min(
+          360px,
+          calc(100% - 36px)
+        );
+    }
+
+    .toast {
+      padding:
+        13px 15px;
+
+      border:
+        1px solid var(--border);
+
+      border-radius:
+        14px;
+
+      color:
+        #fff;
+
+      background:
+        rgba(20,18,28,.94);
+
+      box-shadow:
+        var(--shadow);
+
+      animation:
+        toast-in .25s ease;
+    }
+
+    .toast.success {
+      border-color:
+        rgba(67,220,145,.25);
+    }
+
+    .toast.error {
+      border-color:
+        rgba(255,85,124,.25);
+    }
+
+    @keyframes toast-in {
+      from {
+        opacity: 0;
+        transform:
+          translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform:
+          none;
+      }
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      padding:
+        28px 0;
+
+      border-top:
+        1px solid var(--border);
+
+      color:
+        #71707e;
+
+      font-size:
+        11px;
+    }
+
+    .footer-inner {
+      width:
+        min(
+          1120px,
+          calc(100% - 42px)
+        );
+
+      margin:
+        auto;
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        space-between;
+
+      gap:
+        15px;
+    }
+
+    .footer-links {
+      display:
+        flex;
+
+      flex-wrap:
+        wrap;
+
+      gap:
+        15px;
+    }
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 900px) {
+      :root {
+        --sidebar: 0px;
+      }
+
+      .sidebar {
+        transform:
+          translateX(100%);
+      }
+
+      .sidebar.open {
+        transform:
+          translateX(0);
+      }
+
+      .main {
+        width:
+          100%;
+
+        margin-right:
+          0;
+      }
+
+      .mobile-menu {
+        display:
+          grid;
+      }
+
+      .search {
+        width:
+          min(
+            380px,
+            48vw
+          );
+      }
+
+      .actions-grid {
+        grid-template-columns:
+          repeat(2, 1fr);
+      }
+
+      .profile-card {
+        grid-template-columns:
+          auto 1fr;
+      }
+
+      .profile-card > .btn {
+        grid-column:
+          1 / -1;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .topbar {
+        padding:
+          0 10px;
+      }
+
+      .search {
+        flex:
+          1;
+
+        width:
+          auto;
+      }
+
+      .top-actions {
+        margin-right:
+          7px;
+      }
+
+      .top-actions .icon-btn:nth-child(2) {
+        display:
+          none;
+      }
+
+      .content {
+        width:
+          calc(100% - 20px);
+
+        padding-top:
+          20px;
+      }
+
+      .welcome {
+        padding:
+          25px 20px;
+      }
+
+      .welcome-actions {
+        display:
+          grid;
+      }
+
+      .actions-grid {
+        grid-template-columns:
+          1fr;
+      }
+
+      .section-head {
+        display:
+          block;
+      }
+
+      .profile-card {
+        grid-template-columns:
+          1fr;
+
+        text-align:
+          center;
+
+        justify-items:
+          center;
+      }
+
+      .footer-inner {
+        width:
+          calc(100% - 20px);
+
+        flex-direction:
+          column;
+
+        text-align:
+          center;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration:
+          .01ms !important;
+
+        animation-iteration-count:
+          1 !important;
+
+        transition-duration:
+          .01ms !important;
+
+        scroll-behavior:
+          auto !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="app">
+
+  <!-- =========================
+       SIDEBAR
+  ========================== -->
+
+  <aside
+    class="sidebar"
+    id="sidebar"
+    aria-label="القائمة الرئيسية"
+  >
+
+    <a
+      class="brand"
+      href="#home"
+      data-view="home"
+    >
+      <span class="brand-icon">🥀</span>
+      <span>افـنـدツينا🖤</span>
+    </a>
+
+    <div class="sidebar-title">
+      القائمة الرئيسية
+    </div>
+
+    <nav class="side-nav">
+
+      <button
+        class="side-link active"
+        type="button"
+        data-view="home"
+      >
+        <span class="side-icon">⌂</span>
+        <span>الرئيسية</span>
+      </button>
+
+      <button
+        class="side-link"
+        type="button"
+        data-view="rooms"
+      >
+        <span class="side-icon">◉</span>
+        <span>الغرف</span>
+      </button>
+
+      <button
+        class="side-link"
+        type="button"
+        data-view="posts"
+      >
+        <span class="side-icon">▤</span>
+        <span>المنشورات</span>
+      </button>
+
+      <button
+        class="side-link"
+        type="button"
+        data-view="messages"
+      >
+        <span class="side-icon">◌</span>
+        <span>الرسائل</span>
+      </button>
+
+      <button
+        class="side-link"
+        type="button"
+        data-view="profile"
+      >
+        <span class="side-icon">♙</span>
+        <span>الملف الشخصي</span>
+      </button>
+
+      <button
+        class="side-link"
+        type="button"
+        data-view="notifications"
+      >
+        <span class="side-icon">♢</span>
+        <span>الإشعارات</span>
+      </button>
+
+      <button
+        class="side-link"
+        type="button"
+        data-view="settings"
+      >
+        <span class="side-icon">⚙</span>
+        <span>الإعدادات</span>
+      </button>
+
+    </nav>
+
+    <div class="sidebar-bottom">
+
+      <div
+        class="auth-buttons"
+        id="guestActions"
+      >
+
+        <button
+          class="btn btn-primary btn-full"
+          type="button"
+          data-auth="login"
+        >
+          تسجيل الدخول
+        </button>
+
+        <button
+          class="btn btn-full"
+          type="button"
+          data-auth="register"
+        >
+          إنشاء حساب
+        </button>
+
+      </div>
+
+      <div
+        class="auth-buttons hidden"
+        id="userActions"
+      >
+
+        <button
+          class="btn btn-primary btn-full"
+          type="button"
+          data-view="profile"
+        >
+          ملفي الشخصي
+        </button>
+
+        <button
+          class="btn btn-danger btn-full"
+          type="button"
+          id="logoutButton"
+        >
+          تسجيل الخروج
+        </button>
+
+      </div>
+
+    </div>
+
+  </aside>
+
+
+  <!-- =========================
+       MAIN
+  ========================== -->
+
+  <div class="main">
+
+    <!-- TOPBAR -->
+
+    <header class="topbar">
+
+      <button
+        class="mobile-menu"
+        id="mobileMenu"
+        type="button"
+        aria-label="فتح القائمة"
+        aria-expanded="false"
+      >
+        ☰
+      </button>
+
+      <div class="search">
+
+        <span
+          class="search-icon"
+          aria-hidden="true"
+        >
+          ⌕
+        </span>
+
+        <input
+          id="siteSearch"
+          type="search"
+          placeholder="ابحث عن مستخدم أو منشور أو غرفة..."
+          autocomplete="off"
+          aria-label="البحث"
+        >
+
+      </div>
+
+      <div class="top-actions">
+
+        <button
+          class="icon-btn"
+          id="notificationButton"
+          type="button"
+          aria-label="الإشعارات"
+          title="الإشعارات"
+        >
+          ♢
+
+          <span
+            class="notification-dot hidden"
+            id="notificationDot"
+          ></span>
+        </button>
+
+        <button
+          class="icon-btn"
+          id="settingsButton"
+          type="button"
+          aria-label="الإعدادات"
+          title="الإعدادات"
+        >
+          ⚙
+        </button>
+
+      </div>
+
+    </header>
+
+
+    <!-- =========================
+         CONTENT
+    ========================== -->
+
+    <main class="content">
+
+
+      <!-- HOME -->
+
+      <section
+        class="view active"
+        id="view-home"
+        data-view-section="home"
+      >
+
+        <section class="welcome">
+
+          <div class="welcome-label">
+            افـنـدツينا🥀🖤
+          </div>
+
+          <h1 id="welcomeTitle">
+            أهلاً بك في مساحتك.
+          </h1>
+
+          <p id="welcomeText">
+            منصة اجتماعية عربية للتواصل والدردشة.
+            لا يتم عرض بيانات وهمية؛ البيانات ستظهر
+            عندما تصل فعليًا من النظام.
+          </p>
+
+          <div class="welcome-actions">
+
+            <button
+              class="btn btn-primary"
+              type="button"
+              data-auth="login"
+            >
+              تسجيل الدخول
+            </button>
+
+            <button
+              class="btn"
+              type="button"
+              data-auth="register"
+            >
+              إنشاء حساب
+            </button>
+
+            <button
+              class="btn"
+              type="button"
+              data-view="rooms"
+            >
+              استكشاف الغرف
+            </button>
+
+          </div>
+
+        </section>
+
+
+        <section class="section">
+
+          <div class="section-head">
+
+            <div>
+              <h2>الوصول السريع</h2>
+
+              <p>
+                كل زر هنا مرتبط بوظيفة فعلية في الواجهة.
+              </p>
+            </div>
+
+          </div>
+
+          <div class="actions-grid">
+
+            <button
+              class="action"
+              type="button"
+              data-view="rooms"
+            >
+              <span class="action-icon">◉</span>
+
+              <span>
+                <strong>الغرف</strong>
+                <span>الوصول إلى الغرف المتاحة.</span>
+              </span>
+            </button>
+
+            <button
+              class="action"
+              type="button"
+              data-view="posts"
+            >
+              <span class="action-icon">▤</span>
+
+              <span>
+                <strong>المنشورات</strong>
+                <span>استعراض المنشورات الحقيقية.</span>
+              </span>
+            </button>
+
+            <button
+              class="action"
+              type="button"
+              data-view="messages"
+            >
+              <span class="action-icon">◌</span>
+
+              <span>
+                <strong>الرسائل</strong>
+                <span>الوصول إلى المحادثات.</span>
+              </span>
+            </button>
+
+            <button
+              class="action"
+              type="button"
+              data-view="profile"
+            >
+              <span class="action-icon">♙</span>
+
+              <span>
+                <strong>الملف الشخصي</strong>
+                <span>عرض وإدارة حسابك.</span>
+              </span>
+            </button>
+
+            <button
+              class="action"
+              type="button"
+              data-view="notifications"
+            >
+              <span class="action-icon">♢</span>
+
+              <span>
+                <strong>الإشعارات</strong>
+                <span>مشاهدة الإشعارات الواردة.</span>
+              </span>
+            </button>
+
+            <button
+              class="action"
+              type="button"
+              data-view="settings"
+            >
+              <span class="action-icon">⚙</span>
+
+              <span>
+                <strong>الإعدادات</strong>
+                <span>إدارة إعدادات الموقع.</span>
+              </span>
+            </button>
+
+          </div>
+
+        </section>
+
+      </section>
+
+
+      <!-- ROOMS -->
+
+      <section
+        class="view"
+        id="view-rooms"
+        data-view-section="rooms"
+      >
+
+        <div class="section-head">
+
+          <div>
+            <h2>الغرف</h2>
+
+            <p>
+              الغرف المعروضة هنا يجب أن تأتي من النظام الحقيقي.
+            </p>
+          </div>
+
+          <button
+            class="btn btn-primary"
+            type="button"
+            id="createRoomButton"
+          >
+            + إنشاء غرفة
+          </button>
+
+        </div>
+
+        <div class="empty">
+
+          <div class="empty-icon">
+            ◉
+          </div>
+
+          <h3>
+            لا توجد غرف محمّلة حاليًا
+          </h3>
+
+          <p>
+            لم يتم وضع غرف تجريبية أو أسماء مستخدمين وهمية.
+            عند توفر API الغرف سيتم تحميل البيانات الحقيقية هنا.
+          </p>
+
+          <button
+            class="btn"
+            type="button"
+            id="refreshRoomsButton"
+            style="margin-top:16px"
+          >
+            تحديث الغرف
+          </button>
+
+        </div>
+
+      </section>
+
+
+      <!-- POSTS -->
+
+      <section
+        class="view"
+        id="view-posts"
+        data-view-section="posts"
+      >
+
+        <div class="section-head">
+
+          <div>
+            <h2>المنشورات</h2>
+
+            <p>
+              المنشورات يتم تحميلها من النظام الحقيقي.
+            </p>
+          </div>
+
+          <button
+            class="btn btn-primary"
+            type="button"
+            id="createPostButton"
+          >
+            + إنشاء منشور
+          </button>
+
+        </div>
+
+        <div class="empty">
+
+          <div class="empty-icon">
+            ▤
+          </div>
+
+          <h3>
+            لا توجد منشورات معروضة
+          </h3>
+
+          <p>
+            لا توجد بيانات تجريبية داخل الصفحة.
+            سيتم عرض المنشورات عندما يتوفر مصدر البيانات الحقيقي.
+          </p>
+
+          <button
+            class="btn"
+            type="button"
+            id="refreshPostsButton"
+            style="margin-top:16px"
+          >
+            تحديث المنشورات
+          </button>
+
+        </div>
+
+      </section>
+
+
+      <!-- MESSAGES -->
+
+      <section
+        class="view"
+        id="view-messages"
+        data-view-section="messages"
+      >
+
+        <div class="section-head">
+
+          <div>
+            <h2>الرسائل</h2>
+
+            <p>
+              المحادثات الحقيقية تظهر بعد ربط نظام الرسائل.
+            </p>
+          </div>
+
+          <button
+            class="btn"
+            type="button"
+            id="refreshMessagesButton"
+          >
+            تحديث
+          </button>
+
+        </div>
+
+        <div class="empty">
+
+          <div class="empty-icon">
+            ◌
+          </div>
+
+          <h3>
+            لا توجد محادثات معروضة
+          </h3>
+
+          <p>
+            لن يتم اختلاق محادثات أو رسائل.
+          </p>
+
+        </div>
+
+      </section>
+
+
+      <!-- PROFILE -->
+
+      <section
+        class="view"
+        id="view-profile"
+        data-view-section="profile"
+      >
+
+        <div class="section-head">
+
+          <div>
+            <h2>الملف الشخصي</h2>
+
+            <p>
+              بيانات الحساب الفعلية فقط.
+            </p>
+          </div>
+
+          <button
+            class="btn btn-primary"
+            type="button"
+            id="editProfileButton"
+          >
+            تعديل الملف
+          </button>
+
+        </div>
+
+        <div
+          class="profile-card"
+          id="profileCard"
+        >
+
+          <div class="avatar">
+            ♙
+          </div>
+
+          <div class="profile-info">
+
+            <h2 id="profileName">
+              غير مسجل الدخول
+            </h2>
+
+            <p id="profileUsername">
+              قم بتسجيل الدخول لعرض ملفك.
+            </p>
+
+          </div>
+
+          <button
+            class="btn"
+            type="button"
+            data-auth="login"
+            id="profileLoginButton"
+          >
+            تسجيل الدخول
+          </button>
+
+        </div>
+
+      </section>
+
+
+      <!-- NOTIFICATIONS -->
+
+      <section
+        class="view"
+        id="view-notifications"
+        data-view-section="notifications"
+      >
+
+        <div class="section-head">
+
+          <div>
+            <h2>الإشعارات</h2>
+
+            <p>
+              الإشعارات الحقيقية فقط.
+            </p>
+
+          </div>
+
+          <button
+            class="btn"
+            type="button"
+            id="markNotificationsButton"
+          >
+            تعليم كمقروء
+          </button>
+
+        </div>
+
+        <div class="empty">
+
+          <div class="empty-icon">
+            ♢
+          </div>
+
+          <h3>
+            لا توجد إشعارات معروضة
+          </h3>
+
+          <p>
+            لن يتم إنشاء إشعارات وهمية.
+          </p>
+
+        </div>
+
+      </section>
+
+
+      <!-- SETTINGS -->
+
+      <section
+        class="view"
+        id="view-settings"
+        data-view-section="settings"
+      >
+
+        <div class="section-head">
+
+          <div>
+            <h2>الإعدادات</h2>
+
+            <p>
+              إعدادات الواجهة والحساب.
+            </p>
+          </div>
+
+        </div>
+
+        <div class="settings-list">
+
+          <div class="setting-row">
+
+            <div>
+              <strong>الوضع الداكن</strong>
+              <span>تغيير مظهر الواجهة.</span>
+            </div>
+
+            <button
+              class="switch on"
+              id="themeSwitch"
+              type="button"
+              aria-label="الوضع الداكن"
+              aria-pressed="true"
+            ></button>
+
+          </div>
+
+          <div class="setting-row">
+
+            <div>
+              <strong>الإشعارات</strong>
+              <span>تفعيل إشعارات الواجهة عند توفرها.</span>
+            </div>
+
+            <button
+              class="switch on"
+              id="notificationSwitch"
+              type="button"
+              aria-label="الإشعارات"
+              aria-pressed="true"
+            ></button>
+
+          </div>
+
+          <div class="setting-row">
+
+            <div>
+              <strong>إعدادات الحساب</strong>
+              <span>تسجيل الدخول وتغيير بيانات الحساب.</span>
+            </div>
+
+            <button
+              class="btn"
+              type="button"
+              id="accountSettingsButton"
+            >
+              فتح
+            </button>
+
+          </div>
+
+          <div class="setting-row">
+
+            <div>
+              <strong>تغيير كلمة المرور</strong>
+              <span>يتطلب اتصالًا حقيقيًا بالـ API.</span>
+            </div>
+
+            <button
+              class="btn"
+              type="button"
+              id="changePasswordButton"
+            >
+              تغيير
+            </button>
+
+          </div>
+
+          <div class="setting-row">
+
+            <div>
+              <strong>تسجيل الخروج</strong>
+              <span>إنهاء الجلسة الحالية.</span>
+            </div>
+
+            <button
+              class="btn btn-danger"
+              type="button"
+              id="settingsLogoutButton"
+            >
+              خروج
+            </button>
+
+          </div>
+
+        </div>
+
+      </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+      <div class="footer-inner">
+
+        <span>
+          © <span id="year"></span>
+          افـنـدツينا🥀🖤
+        </span>
+
+        <div class="footer-links">
+
+          <button
+            class="text-button"
+            type="button"
+            id="aboutButton"
+          >
+            عن الموقع
+          </button>
+
+          <button
+            class="text-button"
+            type="button"
+            id="privacyButton"
+          >
+            الخصوصية
+          </button>
+
+          <button
+            class="text-button"
+            type="button"
+            id="termsButton"
+          >
+            الشروط
+          </button>
+
+        </div>
+
+      </div>
+
+    </footer>
+
+  </div>
+
+</div>
+
+
+<!-- =========================
+     AUTH MODAL
+========================== -->
+
+<div
+  class="modal"
+  id="authModal"
+  aria-hidden="true"
+>
+
+  <div
+    class="modal-card"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="authTitle"
+  >
+
+    <div class="modal-head">
+
+      <h3 id="authTitle">
+        تسجيل الدخول
+      </h3>
+
+      <button
+        class="modal-close"
+        type="button"
+        data-close-modal="authModal"
+        aria-label="إغلاق"
+      >
+        ×
+      </button>
+
+    </div>
+
+    <div class="auth-tabs">
+
+      <button
+        class="auth-tab active"
+        type="button"
+        data-auth-tab="login"
+      >
+        تسجيل الدخول
+      </button>
+
+      <button
+        class="auth-tab"
+        type="button"
+        data-auth-tab="register"
+      >
+        إنشاء حساب
+      </button>
+
+    </div>
+
+
+    <!-- LOGIN -->
+
+    <form
+      id="loginForm"
+      class="form-grid"
+      novalidate
+    >
+
+      <div class="field">
+
+        <label for="loginIdentifier">
+          البريد الإلكتروني أو اسم المستخدم
+        </label>
+
+        <input
+          id="loginIdentifier"
+          name="identifier"
+          type="text"
+          autocomplete="username"
+          required
+        >
+
+      </div>
+
+      <div class="field">
+
+        <label for="loginPassword">
+          كلمة المرور
+        </label>
+
+        <div class="password-wrap">
+
+          <input
+            id="loginPassword"
+            name="password"
+            type="password"
+            autocomplete="current-password"
+            required
+            minlength="6"
+          >
+
+          <button
+            class="password-toggle"
+            type="button"
+            data-toggle-password="loginPassword"
+            aria-label="إظهار كلمة المرور"
+          >
+            👁
+          </button>
+
+        </div>
+
+      </div>
+
+      <button
+        class="text-button"
+        type="button"
+        id="forgotPasswordButton"
+        style="justify-self:start"
+      >
+        نسيت كلمة المرور؟
+      </button>
+
+      <button
+        class="btn btn-primary btn-full"
+        type="submit"
+        id="loginSubmit"
+      >
+        تسجيل الدخول
+      </button>
+
+    </form>
+
+
+    <!-- REGISTER -->
+
+    <form
+      id="registerForm"
+      class="form-grid hidden"
+      novalidate
+    >
+
+      <div class="field">
+
+        <label for="registerName">
+          الاسم
+        </label>
+
+        <input
+          id="registerName"
+          name="name"
+          type="text"
+          autocomplete="name"
+          required
+          minlength="2"
+          maxlength="60"
+        >
+
+      </div>
+
+      <div class="field">
+
+        <label for="registerUsername">
+          اسم المستخدم
+        </label>
+
+        <input
+          id="registerUsername"
+          name="username"
+          type="text"
+          autocomplete="username"
+          required
+          minlength="3"
+          maxlength="30"
+          pattern="[A-Za-z0-9_\u0600-\u06FF]+"
+        >
+
+      </div>
+
+      <div class="field">
+
+        <label for="registerEmail">
+          البريد الإلكتروني
+        </label>
+
+        <input
+          id="registerEmail"
+          name="email"
+          type="email"
+          autocomplete="email"
+          required
+        >
+
+      </div>
+
+      <div class="field">
+
+        <label for="registerPassword">
+          كلمة المرور
+        </label>
+
+        <div class="password-wrap">
+
+          <input
+            id="registerPassword"
+            name="password"
+            type="password"
+            autocomplete="new-password"
+            required
+            minlength="6"
+          >
+
+          <button
+            class="password-toggle"
+            type="button"
+            data-toggle-password="registerPassword"
+            aria-label="إظهار كلمة المرور"
+          >
+            👁
+          </button>
+
+        </div>
+
+      </div>
+
+      <div class="field">
+
+        <label for="registerPasswordConfirm">
+          تأكيد كلمة المرور
+        </label>
+
+        <div class="password-wrap">
+
+          <input
+            id="registerPasswordConfirm"
+            name="passwordConfirm"
+            type="password"
+            autocomplete="new-password"
+            required
+            minlength="6"
+          >
+
+          <button
+            class="password-toggle"
+            type="button"
+            data-toggle-password="registerPasswordConfirm"
+            aria-label="إظهار كلمة المرور"
+          >
+            👁
+          </button>
+
+        </div>
+
+      </div>
+
+      <button
+        class="btn btn-primary btn-full"
+        type="submit"
+        id="registerSubmit"
+      >
+        إنشاء الحساب
+      </button>
+
+    </form>
+
+
+    <!-- FORGOT -->
+
+    <form
+      id="forgotForm"
+      class="form-grid hidden"
+      novalidate
+    >
+
+      <div class="field">
+
+        <label for="forgotEmail">
+          البريد الإلكتروني
+        </label>
+
+        <input
+          id="forgotEmail"
+          name="email"
+          type="email"
+          autocomplete="email"
+          required
+        >
+
+      </div>
+
+      <button
+        class="btn btn-primary btn-full"
+        type="submit"
+      >
+        إرسال طلب استعادة كلمة المرور
+      </button>
+
+      <button
+        class="text-button"
+        type="button"
+        id="backToLoginButton"
+      >
+        العودة لتسجيل الدخول
+      </button>
+
+    </form>
+
+    <div class="auth-footer">
+      البيانات الحقيقية تُعالج بواسطة الخادم وقاعدة البيانات.
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- =========================
+     GENERIC MODAL
+========================== -->
+
+<div
+  class="modal"
+  id="genericModal"
+  aria-hidden="true"
+>
+
+  <div
+    class="modal-card"
+    role="dialog"
+    aria-modal="true"
+  >
+
+    <div class="modal-head">
+
+      <h3 id="genericTitle">
+        معلومات
+      </h3>
+
+      <button
+        class="modal-close"
+        type="button"
+        data-close-modal="genericModal"
+        aria-label="إغلاق"
+      >
+        ×
+      </button>
+
+    </div>
+
+    <div id="genericContent"></div>
+
+  </div>
+
+</div>
+
+
+<!-- =========================
+     TOAST
+========================== -->
+
+<div
+  class="toast-container"
+  id="toastContainer"
+  aria-live="polite"
+  aria-atomic="true"
+></div>
+
+
+<script>
+"use strict";
+
+/* =========================================================
+   CONFIG
+========================================================= */
+
+const API_BASE = "/api";
+
+/*
+  أسماء المسارات المتوقعة من server.js.
+  إذا كانت مسارات السيرفر مختلفة، يتم تعديل هذه القائمة فقط.
+*/
+
+const API = {
+  login: `${API_BASE}/auth/login`,
+  register: `${API_BASE}/auth/register`,
+  logout: `${API_BASE}/auth/logout`,
+  me: `${API_BASE}/auth/me`,
+  forgotPassword: `${API_BASE}/auth/forgot-password`,
+
+  profile: `${API_BASE}/profile`,
+  changePassword: `${API_BASE}/auth/change-password`,
+
+  rooms: `${API_BASE}/rooms`,
+  posts: `${API_BASE}/posts`,
+  messages: `${API_BASE}/messages`,
+  notifications: `${API_BASE}/notifications`
+};
+
+
+/* =========================================================
+   STATE
+========================================================= */
+
+const state = {
+  user: null,
+  loading: false,
+  currentView: "home",
+  theme: localStorage.getItem("site_theme") || "dark",
+  notificationsEnabled:
+    localStorage.getItem("notifications_enabled") !== "false"
+};
+
+
+/* =========================================================
+   HELPERS
+========================================================= */
+
+const $ = (selector, parent = document) =>
+  parent.querySelector(selector);
+
+const $$ = (selector, parent = document) =>
+  [...parent.querySelectorAll(selector)];
+
+
+function escapeHTML(value) {
+  return String(value ?? "")
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+}
+
+
+function showToast(message, type = "info") {
+
+  const container = $("#toastContainer");
+
+  if (!container) return;
+
+  const toast = document.createElement("div");
+
+  toast.className = `toast ${type}`;
+
+  toast.textContent = message;
+
+  container.appendChild(toast);
+
+  setTimeout(() => {
+    toast.remove();
+  }, 4000);
+}
+
+
+function setButtonLoading(button, loading, loadingText = "جارٍ التنفيذ...") {
+
+  if (!button) return;
+
+  if (loading) {
+
+    button.dataset.originalText =
+      button.textContent;
+
+    button.disabled = true;
+
+    button.textContent =
+      loadingText;
+
+  } else {
+
+    button.disabled = false;
+
+    if (button.dataset.originalText) {
+      button.textContent =
+        button.dataset.originalText;
+    }
+  }
+}
+
+
+function openModal(id) {
+
+  const modal = document.getElementById(id);
+
+  if (!modal) return;
+
+  modal.classList.add("open");
+
+  modal.setAttribute(
+    "aria-hidden",
+    "false"
+  );
+
+  document.body.style.overflow =
+    "hidden";
+}
+
+
+function closeModal(id) {
+
+  const modal = document.getElementById(id);
+
+  if (!modal) return;
+
+  modal.classList.remove("open");
+
+  modal.setAttribute(
+    "aria-hidden",
+    "true"
+  );
+
+  if (!document.querySelector(".modal.open")) {
+    document.body.style.overflow = "";
+  }
+}
+
+
+function closeAllModals() {
+
+  $$(".modal.open").forEach(modal => {
+    modal.classList.remove("open");
+    modal.setAttribute(
+      "aria-hidden",
+      "true"
+    );
+  });
+
+  document.body.style.overflow = "";
+}
+
+
+/* =========================================================
+   API
+========================================================= */
+
+async function apiRequest(
+  url,
+  options = {}
+) {
+
+  const config = {
+    credentials: "include",
+
+    headers: {
+      "Content-Type":
+        "application/json",
+
+      ...(options.headers || {})
+    },
+
+    ...options
+  };
+
+  try {
+
+    const response =
+      await fetch(url, config);
+
+    let data = null;
+
+    const contentType =
+      response.headers.get(
+        "content-type"
+      ) || "";
+
+    if (
+      contentType.includes(
+        "application/json"
+      )
+    ) {
+
+      data =
+        await response.json();
+
+    } else {
+
+      const text =
+        await response.text();
+
+      data =
+        text
+          ? { message: text }
+          : null;
+    }
+
+    if (!response.ok) {
+
+      const error =
+        new Error(
+          data?.message ||
+          `حدث خطأ (${response.status})`
+        );
+
+      error.status =
+        response.status;
+
+      error.data =
+        data;
+
+      throw error;
+    }
+
+    return data;
+
+  } catch (error) {
+
+    if (
+      error instanceof TypeError
+    ) {
+
+      throw new Error(
+        "تعذر الاتصال بالخادم."
+      );
+    }
+
+    throw error;
+  }
+}
+
+
+/* =========================================================
+   VIEW NAVIGATION
+========================================================= */
+
+function navigate(view) {
+
+  const target =
+    document.querySelector(
+      `[data-view-section="${view}"]`
+    );
+
+  if (!target) {
+    showToast(
+      "هذه الصفحة غير متاحة.",
+      "error"
+    );
+    return;
+  }
+
+  state.currentView =
+    view;
+
+  $$(".view").forEach(section => {
+    section.classList.remove(
+      "active"
+    );
+  });
+
+  target.classList.add(
+    "active"
+  );
+
+  $$(".side-link").forEach(link => {
+
+    link.classList.toggle(
+      "active",
+      link.dataset.view === view
+    );
+
+  });
+
+  history.replaceState(
+    null,
+    "",
+    `#${view}`
+  );
+
+  closeSidebar();
+
+  if (view === "profile") {
+    renderProfile();
+  }
+}
+
+
+/* =========================================================
+   SIDEBAR
+========================================================= */
+
+function openSidebar() {
+
+  const sidebar =
+    $("#sidebar");
+
+  const menu =
+    $("#mobileMenu");
+
+  sidebar?.classList.add(
+    "open"
+  );
+
+  menu?.setAttribute(
+    "aria-expanded",
+    "true"
+  );
+}
+
+
+function closeSidebar() {
+
+  const sidebar =
+    $("#sidebar");
+
+  const menu =
+    $("#mobileMenu");
+
+  sidebar?.classList.remove(
+    "open"
+  );
+
+  menu?.setAttribute(
+    "aria-expanded",
+    "false"
+  );
+}
+
+
+/* =========================================================
+   AUTH UI
+========================================================= */
+
+function openAuth(mode = "login") {
+
+  switchAuthMode(mode);
+
+  openModal(
+    "authModal"
+  );
+}
+
+
+function switchAuthMode(mode) {
+
+  const loginForm =
+    $("#loginForm");
+
+  const registerForm =
+    $("#registerForm");
+
+  const forgotForm =
+    $("#forgotForm");
+
+  const title =
+    $("#authTitle");
+
+  const tabs =
+    $$("[data-auth-tab]");
+
+  loginForm?.classList.toggle(
+    "hidden",
+    mode !== "login"
+  );
+
+  registerForm?.classList.toggle(
+    "hidden",
+    mode !== "register"
+  );
+
+  forgotForm?.classList.toggle(
+    "hidden",
+    mode !== "forgot"
+  );
+
+  tabs.forEach(tab => {
+
+    tab.classList.toggle(
+      "active",
+      tab.dataset.authTab === mode
+    );
+
+  });
+
+  if (title) {
+
+    title.textContent =
+      mode === "login"
+        ? "تسجيل الدخول"
+        : mode === "register"
+          ? "إنشاء حساب"
+          : "استعادة كلمة المرور";
+  }
+}
+
+
+/* =========================================================
+   LOGIN
+========================================================= */
+
+async function login(form) {
+
+  if (!form.reportValidity()) {
+    return;
+  }
+
+  const button =
+    $("#loginSubmit");
+
+  setButtonLoading(
+    button,
+    true,
+    "جارٍ تسجيل الدخول..."
+  );
+
+  const identifier =
+    $("#loginIdentifier")
+      .value
+      .trim();
+
+  const password =
+    $("#loginPassword")
+      .value;
+
+  try {
+
+    const result =
+      await apiRequest(
+        API.login,
+        {
+          method: "POST",
+
+          body:
+            JSON.stringify({
+              identifier,
+              password
+            })
+        }
+      );
+
+    state.user =
+      result?.user ||
+      result?.data?.user ||
+      null;
+
+    if (!state.user) {
+
+      await loadCurrentUser();
+
+    }
+
+    closeModal(
+      "authModal"
+    );
+
+    updateAuthUI();
+
+    showToast(
+      "تم تسجيل الدخول بنجاح.",
+      "success"
+    );
+
+    navigate("home");
+
+  } catch (error) {
+
+    showToast(
+      error.message ||
+      "تعذر تسجيل الدخول.",
+      "error"
+    );
+
+  } finally {
+
+    setButtonLoading(
+      button,
+      false
+    );
+  }
+}
+
+
+/* =========================================================
+   REGISTER
+========================================================= */
+
+async function register(form) {
+
+  if (!form.reportValidity()) {
+    return;
+  }
+
+  const password =
+    $("#registerPassword")
+      .value;
+
+  const confirm =
+    $("#registerPasswordConfirm")
+      .value;
+
+  if (password !== confirm) {
+
+    showToast(
+      "كلمتا المرور غير متطابقتين.",
+      "error"
+    );
+
+    return;
+  }
+
+  const button =
+    $("#registerSubmit");
+
+  setButtonLoading(
+    button,
+    true,
+    "جارٍ إنشاء الحساب..."
+  );
+
+  try {
+
+    const payload = {
+      name:
+        $("#registerName")
+          .value
+          .trim(),
+
+      username:
+        $("#registerUsername")
+          .value
+          .trim(),
+
+      email:
+        $("#registerEmail")
+          .value
+          .trim(),
+
+      password
+    };
+
+    const result =
+      await apiRequest(
+        API.register,
+        {
+          method: "POST",
+
+          body:
+            JSON.stringify(
+              payload
+            )
+        }
+      );
+
+    state.user =
+      result?.user ||
+      result?.data?.user ||
+      null;
+
+    if (!state.user) {
+      await loadCurrentUser();
+    }
+
+    closeModal(
+      "authModal"
+    );
+
+    updateAuthUI();
+
+    showToast(
+      "تم إنشاء الحساب بنجاح.",
+      "success"
+    );
+
+    navigate("profile");
+
+  } catch (error) {
+
+    showToast(
+      error.message ||
+      "تعذر إنشاء الحساب.",
+      "error"
+    );
+
+  } finally {
+
+    setButtonLoading(
+      button,
+      false
+    );
+  }
+}
+
+
+/* =========================================================
+   FORGOT PASSWORD
+========================================================= */
+
+async function forgotPassword(form) {
+
+  if (!form.reportValidity()) {
+    return;
+  }
+
+  const button =
+    form.querySelector(
+      'button[type="submit"]'
+    );
+
+  setButtonLoading(
+    button,
+    true,
+    "جارٍ الإرسال..."
+  );
+
+  try {
+
+    await apiRequest(
+      API.forgotPassword,
+      {
+        method: "POST",
+
+        body:
+          JSON.stringify({
+            email:
+              $("#forgotEmail")
+                .value
+                .trim()
+          })
+      }
+    );
+
+    showToast(
+      "تم إرسال طلب الاستعادة.",
+      "success"
+    );
+
+    switchAuthMode(
+      "login"
+    );
+
+  } catch (error) {
+
+    showToast(
+      error.message ||
+      "تعذر إرسال طلب الاستعادة.",
+      "error"
+    );
+
+  } finally {
+
+    setButtonLoading(
+      button,
+      false
+    );
+  }
+}
+
+
+/* =========================================================
+   LOAD CURRENT USER
+========================================================= */
+
+async function loadCurrentUser() {
+
+  try {
+
+    const result =
+      await apiRequest(
+        API.me,
+        {
+          method: "GET"
+        }
+      );
+
+    state.user =
+      result?.user ||
+      result?.data?.user ||
+      null;
+
+  } catch (error) {
+
+    state.user =
+      null;
+  }
+
+  updateAuthUI();
+}
+
+
+/* =========================================================
+   AUTH UI STATE
+========================================================= */
+
+function updateAuthUI() {
+
+  const guestActions =
+    $("#guestActions");
+
+  const userActions =
+    $("#userActions");
+
+  const welcomeTitle =
+    $("#welcomeTitle");
+
+  const welcomeText =
+    $("#welcomeText");
+
+  const profileLogin =
+    $("#profileLoginButton");
+
+  if (state.user) {
+
+    guestActions?.classList.add(
+      "hidden"
+    );
+
+    userActions?.classList.remove(
+      "hidden"
+    );
+
+    if (welcomeTitle) {
+
+      const name =
+        state.user.name ||
+        state.user.username ||
+        "صديقي";
+
+      welcomeTitle.textContent =
+        `أهلاً بك ${name}.`;
+    }
+
+    if (welcomeText) {
+
+      welcomeText.textContent =
+        "مرحبًا بك في مساحتك. يمكنك الآن الوصول إلى وظائف حسابك المتاحة.";
+    }
+
+    profileLogin?.classList.add(
+      "hidden"
+    );
+
+  } else {
+
+    guestActions?.classList.remove(
+      "hidden"
+    );
+
+    userActions?.classList.add(
+      "hidden"
+    );
+
+    if (welcomeTitle) {
+
+      welcomeTitle.textContent =
+        "أهلاً بك في مساحتك.";
+    }
+
+    if (welcomeText) {
+
+      welcomeText.textContent =
+        "منصة اجتماعية عربية للتواصل والدردشة. البيانات الحقيقية فقط تظهر عند توفرها من النظام.";
+    }
+
+    profileLogin?.classList.remove(
+      "hidden"
+    );
+  }
+
+  renderProfile();
+}
+
+
+/* =========================================================
+   LOGOUT
+========================================================= */
+
+async function logout() {
+
+  try {
+
+    await apiRequest(
+      API.logout,
+      {
+        method: "POST"
+      }
+    );
+
+  } catch (error) {
+
+    /*
+      لا نخترع نجاح السيرفر.
+      لكن نمسح حالة الواجهة حتى لا تبقى
+      الواجهة على حساب قديم.
+    */
+
+  } finally {
+
+    state.user =
+      null;
+
+    updateAuthUI();
+
+    navigate("home");
+
+    showToast(
+      "تم إنهاء الجلسة.",
+      "success"
+    );
+  }
+}
+
+
+/* =========================================================
+   PROFILE
+========================================================= */
+
+function renderProfile() {
+
+  const name =
+    $("#profileName");
+
+  const username =
+    $("#profileUsername");
+
+  if (!state.user) {
+
+    if (name) {
+      name.textContent =
+        "غير مسجل الدخول";
+    }
+
+    if (username) {
+      username.textContent =
+        "قم بتسجيل الدخول لعرض ملفك.";
+    }
+
+    return;
+  }
+
+  if (name) {
+
+    name.textContent =
+      state.user.name ||
+      state.user.username ||
+      "مستخدم";
+  }
+
+  if (username) {
+
+    username.textContent =
+      state.user.username
+        ? `@${state.user.username}`
+        : state.user.email || "";
+  }
+}
+
+
+/* =========================================================
+   PASSWORD TOGGLE
+========================================================= */
+
+function togglePassword(id, button) {
+
+  const input =
+    document.getElementById(id);
+
+  if (!input) return;
+
+  const visible =
+    input.type === "text";
+
+  input.type =
+    visible
+      ? "password"
+      : "text";
+
+  button.setAttribute(
+    "aria-label",
+    visible
+      ? "إظهار كلمة المرور"
+      : "إخفاء كلمة المرور"
+  );
+
+  button.textContent =
+    visible
+      ? "👁"
+      : "🙈";
+}
+
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+function performSearch(query) {
+
+  const value =
+    query.trim();
+
+  if (!value) {
+    return;
+  }
+
+  /*
+    لا يتم اختلاق نتائج.
+    عند توفر API البحث يمكن ربطه مباشرة.
+  */
+
+  showGenericModal(
+    "البحث",
+    `
+      <p style="color:var(--muted);line-height:1.9">
+        تم استقبال البحث:
+        <strong>${escapeHTML(value)}</strong>
+      </p>
+
+      <p style="color:var(--muted);font-size:12px;line-height:1.8;margin-top:10px">
+        واجهة البحث جاهزة. عرض النتائج الفعلية يحتاج
+        endpoint للبحث في server.js.
+      </p>
+    `
+  );
+}
+
+
+/* =========================================================
+   GENERIC MODAL
+========================================================= */
+
+function showGenericModal(
+  title,
+  content
+) {
+
+  $("#genericTitle").textContent =
+    title;
+
+  $("#genericContent").innerHTML =
+    content;
+
+  openModal(
+    "genericModal"
+  );
+}
+
+
+/* =========================================================
+   CREATE POST
+========================================================= */
+
+function createPost() {
+
+  if (!state.user) {
+
+    showToast(
+      "يجب تسجيل الدخول أولًا.",
+      "error"
+    );
+
+    openAuth("login");
+
+    return;
+  }
+
+  showGenericModal(
+    "إنشاء منشور",
+    `
+      <form
+        id="createPostForm"
+        class="form-grid"
+      >
+
+        <div class="field">
+          <label for="postText">
+            محتوى المنشور
+          </label>
+
+          <textarea
+            id="postText"
+            maxlength="5000"
+            required
+            placeholder="اكتب منشورك..."
+          ></textarea>
+        </div>
+
+        <button
+          class="btn btn-primary btn-full"
+          type="submit"
+        >
+          نشر
+        </button>
+
+      </form>
+    `
+  );
+
+  $("#createPostForm")
+    ?.addEventListener(
+      "submit",
+      async event => {
+
+        event.preventDefault();
+
+        const text =
+          $("#postText")
+            .value
+            .trim();
+
+        if (!text) {
+
+          showToast(
+            "اكتب محتوى المنشور.",
+            "error"
+          );
+
+          return;
+        }
+
+        try {
+
+          await apiRequest(
+            API.posts,
+            {
+              method: "POST",
+
+              body:
+                JSON.stringify({
+                  content: text
+                })
+            }
+          );
+
+          closeModal(
+            "genericModal"
+          );
+
+          showToast(
+            "تم نشر المنشور.",
+            "success"
+          );
+
+        } catch (error) {
+
+          showToast(
+            error.message ||
+            "تعذر نشر المنشور.",
+            "error"
+          );
+        }
+
+      }
+    );
+}
+
+
+/* =========================================================
+   CREATE ROOM
+========================================================= */
+
+function createRoom() {
+
+  if (!state.user) {
+
+    showToast(
+      "يجب تسجيل الدخول أولًا.",
+      "error"
+    );
+
+    openAuth("login");
+
+    return;
+  }
+
+  showGenericModal(
+    "إنشاء غرفة",
+    `
+      <form
+        id="createRoomForm"
+        class="form-grid"
+      >
+
+        <div class="field">
+          <label for="roomName">
+            اسم الغرفة
+          </label>
+
+          <input
+            id="roomName"
+            required
+            maxlength="80"
+          >
+        </div>
+
+        <div class="field">
+          <label for="roomDescription">
+            وصف الغرفة
+          </label>
+
+          <textarea
+            id="roomDescription"
+            maxlength="500"
+          ></textarea>
+        </div>
+
+        <button
+          class="btn btn-primary btn-full"
+          type="submit"
+        >
+          إنشاء الغرفة
+        </button>
+
+      </form>
+    `
+  );
+
+  $("#createRoomForm")
+    ?.addEventListener(
+      "submit",
+      async event => {
+
+        event.preventDefault();
+
+        const name =
+          $("#roomName")
+            .value
+            .trim();
+
+        const description =
+          $("#roomDescription")
+            .value
+            .trim();
+
+        if (!name) {
+
+          showToast(
+            "أدخل اسم الغرفة.",
+            "error"
+          );
+
+          return;
+        }
+
+        try {
+
+          await apiRequest(
+            API.rooms,
+            {
+              method: "POST",
+
+              body:
+                JSON.stringify({
+                  name,
+                  description
+                })
+            }
+          );
+
+          closeModal(
+            "genericModal"
+          );
+
+          showToast(
+            "تم إنشاء الغرفة.",
+            "success"
+          );
+
+        } catch (error) {
+
+          showToast(
+            error.message ||
+            "تعذر إنشاء الغرفة.",
+            "error"
+          );
+        }
+
+      }
+    );
+}
+
+
+/* =========================================================
+   SETTINGS
+========================================================= */
+
+function applyTheme() {
+
+  document.body.classList.toggle(
+    "light",
+    state.theme === "light"
+  );
+
+  const switchButton =
+    $("#themeSwitch");
+
+  if (switchButton) {
+
+    const dark =
+      state.theme !== "light";
+
+    switchButton.classList.toggle(
+      "on",
+      dark
+    );
+
+    switchButton.setAttribute(
+      "aria-pressed",
+      String(dark)
+    );
+  }
+}
+
+
+function toggleTheme() {
+
+  state.theme =
+    state.theme === "dark"
+      ? "light"
+      : "dark";
+
+  localStorage.setItem(
+    "site_theme",
+    state.theme
+  );
+
+  applyTheme();
+}
+
+
+function toggleNotifications() {
+
+  state.notificationsEnabled =
+    !state.notificationsEnabled;
+
+  localStorage.setItem(
+    "notifications_enabled",
+    String(
+      state.notificationsEnabled
+    )
+  );
+
+  const button =
+    $("#notificationSwitch");
+
+  button?.classList.toggle(
+    "on",
+    state.notificationsEnabled
+  );
+
+  button?.setAttribute(
+    "aria-pressed",
+    String(
+      state.notificationsEnabled
+    )
+  );
+
+  showToast(
+    state.notificationsEnabled
+      ? "تم تفعيل إشعارات الواجهة."
+      : "تم إيقاف إشعارات الواجهة.",
+    "success"
+  );
+}
+
+
+/* =========================================================
+   ACCOUNT SETTINGS
+========================================================= */
+
+function accountSettings() {
+
+  if (!state.user) {
+
+    openAuth("login");
+
+    return;
+  }
+
+  showGenericModal(
+    "إعدادات الحساب",
+    `
+      <div class="form-grid">
+
+        <div>
+          <strong>
+            ${escapeHTML(
+              state.user.name ||
+              state.user.username ||
+              "المستخدم"
+            )}
+          </strong>
+
+          <p style="color:var(--muted);font-size:12px;margin-top:7px">
+            ${
+              escapeHTML(
+                state.user.email || ""
+              )
+            }
+          </p>
+        </div>
+
+        <button
+          class="btn btn-primary"
+          type="button"
+          id="modalEditProfile"
+        >
+          تعديل الملف
+        </button>
+
+        <button
+          class="btn btn-danger"
+          type="button"
+          id="modalDeleteAccount"
+        >
+          حذف الحساب
+        </button>
+
+      </div>
+    `
+  );
+
+  $("#modalEditProfile")
+    ?.addEventListener(
+      "click",
+      () => {
+
+        closeModal(
+          "genericModal"
+        );
+
+        editProfile();
+      }
+    );
+
+  $("#modalDeleteAccount")
+    ?.addEventListener(
+      "click",
+      () => {
+
+        showGenericModal(
+          "تأكيد حذف الحساب",
+          `
+            <p style="color:var(--muted);line-height:1.9">
+              حذف الحساب عملية خطيرة ولا يجب تنفيذها
+              إلا من خلال endpoint مخصص في server.js.
+            </p>
+
+            <button
+              class="btn btn-danger btn-full"
+              type="button"
+              id="confirmDeleteAccount"
+              style="margin-top:15px"
+            >
+              تأكيد الحذف
+            </button>
+          `
+        );
+
+        $("#confirmDeleteAccount")
+          ?.addEventListener(
+            "click",
+            async () => {
+
+              try {
+
+                await apiRequest(
+                  `${API.profile}`,
+                  {
+                    method: "DELETE"
+                  }
+                );
+
+                closeAllModals();
+
+                state.user =
+                  null;
+
+                updateAuthUI();
+
+                showToast(
+                  "تم حذف الحساب.",
+                  "success"
+                );
+
+                navigate("home");
+
+              } catch (error) {
+
+                showToast(
+                  error.message ||
+                  "تعذر حذف الحساب.",
+                  "error"
+                );
+              }
+
+            }
+          );
+      }
+    );
+}
+
+
+/* =========================================================
+   EDIT PROFILE
+========================================================= */
+
+function editProfile() {
+
+  if (!state.user) {
+
+    openAuth("login");
+
+    return;
+  }
+
+  showGenericModal(
+    "تعديل الملف الشخصي",
+    `
+      <form
+        id="editProfileForm"
+        class="form-grid"
+      >
+
+        <div class="field">
+
+          <label for="editName">
+            الاسم
+          </label>
+
+          <input
+            id="editName"
+            maxlength="60"
+            required
+            value="${escapeHTML(
+              state.user.name || ""
+            )}"
+          >
+
+        </div>
+
+        <div class="field">
+
+          <label for="editBio">
+            النبذة
+          </label>
+
+          <textarea
+            id="editBio"
+            maxlength="500"
+          >${escapeHTML(
+            state.user.bio || ""
+          )}</textarea>
+
+        </div>
+
+        <button
+          class="btn btn-primary btn-full"
+          type="submit"
+        >
+          حفظ التغييرات
+        </button>
+
+      </form>
+    `
+  );
+
+  $("#editProfileForm")
+    ?.addEventListener(
+      "submit",
+      async event => {
+
+        event.preventDefault();
+
+        const name =
+          $("#editName")
+            .value
+            .trim();
+
+        const bio =
+          $("#editBio")
+            .value
+            .trim();
+
+        if (!name) {
+
+          showToast(
+            "الاسم مطلوب.",
+            "error"
+          );
+
+          return;
+        }
+
+        try {
+
+          const result =
+            await apiRequest(
+              API.profile,
+              {
+                method: "PUT",
+
+                body:
+                  JSON.stringify({
+                    name,
+                    bio
+                  })
+              }
+            );
+
+          state.user =
+            result?.user ||
+            result?.data?.user ||
+            {
+              ...state.user,
+              name,
+              bio
+            };
+
+          renderProfile();
+
+          closeModal(
+            "genericModal"
+          );
+
+          showToast(
+            "تم تحديث الملف.",
+            "success"
+          );
+
+        } catch (error) {
+
+          showToast(
+            error.message ||
+            "تعذر تحديث الملف.",
+            "error"
+          );
+        }
+
+      }
+    );
+}
+
+
+/* =========================================================
+   CHANGE PASSWORD
+========================================================= */
+
+function changePassword() {
+
+  if (!state.user) {
+
+    openAuth("login");
+
+    return;
+  }
+
+  showGenericModal(
+    "تغيير كلمة المرور",
+    `
+      <form
+        id="changePasswordForm"
+        class="form-grid"
+      >
+
+        <div class="field">
+          <label for="oldPassword">
+            كلمة المرور الحالية
+          </label>
+
+          <input
+            id="oldPassword"
+            type="password"
+            required
+          >
+        </div>
+
+        <div class="field">
+          <label for="newPassword">
+            كلمة المرور الجديدة
+          </label>
+
+          <input
+            id="newPassword"
+            type="password"
+            minlength="6"
+            required
+          >
+        </div>
+
+        <div class="field">
+          <label for="newPasswordConfirm">
+            تأكيد كلمة المرور الجديدة
+          </label>
+
+          <input
+            id="newPasswordConfirm"
+            type="password"
+            minlength="6"
+            required
+          >
+        </div>
+
+        <button
+          class="btn btn-primary btn-full"
+          type="submit"
+        >
+          تغيير كلمة المرور
+        </button>
+
+      </form>
+    `
+  );
+
+  $("#changePasswordForm")
+    ?.addEventListener(
+      "submit",
+      async event => {
+
+        event.preventDefault();
+
+        const oldPassword =
+          $("#oldPassword").value;
+
+        const newPassword =
+          $("#newPassword").value;
+
+        const confirm =
+          $("#newPasswordConfirm").value;
+
+        if (newPassword !== confirm) {
+
+          showToast(
+            "كلمتا المرور غير متطابقتين.",
+            "error"
+          );
+
+          return;
+        }
+
+        try {
+
+          await apiRequest(
+            API.changePassword,
+            {
+              method: "PUT",
+
+              body:
+                JSON.stringify({
+                  oldPassword,
+                  newPassword
+                })
+            }
+          );
+
+          closeModal(
+            "genericModal"
+          );
+
+          showToast(
+            "تم تغيير كلمة المرور.",
+            "success"
+          );
+
+        } catch (error) {
+
+          showToast(
+            error.message ||
+            "تعذر تغيير كلمة المرور.",
+            "error"
+          );
+        }
+
+      }
+    );
+}
+
+
+/* =========================================================
+   STATIC INFO
+========================================================= */
+
+function showAbout() {
+
+  showGenericModal(
+    "عن افـنـدツينا🥀🖤",
+    `
+      <p style="color:var(--muted);line-height:1.9">
+        منصة اجتماعية عربية للتواصل والدردشة.
+        هذه الواجهة لا تستخدم حسابات أو بيانات وهمية.
+      </p>
+    `
+  );
+}
+
+
+function showPrivacy() {
+
+  showGenericModal(
+    "الخصوصية",
+    `
+      <p style="color:var(--muted);line-height:1.9">
+        سياسة الخصوصية الفعلية يجب أن تُطابق
+        طريقة تخزين ومعالجة البيانات في server.js
+        وقاعدة البيانات.
+      </p>
+    `
+  );
+}
+
+
+function showTerms() {
+
+  showGenericModal(
+    "الشروط",
+    `
+      <p style="color:var(--muted);line-height:1.9">
+        يجب وضع الشروط النهائية الخاصة بالموقع
+        وفق نظام الاستخدام الفعلي.
+      </p>
+    `
+  );
+}
+
+
+/* =========================================================
+   REFRESH ACTIONS
+========================================================= */
+
+async function refreshData(type) {
+
+  const urls = {
+    rooms: API.rooms,
+    posts: API.posts,
+    messages: API.messages,
+    notifications: API.notifications
+  };
+
+  const url =
+    urls[type];
+
+  if (!url) return;
+
+  try {
+
+    await apiRequest(
+      url,
+      {
+        method: "GET"
+      }
+    );
+
+    showToast(
+      "تم تحديث البيانات.",
+      "success"
+    );
+
+  } catch (error) {
+
+    showToast(
+      error.message ||
+      "تعذر تحديث البيانات.",
+      "error"
+    );
+  }
+}
+
+
+/* =========================================================
+   EVENT BINDING
+========================================================= */
+
+function bindEvents() {
+
+  /* VIEW BUTTONS */
+
+  $$("[data-view]").forEach(element => {
+
+    element.addEventListener(
+      "click",
+      () => {
+
+        navigate(
+          element.dataset.view
+        );
+
+      }
+    );
+
+  });
+
+
+  /* AUTH BUTTONS */
+
+  $$("[data-auth]").forEach(element => {
+
+    element.addEventListener(
+      "click",
+      () => {
+
+        openAuth(
+          element.dataset.auth
+        );
+
+      }
+    );
+
+  });
+
+
+  /* AUTH TABS */
+
+  $$("[data-auth-tab]").forEach(tab => {
+
+    tab.addEventListener(
+      "click",
+      () => {
+
+        switchAuthMode(
+          tab.dataset.authTab
+        );
+
+      }
+    );
+
+  });
+
+
+  /* PASSWORD */
+
+  $$("[data-toggle-password]").forEach(button => {
+
+    button.addEventListener(
+      "click",
+      () => {
+
+        togglePassword(
+          button.dataset.togglePassword,
+          button
+        );
+
+      }
+    );
+
+  });
+
+
+  /* MODAL CLOSE */
+
+  $$("[data-close-modal]").forEach(button => {
+
+    button.addEventListener(
+      "click",
+      () => {
+
+        closeModal(
+          button.dataset.closeModal
+        );
+
+      }
+    );
+
+  });
+
+
+  /* MOBILE MENU */
+
+  $("#mobileMenu")
+    ?.addEventListener(
+      "click",
+      () => {
+
+        const sidebar =
+          $("#sidebar");
+
+        if (
+          sidebar.classList.contains(
+            "open"
+          )
+        ) {
+
+          closeSidebar();
+
+        } else {
+
+          openSidebar();
+        }
+
+      }
+    );
+
+
+  /* TOP NOTIFICATIONS */
+
+  $("#notificationButton")
+    ?.addEventListener(
+      "click",
+      () => {
+
+        navigate(
+          "notifications"
+        );
+
+      }
+    );
+
+
+  /* SETTINGS */
+
+  $("#settingsButton")
+    ?.addEventListener(
+      "click",
+      () => {
+
+        navigate(
+          "settings"
+        );
+
+      }
+    );
+
+
+  /* SEARCH */
+
+  $("#siteSearch")
+    ?.addEventListener(
+      "keydown",
+      event => {
+
+        if (
+          event.key === "Enter"
+        ) {
+
+          event.preventDefault();
+
+          performSearch(
+            event.target.value
+          );
+        }
+
+      }
+    );
+
+
+  /* FORGOT */
+
+  $("#forgotPasswordButton")
+    ?.addEventListener(
+      "click",
+      () => {
+
+        switchAuthMode(
+          "forgot"
+        );
+
+      }
+    );
+
+
+  /* BACK TO LOGIN */
+
+  $("#backToLoginButton")
+    ?.addEventListener(
+      "click",
+      () => {
+
+        switchAuthMode(
+          "login"
+        );
+
+      }
+    );
+
+
+  /* FORMS */
+
+  $("#loginForm")
+    ?.addEventListener(
+      "submit",
+      event => {
+
+        event.preventDefault();
+
+        login(
+          event.currentTarget
+        );
+
+      }
+    );
+
+
+  $("#registerForm")
+    ?.addEventListener(
+      "submit",
+      event => {
+
+        event.preventDefault();
+
+        register(
+          event.currentTarget
+        );
+
+      }
+    );
+
+
+  $("#forgotForm")
+    ?.addEventListener(
+      "submit",
+      event => {
+
+        event.preventDefault();
+
+        forgotPassword(
+          event.currentTarget
+        );
+
+      }
+    );
+
+
+  /* LOGOUT */
+
+  $("#logoutButton")
+    ?.addEventListener(
+      "click",
+      logout
+    );
+
+  $("#settingsLogoutButton")
+    ?.addEventListener(
+      "click",
+      logout
+    );
+
+
+  /* CREATE */
+
+  $("#createPostButton")
+    ?.addEventListener(
+      "click",
+      createPost
+    );
+
+  $("#createRoomButton")
+    ?.addEventListener(
+      "click",
+      createRoom
+    );
+
+
+  /* REFRESH */
+
+  $("#refreshRoomsButton")
+    ?.addEventListener(
+      "click",
+      () => refreshData("rooms")
+    );
+
+  $("#refreshPostsButton")
+    ?.addEventListener(
+      "click",
+      () => refreshData("posts")
+    );
+
+  $("#refreshMessagesButton")
+    ?.addEventListener(
+      "click",
+      () => refreshData("messages")
+    );
+
+
+  /* PROFILE */
+
+  $("#editProfileButton")
+    ?.addEventListener(
+      "click",
+      editProfile
+    );
+
+
+  /* NOTIFICATIONS */
+
+  $("#markNotificationsButton")
+    ?.addEventListener(
+      "click",
+      async () => {
+
+        if (!state.user) {
+
+          openAuth("login");
+
+          return;
+        }
+
+        try {
+
+          await apiRequest(
+            `${API.notifications}/read`,
+            {
+              method: "PUT"
+            }
+          );
+
+          $("#notificationDot")
+            ?.classList.add(
+              "hidden"
+            );
+
+          showToast(
+            "تم تعليم الإشعارات كمقروءة.",
+            "success"
+          );
+
+        } catch (error) {
+
+          showToast(
+            error.message ||
+            "تعذر تحديث الإشعارات.",
+            "error"
+          );
+        }
+
+      }
+    );
+
+
+  /* SETTINGS */
+
+  $("#themeSwitch")
+    ?.addEventListener(
+      "click",
+      toggleTheme
+    );
+
+  $("#notificationSwitch")
+    ?.addEventListener(
+      "click",
+      toggleNotifications
+    );
+
+  $("#accountSettingsButton")
+    ?.addEventListener(
+      "click",
+      accountSettings
+    );
+
+  $("#changePasswordButton")
+    ?.addEventListener(
+      "click",
+      changePassword
+    );
+
+
+  /* FOOTER */
+
+  $("#aboutButton")
+    ?.addEventListener(
+      "click",
+      showAbout
+    );
+
+  $("#privacyButton")
+    ?.addEventListener(
+      "click",
+      showPrivacy
+    );
+
+  $("#termsButton")
+    ?.addEventListener(
+      "click",
+      showTerms
+    );
+
+
+  /* ESC */
+
+  document.addEventListener(
+    "keydown",
+    event => {
+
+      if (
+        event.key === "Escape"
+      ) {
+
+        closeAllModals();
+
+        closeSidebar();
+      }
+
+    }
+  );
+
+
+  /* MODAL BACKDROP */
+
+  $$(".modal").forEach(modal => {
+
+    modal.addEventListener(
+      "click",
+      event => {
+
+        if (
+          event.target === modal
+        ) {
+
+          closeModal(
+            modal.id
+          );
+        }
+
+      }
+    );
+
+  });
+
+}
+
+
+/* =========================================================
+   HASH ROUTING
+========================================================= */
+
+function loadHashView() {
+
+  const hash =
+    location.hash
+      .replace("#", "")
+      .trim();
+
+  const validViews = [
+    "home",
+    "rooms",
+    "posts",
+    "messages",
+    "profile",
+    "notifications",
+    "settings"
+  ];
+
+  if (
+    validViews.includes(hash)
+  ) {
+
+    navigate(hash);
+
+  } else {
+
+    navigate("home");
+  }
+}
+
+
+/* =========================================================
+   INIT
+========================================================= */
+
+async function init() {
+
+  $("#year").textContent =
+    new Date()
+      .getFullYear();
+
+  applyTheme();
+
+  const notificationSwitch =
+    $("#notificationSwitch");
+
+  notificationSwitch?.classList.toggle(
+    "on",
+    state.notificationsEnabled
+  );
+
+  notificationSwitch?.setAttribute(
+    "aria-pressed",
+    String(
+      state.notificationsEnabled
+    )
+  );
+
+  bindEvents();
+
+  loadHashView();
+
+  await loadCurrentUser();
+}
+
+
+/* =========================================================
+   START
+========================================================= */
+
+document.addEventListener(
+  "DOMContentLoaded",
+  init
+);
+</script>
+
+</body>
+</html>
