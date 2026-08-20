@@ -1,0 +1,3715 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="theme-color"
+    content="#08070d"
+  >
+
+  <meta
+    name="description"
+    content="افـنـدツينا🥀🖤 — منصة اجتماعية عربية للتواصل والدردشة."
+  >
+
+  <title>افـنـدツينا🥀🖤</title>
+
+  <style>
+    /* =========================================================
+       ROOT
+    ========================================================= */
+
+    :root {
+      --bg: #07070b;
+      --bg-soft: #0b0a10;
+      --panel: rgba(255,255,255,.045);
+      --panel-hover: rgba(255,255,255,.075);
+      --panel-solid: #111019;
+
+      --border: rgba(255,255,255,.09);
+      --border-hover: rgba(155,92,255,.30);
+
+      --text: #ffffff;
+      --muted: #9998a9;
+      --muted-2: #6f6e7c;
+
+      --primary: #9b5cff;
+      --primary-2: #d05cff;
+
+      --success: #43dc91;
+      --danger: #ff557c;
+      --warning: #ffc857;
+
+      --sidebar-width: 260px;
+      --header-height: 70px;
+
+      --radius-sm: 12px;
+      --radius: 18px;
+      --radius-lg: 26px;
+
+      --shadow:
+        0 20px 70px rgba(0,0,0,.42);
+
+      --transition:
+        .22s ease;
+    }
+
+
+    /* =========================================================
+       RESET
+    ========================================================= */
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+
+      color: var(--text);
+
+      background:
+        radial-gradient(
+          circle at 15% 5%,
+          rgba(155,92,255,.14),
+          transparent 28%
+        ),
+        radial-gradient(
+          circle at 90% 15%,
+          rgba(208,92,255,.08),
+          transparent 25%
+        ),
+        linear-gradient(
+          135deg,
+          #07070b,
+          #0b0910 50%,
+          #07070b
+        );
+
+      font-family:
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Tahoma,
+        Arial,
+        sans-serif;
+
+      overflow-x: hidden;
+    }
+
+    body.no-scroll {
+      overflow: hidden;
+    }
+
+    body::before {
+      content: "";
+
+      position: fixed;
+      inset: 0;
+
+      z-index: -2;
+
+      background:
+        linear-gradient(
+          rgba(255,255,255,.012) 1px,
+          transparent 1px
+        ),
+        linear-gradient(
+          90deg,
+          rgba(255,255,255,.012) 1px,
+          transparent 1px
+        );
+
+      background-size: 45px 45px;
+
+      mask-image:
+        linear-gradient(
+          to bottom,
+          black,
+          transparent
+        );
+
+      pointer-events: none;
+    }
+
+    body::after {
+      content: "";
+
+      position: fixed;
+
+      width: 520px;
+      height: 520px;
+
+      right: -250px;
+      top: 20%;
+
+      border-radius: 50%;
+
+      background:
+        rgba(155,92,255,.055);
+
+      filter: blur(110px);
+
+      z-index: -1;
+
+      pointer-events: none;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    textarea,
+    select {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    ::selection {
+      background:
+        rgba(155,92,255,.35);
+    }
+
+
+    /* =========================================================
+       APP
+    ========================================================= */
+
+    .app {
+      min-height: 100vh;
+    }
+
+
+    /* =========================================================
+       SIDEBAR
+    ========================================================= */
+
+    .sidebar {
+      position: fixed;
+
+      top: 0;
+      right: 0;
+
+      width: var(--sidebar-width);
+      height: 100vh;
+
+      z-index: 2000;
+
+      display: flex;
+      flex-direction: column;
+
+      padding: 18px 14px;
+
+      border-left:
+        1px solid var(--border);
+
+      background:
+        rgba(9,9,14,.84);
+
+      backdrop-filter:
+        blur(24px);
+
+      -webkit-backdrop-filter:
+        blur(24px);
+
+      transition:
+        transform var(--transition);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+
+      padding:
+        6px 8px 23px;
+
+      font-size: 16px;
+      font-weight: 900;
+    }
+
+    .brand-icon {
+      width: 43px;
+      height: 43px;
+
+      display: grid;
+      place-items: center;
+
+      flex: 0 0 auto;
+
+      border-radius: 14px;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--primary),
+          var(--primary-2)
+        );
+
+      box-shadow:
+        0 12px 32px
+        rgba(155,92,255,.25);
+    }
+
+    .sidebar-title {
+      padding:
+        0 10px 9px;
+
+      color: var(--muted-2);
+
+      font-size: 10px;
+      font-weight: 800;
+    }
+
+    .sidebar-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .nav-item {
+      min-height: 48px;
+
+      display: flex;
+      align-items: center;
+
+      gap: 12px;
+
+      padding:
+        0 12px;
+
+      border:
+        1px solid transparent;
+
+      border-radius:
+        14px;
+
+      color: var(--muted);
+
+      font-size: 13px;
+      font-weight: 750;
+
+      transition:
+        background var(--transition),
+        color var(--transition),
+        border-color var(--transition),
+        transform var(--transition);
+    }
+
+    .nav-item:hover {
+      color: #fff;
+
+      background:
+        rgba(255,255,255,.055);
+
+      transform:
+        translateX(-2px);
+    }
+
+    .nav-item.active {
+      color: #fff;
+
+      border-color:
+        rgba(155,92,255,.16);
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(155,92,255,.20),
+          rgba(208,92,255,.07)
+        );
+    }
+
+    .nav-icon {
+      width: 28px;
+
+      text-align: center;
+
+      font-size: 17px;
+    }
+
+    .sidebar-bottom {
+      margin-top: auto;
+    }
+
+    .auth-button {
+      width: 100%;
+      min-height: 47px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border:
+        1px solid
+        rgba(155,92,255,.22);
+
+      border-radius:
+        14px;
+
+      color: #dfccff;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(155,92,255,.14),
+          rgba(208,92,255,.06)
+        );
+
+      font-size: 13px;
+      font-weight: 800;
+
+      transition:
+        transform var(--transition),
+        background var(--transition);
+    }
+
+    .auth-button:hover {
+      transform:
+        translateY(-2px);
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(155,92,255,.23),
+          rgba(208,92,255,.11)
+        );
+    }
+
+
+    /* =========================================================
+       MAIN
+    ========================================================= */
+
+    .main {
+      min-height: 100vh;
+
+      margin-right:
+        var(--sidebar-width);
+    }
+
+
+    /* =========================================================
+       HEADER
+    ========================================================= */
+
+    .topbar {
+      height:
+        var(--header-height);
+
+      position: sticky;
+      top: 0;
+
+      z-index: 1500;
+
+      display: flex;
+      align-items: center;
+
+      padding:
+        0 28px;
+
+      border-bottom:
+        1px solid var(--border);
+
+      background:
+        rgba(7,7,11,.72);
+
+      backdrop-filter:
+        blur(22px);
+
+      -webkit-backdrop-filter:
+        blur(22px);
+    }
+
+    .mobile-menu {
+      width: 42px;
+      height: 42px;
+
+      display: none;
+      place-items: center;
+
+      margin-left: 10px;
+
+      border:
+        1px solid var(--border);
+
+      border-radius: 12px;
+
+      color: #fff;
+
+      background:
+        var(--panel);
+    }
+
+    .search {
+      width:
+        min(430px, 48vw);
+
+      position: relative;
+    }
+
+    .search input {
+      width: 100%;
+      height: 43px;
+
+      padding:
+        0 43px 0 15px;
+
+      outline: none;
+
+      border:
+        1px solid var(--border);
+
+      border-radius:
+        13px;
+
+      color: #fff;
+
+      background:
+        rgba(255,255,255,.045);
+
+      transition:
+        border-color var(--transition),
+        background var(--transition);
+    }
+
+    .search input::placeholder {
+      color:
+        var(--muted-2);
+    }
+
+    .search input:focus {
+      border-color:
+        rgba(155,92,255,.42);
+
+      background:
+        rgba(255,255,255,.065);
+    }
+
+    .search-icon {
+      position: absolute;
+
+      right: 14px;
+      top: 50%;
+
+      transform:
+        translateY(-50%);
+
+      color:
+        #858493;
+
+      pointer-events: none;
+    }
+
+    .top-actions {
+      margin-right: auto;
+
+      display: flex;
+      align-items: center;
+
+      gap: 8px;
+    }
+
+    .icon-button {
+      width: 43px;
+      height: 43px;
+
+      position: relative;
+
+      display: grid;
+      place-items: center;
+
+      border:
+        1px solid var(--border);
+
+      border-radius:
+        13px;
+
+      color: #ddd;
+
+      background:
+        rgba(255,255,255,.045);
+
+      transition:
+        transform var(--transition),
+        background var(--transition);
+    }
+
+    .icon-button:hover {
+      transform:
+        translateY(-2px);
+
+      background:
+        var(--panel-hover);
+    }
+
+    .notification-dot {
+      width: 7px;
+      height: 7px;
+
+      position: absolute;
+
+      top: 9px;
+      right: 9px;
+
+      border-radius: 50%;
+
+      background:
+        var(--danger);
+
+      box-shadow:
+        0 0 12px
+        rgba(255,85,124,.75);
+    }
+
+
+    /* =========================================================
+       CONTENT
+    ========================================================= */
+
+    .content {
+      width:
+        min(1120px, calc(100% - 44px));
+
+      margin:
+        auto;
+
+      padding:
+        32px 0 65px;
+    }
+
+
+    /* =========================================================
+       HERO
+    ========================================================= */
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+
+      padding:
+        35px;
+
+      border:
+        1px solid var(--border);
+
+      border-radius:
+        var(--radius-lg);
+
+      background:
+        radial-gradient(
+          circle at 85% 20%,
+          rgba(155,92,255,.17),
+          transparent 36%
+        ),
+        rgba(255,255,255,.035);
+
+      box-shadow:
+        0 20px 60px
+        rgba(0,0,0,.18);
+    }
+
+    .hero::after {
+      content: "🥀";
+
+      position: absolute;
+
+      left: 25px;
+      bottom: -42px;
+
+      font-size: 145px;
+
+      opacity: .045;
+
+      transform:
+        rotate(-15deg);
+
+      pointer-events: none;
+    }
+
+    .hero-label {
+      color:
+        #c9a9ff;
+
+      font-size: 11px;
+      font-weight: 850;
+
+      margin-bottom:
+        10px;
+    }
+
+    .hero h1 {
+      font-size:
+        clamp(28px, 5vw, 49px);
+
+      line-height: 1.15;
+
+      letter-spacing:
+        -1.5px;
+
+      margin-bottom:
+        13px;
+    }
+
+    .hero p {
+      max-width: 720px;
+
+      color:
+        var(--muted);
+
+      font-size: 14px;
+
+      line-height: 1.9;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+
+      gap: 10px;
+
+      margin-top:
+        23px;
+    }
+
+    .button {
+      min-height: 45px;
+
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      padding:
+        0 18px;
+
+      border-radius:
+        13px;
+
+      font-size: 13px;
+      font-weight: 800;
+
+      transition:
+        transform var(--transition),
+        opacity var(--transition);
+    }
+
+    .button:hover {
+      transform:
+        translateY(-2px);
+    }
+
+    .button-primary {
+      border: 0;
+
+      color: #fff;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--primary),
+          var(--primary-2)
+        );
+
+      box-shadow:
+        0 12px 30px
+        rgba(155,92,255,.22);
+    }
+
+    .button-secondary {
+      border:
+        1px solid var(--border);
+
+      color: #eee;
+
+      background:
+        var(--panel);
+    }
+
+    .system-status {
+      display: flex;
+      align-items: center;
+
+      gap: 8px;
+
+      margin-top:
+        17px;
+
+      color:
+        var(--muted-2);
+
+      font-size: 11px;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+
+      border-radius: 50%;
+
+      background:
+        var(--success);
+
+      box-shadow:
+        0 0 12px
+        rgba(67,220,145,.55);
+    }
+
+
+    /* =========================================================
+       SECTION
+    ========================================================= */
+
+    .section {
+      margin-top:
+        35px;
+
+      scroll-margin-top:
+        90px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+
+      gap: 15px;
+
+      margin-bottom:
+        17px;
+    }
+
+    .section-header h2 {
+      font-size:
+        21px;
+    }
+
+    .section-header p {
+      margin-top:
+        5px;
+
+      color:
+        var(--muted);
+
+      font-size:
+        12px;
+    }
+
+
+    /* =========================================================
+       EMPTY
+    ========================================================= */
+
+    .empty {
+      min-height:
+        255px;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      padding:
+        30px;
+
+      text-align: center;
+
+      border:
+        1px dashed
+        rgba(255,255,255,.12);
+
+      border-radius:
+        var(--radius);
+
+      background:
+        rgba(255,255,255,.025);
+    }
+
+    .empty-icon {
+      width: 65px;
+      height: 65px;
+
+      display: grid;
+      place-items: center;
+
+      margin-bottom:
+        16px;
+
+      border-radius:
+        20px;
+
+      background:
+        rgba(155,92,255,.08);
+
+      font-size:
+        27px;
+    }
+
+    .empty h3 {
+      margin-bottom:
+        7px;
+
+      font-size:
+        17px;
+    }
+
+    .empty p {
+      max-width:
+        550px;
+
+      color:
+        var(--muted);
+
+      font-size:
+        12px;
+
+      line-height:
+        1.8;
+    }
+
+
+    /* =========================================================
+       QUICK ACTIONS
+    ========================================================= */
+
+    .quick-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap:
+        12px;
+    }
+
+    .quick-card {
+      min-height:
+        145px;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      padding:
+        20px;
+
+      border:
+        1px solid var(--border);
+
+      border-radius:
+        var(--radius);
+
+      background:
+        var(--panel);
+
+      transition:
+        transform var(--transition),
+        border-color var(--transition),
+        background var(--transition);
+    }
+
+    .quick-card:hover {
+      transform:
+        translateY(-5px);
+
+      border-color:
+        var(--border-hover);
+
+      background:
+        var(--panel-hover);
+    }
+
+    .quick-icon {
+      width: 43px;
+      height: 43px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius:
+        14px;
+
+      background:
+        rgba(155,92,255,.09);
+
+      font-size:
+        18px;
+    }
+
+    .quick-card strong {
+      font-size:
+        14px;
+    }
+
+    .quick-card span {
+      display: block;
+
+      margin-top:
+        5px;
+
+      color:
+        var(--muted);
+
+      font-size:
+        11px;
+
+      line-height:
+        1.6;
+    }
+
+
+    /* =========================================================
+       ACCOUNT PANEL
+    ========================================================= */
+
+    .account-panel {
+      display: grid;
+
+      grid-template-columns:
+        1fr auto;
+
+      align-items: center;
+
+      gap: 20px;
+
+      padding:
+        22px;
+
+      border:
+        1px solid var(--border);
+
+      border-radius:
+        var(--radius);
+
+      background:
+        var(--panel);
+    }
+
+    .account-info {
+      display: flex;
+      align-items: center;
+
+      gap: 14px;
+    }
+
+    .account-avatar {
+      width: 56px;
+      height: 56px;
+
+      display: grid;
+      place-items: center;
+
+      flex: 0 0 auto;
+
+      overflow: hidden;
+
+      border-radius:
+        17px;
+
+      border:
+        1px solid var(--border);
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(155,92,255,.22),
+          rgba(208,92,255,.08)
+        );
+
+      font-size:
+        22px;
+    }
+
+    .account-avatar img {
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+    }
+
+    .account-info strong {
+      display: block;
+
+      font-size:
+        14px;
+    }
+
+    .account-info span {
+      display: block;
+
+      margin-top:
+        4px;
+
+      color:
+        var(--muted);
+
+      font-size:
+        11px;
+    }
+
+    .account-actions {
+      display: flex;
+      gap: 8px;
+    }
+
+
+    /* =========================================================
+       FOOTER
+    ========================================================= */
+
+    footer {
+      padding:
+        30px 0;
+
+      border-top:
+        1px solid var(--border);
+
+      color:
+        var(--muted-2);
+
+      font-size:
+        11px;
+    }
+
+    .footer-inner {
+      width:
+        min(1120px, calc(100% - 44px));
+
+      margin:
+        auto;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 15px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 15px;
+    }
+
+    .footer-links a:hover {
+      color:
+        #fff;
+    }
+
+
+    /* =========================================================
+       MODAL
+    ========================================================= */
+
+    .modal {
+      position: fixed;
+      inset: 0;
+
+      z-index: 5000;
+
+      display: none;
+      place-items: center;
+
+      padding:
+        18px;
+
+      background:
+        rgba(0,0,0,.72);
+
+      backdrop-filter:
+        blur(9px);
+    }
+
+    .modal.open {
+      display: grid;
+    }
+
+    .modal-card {
+      width:
+        min(460px, 100%);
+
+      padding:
+        25px;
+
+      border:
+        1px solid var(--border);
+
+      border-radius:
+        24px;
+
+      background:
+        var(--panel-solid);
+
+      box-shadow:
+        var(--shadow);
+
+      animation:
+        modal-in .22s ease;
+    }
+
+    @keyframes modal-in {
+
+      from {
+        opacity: 0;
+
+        transform:
+          translateY(15px)
+          scale(.97);
+      }
+
+      to {
+        opacity: 1;
+
+        transform:
+          translateY(0)
+          scale(1);
+      }
+    }
+
+    .modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      margin-bottom:
+        18px;
+    }
+
+    .modal-header h3 {
+      font-size:
+        18px;
+    }
+
+    .modal-close {
+      width: 38px;
+      height: 38px;
+
+      display: grid;
+      place-items: center;
+
+      border:
+        1px solid var(--border);
+
+      border-radius:
+        11px;
+
+      color: #fff;
+
+      background:
+        var(--panel);
+    }
+
+    .modal-text {
+      color:
+        var(--muted);
+
+      font-size:
+        13px;
+
+      line-height:
+        1.9;
+    }
+
+    .modal-actions {
+      display: grid;
+      gap: 9px;
+
+      margin-top:
+        20px;
+    }
+
+
+    /* =========================================================
+       TOAST
+    ========================================================= */
+
+    .toast-container {
+      position: fixed;
+
+      left: 18px;
+      bottom: 18px;
+
+      z-index: 7000;
+
+      display: grid;
+      gap: 9px;
+
+      pointer-events: none;
+    }
+
+    .toast {
+      max-width:
+        min(370px, calc(100vw - 36px));
+
+      padding:
+        13px 16px;
+
+      border:
+        1px solid var(--border);
+
+      border-radius:
+        14px;
+
+      color: #fff;
+
+      background:
+        rgba(17,16,25,.95);
+
+      box-shadow:
+        0 15px 45px
+        rgba(0,0,0,.35);
+
+      font-size:
+        12px;
+
+      animation:
+        toast-in .22s ease;
+    }
+
+    @keyframes toast-in {
+
+      from {
+        opacity: 0;
+
+        transform:
+          translateY(8px);
+      }
+
+      to {
+        opacity: 1;
+
+        transform:
+          translateY(0);
+      }
+    }
+
+
+    /* =========================================================
+       MOBILE OVERLAY
+    ========================================================= */
+
+    .mobile-overlay {
+      position: fixed;
+      inset: 0;
+
+      z-index: 1900;
+
+      display: none;
+
+      background:
+        rgba(0,0,0,.58);
+    }
+
+    .mobile-overlay.show {
+      display:
+        block;
+    }
+
+
+    /* =========================================================
+       RESPONSIVE
+    ========================================================= */
+
+    @media (max-width: 1000px) {
+
+      :root {
+        --sidebar-width: 0px;
+      }
+
+      .sidebar {
+        transform:
+          translateX(100%);
+      }
+
+      .sidebar.open {
+        transform:
+          translateX(0);
+      }
+
+      .main {
+        margin-right: 0;
+      }
+
+      .mobile-menu {
+        display: grid;
+      }
+
+      .quick-grid {
+        grid-template-columns:
+          repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 650px) {
+
+      .topbar {
+        padding:
+          0 12px;
+      }
+
+      .search {
+        width: auto;
+        flex: 1;
+      }
+
+      .top-actions {
+        margin-right:
+          7px;
+      }
+
+      .icon-button {
+        width: 40px;
+        height: 40px;
+      }
+
+      .content {
+        width:
+          calc(100% - 20px);
+
+        padding-top:
+          20px;
+      }
+
+      .hero {
+        padding:
+          24px 20px;
+      }
+
+      .hero-actions {
+        flex-direction:
+          column;
+      }
+
+      .hero-actions .button {
+        width:
+          100%;
+      }
+
+      .quick-grid {
+        grid-template-columns:
+          1fr;
+      }
+
+      .account-panel {
+        grid-template-columns:
+          1fr;
+      }
+
+      .account-actions {
+        width: 100%;
+      }
+
+      .account-actions .button {
+        flex: 1;
+      }
+
+      .section-header {
+        display:
+          block;
+      }
+
+      .footer-inner {
+        width:
+          calc(100% - 20px);
+
+        flex-direction:
+          column;
+
+        text-align:
+          center;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+      *,
+      *::before {
+        animation-duration:
+          .01ms !important;
+
+        animation-iteration-count:
+          1 !important;
+
+        transition-duration:
+          .01ms !important;
+      }
+    }
+  </style>
+</head>
+
+
+<body>
+
+  <!-- =========================================================
+       MOBILE OVERLAY
+  ========================================================== -->
+
+  <div
+    class="mobile-overlay"
+    id="mobileOverlay"
+  ></div>
+
+
+  <!-- =========================================================
+       APP
+  ========================================================== -->
+
+  <div class="app">
+
+    <!-- =======================================================
+         SIDEBAR
+    ======================================================== -->
+
+    <aside
+      class="sidebar"
+      id="sidebar"
+      aria-label="القائمة الرئيسية"
+    >
+
+      <a
+        href="#home"
+        class="brand"
+        data-section="home"
+      >
+
+        <span class="brand-icon">
+          🥀
+        </span>
+
+        <span>
+          افـنـدツينا🖤
+        </span>
+
+      </a>
+
+
+      <div class="sidebar-title">
+        القائمة الرئيسية
+      </div>
+
+
+      <nav class="sidebar-nav">
+
+        <a
+          href="#home"
+          class="nav-item active"
+          data-section="home"
+        >
+          <span class="nav-icon">⌂</span>
+          <span>الرئيسية</span>
+        </a>
+
+
+        <a
+          href="#rooms"
+          class="nav-item"
+          data-section="rooms"
+        >
+          <span class="nav-icon">◉</span>
+          <span>الغرف</span>
+        </a>
+
+
+        <a
+          href="#posts"
+          class="nav-item"
+          data-section="posts"
+        >
+          <span class="nav-icon">▤</span>
+          <span>المنشورات</span>
+        </a>
+
+
+        <a
+          href="#messages"
+          class="nav-item"
+          data-section="messages"
+        >
+          <span class="nav-icon">◌</span>
+          <span>الرسائل</span>
+        </a>
+
+
+        <a
+          href="#profile"
+          class="nav-item"
+          data-section="profile"
+        >
+          <span class="nav-icon">♙</span>
+          <span>الملف الشخصي</span>
+        </a>
+
+      </nav>
+
+
+      <div class="sidebar-bottom">
+
+        <a
+          href="./auth.html"
+          class="auth-button"
+          id="authButton"
+        >
+          تسجيل الدخول / إنشاء حساب
+        </a>
+
+      </div>
+
+    </aside>
+
+
+    <!-- =======================================================
+         MAIN
+    ======================================================== -->
+
+    <div class="main">
+
+      <!-- =====================================================
+           TOPBAR
+      ====================================================== -->
+
+      <header class="topbar">
+
+        <button
+          class="mobile-menu"
+          id="mobileMenu"
+          type="button"
+          aria-label="فتح القائمة"
+          aria-expanded="false"
+        >
+          ☰
+        </button>
+
+
+        <div class="search">
+
+          <span
+            class="search-icon"
+            aria-hidden="true"
+          >
+            ⌕
+          </span>
+
+          <input
+            id="searchInput"
+            type="search"
+            placeholder="ابحث داخل الموقع..."
+            autocomplete="off"
+            aria-label="البحث"
+          >
+
+        </div>
+
+
+        <div class="top-actions">
+
+          <button
+            class="icon-button"
+            id="notificationsButton"
+            type="button"
+            aria-label="الإشعارات"
+            title="الإشعارات"
+          >
+
+            ♢
+
+            <span
+              class="notification-dot"
+              id="notificationDot"
+            ></span>
+
+          </button>
+
+
+          <button
+            class="icon-button"
+            id="settingsButton"
+            type="button"
+            aria-label="الإعدادات"
+            title="الإعدادات"
+          >
+            ⚙
+          </button>
+
+        </div>
+
+      </header>
+
+
+      <!-- =====================================================
+           CONTENT
+      ====================================================== -->
+
+      <main
+        class="content"
+        id="home"
+      >
+
+        <!-- ===================================================
+             HERO
+        ==================================================== -->
+
+        <section class="hero">
+
+          <div class="hero-label">
+            افـنـدツينا🥀🖤
+          </div>
+
+          <h1>
+            أهلاً بك في مساحتك.
+          </h1>
+
+          <p>
+            منصة اجتماعية عربية للتواصل والدردشة.
+            سجّل الدخول للوصول إلى حسابك وميزات الموقع
+            التي تعتمد على البيانات الحقيقية.
+          </p>
+
+
+          <div class="hero-actions">
+
+            <a
+              href="./auth.html"
+              class="button button-primary"
+            >
+              تسجيل الدخول
+            </a>
+
+
+            <a
+              href="./auth.html#register"
+              class="button button-secondary"
+            >
+              إنشاء حساب
+            </a>
+
+          </div>
+
+
+          <div class="system-status">
+
+            <span class="status-dot"></span>
+
+            <span id="systemStatus">
+              الواجهة جاهزة
+            </span>
+
+          </div>
+
+        </section>
+
+
+        <!-- ===================================================
+             ACCOUNT
+        ==================================================== -->
+
+        <section class="section">
+
+          <div class="section-header">
+
+            <div>
+
+              <h2>
+                الحساب
+              </h2>
+
+              <p>
+                حالة الحساب الحالية.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div
+            class="account-panel"
+            id="accountPanel"
+          >
+
+            <div class="account-info">
+
+              <div
+                class="account-avatar"
+                id="accountAvatar"
+              >
+                ♙
+              </div>
+
+
+              <div>
+
+                <strong id="accountName">
+                  زائر
+                </strong>
+
+                <span id="accountDescription">
+                  لم يتم تسجيل الدخول.
+                </span>
+
+              </div>
+
+            </div>
+
+
+            <div class="account-actions">
+
+              <a
+                href="./auth.html"
+                class="button button-primary"
+                id="accountPrimaryButton"
+              >
+                تسجيل الدخول
+              </a>
+
+            </div>
+
+          </div>
+
+        </section>
+
+
+        <!-- ===================================================
+             ROOMS
+        ==================================================== -->
+
+        <section
+          class="section"
+          id="rooms"
+        >
+
+          <div class="section-header">
+
+            <div>
+
+              <h2>
+                الغرف
+              </h2>
+
+              <p>
+                الغرف الفعلية سيتم تحميلها من الخادم.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div
+            class="empty"
+            id="roomsContainer"
+          >
+
+            <div class="empty-icon">
+              ◉
+            </div>
+
+            <h3>
+              لا توجد غرف محملة
+            </h3>
+
+            <p>
+              لا توجد بيانات غرف حقيقية متاحة حاليًا.
+              لن يتم عرض غرف تجريبية أو أسماء مختلقة.
+            </p>
+
+          </div>
+
+        </section>
+
+
+        <!-- ===================================================
+             POSTS
+        ==================================================== -->
+
+        <section
+          class="section"
+          id="posts"
+        >
+
+          <div class="section-header">
+
+            <div>
+
+              <h2>
+                المنشورات
+              </h2>
+
+              <p>
+                المنشورات الحقيقية فقط.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div
+            class="empty"
+            id="postsContainer"
+          >
+
+            <div class="empty-icon">
+              ▤
+            </div>
+
+            <h3>
+              لا توجد منشورات محملة
+            </h3>
+
+            <p>
+              سيتم عرض المنشورات عند توفر API حقيقي
+              للمنشورات من الخادم.
+            </p>
+
+          </div>
+
+        </section>
+
+
+        <!-- ===================================================
+             MESSAGES
+        ==================================================== -->
+
+        <section
+          class="section"
+          id="messages"
+        >
+
+          <div class="section-header">
+
+            <div>
+
+              <h2>
+                الرسائل
+              </h2>
+
+              <p>
+                المحادثات الخاصة مرتبطة بالحساب.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div
+            class="empty"
+            id="messagesContainer"
+          >
+
+            <div class="empty-icon">
+              ◌
+            </div>
+
+            <h3>
+              سجّل الدخول للوصول إلى الرسائل
+            </h3>
+
+            <p>
+              لن يتم إنشاء محادثات أو رسائل وهمية.
+              المحادثات تظهر فقط من نظام الرسائل الحقيقي.
+            </p>
+
+
+            <div style="margin-top:18px">
+
+              <a
+                href="./auth.html"
+                class="button button-primary"
+              >
+                تسجيل الدخول
+              </a>
+
+            </div>
+
+          </div>
+
+        </section>
+
+
+        <!-- ===================================================
+             PROFILE
+        ==================================================== -->
+
+        <section
+          class="section"
+          id="profile"
+        >
+
+          <div class="section-header">
+
+            <div>
+
+              <h2>
+                الملف الشخصي
+              </h2>
+
+              <p>
+                معلومات الحساب الحقيقية فقط.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div
+            class="empty"
+            id="profileContainer"
+          >
+
+            <div class="empty-icon">
+              ♙
+            </div>
+
+            <h3>
+              سجّل الدخول للوصول إلى ملفك
+            </h3>
+
+            <p>
+              لن يتم وضع اسم أو صورة أو عمر وهمي.
+              بيانات الملف الشخصي تأتي من الحساب الحقيقي.
+            </p>
+
+
+            <div style="margin-top:18px">
+
+              <a
+                href="./auth.html"
+                class="button button-primary"
+              >
+                تسجيل الدخول / إنشاء حساب
+              </a>
+
+            </div>
+
+          </div>
+
+        </section>
+
+
+        <!-- ===================================================
+             QUICK ACTIONS
+        ==================================================== -->
+
+        <section class="section">
+
+          <div class="section-header">
+
+            <div>
+
+              <h2>
+                الوصول السريع
+              </h2>
+
+              <p>
+                جميع الاختصارات الأساسية للواجهة.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="quick-grid">
+
+            <a
+              href="#rooms"
+              class="quick-card"
+              data-section="rooms"
+            >
+
+              <div class="quick-icon">
+                ◉
+              </div>
+
+              <div>
+
+                <strong>
+                  الغرف
+                </strong>
+
+                <span>
+                  الوصول إلى قسم الغرف.
+                </span>
+
+              </div>
+
+            </a>
+
+
+            <a
+              href="#posts"
+              class="quick-card"
+              data-section="posts"
+            >
+
+              <div class="quick-icon">
+                ▤
+              </div>
+
+              <div>
+
+                <strong>
+                  المنشورات
+                </strong>
+
+                <span>
+                  استعراض المنشورات الحقيقية.
+                </span>
+
+              </div>
+
+            </a>
+
+
+            <a
+              href="#messages"
+              class="quick-card"
+              data-section="messages"
+            >
+
+              <div class="quick-icon">
+                ◌
+              </div>
+
+              <div>
+
+                <strong>
+                  الرسائل
+                </strong>
+
+                <span>
+                  الوصول إلى المحادثات.
+                </span>
+
+              </div>
+
+            </a>
+
+
+            <a
+              href="#profile"
+              class="quick-card"
+              data-section="profile"
+            >
+
+              <div class="quick-icon">
+                ♙
+              </div>
+
+              <div>
+
+                <strong>
+                  الملف الشخصي
+                </strong>
+
+                <span>
+                  إدارة حسابك عند تسجيل الدخول.
+                </span>
+
+              </div>
+
+            </a>
+
+
+            <a
+              href="./auth.html"
+              class="quick-card"
+            >
+
+              <div class="quick-icon">
+                🔐
+              </div>
+
+              <div>
+
+                <strong>
+                  الحساب
+                </strong>
+
+                <span>
+                  تسجيل الدخول أو إنشاء حساب.
+                </span>
+
+              </div>
+
+            </a>
+
+
+            <button
+              class="quick-card"
+              id="quickSettings"
+              type="button"
+            >
+
+              <div class="quick-icon">
+                ⚙
+              </div>
+
+              <div>
+
+                <strong>
+                  الإعدادات
+                </strong>
+
+                <span>
+                  فتح إعدادات الموقع.
+                </span>
+
+              </div>
+
+            </button>
+
+          </div>
+
+        </section>
+
+      </main>
+
+
+      <!-- =====================================================
+           FOOTER
+      ====================================================== -->
+
+      <footer>
+
+        <div class="footer-inner">
+
+          <div>
+            © 2026 افـنـدツينا🥀🖤
+          </div>
+
+          <div class="footer-links">
+
+            <a
+              href="#home"
+              data-section="home"
+            >
+              الرئيسية
+            </a>
+
+            <a
+              href="./auth.html"
+            >
+              الحساب
+            </a>
+
+          </div>
+
+        </div>
+
+      </footer>
+
+    </div>
+
+  </div>
+
+
+  <!-- =========================================================
+       MODAL
+  ========================================================== -->
+
+  <div
+    class="modal"
+    id="modal"
+    aria-hidden="true"
+  >
+
+    <div
+      class="modal-card"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modalTitle"
+    >
+
+      <div class="modal-header">
+
+        <h3 id="modalTitle">
+          افـنـدツينا🥀🖤
+        </h3>
+
+        <button
+          class="modal-close"
+          id="modalClose"
+          type="button"
+          aria-label="إغلاق"
+        >
+          ×
+        </button>
+
+      </div>
+
+
+      <p
+        class="modal-text"
+        id="modalText"
+      ></p>
+
+
+      <div
+        class="modal-actions"
+        id="modalActions"
+      ></div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =========================================================
+       TOAST
+  ========================================================== -->
+
+  <div
+    class="toast-container"
+    id="toastContainer"
+    aria-live="polite"
+  ></div>
+
+
+  <script>
+    "use strict";
+
+
+    /* =========================================================
+       CONFIGURATION
+    ========================================================= */
+
+    const CONFIG = {
+
+      /*
+       * عندما يكون الموقع مستضافًا بنفس السيرفر
+       * يمكن استخدام المسارات النسبية.
+       */
+
+      apiBase: "",
+
+      endpoints: {
+
+        session: "/api/me",
+
+        rooms: "/api/rooms",
+
+        posts: "/api/posts",
+
+        messages: "/api/messages",
+
+        profile: "/api/profile",
+
+        notifications: "/api/notifications",
+
+        search: "/api/search"
+
+      }
+
+    };
+
+
+    /* =========================================================
+       DOM
+    ========================================================= */
+
+    const $ = selector =>
+      document.querySelector(selector);
+
+    const $$ = selector =>
+      document.querySelectorAll(selector);
+
+
+    const sidebar =
+      $("#sidebar");
+
+    const mobileMenu =
+      $("#mobileMenu");
+
+    const mobileOverlay =
+      $("#mobileOverlay");
+
+    const searchInput =
+      $("#searchInput");
+
+    const systemStatus =
+      $("#systemStatus");
+
+    const authButton =
+      $("#authButton");
+
+    const accountName =
+      $("#accountName");
+
+    const accountDescription =
+      $("#accountDescription");
+
+    const accountAvatar =
+      $("#accountAvatar");
+
+    const accountPrimaryButton =
+      $("#accountPrimaryButton");
+
+    const notificationDot =
+      $("#notificationDot");
+
+    const modal =
+      $("#modal");
+
+    const modalClose =
+      $("#modalClose");
+
+    const modalTitle =
+      $("#modalTitle");
+
+    const modalText =
+      $("#modalText");
+
+    const modalActions =
+      $("#modalActions");
+
+    const toastContainer =
+      $("#toastContainer");
+
+
+    /* =========================================================
+       STATE
+    ========================================================= */
+
+    const state = {
+
+      authenticated: false,
+
+      user: null,
+
+      notifications: [],
+
+      rooms: [],
+
+      posts: [],
+
+      messages: [],
+
+      loading: false
+
+    };
+
+
+    /* =========================================================
+       API
+    ========================================================= */
+
+    function apiUrl(path) {
+
+      return CONFIG.apiBase + path;
+
+    }
+
+
+    async function apiRequest(
+      path,
+      options = {}
+    ) {
+
+      const response =
+        await fetch(
+          apiUrl(path),
+          {
+            credentials: "include",
+
+            ...options,
+
+            headers: {
+              "Accept":
+                "application/json",
+
+              ...(options.body
+                ? {
+                    "Content-Type":
+                      "application/json"
+                  }
+                : {}),
+
+              ...(options.headers || {})
+
+            }
+
+          }
+        );
+
+      let data = null;
+
+      const contentType =
+        response.headers.get(
+          "content-type"
+        ) || "";
+
+      if (
+        contentType.includes(
+          "application/json"
+        )
+      ) {
+
+        try {
+
+          data =
+            await response.json();
+
+        } catch {
+
+          data = null;
+
+        }
+
+      }
+
+      return {
+        response,
+        data
+      };
+
+    }
+
+
+    /* =========================================================
+       TOAST
+    ========================================================= */
+
+    function toast(message) {
+
+      const element =
+        document.createElement("div");
+
+      element.className =
+        "toast";
+
+      element.textContent =
+        message;
+
+      toastContainer.appendChild(
+        element
+      );
+
+      setTimeout(() => {
+
+        element.style.opacity =
+          "0";
+
+        element.style.transform =
+          "translateY(8px)";
+
+        setTimeout(
+          () => element.remove(),
+          220
+        );
+
+      }, 3000);
+
+    }
+
+
+    /* =========================================================
+       MODAL
+    ========================================================= */
+
+    function openModal(
+      title,
+      message,
+      actions = []
+    ) {
+
+      modalTitle.textContent =
+        title;
+
+      modalText.textContent =
+        message;
+
+      modalActions.innerHTML =
+        "";
+
+      actions.forEach(action => {
+
+        let element;
+
+        if (action.href) {
+
+          element =
+            document.createElement(
+              "a"
+            );
+
+          element.href =
+            action.href;
+
+        } else {
+
+          element =
+            document.createElement(
+              "button"
+            );
+
+          element.type =
+            "button";
+
+          element.addEventListener(
+            "click",
+            action.onClick
+          );
+
+        }
+
+        element.className =
+          action.primary
+            ? "button button-primary"
+            : "button button-secondary";
+
+        element.textContent =
+          action.label;
+
+        modalActions.appendChild(
+          element
+        );
+
+      });
+
+      modal.classList.add(
+        "open"
+      );
+
+      modal.setAttribute(
+        "aria-hidden",
+        "false"
+      );
+
+      document.body.classList.add(
+        "no-scroll"
+      );
+
+    }
+
+
+    function closeModal() {
+
+      modal.classList.remove(
+        "open"
+      );
+
+      modal.setAttribute(
+        "aria-hidden",
+        "true"
+      );
+
+      document.body.classList.remove(
+        "no-scroll"
+      );
+
+    }
+
+
+    modalClose.addEventListener(
+      "click",
+      closeModal
+    );
+
+
+    modal.addEventListener(
+      "click",
+      event => {
+
+        if (
+          event.target === modal
+        ) {
+
+          closeModal();
+
+        }
+
+      }
+    );
+
+
+    /* =========================================================
+       MOBILE MENU
+    ========================================================= */
+
+    function openMobileMenu() {
+
+      sidebar.classList.add(
+        "open"
+      );
+
+      mobileOverlay.classList.add(
+        "show"
+      );
+
+      mobileMenu.setAttribute(
+        "aria-expanded",
+        "true"
+      );
+
+      document.body.classList.add(
+        "no-scroll"
+      );
+
+    }
+
+
+    function closeMobileMenu() {
+
+      sidebar.classList.remove(
+        "open"
+      );
+
+      mobileOverlay.classList.remove(
+        "show"
+      );
+
+      mobileMenu.setAttribute(
+        "aria-expanded",
+        "false"
+      );
+
+      document.body.classList.remove(
+        "no-scroll"
+      );
+
+    }
+
+
+    mobileMenu.addEventListener(
+      "click",
+      () => {
+
+        if (
+          sidebar.classList.contains(
+            "open"
+          )
+        ) {
+
+          closeMobileMenu();
+
+        } else {
+
+          openMobileMenu();
+
+        }
+
+      }
+    );
+
+
+    mobileOverlay.addEventListener(
+      "click",
+      closeMobileMenu
+    );
+
+
+    /* =========================================================
+       NAVIGATION
+    ========================================================= */
+
+    const sectionLinks =
+      $$("[data-section]");
+
+
+    function activateSection(
+      id
+    ) {
+
+      sectionLinks.forEach(
+        link => {
+
+          link.classList.toggle(
+            "active",
+            link.dataset.section === id
+          );
+
+        }
+      );
+
+    }
+
+
+    function navigateToSection(
+      id
+    ) {
+
+      const section =
+        document.getElementById(id);
+
+      if (!section) {
+        return;
+      }
+
+      activateSection(id);
+
+      history.replaceState(
+        null,
+        "",
+        "#" + id
+      );
+
+      section.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+
+      closeMobileMenu();
+
+    }
+
+
+    sectionLinks.forEach(
+      link => {
+
+        link.addEventListener(
+          "click",
+          event => {
+
+            const id =
+              link.dataset.section;
+
+            if (!id) {
+              return;
+            }
+
+            event.preventDefault();
+
+            navigateToSection(id);
+
+          }
+        );
+
+      }
+    );
+
+
+    function loadHash() {
+
+      const id =
+        location.hash
+          .replace("#", "");
+
+      if (!id) {
+
+        activateSection(
+          "home"
+        );
+
+        return;
+
+      }
+
+      if (
+        document.getElementById(id)
+      ) {
+
+        activateSection(id);
+
+        setTimeout(
+          () => {
+
+            document
+              .getElementById(id)
+              .scrollIntoView({
+                behavior: "smooth"
+              });
+
+          },
+          100
+        );
+
+      }
+
+    }
+
+
+    window.addEventListener(
+      "hashchange",
+      loadHash
+    );
+
+
+    /* =========================================================
+       SESSION
+    ========================================================= */
+
+    async function loadSession() {
+
+      try {
+
+        const {
+          response,
+          data
+        } =
+          await apiRequest(
+            CONFIG.endpoints.session
+          );
+
+        if (
+          response.ok &&
+          data
+        ) {
+
+          /*
+           * ندعم أكثر من شكل محتمل
+           * للاستجابة بدون اختلاق بيانات.
+           */
+
+          const authenticated =
+            data.authenticated === true ||
+            data.loggedIn === true ||
+            data.isAuthenticated === true;
+
+          if (
+            authenticated
+          ) {
+
+            state.authenticated =
+              true;
+
+            state.user =
+              data.user || null;
+
+            renderAuthenticated();
+
+            return;
+
+          }
+
+        }
+
+        renderGuest();
+
+      } catch {
+
+        /*
+         * إذا لم يكن backend متاحًا،
+         * لا يتم اختلاق جلسة.
+         */
+
+        renderGuest(
+          "الواجهة تعمل، والخادم غير متصل حاليًا."
+        );
+
+      }
+
+    }
+
+
+    /* =========================================================
+       AUTH UI
+    ========================================================= */
+
+    function renderGuest(
+      statusMessage = "لم يتم تسجيل الدخول."
+    ) {
+
+      state.authenticated =
+        false;
+
+      state.user =
+        null;
+
+      accountName.textContent =
+        "زائر";
+
+      accountDescription.textContent =
+        statusMessage;
+
+      accountAvatar.innerHTML =
+        "♙";
+
+      accountPrimaryButton.textContent =
+        "تسجيل الدخول";
+
+      accountPrimaryButton.href =
+        "./auth.html";
+
+      authButton.textContent =
+        "تسجيل الدخول / إنشاء حساب";
+
+      authButton.href =
+        "./auth.html";
+
+      systemStatus.textContent =
+        statusMessage;
+
+    }
+
+
+    function renderAuthenticated() {
+
+      const user =
+        state.user || {};
+
+      state.authenticated =
+        true;
+
+      const name =
+        typeof user.name === "string" &&
+        user.name.trim()
+          ? user.name.trim()
+          : "حساب المستخدم";
+
+      accountName.textContent =
+        name;
+
+      accountDescription.textContent =
+        "تم تسجيل الدخول.";
+
+      accountPrimaryButton.textContent =
+        "الملف الشخصي";
+
+      accountPrimaryButton.href =
+        "#profile";
+
+      authButton.textContent =
+        "حسابي";
+
+      authButton.href =
+        "#profile";
+
+      systemStatus.textContent =
+        "تم التعرف على جلسة الحساب.";
+
+      if (
+        typeof user.avatar === "string" &&
+        user.avatar.trim()
+      ) {
+
+        const image =
+          document.createElement(
+            "img"
+          );
+
+        image.src =
+          user.avatar;
+
+        image.alt =
+          "صورة الحساب";
+
+        image.loading =
+          "lazy";
+
+        accountAvatar.innerHTML =
+          "";
+
+        accountAvatar.appendChild(
+          image
+        );
+
+      }
+
+    }
+
+
+    /* =========================================================
+       ROOMS
+    ========================================================= */
+
+    async function loadRooms() {
+
+      try {
+
+        const {
+          response,
+          data
+        } =
+          await apiRequest(
+            CONFIG.endpoints.rooms
+          );
+
+        if (
+          !response.ok ||
+          !data
+        ) {
+
+          return;
+
+        }
+
+        if (
+          Array.isArray(data)
+        ) {
+
+          state.rooms =
+            data;
+
+        } else if (
+          Array.isArray(data.rooms)
+        ) {
+
+          state.rooms =
+            data.rooms;
+
+        }
+
+        renderRooms();
+
+      } catch {
+
+        /*
+         * لا نضع بيانات وهمية.
+         */
+
+      }
+
+    }
+
+
+    function renderRooms() {
+
+      const container =
+        $("#roomsContainer");
+
+      if (
+        !state.rooms.length
+      ) {
+
+        return;
+
+      }
+
+      container.className =
+        "quick-grid";
+
+      container.innerHTML =
+        "";
+
+      state.rooms.forEach(
+        room => {
+
+          if (!room) {
+            return;
+          }
+
+          const card =
+            document.createElement(
+              "a"
+            );
+
+          card.className =
+            "quick-card";
+
+          const id =
+            room.id ??
+            room.roomId;
+
+          if (id != null) {
+
+            card.href =
+              "./room.html?id=" +
+              encodeURIComponent(id);
+
+          } else {
+
+            card.href =
+              "#rooms";
+
+          }
+
+          const icon =
+            document.createElement(
+              "div"
+            );
+
+          icon.className =
+            "quick-icon";
+
+          icon.textContent =
+            "◉";
+
+
+          const body =
+            document.createElement(
+              "div"
+            );
+
+          const title =
+            document.createElement(
+              "strong"
+            );
+
+          title.textContent =
+            typeof room.name === "string"
+              ? room.name
+              : "غرفة";
+
+
+          const description =
+            document.createElement(
+              "span"
+            );
+
+          description.textContent =
+            typeof room.description === "string"
+              ? room.description
+              : "";
+
+
+          body.appendChild(
+            title
+          );
+
+          body.appendChild(
+            description
+          );
+
+          card.appendChild(
+            icon
+          );
+
+          card.appendChild(
+            body
+          );
+
+          container.appendChild(
+            card
+          );
+
+        }
+      );
+
+    }
+
+
+    /* =========================================================
+       POSTS
+    ========================================================= */
+
+    async function loadPosts() {
+
+      try {
+
+        const {
+          response,
+          data
+        } =
+          await apiRequest(
+            CONFIG.endpoints.posts
+          );
+
+        if (
+          !response.ok ||
+          !data
+        ) {
+
+          return;
+
+        }
+
+        if (
+          Array.isArray(data)
+        ) {
+
+          state.posts =
+            data;
+
+        } else if (
+          Array.isArray(data.posts)
+        ) {
+
+          state.posts =
+            data.posts;
+
+        }
+
+        /*
+         * العرض الكامل للمنشورات سيتم
+         * عندما يكون schema الـAPI معروفًا.
+         *
+         * لا نعرض بيانات ناقصة أو مخترعة.
+         */
+
+      } catch {
+
+        return;
+
+      }
+
+    }
+
+
+    /* =========================================================
+       MESSAGES
+    ========================================================= */
+
+    async function loadMessages() {
+
+      if (
+        !state.authenticated
+      ) {
+
+        return;
+
+      }
+
+      try {
+
+        const {
+          response,
+          data
+        } =
+          await apiRequest(
+            CONFIG.endpoints.messages
+          );
+
+        if (
+          !response.ok ||
+          !data
+        ) {
+
+          return;
+
+        }
+
+        if (
+          Array.isArray(data)
+        ) {
+
+          state.messages =
+            data;
+
+        } else if (
+          Array.isArray(data.messages)
+        ) {
+
+          state.messages =
+            data.messages;
+
+        }
+
+      } catch {
+
+        return;
+
+      }
+
+    }
+
+
+    /* =========================================================
+       PROFILE
+    ========================================================= */
+
+    async function loadProfile() {
+
+      if (
+        !state.authenticated
+      ) {
+
+        return;
+
+      }
+
+      try {
+
+        const {
+          response,
+          data
+        } =
+          await apiRequest(
+            CONFIG.endpoints.profile
+          );
+
+        if (
+          response.ok &&
+          data
+        ) {
+
+          state.user =
+            data.user || data;
+
+          renderAuthenticated();
+
+        }
+
+      } catch {
+
+        return;
+
+      }
+
+    }
+
+
+    /* =========================================================
+       NOTIFICATIONS
+    ========================================================= */
+
+    async function loadNotifications() {
+
+      if (
+        !state.authenticated
+      ) {
+
+        notificationDot.style.display =
+          "none";
+
+        return;
+
+      }
+
+      try {
+
+        const {
+          response,
+          data
+        } =
+          await apiRequest(
+            CONFIG.endpoints.notifications
+          );
+
+        if (
+          !response.ok ||
+          !data
+        ) {
+
+          return;
+
+        }
+
+        if (
+          Array.isArray(data)
+        ) {
+
+          state.notifications =
+            data;
+
+        } else if (
+          Array.isArray(
+            data.notifications
+          )
+        ) {
+
+          state.notifications =
+            data.notifications;
+
+        }
+
+        const unread =
+          state.notifications.some(
+            item =>
+              item &&
+              (
+                item.unread === true ||
+                item.read === false
+              )
+          );
+
+        notificationDot.style.display =
+          unread
+            ? "block"
+            : "none";
+
+      } catch {
+
+        notificationDot.style.display =
+          "none";
+
+      }
+
+    }
+
+
+    /* =========================================================
+       NOTIFICATIONS BUTTON
+    ========================================================= */
+
+    $("#notificationsButton")
+      .addEventListener(
+        "click",
+        () => {
+
+          if (
+            !state.authenticated
+          ) {
+
+            openModal(
+              "الإشعارات",
+              "سجّل الدخول أولًا للوصول إلى إشعارات حسابك.",
+              [
+                {
+                  label:
+                    "تسجيل الدخول",
+                  primary:
+                    true,
+                  href:
+                    "./auth.html"
+                }
+              ]
+            );
+
+            return;
+
+          }
+
+          if (
+            !state.notifications.length
+          ) {
+
+            openModal(
+              "الإشعارات",
+              "لا توجد إشعارات حقيقية محملة حاليًا."
+            );
+
+            return;
+
+          }
+
+          openModal(
+            "الإشعارات",
+            "تم تحميل إشعارات الحساب من الخادم."
+          );
+
+        }
+      );
+
+
+    /* =========================================================
+       SETTINGS
+    ========================================================= */
+
+    function openSettings() {
+
+      openModal(
+        "الإعدادات",
+        "إعدادات الحساب والخصوصية يجب أن تُحفظ من خلال النظام الحقيقي للمستخدم.",
+        [
+          {
+            label:
+              "فتح الحساب",
+            primary:
+              true,
+            href:
+              state.authenticated
+                ? "#profile"
+                : "./auth.html"
+          }
+        ]
+      );
+
+    }
+
+
+    $("#settingsButton")
+      .addEventListener(
+        "click",
+        openSettings
+      );
+
+
+    $("#quickSettings")
+      .addEventListener(
+        "click",
+        openSettings
+      );
+
+
+    /* =========================================================
+       SEARCH
+    ========================================================= */
+
+    let searchTimer =
+      null;
+
+
+    searchInput.addEventListener(
+      "input",
+      () => {
+
+        clearTimeout(
+          searchTimer
+        );
+
+        const query =
+          searchInput.value.trim();
+
+        if (
+          !query
+        ) {
+
+          return;
+
+        }
+
+        searchTimer =
+          setTimeout(
+            () => performSearch(query),
+            450
+          );
+
+      }
+    );
+
+
+    async function performSearch(
+      query
+    ) {
+
+      try {
+
+        const url =
+          CONFIG.endpoints.search +
+          "?q=" +
+          encodeURIComponent(query);
+
+        const {
+          response,
+          data
+        } =
+          await apiRequest(url);
+
+        if (
+          !response.ok
+        ) {
+
+          toast(
+            "تعذر تنفيذ البحث من الخادم."
+          );
+
+          return;
+
+        }
+
+        if (!data) {
+
+          toast(
+            "لم تصل نتائج بحث."
+          );
+
+          return;
+
+        }
+
+        toast(
+          "تم تنفيذ البحث من الخادم."
+        );
+
+      } catch {
+
+        toast(
+          "خدمة البحث غير متاحة حاليًا."
+        );
+
+      }
+
+    }
+
+
+    searchInput.addEventListener(
+      "keydown",
+      event => {
+
+        if (
+          event.key === "Enter"
+        ) {
+
+          const query =
+            searchInput.value.trim();
+
+          if (
+            query
+          ) {
+
+            performSearch(
+              query
+            );
+
+          }
+
+        }
+
+      }
+    );
+
+
+    /* =========================================================
+       KEYBOARD
+    ========================================================= */
+
+    document.addEventListener(
+      "keydown",
+      event => {
+
+        if (
+          event.key === "Escape"
+        ) {
+
+          closeModal();
+
+          closeMobileMenu();
+
+        }
+
+      }
+    );
+
+
+    /* =========================================================
+       RESIZE
+    ========================================================= */
+
+    window.addEventListener(
+      "resize",
+      () => {
+
+        if (
+          window.innerWidth > 1000
+        ) {
+
+          closeMobileMenu();
+
+        }
+
+      }
+    );
+
+
+    /* =========================================================
+       START
+    ========================================================= */
+
+    async function initialize() {
+
+      loadHash();
+
+      await loadSession();
+
+      await Promise.all([
+        loadRooms(),
+        loadPosts(),
+        loadMessages(),
+        loadProfile(),
+        loadNotifications()
+      ]);
+
+    }
+
+
+    initialize();
+
+  </script>
+
+</body>
+</html>
