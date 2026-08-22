@@ -2384,3 +2384,962 @@ BEGIN
 END $$;
 
 COMMIT;
+      (id)
+        ON DELETE CASCADE,
+      body TEXT,
+      media_url TEXT,
+      media_type VARCHAR(30),
+      visibility VARCHAR(20) NOT NULL DEFAULT 'PUBLIC',
+      comments_count INTEGER NOT NULL DEFAULT 0,
+      likes_count INTEGER NOT NULL DEFAULT 0,
+      created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+      updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+    )
+  `);
+
+  await dbQuery(`
+    CREATE TABLE IF NOT EXISTS post_likes (
+      post_id UUID NOT NULL REFERENCES posts(id) ON DELETE CASCADE,
+      user_id UUID NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+      created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+      PRIMARY KEY (post_id, user_id)
+    )
+  `);
+
+  await dbQuery(`
+    CREATE TABLE IF NOT EXISTS comments (
+      id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+      post_id UUID NOT NULL REFERENCES posts(id) ON DELETE CASCADE,
+      user_id UUID NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+      body TEXT NOT NULL,
+      created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+      updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+    )
+  `);
+
+  await dbQuery(`
+    CREATE TABLE IF NOT EXISTS notifications (
+      id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+      user_id UUID NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+      actor_id UUID REFERENCES users(id) ON DELETE SET NULL,
+      type VARCHAR(50) NOT NULL,
+      title VARCHAR(255),
+      body TEXT,
+      data JSONB NOT NULL DEFAULT '{}'::jsonb,
+      is_read BOOLEAN NOT NULL DEFAULT FALSE,
+      created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+    )
+  `);
+
+  await dbQuery(`
+    CREATE TABLE IF NOT EXISTS gifts (
+      id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+      name VARCHAR(120) NOT NULL,
+      description TEXT,
+      image_url TEXT,
+      price BIGINT NOT NULL CHECK (price >= 0),
+      category VARCHAR(50),
+      rarity VARCHAR(30),
+      is_active BOOLEAN NOT NULL DEFAULT TRUE,
+      created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+      updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+    )
+  `);
+
+  await dbQuery(`
+    CREATE TABLE IF NOT EXISTS gift_transactions (
+      id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+      sender_id UUID NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+      receiver_id UUID NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+      gift_id UUID NOT NULL REFERENCES gifts(id) ON DELETE RESTRICT,
+      quantity INTEGER NOT NULL DEFAULT 1 CHECK (quantity > 0),
+      total_coins BIGINT NOT NULL CHECK (total_coins >= 0),
+      created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+    )
+  `);
+
+  await dbQuery(`
+    CREATE TABLE IF NOT EXISTS coin_transactions (
+      id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+      user_id UUID NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+      amount BIGINT NOT NULL,
+      type VARCHAR(50) NOT NULL,
+      reference_id UUID,
+      description TEXT,
+      balance_after BIGINT NOT NULL,
+      created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+    )
+  `);
+
+  await dbQuery(`
+    CREATE TABLE IF NOT EXISTS vip_plans (
+      id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+      name VARCHAR(100) NOT NULL,
+      description TEXT,
+      price BIGINT NOT NULL CHECK (price >= 0),
+      duration_days INTEGER NOT NULL CHECK (duration_days > 0),
+      is_active BOOLEAN NOT NULL DEFAULT TRUE,
+      created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+    )
+  `);
+
+  await dbQuery(`
+    CREATE TABLE IF NOT EXISTS badges (
+      id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+      name VARCHAR(100) NOT NULL,
+      description TEXT,
+      image_url TEXT,
+      requirement TEXT,
+      is_active BOOLEAN NOT NULL DEFAULT TRUE,
+      created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+    )
+  `);
+
+  await dbQuery(`
+    CREATE TABLE IF NOT EXISTS user_badges (
+      user_id UUID NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+      badge_id UUID NOT NULL REFERENCES badges(id) ON DELETE CASCADE,
+      awarded_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+      PRIMARY KEY (user_id, badge_id)
+    )
+  `);
+
+  await dbQuery(`
+    CREATE TABLE IF NOT EXISTS reports (
+      id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+      reporter_id UUID NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+      target_type VARCHAR(30) NOT NULL,
+      target_id UUID NOT NULL,
+      reason VARCHAR(100) NOT NULL,
+      details TEXT,
+      status VARCHAR(30) NOT NULL DEFAULT 'OPEN',
+      reviewed_by UUID REFERENCES users(id) ON DELETE SET NULL,
+      reviewed_at TIMESTAMPTZ,
+      created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+    )
+  `);
+
+  await dbQuery(`
+    CREATE TABLE IF NOT EXISTS audit_logs (
+      id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+      user_id UUID REFERENCES users(id) ON DELETE SET NULL,
+      action VARCHAR(100) NOT NULL,
+      target_type VARCHAR(50),
+      target_id UUID,
+      ip_address INET,
+      user_agent TEXT,
+      metadata JSONB NOT NULL DEFAULT '{}'::jsonb,
+      created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+    )
+  `);
+
+  await dbQuery(`
+    CREATE TABLE IF NOT EXISTS site_settings (
+      key VARCHAR(100) PRIMARY KEY,
+      value JSONB NOT NULL DEFAULT '{}'::jsonb,
+      updated_by UUID REFERENCES users(id) ON DELETE SET NULL,
+      updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+    )
+  `);
+
+  await dbQuery(`
+    CREATE INDEX IF NOT EXISTS idx_sessions_user_id
+      ON sessions(user_id)
+  `);
+
+  await dbQuery(`
+    CREATE INDEX IF NOT EXISTS idx_sessions_expires_at
+      ON sessions(expires_at)
+  `);
+
+  await dbQuery(`
+    CREATE INDEX IF NOT EXISTS idx_messages_sender
+      ON messages(sender_id, created_at DESC)
+  `);
+
+  await dbQuery(`
+    CREATE INDEX IF NOT EXISTS idx_messages_receiver
+      ON messages(receiver_id, created_at DESC)
+  `);
+
+  await dbQuery(`
+    CREATE INDEX IF NOT EXISTS idx_messages_room
+      ON messages(room_id, created_at DESC)
+  `);
+
+  await dbQuery(`
+    CREATE INDEX IF NOT EXISTS idx_posts_user
+      ON posts(user_id, created_at DESC)
+  `);
+
+  await dbQuery(`
+    CREATE INDEX IF NOT EXISTS idx_notifications_user
+      ON notifications(user_id, created_at DESC)
+  `);
+
+  await dbQuery(`
+    CREATE INDEX IF NOT EXISTS idx_gift_transactions_sender
+      ON gift_transactions(sender_id, created_at DESC)
+  `);
+
+  await dbQuery(`
+    CREATE INDEX IF NOT EXISTS idx_gift_transactions_receiver
+      ON gift_transactions(receiver_id, created_at DESC)
+  `);
+
+  await dbQuery(`
+    CREATE INDEX IF NOT EXISTS idx_audit_logs_user
+      ON audit_logs(user_id, created_at DESC)
+  `);
+}
+
+/*
+============================================================
+ HEALTH
+============================================================
+*/
+
+app.get('/api/health', async (req, res) => {
+  try {
+    await dbQuery('SELECT 1');
+
+    return sendSuccess(res, {
+      status: 'ok',
+      database: 'connected',
+      environment: NODE_ENV,
+      timestamp: new Date().toISOString()
+    });
+  } catch (error) {
+    return sendError(
+      res,
+      503,
+      'DATABASE_UNAVAILABLE'
+    );
+  }
+});
+
+/*
+============================================================
+ AUTH - REGISTER
+============================================================
+*/
+
+app.post(
+  '/api/auth/register',
+  authLimiter,
+  async (req, res, next) => {
+    try {
+      const username =
+        normalizeUsername(req.body.username);
+
+      const email =
+        normalizeEmail(req.body.email);
+
+      const password =
+        req.body.password;
+
+      if (!isValidUsername(username)) {
+        return sendError(
+          res,
+          400,
+          'INVALID_USERNAME'
+        );
+      }
+
+      if (!isValidPassword(password)) {
+        return sendError(
+          res,
+          400,
+          'INVALID_PASSWORD'
+        );
+      }
+
+      if (
+        email &&
+        (
+          email.length > 255 ||
+          !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
+        )
+      ) {
+        return sendError(
+          res,
+          400,
+          'INVALID_EMAIL'
+        );
+      }
+
+      const passwordHash =
+        await bcrypt.hash(password, 12);
+
+      const user =
+        await dbTransaction(async (client) => {
+
+          const countResult =
+            await client.query(
+              `
+                SELECT COUNT(*)::integer AS count
+                FROM users
+              `
+            );
+
+          const isFirstUser =
+            Number(
+              countResult.rows[0].count
+            ) === 0;
+
+          const role =
+            isFirstUser
+              ? 'OWNER'
+              : 'USER';
+
+          const result =
+            await client.query(
+              `
+                INSERT INTO users
+                (
+                  username,
+                  email,
+                  password_hash,
+                  role
+                )
+                VALUES
+                ($1,$2,$3,$4)
+                RETURNING *
+              `,
+              [
+                username,
+                email,
+                passwordHash,
+                role
+              ]
+            );
+
+          const created =
+            result.rows[0];
+
+          await client.query(
+            `
+              INSERT INTO profiles
+              (
+                user_id,
+                display_name
+              )
+              VALUES
+              ($1,$2)
+              ON CONFLICT (user_id)
+              DO NOTHING
+            `,
+            [
+              created.id,
+              username
+            ]
+          );
+
+          return created;
+        });
+
+      const token =
+        signToken(user);
+
+      const tokenHash =
+        hashToken(token);
+
+      await dbQuery(
+        `
+          INSERT INTO sessions
+          (
+            user_id,
+            token_hash,
+            ip_address,
+            user_agent,
+            expires_at
+          )
+          VALUES
+          ($1,$2,$3,$4,NOW()+($5 || ' days')::interval)
+        `,
+        [
+          user.id,
+          tokenHash,
+          getIP(req),
+          req.headers['user-agent'] || null,
+          SESSION_DAYS
+        ]
+      );
+
+      setCookie(res, token);
+
+      await audit({
+        userId: user.id,
+        action: 'REGISTER',
+        targetType: 'USER',
+        targetId: user.id,
+        req
+      });
+
+      return sendSuccess(
+        res,
+        {
+          user: publicUser(user),
+          message: 'ACCOUNT_CREATED'
+        },
+        201
+      );
+
+    } catch (error) {
+
+      if (
+        error.code === '23505'
+      ) {
+        return sendError(
+          res,
+          409,
+          'USERNAME_OR_EMAIL_EXISTS'
+        );
+      }
+
+      next(error);
+    }
+  }
+);
+
+/*
+============================================================
+ AUTH - LOGIN
+============================================================
+*/
+
+app.post(
+  '/api/auth/login',
+  authLimiter,
+  async (req, res, next) => {
+    try {
+
+      const login =
+        String(
+          req.body.login || ''
+        )
+        .trim()
+        .toLowerCase();
+
+      const password =
+        req.body.password;
+
+      if (!login || !password) {
+        return sendError(
+          res,
+          400,
+          'LOGIN_DATA_REQUIRED'
+        );
+      }
+
+      const user =
+        await dbOne(
+          `
+            SELECT *
+            FROM users
+            WHERE
+              LOWER(username)=$1
+              OR LOWER(email)=$1
+            LIMIT 1
+          `,
+          [login]
+        );
+
+      if (!user) {
+        return sendError(
+          res,
+          401,
+          'INVALID_CREDENTIALS'
+        );
+      }
+
+      const valid =
+        await bcrypt.compare(
+          password,
+          user.password_hash
+        );
+
+      if (!valid) {
+        return sendError(
+          res,
+          401,
+          'INVALID_CREDENTIALS'
+        );
+      }
+
+      if (user.status !== 'ACTIVE') {
+        return sendError(
+          res,
+          403,
+          'ACCOUNT_NOT_ACTIVE'
+        );
+      }
+
+      const token =
+        signToken(user);
+
+      await dbQuery(
+        `
+          INSERT INTO sessions
+          (
+            user_id,
+            token_hash,
+            ip_address,
+            user_agent,
+            expires_at
+          )
+          VALUES
+          ($1,$2,$3,$4,NOW()+($5 || ' days')::interval)
+        `,
+        [
+          user.id,
+          hashToken(token),
+          getIP(req),
+          req.headers['user-agent'] || null,
+          SESSION_DAYS
+        ]
+      );
+
+      await dbQuery(
+        `
+          UPDATE users
+          SET
+            last_login_at=NOW(),
+            last_seen_at=NOW(),
+            updated_at=NOW()
+          WHERE id=$1
+        `,
+        [user.id]
+      );
+
+      setCookie(res, token);
+
+      await audit({
+        userId: user.id,
+        action: 'LOGIN',
+        req
+      });
+
+      return sendSuccess(res, {
+        user: publicUser(user)
+      });
+
+    } catch (error) {
+      next(error);
+    }
+  }
+);
+
+/*
+============================================================
+ AUTH - ME
+============================================================
+*/
+
+app.get(
+  '/api/auth/me',
+  authenticate,
+  async (req, res, next) => {
+    try {
+
+      const profile =
+        await dbOne(
+          `
+            SELECT *
+            FROM profiles
+            WHERE user_id=$1
+          `,
+          [req.user.id]
+        );
+
+      return sendSuccess(res, {
+        user: publicUser(req.user),
+        profile: publicProfile(profile)
+      });
+
+    } catch (error) {
+      next(error);
+    }
+  }
+);
+
+/*
+============================================================
+ AUTH - LOGOUT
+============================================================
+*/
+
+app.post(
+  '/api/auth/logout',
+  authenticate,
+  async (req, res, next) => {
+    try {
+
+      await dbQuery(
+        `
+          DELETE FROM sessions
+          WHERE token_hash=$1
+        `,
+        [
+          hashToken(req.token)
+        ]
+      );
+
+      clearCookie(res);
+
+      await audit({
+        userId: req.user.id,
+        action: 'LOGOUT',
+        req
+      });
+
+      return sendSuccess(res);
+
+    } catch (error) {
+      next(error);
+    }
+  }
+);
+
+/*
+============================================================
+ USERS - PROFILE
+============================================================
+*/
+
+app.get(
+  '/api/users/:id',
+  async (req, res, next) => {
+    try {
+
+      if (!isValidUUID(req.params.id)) {
+        return sendError(
+          res,
+          400,
+          'INVALID_USER_ID'
+        );
+      }
+
+      const user =
+        await dbOne(
+          `
+            SELECT *
+            FROM users
+            WHERE id=$1
+          `,
+          [req.params.id]
+        );
+
+      if (!user) {
+        return sendError(
+          res,
+          404,
+          'USER_NOT_FOUND'
+        );
+      }
+
+      const profile =
+        await dbOne(
+          `
+            SELECT *
+            FROM profiles
+            WHERE user_id=$1
+          `,
+          [user.id]
+        );
+
+      return sendSuccess(res, {
+        user: publicUser(user),
+        profile: publicProfile(profile)
+      });
+
+    } catch (error) {
+      next(error);
+    }
+  }
+);
+
+app.patch(
+  '/api/me/profile',
+  authenticate,
+  sensitiveLimiter,
+  async (req, res, next) => {
+    try {
+
+      const {
+        display_name,
+        bio,
+        gender,
+        country,
+        city,
+        birth_date,
+        website
+      } = req.body;
+
+      const profile =
+        await dbOne(
+          `
+            INSERT INTO profiles
+            (
+              user_id,
+              display_name,
+              bio,
+              gender,
+              country,
+              city,
+              birth_date,
+              website
+            )
+            VALUES
+            ($1,$2,$3,$4,$5,$6,$7,$8)
+            ON CONFLICT (user_id)
+            DO UPDATE SET
+              display_name=EXCLUDED.display_name,
+              bio=EXCLUDED.bio,
+              gender=EXCLUDED.gender,
+              country=EXCLUDED.country,
+              city=EXCLUDED.city,
+              birth_date=EXCLUDED.birth_date,
+              website=EXCLUDED.website,
+              updated_at=NOW()
+            RETURNING *
+          `,
+          [
+            req.user.id,
+            display_name ?? null,
+            bio ?? null,
+            gender ?? null,
+            country ?? null,
+            city ?? null,
+            birth_date ?? null,
+            website ?? null
+          ]
+        );
+
+      return sendSuccess(res, {
+        profile: publicProfile(profile)
+      });
+
+    } catch (error) {
+      next(error);
+    }
+  }
+);
+
+/*
+============================================================
+ FOLLOW
+============================================================
+*/
+
+app.post(
+  '/api/users/:id/follow',
+  authenticate,
+  sensitiveLimiter,
+  async (req, res, next) => {
+    try {
+
+      const targetId =
+        req.params.id;
+
+      if (!isValidUUID(targetId)) {
+        return sendError(
+          res,
+          400,
+          'INVALID_USER_ID'
+        );
+      }
+
+      if (targetId === req.user.id) {
+        return sendError(
+          res,
+          400,
+          'CANNOT_FOLLOW_SELF'
+        );
+      }
+
+      const target =
+        await dbOne(
+          `
+            SELECT id
+            FROM users
+            WHERE id=$1
+          `,
+          [targetId]
+        );
+
+      if (!target) {
+        return sendError(
+          res,
+          404,
+          'USER_NOT_FOUND'
+        );
+      }
+
+      await dbQuery(
+        `
+          INSERT INTO follows
+          (
+            follower_id,
+            following_id
+          )
+          VALUES
+          ($1,$2)
+          ON CONFLICT DO NOTHING
+        `,
+        [
+          req.user.id,
+          targetId
+        ]
+      );
+
+      await createNotification({
+        userId: targetId,
+        actorId: req.user.id,
+        type: 'FOLLOW',
+        title: 'متابعة جديدة',
+        body: `${req.user.username} بدأ بمتابعتك`,
+        data: {
+          user_id: req.user.id
+        }
+      });
+
+      return sendSuccess(res);
+
+    } catch (error) {
+      next(error);
+    }
+  }
+);
+
+app.delete(
+  '/api/users/:id/follow',
+  authenticate,
+  async (req, res, next) => {
+    try {
+
+      await dbQuery(
+        `
+          DELETE FROM follows
+          WHERE
+            follower_id=$1
+            AND following_id=$2
+        `,
+        [
+          req.user.id,
+          req.params.id
+        ]
+      );
+
+      return sendSuccess(res);
+
+    } catch (error) {
+      next(error);
+    }
+  }
+);
+
+/*
+============================================================
+ BLOCK
+============================================================
+*/
+
+app.post(
+  '/api/users/:id/block',
+  authenticate,
+  async (req, res, next) => {
+    try {
+
+      if (
+        !isValidUUID(req.params.id) ||
+        req.params.id === req.user.id
+      ) {
+        return sendError(
+          res,
+          400,
+          'INVALID_TARGET'
+        );
+      }
+
+      await dbQuery(
+        `
+          INSERT INTO blocks
+          (
+            blocker_id,
+            blocked_id
+          )
+          VALUES
+          ($1,$2)
+          ON CONFLICT DO NOTHING
+        `,
+        [
+          req.user.id,
+          req.params.id
+        ]
+      );
+
+      await dbQuery(
+        `
+          DELETE FROM follows
+          WHERE
+            (
+              follower_id=$1
+              AND following_id=$2
+            )
+            OR
+            (
+              follower_id=$2
+              AND following_id=$1
+            )
+        `,
+        [
+          req.user.id,
+          req.params.id
+        ]
+      );
+
+      return sendSuccess(res);
+
+    } catch (error) {
+      next(error);
+    }
+  }
+);
+
+app.delete(
+  '/api/users/:id/block',
+  authenticate,
+  async (req, res, next) => {
+    try {
+
+      await dbQuery(
+        `
+          DELETE FROM blocks
+          WHERE
+            blocker_id=$1
+            AND blocked_id=$2
+        `,
+        [
+          req.user.id,
+          req.params.id
+        ]
+      );
+
+      return sendSuccess(res);
+
+    } catch (error) {
+      next(error);
+    }
+  }
+);
+
+/*
+============================================================
+ POSTS
+============================================================
+*/
+
+app.get(
+  '/api/posts',
+  async (req, res, ne
