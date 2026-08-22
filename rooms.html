@@ -4271,3 +4271,1253 @@
 
 })();
 </script>
+          ),
+
+        createModal:
+          document.getElementById(
+            "createRoomModal"
+          ),
+
+        closeCreateRoom:
+          document.getElementById(
+            "closeCreateRoom"
+          ),
+
+        cancelCreateRoom:
+          document.getElementById(
+            "cancelCreateRoom"
+          ),
+
+        createRoomForm:
+          document.getElementById(
+            "createRoomForm"
+          ),
+
+        roomName:
+          document.getElementById(
+            "newRoomName"
+          ),
+
+        roomCategory:
+          document.getElementById(
+            "newRoomCategory"
+          ),
+
+        roomDescription:
+          document.getElementById(
+            "newRoomDescription"
+          ),
+
+        createRoomSubmit:
+          document.getElementById(
+            "createRoomSubmit"
+          )
+      };
+
+
+      const API = {
+
+        rooms: [
+          "/api/rooms",
+          "/rooms"
+        ],
+
+        createRoom: [
+          "/api/rooms",
+          "/rooms"
+        ]
+
+      };
+
+
+      function escapeHTML(value) {
+
+        return String(
+          value ?? ""
+        )
+
+          .replace(
+            /&/g,
+            "&amp;"
+          )
+
+          .replace(
+            /</g,
+            "&lt;"
+          )
+
+          .replace(
+            />/g,
+            "&gt;"
+          )
+
+          .replace(
+            /"/g,
+            "&quot;"
+          )
+
+          .replace(
+            /'/g,
+            "&#039;"
+          );
+
+      }
+
+
+      function normalizeRoomsResponse(data) {
+
+        if (
+          Array.isArray(data)
+        ) {
+
+          return data;
+
+        }
+
+
+        if (
+          Array.isArray(
+            data?.rooms
+          )
+        ) {
+
+          return data.rooms;
+
+        }
+
+
+        if (
+          Array.isArray(
+            data?.data
+          )
+        ) {
+
+          return data.data;
+
+        }
+
+
+        return [];
+
+      }
+
+
+      function getRoomId(room) {
+
+        return (
+          room?.id ??
+          room?.room_id ??
+          room?.roomId ??
+          ""
+        );
+
+      }
+
+
+      function getRoomName(room) {
+
+        return (
+          room?.name ??
+          room?.room_name ??
+          room?.roomName ??
+          "غرفة بدون اسم"
+        );
+
+      }
+
+
+      function getRoomCategory(room) {
+
+        return (
+          room?.category ??
+          room?.type ??
+          room?.room_type ??
+          "مجلس عام"
+        );
+
+      }
+
+
+      function getRoomDescription(room) {
+
+        return (
+          room?.description ??
+          room?.bio ??
+          room?.room_description ??
+          "لا يوجد وصف لهذه الغرفة."
+        );
+
+      }
+
+
+      function getRoomOnlineCount(room) {
+
+        const value =
+          room?.online_count ??
+          room?.online ??
+          room?.members_online ??
+          room?.member_count ??
+          room?.users_count ??
+          0;
+
+
+        const number =
+          Number(value);
+
+
+        return Number.isFinite(
+          number
+        )
+          ? Math.max(
+              0,
+              Math.floor(number)
+            )
+          : 0;
+
+      }
+
+
+      function getRoomStatus(room) {
+
+        if (
+          room?.locked === true ||
+          room?.is_locked === true
+        ) {
+
+          return "🔒 خاصة";
+
+        }
+
+
+        if (
+          room?.status
+        ) {
+
+          return String(
+            room.status
+          );
+
+        }
+
+
+        return "🟢 مفتوحة";
+
+      }
+
+
+      function showState(
+        icon,
+        title,
+        message,
+        retry = false
+      ) {
+
+        if (
+          !elements.container
+        ) {
+          return;
+        }
+
+
+        elements.container.innerHTML =
+          `
+            <div class="state">
+
+              <div
+                class="state-icon"
+                aria-hidden="true"
+              >
+                ${icon}
+              </div>
+
+              <div class="state-title">
+                ${escapeHTML(title)}
+              </div>
+
+              <p class="state-message">
+                ${escapeHTML(message)}
+              </p>
+
+              ${
+                retry
+                  ? `
+                    <button
+                      class="retry-button"
+                      id="retryRoomsButton"
+                      type="button"
+                    >
+                      إعادة المحاولة
+                    </button>
+                  `
+                  : ""
+              }
+
+            </div>
+          `;
+
+
+        const retryButton =
+          document.getElementById(
+            "retryRoomsButton"
+          );
+
+
+        if (
+          retryButton
+        ) {
+
+          retryButton.addEventListener(
+            "click",
+            () => {
+
+              loadRooms();
+
+            }
+          );
+
+        }
+
+      }
+
+
+      function showToast(
+        message,
+        type = "info"
+      ) {
+
+        const oldToast =
+          document.querySelector(
+            ".rooms-toast"
+          );
+
+
+        if (
+          oldToast
+        ) {
+
+          oldToast.remove();
+
+        }
+
+
+        const toast =
+          document.createElement(
+            "div"
+          );
+
+
+        toast.className =
+          `rooms-toast rooms-toast-${type}`;
+
+
+        toast.textContent =
+          message;
+
+
+        Object.assign(
+          toast.style,
+          {
+
+            position:
+              "fixed",
+
+            left:
+              "50%",
+
+            bottom:
+              "24px",
+
+            zIndex:
+              "9999",
+
+            maxWidth:
+              "calc(100vw - 32px)",
+
+            padding:
+              "13px 18px",
+
+            border:
+              "1px solid rgba(255,255,255,.12)",
+
+            borderRadius:
+              "14px",
+
+            color:
+              "#fff",
+
+            background:
+              type === "error"
+                ? "rgba(180,35,65,.96)"
+                : type === "success"
+                  ? "rgba(24,125,70,.96)"
+                  : "rgba(25,30,48,.96)",
+
+            boxShadow:
+              "0 18px 50px rgba(0,0,0,.35)",
+
+            backdropFilter:
+              "blur(16px)",
+
+            WebkitBackdropFilter:
+              "blur(16px)",
+
+            fontSize:
+              "13px",
+
+            fontWeight:
+              "800",
+
+            textAlign:
+              "center",
+
+            transform:
+              "translate(-50%, 20px)",
+
+            opacity:
+              "0",
+
+            transition:
+              "opacity .25s ease, transform .25s ease"
+
+          }
+        );
+
+
+        document.body.appendChild(
+          toast
+        );
+
+
+        requestAnimationFrame(
+          () => {
+
+            toast.style.opacity =
+              "1";
+
+
+            toast.style.transform =
+              "translate(-50%, 0)";
+
+          }
+        );
+
+
+        window.setTimeout(
+          () => {
+
+            toast.style.opacity =
+              "0";
+
+
+            toast.style.transform =
+              "translate(-50%, 20px)";
+
+
+            window.setTimeout(
+              () => {
+
+                toast.remove();
+
+              },
+              300
+            );
+
+          },
+          3000
+        );
+
+      }
+
+
+      function renderRooms() {
+
+        if (
+          !elements.container
+        ) {
+          return;
+        }
+
+
+        const rooms =
+          state.filteredRooms;
+
+
+        if (
+          !Array.isArray(rooms) ||
+          rooms.length === 0
+        ) {
+
+          showState(
+            "🏛️",
+            state.rooms.length === 0
+              ? "لا توجد غرف حاليًا"
+              : "لم يتم العثور على نتائج",
+            state.rooms.length === 0
+              ? "لا توجد غرف مسجلة فعليًا في النظام حتى الآن."
+              : "جرّب البحث باسم آخر."
+          );
+
+
+          elements.container.setAttribute(
+            "aria-busy",
+            "false"
+          );
+
+
+          return;
+
+        }
+
+
+        elements.container.innerHTML =
+          rooms
+            .map(
+              room => {
+
+                const id =
+                  getRoomId(
+                    room
+                  );
+
+
+                const name =
+                  getRoomName(
+                    room
+                  );
+
+
+                const category =
+                  getRoomCategory(
+                    room
+                  );
+
+
+                const description =
+                  getRoomDescription(
+                    room
+                  );
+
+
+                const online =
+                  getRoomOnlineCount(
+                    room
+                  );
+
+
+                const status =
+                  getRoomStatus(
+                    room
+                  );
+
+
+                return `
+                  <article
+                    class="room-card"
+                    data-room-id="${escapeHTML(id)}"
+                  >
+
+                    <div class="room-head">
+
+                      <div
+                        class="room-icon"
+                        aria-hidden="true"
+                      >
+                        🏛️
+                      </div>
+
+                      <div class="room-info">
+
+                        <h3
+                          class="room-name"
+                          title="${escapeHTML(name)}"
+                        >
+                          ${escapeHTML(name)}
+                        </h3>
+
+                        <div class="room-category">
+                          ${escapeHTML(category)}
+                        </div>
+
+                      </div>
+
+                    </div>
+
+
+                    <p class="room-description">
+                      ${escapeHTML(description)}
+                    </p>
+
+
+                    <div class="room-meta">
+
+                      <span class="room-online">
+
+                        <span
+                          class="online-dot"
+                          aria-hidden="true"
+                        ></span>
+
+                        <span>
+                          ${online} متصل
+                        </span>
+
+                      </span>
+
+
+                      <span class="room-status">
+                        ${escapeHTML(status)}
+                      </span>
+
+                    </div>
+
+
+                    <button
+                      class="enter-room"
+                      type="button"
+                      data-room-id="${escapeHTML(id)}"
+                      data-room-name="${escapeHTML(name)}"
+                      ${id ? "" : "disabled"}
+                    >
+                      دخول الغرفة
+                    </button>
+
+                  </article>
+                `;
+
+              }
+            )
+            .join("");
+
+
+        elements.container.setAttribute(
+          "aria-busy",
+          "false"
+        );
+
+      }
+
+
+      function filterRooms() {
+
+        const query =
+          String(
+            elements.search?.value ??
+            ""
+          )
+            .trim()
+            .toLowerCase();
+
+
+        if (
+          !query
+        ) {
+
+          state.filteredRooms =
+            [...state.rooms];
+
+
+          renderRooms();
+
+
+          return;
+
+        }
+
+
+        state.filteredRooms =
+          state.rooms.filter(
+            room => {
+
+              const text =
+                [
+                  getRoomName(room),
+                  getRoomCategory(room),
+                  getRoomDescription(room)
+                ]
+                  .join(" ")
+                  .toLowerCase();
+
+
+              return text.includes(
+                query
+              );
+
+            }
+          );
+
+
+        renderRooms();
+
+      }
+
+
+      async function requestFromEndpoints(
+        endpoints,
+        options = {}
+      ) {
+
+        let lastError =
+          null;
+
+
+        for (
+          const endpoint of endpoints
+        ) {
+
+          try {
+
+            const response =
+              await fetch(
+                endpoint,
+                {
+                  credentials:
+                    "same-origin",
+
+                  headers: {
+                    Accept:
+                      "application/json",
+
+                    ...options.headers
+                  },
+
+                  ...options
+                }
+              );
+
+
+            if (
+              response.status === 404
+            ) {
+
+              lastError =
+                new Error(
+                  `Endpoint not found: ${endpoint}`
+                );
+
+
+              continue;
+
+            }
+
+
+            const contentType =
+              response.headers.get(
+                "content-type"
+              ) ||
+              "";
+
+
+            let data =
+              null;
+
+
+            if (
+              contentType.includes(
+                "application/json"
+              )
+            ) {
+
+              data =
+                await response.json();
+
+            } else {
+
+              const text =
+                await response.text();
+
+
+              try {
+
+                data =
+                  JSON.parse(
+                    text
+                  );
+
+              } catch {
+
+                data = {
+                  message:
+                    text
+                };
+
+              }
+
+            }
+
+
+            if (
+              !response.ok
+            ) {
+
+              throw new Error(
+                data?.message ||
+                data?.error ||
+                "حدث خطأ في الخادم."
+              );
+
+            }
+
+
+            return data;
+
+          } catch (error) {
+
+            lastError =
+              error;
+
+          }
+
+        }
+
+
+        throw (
+          lastError ||
+          new Error(
+            "تعذر الاتصال بالخادم."
+          )
+        );
+
+      }
+
+
+      async function loadRooms() {
+
+        if (
+          state.loading
+        ) {
+          return;
+        }
+
+
+        state.loading =
+          true;
+
+
+        state.error =
+          null;
+
+
+        if (
+          elements.container &&
+          state.rooms.length === 0
+        ) {
+
+          elements.container.setAttribute(
+            "aria-busy",
+            "true"
+          );
+
+        }
+
+
+        try {
+
+          const data =
+            await requestFromEndpoints(
+              API.rooms
+            );
+
+
+          const rooms =
+            normalizeRoomsResponse(
+              data
+            );
+
+
+          state.rooms =
+            rooms;
+
+
+          state.filteredRooms =
+            [...rooms];
+
+
+          filterRooms();
+
+        } catch (error) {
+
+          console.error(
+            "Load rooms error:",
+            error
+          );
+
+
+          state.error =
+            error;
+
+
+          showState(
+            "⚠️",
+            "تعذر تحميل الغرف",
+            "لم نتمكن من الاتصال بخادم الغرف. تأكد من تشغيل الخادم ثم أعد المحاولة.",
+            true
+          );
+
+
+          elements.container?.setAttribute(
+            "aria-busy",
+            "false"
+          );
+
+        } finally {
+
+          state.loading =
+            false;
+
+        }
+
+      }
+
+
+      function openCreateModal() {
+
+        if (
+          !elements.createModal
+        ) {
+          return;
+        }
+
+
+        elements.createModal.hidden =
+          false;
+
+
+        document.body.style.overflow =
+          "hidden";
+
+
+        window.setTimeout(
+          () => {
+
+            elements.roomName?.focus();
+
+          },
+          50
+        );
+
+      }
+
+
+      function closeCreateModal() {
+
+        if (
+          !elements.createModal
+        ) {
+          return;
+        }
+
+
+        elements.createModal.hidden =
+          true;
+
+
+        document.body.style.overflow =
+          "";
+
+
+        elements.createRoomForm?.reset();
+
+
+        elements.createButton?.focus();
+
+      }
+
+
+      async function createRoom(
+        payload
+      ) {
+
+        return requestFromEndpoints(
+          API.createRoom,
+          {
+            method:
+              "POST",
+
+            headers: {
+              "Content-Type":
+                "application/json"
+            },
+
+            body:
+              JSON.stringify(
+                payload
+              )
+          }
+        );
+
+      }
+
+
+      async function handleCreateRoom(
+        event
+      ) {
+
+        event.preventDefault();
+
+
+        if (
+          state.creating
+        ) {
+          return;
+        }
+
+
+        const name =
+          String(
+            elements.roomName?.value ??
+            ""
+          ).trim();
+
+
+        const category =
+          String(
+            elements.roomCategory?.value ??
+            ""
+          ).trim();
+
+
+        const description =
+          String(
+            elements.roomDescription?.value ??
+            ""
+          ).trim();
+
+
+        if (
+          name.length < 3
+        ) {
+
+          showToast(
+            "اسم الغرفة يجب أن يكون 3 أحرف على الأقل.",
+            "error"
+          );
+
+
+          elements.roomName?.focus();
+
+
+          return;
+
+        }
+
+
+        if (
+          name.length > 60
+        ) {
+
+          showToast(
+            "اسم الغرفة طويل جدًا.",
+            "error"
+          );
+
+
+          return;
+
+        }
+
+
+        state.creating =
+          true;
+
+
+        if (
+          elements.createRoomSubmit
+        ) {
+
+          elements.createRoomSubmit.disabled =
+            true;
+
+
+          elements.createRoomSubmit.textContent =
+            "جاري الإنشاء...";
+
+        }
+
+
+        try {
+
+          await createRoom(
+            {
+              name,
+              category,
+              description
+            }
+          );
+
+
+          showToast(
+            "تم إنشاء الغرفة بنجاح.",
+            "success"
+          );
+
+
+          closeCreateModal();
+
+
+          await loadRooms();
+
+        } catch (error) {
+
+          console.error(
+            "Create room error:",
+            error
+          );
+
+
+          showToast(
+            error?.message ||
+            "تعذر إنشاء الغرفة.",
+            "error"
+          );
+
+        } finally {
+
+          state.creating =
+            false;
+
+
+          if (
+            elements.createRoomSubmit
+          ) {
+
+            elements.createRoomSubmit.disabled =
+              false;
+
+
+            elements.createRoomSubmit.textContent =
+              "إنشاء الغرفة";
+
+          }
+
+        }
+
+      }
+
+
+      function enterRoom(
+        roomId
+      ) {
+
+        if (
+          !roomId
+        ) {
+
+          showToast(
+            "بيانات الغرفة غير صحيحة.",
+            "error"
+          );
+
+
+          return;
+
+        }
+
+
+        window.location.href =
+          `/room.html?id=${encodeURIComponent(roomId)}`;
+
+      }
+
+
+      elements.search?.addEventListener(
+        "input",
+        filterRooms
+      );
+
+
+      elements.createButton?.addEventListener(
+        "click",
+        openCreateModal
+      );
+
+
+      elements.closeCreateRoom?.addEventListener(
+        "click",
+        closeCreateModal
+      );
+
+
+      elements.cancelCreateRoom?.addEventListener(
+        "click",
+        closeCreateModal
+      );
+
+
+      elements.createModal?.addEventListener(
+        "click",
+        event => {
+
+          if (
+            event.target ===
+            elements.createModal
+          ) {
+
+            closeCreateModal();
+
+          }
+
+        }
+      );
+
+
+      elements.createRoomForm?.addEventListener(
+        "submit",
+        handleCreateRoom
+      );
+
+
+      elements.backButton?.addEventListener(
+        "click",
+        () => {
+
+          if (
+            window.history.length > 1
+          ) {
+
+            window.history.back();
+
+          } else {
+
+            window.location.href =
+              "/";
+
+          }
+
+        }
+      );
+
+
+      elements.container?.addEventListener(
+        "click",
+        event => {
+
+          const button =
+            event.target.closest(
+              ".enter-room"
+            );
+
+
+          if (
+            !button ||
+            button.disabled
+          ) {
+            return;
+          }
+
+
+          enterRoom(
+            button.dataset.roomId
+          );
+
+        }
+      );
+
+
+      window.__RoomsPage = {
+        state,
+        elements,
+        loadRooms,
+        filterRooms,
+        renderRooms,
+        openCreateModal,
+       
