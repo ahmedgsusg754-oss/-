@@ -1,0 +1,6389 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    >
+
+    <meta
+        name="theme-color"
+        content="#05030b"
+    >
+
+    <meta
+        name="color-scheme"
+        content="dark"
+    >
+
+    <meta
+        name="robots"
+        content="noindex,nofollow"
+    >
+
+    <meta
+        name="description"
+        content="افـنـدツينا🥀🖤 — منصة تواصل عربية"
+    >
+
+    <title>
+        افـنـدツينا🥀🖤
+    </title>
+
+
+    <!-- =====================================================
+         FONTS
+    ====================================================== -->
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- =====================================================
+         FRONTEND CONFIGURATION
+         لا نضع هنا أي بيانات مستخدمين أو أرصدة وهمية.
+    ====================================================== -->
+
+    <script>
+        window.AFANDINA_CONFIG = Object.freeze({
+
+            /*
+             * اتركه فارغاً إذا كان الـBackend
+             * يعمل على نفس النطاق.
+             *
+             * عند تشغيل Backend على نطاق مستقل
+             * يتم وضع نطاق الخادم الحقيقي هنا.
+             */
+            API_BASE: '',
+
+            /*
+             * صفحة المصادقة.
+             */
+            AUTH_PAGE: 'auth.html',
+
+            /*
+             * الصفحة الرئيسية بعد تسجيل الدخول.
+             */
+            HOME_PAGE: 'index.html',
+
+            /*
+             * إصدار الواجهة.
+             */
+            VERSION: '1.0.0',
+
+            /*
+             * اسم التطبيق.
+             */
+            APP_NAME: 'افـنـدツينا🥀🖤'
+
+        });
+    </script>
+
+
+    <!-- =====================================================
+         GLOBAL STYLE VARIABLES
+    ====================================================== -->
+
+    <style>
+
+        :root {
+
+            /* -------------------------------------------------
+               BACKGROUND
+            ------------------------------------------------- */
+
+            --af-bg:
+                #030208;
+
+            --af-bg-primary:
+                #05030b;
+
+            --af-bg-secondary:
+                #090511;
+
+            --af-bg-tertiary:
+                #10091a;
+
+
+            /* -------------------------------------------------
+               PANELS
+            ------------------------------------------------- */
+
+            --af-panel:
+                rgba(13, 8, 22, 0.88);
+
+            --af-panel-soft:
+                rgba(255, 255, 255, 0.035);
+
+            --af-panel-hover:
+                rgba(255, 255, 255, 0.055);
+
+
+            /* -------------------------------------------------
+               TEXT
+            ------------------------------------------------- */
+
+            --af-text:
+                #ffffff;
+
+            --af-text-soft:
+                #ded7e7;
+
+            --af-muted:
+                #9b92a7;
+
+            --af-muted-dark:
+                #70687b;
+
+
+            /* -------------------------------------------------
+               BRAND
+            ------------------------------------------------- */
+
+            --af-primary:
+                #a63cff;
+
+            --af-primary-dark:
+                #6718d9;
+
+            --af-primary-light:
+                #d18aff;
+
+            --af-pink:
+                #ff4db8;
+
+            --af-pink-dark:
+                #c92180;
+
+
+            /* -------------------------------------------------
+               STATUS
+            ------------------------------------------------- */
+
+            --af-success:
+                #42df99;
+
+            --af-warning:
+                #ffc857;
+
+            --af-danger:
+                #ff5477;
+
+            --af-info:
+                #5cbcff;
+
+
+            /* -------------------------------------------------
+               BORDER
+            ------------------------------------------------- */
+
+            --af-border:
+                rgba(188, 112, 255, 0.18);
+
+            --af-border-strong:
+                rgba(188, 112, 255, 0.32);
+
+
+            /* -------------------------------------------------
+               SHADOWS
+            ------------------------------------------------- */
+
+            --af-shadow:
+                0 25px 80px rgba(0, 0, 0, 0.55);
+
+            --af-shadow-primary:
+                0 15px 55px rgba(137, 38, 255, 0.24);
+
+
+            /* -------------------------------------------------
+               RADIUS
+            ------------------------------------------------- */
+
+            --af-radius-xs:
+                8px;
+
+            --af-radius-sm:
+                11px;
+
+            --af-radius-md:
+                15px;
+
+            --af-radius-lg:
+                20px;
+
+            --af-radius-xl:
+                28px;
+
+            --af-radius-round:
+                999px;
+
+
+            /* -------------------------------------------------
+               TRANSITIONS
+            ------------------------------------------------- */
+
+            --af-transition:
+                0.22s ease;
+
+            --af-transition-slow:
+                0.45s ease;
+
+
+            /* -------------------------------------------------
+               LAYOUT
+            ------------------------------------------------- */
+
+            --af-container:
+                1240px;
+
+            --af-header-height:
+                76px;
+
+        }
+
+
+        /* =====================================================
+           RESET
+        ====================================================== */
+
+        *,
+        *::before,
+        *::after {
+
+            box-sizing:
+                border-box;
+
+        }
+
+
+        html {
+
+            margin:
+                0;
+
+            padding:
+                0;
+
+            min-height:
+                100%;
+
+            scroll-behavior:
+                smooth;
+
+            background:
+                var(--af-bg);
+
+        }
+
+
+        body {
+
+            margin:
+                0;
+
+            padding:
+                0;
+
+            min-height:
+                100vh;
+
+            background:
+                var(--af-bg);
+
+            color:
+                var(--af-text);
+
+            font-family:
+                "Cairo",
+                Arial,
+                sans-serif;
+
+            font-size:
+                14px;
+
+            line-height:
+                1.7;
+
+            overflow-x:
+                hidden;
+
+            -webkit-font-smoothing:
+                antialiased;
+
+            text-rendering:
+                optimizeLegibility;
+
+        }
+
+
+        button,
+        input,
+        textarea,
+        select {
+
+            font:
+                inherit;
+
+        }
+
+
+        button {
+
+            cursor:
+                pointer;
+
+        }
+
+
+        button:disabled {
+
+            cursor:
+                not-allowed;
+
+            opacity:
+                0.55;
+
+        }
+
+
+        img {
+
+            max-width:
+                100%;
+
+            display:
+                block;
+
+        }
+
+
+        a {
+
+            color:
+                inherit;
+
+            text-decoration:
+                none;
+
+        }
+
+
+        ul,
+        ol {
+
+            margin:
+                0;
+
+            padding:
+                0;
+
+            list-style:
+                none;
+
+        }
+
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p {
+
+            margin:
+                0;
+
+        }
+
+
+        ::selection {
+
+            background:
+                rgba(166, 60, 255, 0.35);
+
+            color:
+                #ffffff;
+
+        }
+
+
+        /* =====================================================
+           BACKGROUND EFFECT
+        ====================================================== */
+
+        body::before {
+
+            content:
+                "";
+
+            position:
+                fixed;
+
+            inset:
+                0;
+
+            z-index:
+                -3;
+
+            pointer-events:
+                none;
+
+            background:
+
+                radial-gradient(
+                    circle at 78% 8%,
+                    rgba(139, 42, 255, 0.18),
+                    transparent 30%
+                ),
+
+                radial-gradient(
+                    circle at 12% 42%,
+                    rgba(255, 40, 170, 0.07),
+                    transparent 28%
+                ),
+
+                radial-gradient(
+                    circle at 55% 85%,
+                    rgba(85, 35, 180, 0.08),
+                    transparent 32%
+                ),
+
+                linear-gradient(
+                    180deg,
+                    #05030b 0%,
+                    #020107 100%
+                );
+
+        }
+
+
+        body::after {
+
+            content:
+                "";
+
+            position:
+                fixed;
+
+            inset:
+                0;
+
+            z-index:
+                -2;
+
+            pointer-events:
+                none;
+
+            opacity:
+                0.18;
+
+            background-image:
+
+                radial-gradient(
+                    circle,
+                    rgba(255, 255, 255, 0.8) 1px,
+                    transparent 1px
+                );
+
+            background-size:
+                90px 90px;
+
+            mask-image:
+                linear-gradient(
+                    to bottom,
+                    black,
+                    transparent 88%
+                );
+
+        }
+
+
+        /* =====================================================
+           MAIN CONTAINER
+        ====================================================== */
+
+        .af-container {
+
+            width:
+                min(
+                    var(--af-container),
+                    calc(100% - 32px)
+                );
+
+            margin-inline:
+                auto;
+
+        }
+
+
+        /* =====================================================
+           VISUALLY HIDDEN
+        ====================================================== */
+
+        .af-sr-only {
+
+            position:
+                absolute;
+
+            width:
+                1px;
+
+            height:
+                1px;
+
+            padding:
+                0;
+
+            margin:
+                -1px;
+
+            overflow:
+                hidden;
+
+            clip:
+                rect(0, 0, 0, 0);
+
+            white-space:
+                nowrap;
+
+            border:
+                0;
+
+        }
+
+
+        /* =====================================================
+           GLOBAL PANEL
+        ====================================================== */
+
+        .af-panel {
+
+            background:
+                linear-gradient(
+                    180deg,
+                    rgba(18, 10, 30, 0.88),
+                    rgba(7, 4, 13, 0.90)
+                );
+
+            border:
+                1px solid var(--af-border);
+
+            border-radius:
+                var(--af-radius-xl);
+
+            box-shadow:
+                var(--af-shadow);
+
+            backdrop-filter:
+                blur(18px);
+
+            -webkit-backdrop-filter:
+                blur(18px);
+
+        }
+
+
+        /* =====================================================
+           GLOBAL BUTTONS
+        ====================================================== */
+
+        .af-btn {
+
+            min-height:
+                44px;
+
+            display:
+                inline-flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            gap:
+                8px;
+
+            padding:
+                10px 17px;
+
+            border:
+                1px solid transparent;
+
+            border-radius:
+                var(--af-radius-sm);
+
+            color:
+                #ffffff;
+
+            transition:
+                transform var(--af-transition),
+                box-shadow var(--af-transition),
+                background var(--af-transition),
+                border-color var(--af-transition);
+
+        }
+
+
+        .af-btn:hover {
+
+            transform:
+                translateY(-2px);
+
+        }
+
+
+        .af-btn:active {
+
+            transform:
+                translateY(0);
+
+        }
+
+
+        .af-btn-primary {
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--af-primary),
+                    var(--af-primary-dark)
+                );
+
+            box-shadow:
+                var(--af-shadow-primary);
+
+        }
+
+
+        .af-btn-primary:hover {
+
+            box-shadow:
+                0 18px 65px
+                rgba(137, 38, 255, 0.36);
+
+        }
+
+
+        .af-btn-ghost {
+
+            background:
+                rgba(255,255,255,0.035);
+
+            border-color:
+                var(--af-border);
+
+        }
+
+
+        .af-btn-ghost:hover {
+
+            background:
+                rgba(255,255,255,0.065);
+
+            border-color:
+                var(--af-border-strong);
+
+        }
+
+
+        /* =====================================================
+           TOP PROGRESS / LOADING
+        ====================================================== */
+
+        #af-page-loader {
+
+            position:
+                fixed;
+
+            top:
+                0;
+
+            right:
+                0;
+
+            left:
+                0;
+
+            height:
+                2px;
+
+            z-index:
+                9999;
+
+            pointer-events:
+                none;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    var(--af-primary),
+                    var(--af-pink),
+                    transparent
+                );
+
+            transform:
+                scaleX(0);
+
+            transform-origin:
+                right;
+
+            opacity:
+                0;
+
+            transition:
+                transform 0.4s ease,
+                opacity 0.2s ease;
+
+        }
+
+
+        #af-page-loader.active {
+
+            transform:
+                scaleX(1);
+
+            opacity:
+                1;
+
+        }
+
+
+        /* =====================================================
+           REDUCED MOTION
+        ====================================================== */
+
+        @media (
+            prefers-reduced-motion: reduce
+        ) {
+
+            html {
+
+                scroll-behavior:
+                    auto;
+
+            }
+
+            *,
+            *::before,
+            *::after {
+
+                animation-duration:
+                    0.01ms !important;
+
+                animation-iteration-count:
+                    1 !important;
+
+                transition-duration:
+                    0.01ms !important;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- =====================================================
+         GLOBAL PAGE LOADER
+    ====================================================== -->
+
+    <div
+        id="af-page-loader"
+        aria-hidden="true"
+    ></div>
+
+
+    <!-- =====================================================
+         MAIN APPLICATION ROOT
+         بقية الواجهة ستأتي في الأجزاء التالية.
+    ====================================================== -->
+
+    <div
+        id="af-app"    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header
+        id="af-header"
+        class="af-header"
+        role="banner"
+    >
+
+        <div class="af-container af-header-inner">
+
+            <!-- BRAND -->
+
+            <a
+                href="#home"
+                class="af-brand"
+                aria-label="افـنـدツينا🥀🖤 - الرئيسية"
+            >
+
+                <span
+                    class="af-brand-logo"
+                    aria-hidden="true"
+                >
+                    ♛
+                </span>
+
+                <span class="af-brand-text">
+
+                    <strong>
+                        افـنـدツينا🥀🖤
+                    </strong>
+
+                    <small>
+                        منصة تواصل عربية
+                    </small>
+
+                </span>
+
+            </a>
+
+
+            <!-- DESKTOP NAVIGATION -->
+
+            <nav
+                id="af-main-nav"
+                class="af-main-nav"
+                aria-label="القائمة الرئيسية"
+            >
+
+                <a
+                    href="#home"
+                    class="af-nav-link active"
+                    data-section="home"
+                >
+                    الرئيسية
+                </a>
+
+                <a
+                    href="#rooms"
+                    class="af-nav-link"
+                    data-section="rooms"
+                >
+                    الغرف
+                </a>
+
+                <a
+                    href="#posts"
+                    class="af-nav-link"
+                    data-section="posts"
+                >
+                    المنشورات
+                </a>
+
+                <a
+                    href="#gifts"
+                    class="af-nav-link"
+                    data-section="gifts"
+                >
+                    الهدايا
+                </a>
+
+                <a
+                    href="#features"
+                    class="af-nav-link"
+                    data-section="features"
+                >
+                    المميزات
+                </a>
+
+            </nav>
+
+
+            <!-- HEADER ACTIONS -->
+
+            <div
+                class="af-header-actions"
+                aria-label="إجراءات الحساب"
+            >
+
+                <button
+                    type="button"
+                    class="af-icon-button"
+                    id="af-notification-button"
+                    aria-label="الإشعارات"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                >
+
+                    <span aria-hidden="true">
+                        🔔
+                    </span>
+
+                    <span
+                        id="af-notification-count"
+                        class="af-notification-count"
+                        hidden
+                    >
+                        0
+                    </span>
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="af-icon-button"
+                    id="af-theme-button"
+                    aria-label="تغيير المظهر"
+                    title="تغيير المظهر"
+                >
+                    ◐
+                </button>
+
+
+                <a
+                    href="#auth"
+                    class="af-btn af-btn-ghost af-login-button"
+                    data-auth-mode="login"
+                >
+                    تسجيل الدخول
+                </a>
+
+
+                <a
+                    href="#auth"
+                    class="af-btn af-btn-primary af-register-button"
+                    data-auth-mode="register"
+                >
+                    إنشاء حساب
+                </a>
+
+
+                <!-- MOBILE MENU -->
+
+                <button
+                    type="button"
+                    class="af-icon-button af-menu-button"
+                    id="af-menu-button"
+                    aria-label="فتح القائمة"
+                    aria-controls="af-mobile-menu"
+                    aria-expanded="false"
+                >
+                    ☰
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             MOBILE MENU
+        ================================================== -->
+
+        <div
+            id="af-mobile-menu"
+            class="af-mobile-menu"
+            hidden
+        >
+
+            <div class="af-container">
+
+                <a
+                    href="#home"
+                    class="af-mobile-link"
+                    data-section="home"
+                >
+                    <span>⌂</span>
+                    <span>الرئيسية</span>
+                </a>
+
+                <a
+                    href="#rooms"
+                    class="af-mobile-link"
+                    data-section="rooms"
+                >
+                    <span>💬</span>
+                    <span>الغرف</span>
+                </a>
+
+                <a
+                    href="#posts"
+                    class="af-mobile-link"
+                    data-section="posts"
+                >
+                    <span>📝</span>
+                    <span>المنشورات</span>
+                </a>
+
+                <a
+                    href="#gifts"
+                    class="af-mobile-link"
+                    data-section="gifts"
+                >
+                    <span>🎁</span>
+                    <span>الهدايا</span>
+                </a>
+
+                <a
+                    href="#features"
+                    class="af-mobile-link"
+                    data-section="features"
+                >
+                    <span>✦</span>
+                    <span>المميزات</span>
+                </a>
+
+                <a
+                    href="#auth"
+                    class="af-mobile-link"
+                    data-auth-mode="login"
+                >
+                    <span>🔐</span>
+                    <span>تسجيل الدخول</span>
+                </a>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         MAIN
+    ====================================================== -->
+
+    <main
+        id="af-main"
+        class="af-main"
+    >
+
+
+        <!-- =================================================
+             HERO SECTION
+        ================================================== -->
+
+        <section
+            id="home"
+            class="af-hero"
+            aria-labelledby="af-hero-title"
+        >
+
+            <div class="af-container af-hero-grid">
+
+
+                <!-- HERO CONTENT -->
+
+                <div class="af-hero-content">
+
+                    <span class="af-status-badge">
+
+                        <span
+                            class="af-status-dot"
+                            aria-hidden="true"
+                        ></span>
+
+                        تجربة اجتماعية عربية جديدة
+
+                    </span>
+
+
+                    <h1
+                        id="af-hero-title"
+                        class="af-hero-title"
+                    >
+
+                        عالمك يبدأ
+
+                        <span>
+                            من افـنـدينا
+                        </span>
+
+                    </h1>
+
+
+                    <p class="af-hero-description">
+
+                        تواصل مع الآخرين، اكتشف الغرف،
+                        شارك منشوراتك، وتعرّف على عالم
+                        اجتماعي بتصميم فاخر وتجربة عربية
+                        متكاملة.
+
+                    </p>
+
+
+                    <div class="af-hero-actions">
+
+                        <a
+                            href="#auth"
+                            class="af-btn af-btn-primary af-hero-main-button"
+                            data-auth-mode="register"
+                        >
+
+                            <span aria-hidden="true">
+                                ✦
+                            </span>
+
+                            ابدأ الآن
+
+                        </a>
+
+
+                        <a
+                            href="#gifts"
+                            class="af-btn af-btn-ghost"
+                        >
+
+                            <span aria-hidden="true">
+                                🎁
+                            </span>
+
+                            استكشف الهدايا
+
+                        </a>
+
+                    </div>
+
+
+                    <!-- HERO TRUST -->
+
+                    <div
+                        class="af-hero-trust"
+                        aria-label="مميزات النظام"
+                    >
+
+                        <div class="af-trust-item">
+
+                            <span aria-hidden="true">
+                                🔐
+                            </span>
+
+                            <span>
+                                حساب حقيقي
+                            </span>
+
+                        </div>
+
+
+                        <div class="af-trust-item">
+
+                            <span aria-hidden="true">
+                                ⚡
+                            </span>
+
+                            <span>
+                                تواصل سريع
+                            </span>
+
+                        </div>
+
+
+                        <div class="af-trust-item">
+
+                            <span aria-hidden="true">
+                                🛡️
+                            </span>
+
+                            <span>
+                                نظام صلاحيات
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- HERO VISUAL -->
+
+                <div
+                    class="af-hero-visual"
+                    aria-hidden="true"
+                >
+
+                    <div class="af-space-orbit">
+
+                        <span class="af-space-star star-one">
+                            ✦
+                        </span>
+
+                        <span class="af-space-star star-two">
+                            ✧
+                        </span>
+
+                        <span class="af-space-star star-three">
+                            ·
+                        </span>
+
+                        <span class="af-space-star star-four">
+                            ✦
+                        </span>
+
+                        <span class="af-space-star star-five">
+                            ·
+                        </span>
+
+
+                        <div class="af-orbit-ring ring-one"></div>
+
+                        <div class="af-orbit-ring ring-two"></div>
+
+                        <div class="af-orbit-ring ring-three"></div>
+
+
+                        <div class="af-hero-planet">
+
+                            <div class="af-planet-glow"></div>
+
+                            <div class="af-planet-icon">
+                                ♛
+                            </div>
+
+                        </div>
+
+
+                        <div class="af-floating-card card-top">
+
+                            <span>
+                                ✦
+                            </span>
+
+                            <div>
+                                <strong>
+                                    افـنـدينا
+                                </strong>
+
+                                <small>
+                                    عالمك الاجتماعي
+                                </small>
+                            </div>
+
+                        </div>
+
+
+                        <div class="af-floating-card card-bottom">
+
+                            <span>
+                                🖤
+                            </span>
+
+                            <div>
+                                <strong>
+                                    تجربة فاخرة
+                                </strong>
+
+                                <small>
+                                    تصميم هادئ وعصري
+                                </small>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             QUICK STATS / ACCOUNT AREA
+        ================================================== -->
+
+        <section
+            id="quick-access"
+            class="af-section af-quick-section"
+            aria-label="الوصول السريع"
+        >
+
+            <div class="af-container">
+
+                <div class="af-quick-grid">
+
+
+                    <article class="af-quick-card">
+
+                        <div class="af-quick-icon">
+                            👤
+                        </div>
+
+                        <div class="af-quick-content">
+
+                            <span>
+                                حسابك
+                            </span>
+
+                            <strong
+                                data-user-name
+                            >
+                                غير مسجل
+                            </strong>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="af-quick-card">
+
+                        <div class="af-quick-icon">
+                            🪙
+                        </div>
+
+                        <div class="af-quick-content">
+
+                            <span>
+                                رصيدك
+                            </span>
+
+                            <strong
+                                data-wallet-coins
+                            >
+                                —
+                            </strong>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="af-quick-card">
+
+                        <div class="af-quick-icon">
+                            💬
+                        </div>
+
+                        <div class="af-quick-content">
+
+                            <span>
+                                المحادثات
+                            </span>
+
+                            <strong>
+                                حسابك أولاً
+                            </strong>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="af-quick-card">
+
+                        <div class="af-quick-icon">
+                            🔔
+                        </div>
+
+                        <div class="af-quick-content">
+
+                            <span>
+                                الإشعارات
+                            </span>
+
+                            <strong
+                                id="af-quick-notifications"
+                            >
+                                —
+                            </strong>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             START OF CONTENT AREA
+        ================================================== -->
+
+        <section
+            class="af-section"
+            aria-label="محتوى المنصة"
+        >
+
+            <div class="af-container">
+
+                <div class="af-section-heading">
+
+                    <div>
+
+                        <span class="af-section-kicker">
+                            افـنـدツينا🥀🖤
+                        </span>
+
+                        <h2>
+                            عالمك الاجتماعي
+                        </h2>
+
+                        <p>
+                            كل ما تحتاجه للوصول إلى تجربة
+                            اجتماعية متكاملة.
+                        </p>
+
+                    </div>
+
+                    <a
+                        href="#auth"
+                        class="af-btn af-btn-ghost"
+                        data-auth-mode="register"
+                    >
+                        إنشاء حساب
+                    </a>
+
+                </div>
+
+
+                <!--
+                    البطاقات التفصيلية ستأتي في الجزء 3.
+                -->
+
+                <div
+                    id="af-content-placeholder"
+                    class="af-content-placeholder"
+                    aria-hidden="true"
+                ></div>
+
+            </div>
+        <!-- =================================================
+             ROOMS SECTION
+        ================================================== -->
+
+        <section
+            id="rooms"
+            class="af-section af-rooms-section"
+            aria-labelledby="af-rooms-title"
+        >
+
+            <div class="af-container">
+
+                <div class="af-section-heading">
+
+                    <div>
+
+                        <span class="af-section-kicker">
+                            LIVE ROOMS
+                        </span>
+
+                        <h2 id="af-rooms-title">
+                            الغرف
+                        </h2>
+
+                        <p>
+                            الغرف التي ينشئها النظام الحقيقي
+                            ستظهر هنا تلقائياً.
+                        </p>
+
+                    </div>
+
+                    <button
+                        type="button"
+                        class="af-btn af-btn-ghost"
+                        id="af-refresh-rooms"
+                    >
+                        <span aria-hidden="true">↻</span>
+                        تحديث
+                    </button>
+
+                </div>
+
+
+                <div
+                    id="af-rooms-grid"
+                    class="af-rooms-grid"
+                    aria-live="polite"
+                >
+
+                    <div class="af-empty-state">
+
+                        <div
+                            class="af-empty-icon"
+                            aria-hidden="true"
+                        >
+                            💬
+                        </div>
+
+                        <strong>
+                            جارٍ تحميل الغرف
+                        </strong>
+
+                        <p>
+                            يتم جلب الغرف من الخادم الحقيقي.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             POSTS SECTION
+        ================================================== -->
+
+        <section
+            id="posts"
+            class="af-section af-posts-section"
+            aria-labelledby="af-posts-title"
+        >
+
+            <div class="af-container">
+
+                <div class="af-section-heading">
+
+                    <div>
+
+                        <span class="af-section-kicker">
+                            COMMUNITY
+                        </span>
+
+                        <h2 id="af-posts-title">
+                            المنشورات
+                        </h2>
+
+                        <p>
+                            لا يتم عرض منشورات تجريبية.
+                            المنشورات هنا تأتي من النظام الفعلي.
+                        </p>
+
+                    </div>
+
+                    <button
+                        type="button"
+                        class="af-btn af-btn-primary"
+                        id="af-create-post-button"
+                    >
+
+                        <span aria-hidden="true">
+                            ＋
+                        </span>
+
+                        إنشاء منشور
+
+                    </button>
+
+                </div>
+
+
+                <div
+                    id="af-posts-list"
+                    class="af-posts-list"
+                    aria-live="polite"
+                >
+
+                    <div class="af-empty-state">
+
+                        <div
+                            class="af-empty-icon"
+                            aria-hidden="true"
+                        >
+                            📝
+                        </div>
+
+                        <strong>
+                            لا توجد بيانات معروضة بعد
+                        </strong>
+
+                        <p>
+                            سيتم تحميل المنشورات الحقيقية
+                            عند توفر اتصال بالخادم.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             SOCIAL SERVICES
+        ================================================== -->
+
+        <section
+            id="social-services"
+            class="af-section"
+            aria-labelledby="af-social-title"
+        >
+
+            <div class="af-container">
+
+                <div class="af-section-heading">
+
+                    <div>
+
+                        <span class="af-section-kicker">
+                            SOCIAL
+                        </span>
+
+                        <h2 id="af-social-title">
+                            تواصل أكثر
+                        </h2>
+
+                        <p>
+                            الأدوات الأساسية جاهزة للربط
+                            مع الحساب الحقيقي.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="af-service-grid">
+
+
+                    <!-- MESSAGES -->
+
+                    <article class="af-service-card">
+
+                        <div class="af-service-icon">
+                            💬
+                        </div>
+
+                        <div class="af-service-body">
+
+                            <h3>
+                                الرسائل
+                            </h3>
+
+                            <p>
+                                المحادثات الخاصة بين الحسابات
+                                المسجلة في النظام.
+                            </p>
+
+                            <button
+                                type="button"
+                                class="af-service-button"
+                                data-service="messages"
+                            >
+                                فتح الرسائل
+                                <span aria-hidden="true">
+                                    ←
+                                </span>
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- PROFILE -->
+
+                    <article class="af-service-card">
+
+                        <div class="af-service-icon">
+                            👤
+                        </div>
+
+                        <div class="af-service-body">
+
+                            <h3>
+                                الملف الشخصي
+                            </h3>
+
+                            <p>
+                                بيانات حسابك وصورتك ومعلوماتك
+                                التي يسمح بها النظام.
+                            </p>
+
+                            <button
+                                type="button"
+                                class="af-service-button"
+                                data-service="profile"
+                            >
+                                ملفي الشخصي
+                                <span aria-hidden="true">
+                                    ←
+                                </span>
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- NOTIFICATIONS -->
+
+                    <article class="af-service-card">
+
+                        <div class="af-service-icon">
+                            🔔
+                        </div>
+
+                        <div class="af-service-body">
+
+                            <h3>
+                                الإشعارات
+                            </h3>
+
+                            <p>
+                                تابع الإشعارات القادمة من
+                                النشاط الحقيقي على الحساب.
+                            </p>
+
+                            <button
+                                type="button"
+                                class="af-service-button"
+                                data-service="notifications"
+                            >
+                                الإشعارات
+                                <span aria-hidden="true">
+                                    ←
+                                </span>
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- SETTINGS -->
+
+                    <article class="af-service-card">
+
+                        <div class="af-service-icon">
+                            ⚙️
+                        </div>
+
+                        <div class="af-service-body">
+
+                            <h3>
+                                الإعدادات
+                            </h3>
+
+                            <p>
+                                إعدادات الحساب والأمان والتفضيلات
+                                الخاصة بك.
+                            </p>
+
+                            <button
+                                type="button"
+                                class="af-service-button"
+                                data-service="settings"
+                            >
+                                الإعدادات
+                                <span aria-hidden="true">
+                                    ←
+                                </span>
+                            </button>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             USER EXPERIENCE SECTION
+        ================================================== -->
+
+        <section
+            id="experience"
+            class="af-section"
+            aria-labelledby="af-experience-title"
+        >
+
+            <div class="af-container">
+
+                <div class="af-experience-panel af-panel">
+
+                    <div class="af-experience-content">
+
+                        <span class="af-section-kicker">
+                            YOUR EXPERIENCE
+                        </span>
+
+                        <h2 id="af-experience-title">
+                            تجربة مصممة لك
+                        </h2>
+
+                        <p>
+                            واجهة هادئة، عناصر واضحة، وحركة
+                            خفيفة حتى تحصل على تجربة مريحة
+                            على الهاتف والكمبيوتر.
+                        </p>
+
+
+                        <div class="af-experience-list">
+
+                            <div class="af-experience-item">
+
+                                <span>
+                                    ✦
+                                </span>
+
+                                <div>
+
+                                    <strong>
+                                        واجهة RTL
+                                    </strong>
+
+                                    <small>
+                                        مصممة للغة العربية.
+                                    </small>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="af-experience-item">
+
+                                <span>
+                                    ⚡
+                                </span>
+
+                                <div>
+
+                                    <strong>
+                                        استجابة سريعة
+                                    </strong>
+
+                                    <small>
+                                        بدون تحميل بيانات تجريبية.
+                                    </small>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="af-experience-item">
+
+                                <span>
+                                    🛡️
+                                </span>
+
+                                <div>
+
+                                    <strong>
+                                        الصلاحيات من الخادم
+                                    </strong>
+
+                                    <small>
+                                        الواجهة لا تمنح صلاحيات بنفسها.
+                                    </small>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        class="af-experience-visual"
+                        aria-hidden="true"
+                    >
+
+                        <div class="af-glow-orb">
+
+                            <span>
+                                ♛
+                            </span>
+
+                        </div>
+
+                        <div class="af-glow-ring"></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             USER ACCOUNT PREVIEW
+        ================================================== -->
+
+        <section
+            id="account-preview"
+            class="af-section"
+            aria-labelledby="af-account-title"
+        >
+
+            <div class="af-container">
+
+                <div class="af-section-heading">
+
+                    <div>
+
+                        <span class="af-section-kicker">
+                            ACCOUNT
+                        </span>
+
+                        <h2 id="af-account-title">
+                            حسابك
+                        </h2>
+
+                        <p>
+                            عند تسجيل الدخول تظهر بيانات
+                            الحساب الفعلية هنا.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="af-account-grid">
+
+
+                    <!-- PROFILE CARD -->
+
+                    <article
+                        class="af-profile-card af-panel"
+                    >
+
+                        <div class="af-profile-cover"></div>
+
+                        <div class="af-profile-main">
+
+                            <div class="af-profile-avatar-wrapper">
+
+                                <div
+                                    class="af-profile-avatar"
+                                    id="af-profile-avatar"
+                                >
+
+                                    <span
+                                        id="af-profile-avatar-placeholder"
+                                        aria-hidden="true"
+                                    >
+                                        👤
+                                    </span>
+
+                                    <img
+                                        id="af-profile-avatar-image"
+                                        alt=""
+                                        hidden
+                                    >
+
+                                </div>
+
+                                <span
+                                    class="af-online-indicator"
+                                    aria-label="حالة الاتصال"
+                                ></span>
+
+                            </div>
+
+
+                            <div class="af-profile-information">
+
+                                <span class="af-profile-label">
+                                    الحساب الحالي
+                                </span>
+
+                                <h3
+                                    id="af-profile-name"
+                                >
+                                    غير مسجل
+                                </h3>
+
+                                <p
+                                    id="af-profile-username"
+                                >
+                                    —
+                                </p>
+
+                            </div>
+
+
+                            <a
+                                href="#auth"
+                                class="af-btn af-btn-primary"
+                                id="af-profile-action"
+                                data-auth-mode="login"
+                            >
+                                تسجيل الدخول
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- WALLET CARD -->
+
+                    <article
+                        class="af-wallet-card af-panel"
+                    >
+
+                        <div class="af-wallet-header">
+
+                            <div>
+
+                                <span>
+                                    المحفظة
+                                </span>
+
+                                <h3>
+                                    رصيد العملات
+                                </h3>
+
+                            </div>
+
+                            <span
+                                class="af-wallet-icon"
+                                aria-hidden="true"
+                            >
+                                🪙
+                            </span>
+
+                        </div>
+
+
+                        <div class="af-wallet-balance">
+
+                            <strong
+                                id="af-wallet-balance"
+                            >
+                                —
+                            </strong>
+
+                            <span>
+                                🪙
+                            </span>
+
+                        </div>
+
+
+                        <div class="af-wallet-footer">
+
+                            <span>
+                                البيانات من النظام الحقيقي
+                            </span>
+
+                            <button
+                                type="button"
+                                class="af-wallet-refresh"
+                                id="af-refresh-wallet"
+                            >
+                                تحديث
+                            </button>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             FEATURED CATEGORIES
+        ================================================== -->
+
+        <section
+            id="categories"
+            class="af-section"
+            aria-labelledby="af-categories-title"
+        >
+
+            <div class="af-container">
+
+                <div class="af-section-heading">
+
+                    <div>
+
+                        <span class="af-section-kicker">
+                            DISCOVER
+                        </span>
+
+                        <h2 id="af-categories-title">
+                            اكتشف المنصة
+                        </h2>
+
+                        <p>
+                            أقسام الواجهة الرئيسية للوصول
+                            السريع إلى الخدمات.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="af-category-grid">
+
+
+                    <a
+                        href="#rooms"
+                        class="af-category-card"
+                    >
+
+                        <span class="af-category-icon">
+                            💬
+                        </span>
+
+                        <span class="af-category-content">
+
+                            <strong>
+                                الغرف
+                            </strong>
+
+                            <small>
+                                المحادثات العامة
+                            </small>
+
+                        </span>
+
+                        <span
+                            class="af-category-arrow"
+                            aria-hidden="true"
+                        >
+                            ←
+                        </span>
+
+                    </a>
+
+
+                    <a
+                        href="#posts"
+                        class="af-category-card"
+                    >
+
+                        <span class="af-category-icon">
+                            📝
+                        </span>
+
+                        <span class="af-category-content">
+
+                            <strong>
+                                المنشورات
+                            </strong>
+
+               <!-- =================================================
+             GIFTS / STORE SECTION
+        ================================================== -->
+
+        <section
+            id="gifts"
+            class="af-section af-gifts-section"
+            aria-labelledby="af-gifts-title"
+        >
+
+            <div class="af-container">
+
+                <div class="af-section-heading">
+
+                    <div>
+
+                        <span class="af-section-kicker">
+                            PREMIUM STORE
+                        </span>
+
+                        <h2 id="af-gifts-title">
+                            الهدايا
+                        </h2>
+
+                        <p>
+                            الهدايا والأسعار يتم تحميلها من المتجر
+                            الحقيقي، ولا يتم إنشاء هدايا وهمية داخل الصفحة.
+                        </p>
+
+                    </div>
+
+                    <div class="af-section-heading-actions">
+
+                        <button
+                            type="button"
+                            class="af-btn af-btn-ghost"
+                            id="af-refresh-gifts"
+                        >
+                            <span aria-hidden="true">↻</span>
+                            تحديث الهدايا
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     WALLET BAR
+                ================================================== -->
+
+                <div
+                    class="af-wallet-bar af-panel"
+                    id="af-gifts-wallet"
+                >
+
+                    <div class="af-wallet-bar-item">
+
+                        <span
+                            class="af-wallet-bar-icon"
+                            aria-hidden="true"
+                        >
+                            🪙
+                        </span>
+
+                        <div>
+
+                            <small>
+                                رصيدك الحالي
+                            </small>
+
+                            <strong
+                                id="af-gift-wallet-balance"
+                            >
+                                —
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="af-wallet-bar-divider"></div>
+
+
+                    <div class="af-wallet-bar-item">
+
+                        <span
+                            class="af-wallet-bar-icon"
+                            aria-hidden="true"
+                        >
+                            🎁
+                        </span>
+
+                        <div>
+
+                            <small>
+                                الهدايا المتاحة
+                            </small>
+
+                            <strong
+                                id="af-gifts-count"
+                            >
+                                —
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="af-wallet-bar-action">
+
+                        <button
+                            type="button"
+                            class="af-btn af-btn-primary"
+                            id="af-open-wallet"
+                        >
+                            المحفظة
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     GIFTS GRID
+                ================================================== -->
+
+                <div
+                    id="af-gifts-grid"
+                    class="af-gifts-grid"
+                    aria-live="polite"
+                >
+
+                    <div class="af-empty-state af-gifts-loading">
+
+                        <div
+                            class="af-empty-icon"
+                            aria-hidden="true"
+                        >
+                            🎁
+                        </div>
+
+                        <strong>
+                            جارٍ تحميل الهدايا
+                        </strong>
+
+                        <p>
+                            يتم جلب المنتجات من الخادم الحقيقي.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     STORE NOTICE
+                ================================================== -->
+
+                <div class="af-store-notice">
+
+                    <span
+                        class="af-store-notice-icon"
+                        aria-hidden="true"
+                    >
+                        🛡️
+                    </span>
+
+                    <div>
+
+                        <strong>
+                            نظام المتجر الحقيقي
+                        </strong>
+
+                        <p>
+                            لا يمكن للواجهة تعديل الرصيد أو منح
+                            هدية من تلقاء نفسها؛ العمليات المالية
+                            والصلاحيات يجب أن يتحقق منها الخادم.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             VIP / LEVELS SECTION
+        ================================================== -->
+
+        <section
+            id="vip"
+            class="af-section af-vip-section"
+            aria-labelledby="af-vip-title"
+        >
+
+            <div class="af-container">
+
+                <div class="af-vip-panel af-panel">
+
+                    <div class="af-vip-content">
+
+                        <span class="af-section-kicker">
+                            PREMIUM EXPERIENCE
+                        </span>
+
+                        <h2 id="af-vip-title">
+                            المستويات والعضوية
+                        </h2>
+
+                        <p>
+                            يتم عرض المستوى والعضوية الفعلية
+                            للحساب بعد تسجيل الدخول وتحميل
+                            بيانات المستخدم من الخادم.
+                        </p>
+
+
+                        <div class="af-vip-data">
+
+                            <div class="af-vip-data-item">
+
+                                <span>
+                                    المستوى
+                                </span>
+
+                                <strong
+                                    id="af-user-level"
+                                >
+                                    —
+                                </strong>
+
+                            </div>
+
+
+                            <div class="af-vip-data-item">
+
+                                <span>
+                                    العضوية
+                                </span>
+
+                                <strong
+                                    id="af-user-vip"
+                                >
+                                    —
+                                </strong>
+
+                            </div>
+
+
+                            <div class="af-vip-data-item">
+
+                                <span>
+                                    الشارة
+                                </span>
+
+                                <strong
+                                    id="af-user-badge"
+                                >
+                                    —
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+
+                        <a
+                            href="#auth"
+                            class="af-btn af-btn-primary"
+                            data-auth-mode="register"
+                        >
+                            ابدأ حسابك
+                        </a>
+
+                    </div>
+
+
+                    <div
+                        class="af-vip-visual"
+                        aria-hidden="true"
+                    >
+
+                        <div class="af-vip-crown">
+                            ♛
+                        </div>
+
+                        <div class="af-vip-glow"></div>
+
+                        <span class="af-vip-spark spark-a">
+                            ✦
+                        </span>
+
+                        <span class="af-vip-spark spark-b">
+                            ✧
+                        </span>
+
+                        <span class="af-vip-spark spark-c">
+                            ·
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             GIFT SEND MODAL
+        ================================================== -->
+
+        <div
+            id="af-gift-modal"
+            class="af-modal"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="af-gift-modal-title"
+            hidden
+        >
+
+            <div
+                class="af-modal-backdrop"
+                data-modal-close="gift"
+            ></div>
+
+
+            <div class="af-modal-dialog">
+
+                <div class="af-modal-header">
+
+                    <div>
+
+                        <span class="af-section-kicker">
+                            SEND GIFT
+                        </span>
+
+                        <h3 id="af-gift-modal-title">
+                            إرسال هدية
+                        </h3>
+
+                    </div>
+
+
+                    <button
+                        type="button"
+                        class="af-modal-close"
+                        data-modal-close="gift"
+                        aria-label="إغلاق"
+                    >
+                        ×
+                    </button>
+
+                </div>
+
+
+                <div class="af-modal-body">
+
+                    <div
+                        id="af-selected-gift-preview"
+                        class="af-selected-gift"
+                    >
+
+                        <div
+                            class="af-selected-gift-image"
+                            id="af-selected-gift-image"
+                        >
+                            🎁
+                        </div>
+
+                        <div>
+
+                            <strong
+                                id="af-selected-gift-name"
+                            >
+                                —
+                            </strong>
+
+                            <small
+                                id="af-selected-gift-price"
+                            >
+                                —
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="af-field">
+
+                        <label
+                            for="af-gift-recipient"
+                        >
+                            اسم المستخدم المستلم
+                        </label>
+
+                        <input
+                            id="af-gift-recipient"
+                            name="recipient"
+                            type="text"
+                            maxlength="40"
+                            autocomplete="off"
+                            placeholder="اكتب اسم المستخدم"
+                        >
+
+                    </div>
+
+
+                    <div class="af-field">
+
+                        <label
+                            for="af-gift-message"
+                        >
+                            رسالة اختيارية
+                        </label>
+
+                        <textarea
+                            id="af-gift-message"
+                            name="message"
+                            maxlength="250"
+                            rows="4"
+                            placeholder="اكتب رسالة قصيرة..."
+                        ></textarea>
+
+                    </div>
+
+
+                    <div
+                        id="af-gift-modal-alert"
+                        class="af-modal-alert"
+                        role="alert"
+                        hidden
+                    ></div>
+
+                </div>
+
+
+                <div class="af-modal-footer">
+
+                    <button
+                        type="button"
+                        class="af-btn af-btn-ghost"
+                        data-modal-close="gift"
+                    >
+                        إلغاء
+                    </button>
+
+                    <button
+                        type="button"
+                        class="af-btn af-btn-primary"
+                        id="af-confirm-send-gift"
+                    >
+                        إرسال الهدية
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             WALLET MODAL
+        ================================================== -->
+
+        <div
+            id="af-wallet-modal"
+            class="af-modal"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="af-wallet-modal-title"
+            hidden
+        >
+
+            <div
+                class="af-modal-backdrop"
+                data-modal-close="wallet"
+            ></div>
+
+
+            <div class="af-modal-dialog">
+
+                <div class="af-modal-header">
+
+                    <div>
+
+                        <span class="af-section-kicker">
+                            WALLET
+                        </span>
+
+                        <h3 id="af-wallet-modal-title">
+                            المحفظة
+                        </h3>
+
+                    </div>
+
+
+                    <button
+                        type="button"
+                        class="af-modal-close"
+                        data-modal-close="wallet"
+                        aria-label="إغلاق"
+                    >
+                        ×
+                    </button>
+
+                </div>
+
+
+                <div class="af-modal-body">
+
+                    <div class="af-wallet-large">
+
+                        <span
+                            class="af-wallet-large-icon"
+                            aria-hidden="true"
+                        >
+                            🪙
+                        </span>
+
+                        <small>
+                            رصيد العملات
+                        </small>
+
+                        <strong
+                            id="af-wallet-modal-balance"
+                        >
+                            —
+                        </strong>
+
+                    </div>
+
+
+                    <div class="af-wallet-actions">
+
+                        <button
+                            type="button"
+                            class="af-btn af-btn-ghost"
+                            id="af-refresh-wallet-modal"
+                        >
+                            تحديث الرصيد
+                        </button>
+
+                    </div>
+
+
+                    <div class="af-wallet-warning">
+
+                        <span aria-hidden="true">
+                            🛡️
+                        </span>
+
+                        <p>
+                            الرصيد الحقيقي يتم تحديده من الخادم.
+                            لا يمكن تعديل قيمة الرصيد من JavaScript
+                            الموجود في المتصفح.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             NOTIFICATION PANEL
+        ================================================== -->
+
+        <div
+            id="af-notification-panel"
+            class="af-dropdown-panel"
+            role="dialog"
+            aria-label="الإشعارات"
+            hidden
+        >
+
+            <div class="af-dropdown-header">
+
+                <div>
+
+                    <strong>
+                        الإشعارات
+                    </strong>
+
+                    <small>
+                        آخر نشاط على حسابك
+                    </small>
+
+                </div>
+
+                <button
+                    type="button"
+                    id="af-mark-notifications-read"
+                    class="af-text-button"
+                >
+                    تحديد الكل كمقروء
+                </button>
+
+            </div>
+
+
+            <div
+                id="af-notification-list"
+                class="af-notification-list"
+                aria-live="polite"
+            >
+
+                <div class="af-dropdown-empty">
+
+                    <span aria-hidden="true">
+                        🔔
+                    </span>
+
+                    <strong>
+                        لا توجد إشعارات معروضة
+                    </strong>
+
+                    <small>
+                        سيتم تحميل الإشعارات الحقيقية عند تسجيل الدخول.
+                    </small>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             LOGIN REQUIRED MODAL
+        ================================================== -->
+
+        <div
+            id="af-login-required-modal"
+            class="af-modal"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="af-login-required-title"
+            hidden
+        >
+
+            <div
+                class="af-modal-backdrop"
+                data-modal-close="login-required"
+            ></div>
+
+
+            <div class="af-modal-dialog af-login-required-dialog">
+
+                <div class="af-login-required-icon">
+                    🔐
+                </div>
+
+                <h3 id="af-login-required-title">
+                    سجّل الدخول أولاً
+                </h3>
+
+                <p>
+                    هذه العملية تحتاج إلى حساب مسجل
+                    في النظام.
+                </p>
+
+                <div class="af-modal-footer">
+
+                    <button
+                        type="button"
+                        class="af-btn af-btn-ghost"
+                        data-modal-close="login-required"
+                    >
+                        إلغاء
+                    </button>
+
+                    <a
+                        href="#auth"
+                        class="af-btn af-btn-primary"
+                        data-auth-mode="login"
+                        data-modal-close="login-required"
+                    >
+                        تسجيل الدخول
+                    </a>
+
+                </div>
+
+            </div>
+
+                      </div>        <!-- =================================================
+             AUTH SECTION
+        ================================================== -->
+
+        <section
+            id="auth"
+            class="af-section af-auth-section"
+            aria-labelledby="af-auth-title"
+        >
+
+            <div class="af-container">
+
+                <div class="af-auth-panel af-panel">
+
+                    <!-- AUTH INFORMATION -->
+
+                    <div class="af-auth-information">
+
+                        <span class="af-section-kicker">
+                            SECURE ACCESS
+                        </span>
+
+                        <h2 id="af-auth-title">
+                            ادخل إلى عالمك
+                        </h2>
+
+                        <p>
+                            أنشئ حسابك الحقيقي أو سجّل الدخول
+                            للوصول إلى الخدمات المرتبطة بحسابك.
+                        </p>
+
+
+                        <div class="af-auth-points">
+
+                            <div class="af-auth-point">
+
+                                <span aria-hidden="true">
+                                    🔐
+                                </span>
+
+                                <div>
+
+                                    <strong>
+                                        مصادقة حقيقية
+                                    </strong>
+
+                                    <small>
+                                        التحقق يتم من الخادم.
+                                    </small>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="af-auth-point">
+
+                                <span aria-hidden="true">
+                                    🛡️
+                                </span>
+
+                                <div>
+
+                                    <strong>
+                                        حماية الحساب
+                                    </strong>
+
+                                    <small>
+                                        لا يتم تخزين كلمة المرور
+                                        داخل الواجهة.
+                                    </small>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="af-auth-point">
+
+                                <span aria-hidden="true">
+                                    ⚡
+                                </span>
+
+                                <div>
+
+                                    <strong>
+                                        جلسة آمنة
+                                    </strong>
+
+                                    <small>
+                                        حالة الدخول يحددها النظام
+                                        الحقيقي.
+                                    </small>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- AUTH FORM -->
+
+                    <div class="af-auth-form-wrapper">
+
+                        <div class="af-auth-tabs">
+
+                            <button
+                                type="button"
+                                id="af-login-tab"
+                                class="af-auth-tab active"
+                                data-auth-tab="login"
+                            >
+                                تسجيل الدخول
+                            </button>
+
+                            <button
+                                type="button"
+                                id="af-register-tab"
+                                class="af-auth-tab"
+                                data-auth-tab="register"
+                            >
+                                إنشاء حساب
+                            </button>
+
+                        </div>
+
+
+                        <div
+                            id="af-auth-alert"
+                            class="af-alert"
+                            role="alert"
+                            hidden
+                        ></div>
+
+
+                        <!-- LOGIN FORM -->
+
+                        <form
+                            id="af-login-form"
+                            class="af-auth-form"
+                            novalidate
+                        >
+
+                            <div class="af-field">
+
+                                <label
+                                    for="af-login-email"
+                                >
+                                    البريد الإلكتروني
+                                </label>
+
+                                <input
+                                    id="af-login-email"
+                                    name="email"
+                                    type="email"
+                                    inputmode="email"
+                                    autocomplete="email"
+                                    maxlength="160"
+                                    required
+                                    placeholder="example@email.com"
+                                >
+
+                            </div>
+
+
+                            <div class="af-field">
+
+                                <div class="af-field-label-row">
+
+                                    <label
+                                        for="af-login-password"
+                                    >
+                                        كلمة المرور
+                                    </label>
+
+                                    <button
+                                        type="button"
+                                        class="af-text-button"
+                                        data-action="forgot-password"
+                                    >
+                                        نسيت كلمة المرور؟
+                                    </button>
+
+                                </div>
+
+                                <div class="af-password-field">
+
+                                    <input
+                                        id="af-login-password"
+                                        name="password"
+                                        type="password"
+                                        autocomplete="current-password"
+                                        minlength="6"
+                                        maxlength="128"
+                                        required
+                                        placeholder="••••••••"
+                                    >
+
+                                    <button
+                                        type="button"
+                                        class="af-password-toggle"
+                                        data-target="af-login-password"
+                                        aria-label="إظهار كلمة المرور"
+                                    >
+                                        ◉
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+
+                            <label class="af-checkbox">
+
+                                <input
+                                    type="checkbox"
+                                    id="af-remember-login"
+                                    name="remember"
+                                >
+
+                                <span>
+                                    تذكر تسجيل الدخول
+                                </span>
+
+                            </label>
+
+
+                            <button
+                                type="submit"
+                                class="af-btn af-btn-primary af-auth-submit"
+                                id="af-login-submit"
+                            >
+                                تسجيل الدخول
+                            </button>
+
+
+                            <p class="af-form-note">
+                                باستخدام تسجيل الدخول أنت توافق
+                                على سياسات المنصة المعتمدة من النظام.
+                            </p>
+
+                        </form>
+
+
+                        <!-- REGISTER FORM -->
+
+                        <form
+                            id="af-register-form"
+                            class="af-auth-form"
+                            hidden
+                            novalidate
+                        >
+
+                            <div class="af-field">
+
+                                <label
+                                    for="af-register-username"
+                                >
+                                    اسم المستخدم
+                                </label>
+
+                                <input
+                                    id="af-register-username"
+                                    name="username"
+                                    type="text"
+                                    autocomplete="username"
+                                    minlength="3"
+                                    maxlength="40"
+                                    required
+                                    placeholder="اكتب اسم المستخدم"
+                                >
+
+                            </div>
+
+
+                            <div class="af-field">
+
+                                <label
+                                    for="af-register-email"
+                                >
+                                    البريد الإلكتروني
+                                </label>
+
+                                <input
+                                    id="af-register-email"
+                                    name="email"
+                                    type="email"
+                                    inputmode="email"
+                                    autocomplete="email"
+                                    maxlength="160"
+                                    required
+                                    placeholder="example@email.com"
+                                >
+
+                            </div>
+
+
+                            <div class="af-field">
+
+                                <label
+                                    for="af-register-password"
+                                >
+                                    كلمة المرور
+                                </label>
+
+                                <div class="af-password-field">
+
+                                    <input
+                                        id="af-register-password"
+                                        name="password"
+                                        type="password"
+                                        autocomplete="new-password"
+                                        minlength="8"
+                                        maxlength="128"
+                                        required
+                                        placeholder="8 أحرف على الأقل"
+                                    >
+
+                                    <button
+                                        type="button"
+                                        class="af-password-toggle"
+                                        data-target="af-register-password"
+                                        aria-label="إظهار كلمة المرور"
+                                    >
+                                        ◉
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="af-field">
+
+                                <label
+                                    for="af-register-password-confirm"
+                                >
+                                    تأكيد كلمة المرور
+                                </label>
+
+                                <div class="af-password-field">
+
+                                    <input
+                                        id="af-register-password-confirm"
+                                        name="password_confirm"
+                                        type="password"
+                                        autocomplete="new-password"
+                                        minlength="8"
+                                        maxlength="128"
+                                        required
+                                        placeholder="أعد كتابة كلمة المرور"
+                                    >
+
+                                    <button
+                                        type="button"
+                                        class="af-password-toggle"
+                                        data-target="af-register-password-confirm"
+                                        aria-label="إظهار كلمة المرور"
+                                    >
+                                        ◉
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+
+                            <label class="af-checkbox">
+
+                                <input
+                                    type="checkbox"
+                                    id="af-register-terms"
+                                    name="terms"
+                                    required
+                                >
+
+                                <span>
+                                    أوافق على شروط الاستخدام وسياسة الخصوصية.
+                                </span>
+
+                            </label>
+
+
+                            <button
+                                type="submit"
+                                class="af-btn af-btn-primary af-auth-submit"
+                                id="af-register-submit"
+                            >
+                                إنشاء الحساب
+                            </button>
+
+
+                            <p class="af-form-note">
+                                لا يتم إنشاء حساب تجريبي أو إضافة
+                                رصيد تجريبي عند التسجيل.
+                            </p>
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             PROFILE / USER DETAILS MODAL
+        ================================================== -->
+
+        <div
+            id="af-profile-modal"
+            class="af-modal"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="af-profile-modal-title"
+            hidden
+        >
+
+            <div
+                class="af-modal-backdrop"
+                data-modal-close="profile"
+            ></div>
+
+
+            <div class="af-modal-dialog">
+
+                <div class="af-modal-header">
+
+                    <div>
+
+                        <span class="af-section-kicker">
+                            PROFILE
+                        </span>
+
+                        <h3 id="af-profile-modal-title">
+                            الملف الشخصي
+                        </h3>
+
+                    </div>
+
+                    <button
+                        type="button"
+                        class="af-modal-close"
+                        data-modal-close="profile"
+                        aria-label="إغلاق"
+                    >
+                        ×
+                    </button>
+
+                </div>
+
+
+                <div class="af-modal-body">
+
+                    <div class="af-profile-modal-head">
+
+                        <div class="af-profile-modal-avatar">
+
+                            <span
+                                id="af-modal-avatar-placeholder"
+                                aria-hidden="true"
+                            >
+                                👤
+                            </span>
+
+                            <img
+                                id="af-modal-avatar-image"
+                                alt=""
+                                hidden
+                            >
+
+                        </div>
+
+                        <div>
+
+                            <strong
+                                id="af-modal-profile-name"
+                            >
+                                غير مسجل
+                            </strong>
+
+                            <small
+                                id="af-modal-profile-username"
+                            >
+                                —
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="af-profile-details">
+
+                        <div class="af-detail-row">
+
+                            <span>
+                                المستوى
+                            </span>
+
+                            <strong
+                                id="af-modal-profile-level"
+                            >
+                                —
+                            </strong>
+
+                        </div>
+
+
+                        <div class="af-detail-row">
+
+                            <span>
+                                العضوية
+                            </span>
+
+                            <strong
+                                id="af-modal-profile-vip"
+                            >
+                                —
+                            </strong>
+
+                        </div>
+
+
+                        <div class="af-detail-row">
+
+                            <span>
+                                الشارة
+                            </span>
+
+                            <strong
+                                id="af-modal-profile-badge"
+                            >
+                                —
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        id="af-profile-modal-alert"
+                        class="af-modal-alert"
+                        hidden
+                    ></div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             SETTINGS MODAL
+        ================================================== -->
+
+        <div
+            id="af-settings-modal"
+            class="af-modal"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="af-settings-modal-title"
+            hidden
+        >
+
+            <div
+                class="af-modal-backdrop"
+                data-modal-close="settings"
+            ></div>
+
+
+            <div class="af-modal-dialog">
+
+                <div class="af-modal-header">
+
+                    <div>
+
+                        <span class="af-section-kicker">
+                            SETTINGS
+                        </span>
+
+                        <h3 id="af-settings-modal-title">
+                            الإعدادات
+                        </h3>
+
+                    </div>
+
+                    <button
+                        type="button"
+                        class="af-modal-close"
+                        data-modal-close="settings"
+                        aria-label="إغلاق"
+                    >
+                        ×
+                    </button>
+
+                </div>
+
+
+                <div class="af-modal-body">
+
+                    <div class="af-settings-list">
+
+
+                        <button
+                            type="button"
+                            class="af-settings-item"
+                            data-setting-action="theme"
+                        >
+
+                            <span class="af-settings-icon">
+                                ◐
+                            </span>
+
+                            <span class="af-settings-content">
+
+                                <strong>
+                                    المظهر
+                                </strong>
+
+                                <small>
+                                    التحكم في مظهر الواجهة
+                                </small>
+
+                                   <!-- =================================================
+             FEATURES SECTION
+        ================================================== -->
+
+        <section
+            id="features"
+            class="af-section af-features-section"
+            aria-labelledby="af-features-title"
+        >
+
+            <div class="af-container">
+
+                <div class="af-section-heading">
+
+                    <div>
+
+                        <span class="af-section-kicker">
+                            PLATFORM
+                        </span>
+
+                        <h2 id="af-features-title">
+                            كل شيء في مكان واحد
+                        </h2>
+
+                        <p>
+                            واجهة واحدة للوصول إلى الخدمات المرتبطة
+                            بحسابك الحقيقي.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="af-feature-grid">
+
+
+                    <article class="af-feature-card">
+
+                        <div
+                            class="af-feature-icon"
+                            aria-hidden="true"
+                        >
+                            💬
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                محادثات
+                            </h3>
+
+                            <p>
+                                تواصل مباشر في الخدمات التي يدعمها
+                                الخادم والحساب.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="af-feature-card">
+
+                        <div
+                            class="af-feature-icon"
+                            aria-hidden="true"
+                        >
+                            🏠
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                غرف
+                            </h3>
+
+                            <p>
+                                اكتشف الغرف الموجودة فعلياً
+                                وأنشئ غرفاً وفق صلاحيات الحساب.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="af-feature-card">
+
+                        <div
+                            class="af-feature-icon"
+                            aria-hidden="true"
+                        >
+                            📝
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                منشورات
+                            </h3>
+
+                            <p>
+                                انشر وتفاعل مع المحتوى الحقيقي
+                                المخزن في قاعدة البيانات.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="af-feature-card">
+
+                        <div
+                            class="af-feature-icon"
+                            aria-hidden="true"
+                        >
+                            🎁
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                هدايا
+                            </h3>
+
+                            <p>
+                                إرسال الهدايا يتم بعد التحقق من
+                                الحساب والرصيد والصلاحيات.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="af-feature-card">
+
+                        <div
+                            class="af-feature-icon"
+                            aria-hidden="true"
+                        >
+                            🪙
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                العملات
+                            </h3>
+
+                            <p>
+                                الرصيد المعروض مصدره الخادم وليس
+                                قيمة ثابتة داخل الصفحة.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="af-feature-card">
+
+                        <div
+                            class="af-feature-icon"
+                            aria-hidden="true"
+                        >
+                            🛡️
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                الحماية
+                            </h3>
+
+                            <p>
+                                العمليات الحساسة يجب أن تتحقق
+                                منها طبقة الـBackend.
+                            </p>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             ABOUT / SECURITY SECTION
+        ================================================== -->
+
+        <section
+            id="security"
+            class="af-section af-security-section"
+            aria-labelledby="af-security-title"
+        >
+
+            <div class="af-container">
+
+                <div class="af-security-grid">
+
+
+                    <div class="af-security-content">
+
+                        <span class="af-section-kicker">
+                            SECURITY
+                        </span>
+
+                        <h2 id="af-security-title">
+                            الأمان أولاً
+                        </h2>
+
+                        <p>
+                            الصفحة لا تعتبر المتصفح جهة موثوقة لتنفيذ
+                            العمليات الحساسة. إنشاء الحساب، تسجيل الدخول،
+                            الصلاحيات، العملات، الهدايا، والإجراءات
+                            الإدارية يجب أن يتم التحقق منها على الخادم.
+                        </p>
+
+
+                        <div class="af-security-list">
+
+                            <div class="af-security-item">
+
+                                <span aria-hidden="true">
+                                    ✓
+                                </span>
+
+                                <div>
+
+                                    <strong>
+                                        لا توجد بيانات تجريبية
+                                    </strong>
+
+                                    <small>
+                                        لا يتم إدراج مستخدمين أو أرصدة
+                                        وهمية داخل الواجهة.
+                                    </small>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="af-security-item">
+
+                                <span aria-hidden="true">
+                                    ✓
+                                </span>
+
+                                <div>
+
+                                    <strong>
+                                        التحقق من الخادم
+                                    </strong>
+
+                                    <small>
+                                        العمليات الحساسة لا تعتمد على
+                                        JavaScript وحده.
+                                    </small>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="af-security-item">
+
+                                <span aria-hidden="true">
+                                    ✓
+                                </span>
+
+                                <div>
+
+                                    <strong>
+                                        جلسة المستخدم
+                                    </strong>
+
+                                    <small>
+                                        حالة المستخدم يتم تحميلها من
+                                        جلسة المصادقة الحقيقية.
+                                    </small>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        class="af-security-visual"
+                        aria-hidden="true"
+                    >
+
+                        <div class="af-security-shield">
+                            🛡️
+                        </div>
+
+                        <div class="af-security-circle circle-one"></div>
+
+                        <div class="af-security-circle circle-two"></div>
+
+                        <div class="af-security-circle circle-three"></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             FAQ
+        ================================================== -->
+
+        <section
+            id="faq"
+            class="af-section af-faq-section"
+            aria-labelledby="af-faq-title"
+        >
+
+            <div class="af-container">
+
+                <div class="af-section-heading">
+
+                    <div>
+
+                        <span class="af-section-kicker">
+                            FAQ
+                        </span>
+
+                        <h2 id="af-faq-title">
+                            الأسئلة الشائعة
+                        </h2>
+
+                        <p>
+                            معلومات أساسية عن طريقة عمل الواجهة.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="af-faq-list">
+
+
+                    <details class="af-faq-item">
+
+                        <summary>
+                            هل الحسابات الموجودة هنا تجريبية؟
+                        </summary>
+
+                        <div class="af-faq-answer">
+                            لا. الواجهة لا تضيف مستخدمين تجريبيين.
+                            الحسابات يجب أن تأتي من قاعدة البيانات
+                            الفعلية المرتبطة بالخادم.
+                        </div>
+
+                    </details>
+
+
+                    <details class="af-faq-item">
+
+                        <summary>
+                            هل يمكن تعديل العملات من المتصفح؟
+                        </summary>
+
+                        <div class="af-faq-answer">
+                            لا ينبغي الاعتماد على المتصفح في تعديل
+                            الرصيد. يجب أن ينفذ الخادم العملية
+                            بعد التحقق من الحساب والصلاحيات.
+                        </div>
+
+                    </details>
+
+
+                    <details class="af-faq-item">
+
+                        <summary>
+                            ماذا يحدث عند عدم وجود Backend؟
+                        </summary>
+
+                        <div class="af-faq-answer">
+                            تبقى الواجهة قابلة للعرض، لكن الخدمات
+                            التي تحتاج بيانات حقيقية مثل تسجيل الدخول
+                            والغرف والرسائل والهدايا لن تعمل حتى يتم
+                            ربطها بخادم فعلي.
+                        </div>
+
+                    </details>
+
+
+                    <details class="af-faq-item">
+
+                        <summary>
+                            هل تعمل الواجهة على الهاتف؟
+                        </summary>
+
+                        <div class="af-faq-answer">
+                            التصميم مبني ليكون متجاوباً مع شاشات
+                            الهاتف والكمبيوتر، وسيتم استكمال قواعد
+                            الاستجابة في CSS داخل هذا الملف.
+                        </div>
+
+                    </details>
+
+
+                    <details class="af-faq-item">
+
+                        <summary>
+                            من يملك الصلاحيات الإدارية؟
+                        </summary>
+
+                        <div class="af-faq-answer">
+                            الصلاحيات الحقيقية يجب أن يحددها الـBackend
+                            وقاعدة البيانات، وليس عناصر HTML الموجودة
+                            في المتصفح.
+                        </div>
+
+                    </details>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             CONTACT / SUPPORT
+        ================================================== -->
+
+        <section
+            id="support"
+            class="af-section af-support-section"
+            aria-labelledby="af-support-title"
+        >
+
+            <div class="af-container">
+
+                <div class="af-support-panel af-panel">
+
+                    <div>
+
+                        <span class="af-section-kicker">
+                            SUPPORT
+                        </span>
+
+                        <h2 id="af-support-title">
+                            تحتاج إلى مساعدة؟
+                        </h2>
+
+                        <p>
+                            استخدم نظام الدعم المرتبط بالخادم
+                            عند توفره في المشروع.
+                        </p>
+
+                    </div>
+
+
+                    <div class="af-support-actions">
+
+                        <button
+                            type="button"
+                            class="af-btn af-btn-primary"
+                            data-service="support"
+                            id="af-open-support"
+                        >
+                            فتح الدعم
+                        </button>
+
+                        <a
+                            href="#faq"
+                            class="af-btn af-btn-ghost"
+                        >
+                            الأسئلة الشائعة
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             APPLICATION STATUS
+        ================================================== -->
+
+        <section
+            id="system-status"
+            class="af-section af-status-section"
+            aria-labelledby="af-system-status-title"
+        >
+
+            <div class="af-container">
+
+                <div class="af-status-panel af-panel">
+
+                    <div class="af-status-heading">
+
+                        <div>
+
+                            <span class="af-section-kicker">
+                                SYSTEM
+                            </span>
+
+                            <h2 id="af-system-status-title">
+                                حالة الاتصال
+                            </h2>
+
+                        </div>
+
+                        <button
+                            type="button"
+                            class="af-btn af-btn-ghost"
+                            id="af-health-check"
+                        >
+                            فحص الاتصال
+                        </button>
+
+                    </div>
+
+
+                    <div class="af-system-status-grid">
+
+
+                        <div class="af-system-status-item">
+
+                            <span
+                                class="af-system-status-dot"
+                                id="af-api-status-dot"
+                            ></span>
+
+                            <div>
+
+                                <strong>
+                                    API
+                                </strong>
+
+                                <small
+                                    id="af-api-status-text"
+                                >
+                                    غير مفحوص
+                                </small>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="af-system-status-item">
+
+                            <span
+                                class="af-system-status-dot"
+                                id="af-session-status-dot"
+                            ></span>
+
+                            <div>
+
+                                <strong>
+                                    الجلسة
+                                </strong>
+
+                                <small
+                                    id="af-session-status-text"
+                                >
+                                    غير مفحوصة
+                                </small>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="af-system-status-item">
+
+                            <span
+                                class="af-system-status-dot"
+                                id="af-database-status-dot"
+                            ></span>
+
+                            <div>
+
+                                <strong>
+                                    قاعدة البيانات
+                                </strong>
+
+                                <small
+                                    id="af-database-status-text"
+                                >
+                                    غير مفحوصة
+                                </small>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             FOOTER
+        ================================================== -->
+
+        <footer
+            id="af-footer"
+            class="af-footer"
+        >
+
+            <div class="af-container">
+
+                <div class="af-footer-main">
+
+
+                    <div class="af-footer-brand">
+
+                        <a
+                            href="#home"
+                            class="af-brand"
+                            aria-label="افـنـدツينا🥀🖤"
+                        >
+
+                            <span
+                                class="af-brand-logo"
+                                aria-hidden="true"
+                            >
+                                ♛
+                            </span>
+
+                            <span class="af-brand-text">
+
+                                <strong>
+                                    افـنـدツينا🥀🖤
+                                </strong>
+
+                                <small>
+                                    منصة تواصل عربية
+                                </small>
+
+                            </span>
+
+                        </a>
+
+
+                        <p>
+                            تجربة اجتماعية عربية حديثة،
+                            مبنية لتعمل مع نظام حقيقي
+                            بدون بيانات تجريبية.
+                        </p>
+
+                    </div>
+
+
+                    <div class="af-footer-links">
+
+                        <div>
+
+                            <strong>
+                                المنصة
+                            </strong>
+
+                            <a href="#home">
+                                الرئيسية
+                            </a>
+
+                            <a href="#rooms">
+                                الغرف
+                            </a>
+
+                            <a href="#posts">
+                                المنشورات
+                            </a>
+
+                            <a href="#gifts">
+                                الهدايا
+                            </a>
+
+                        </div>
+
+
+                        <div>
+
+                            <strong>
+                                الحساب
+                            </strong>
+
+                            <a
+                                href="#auth"
+                                data-auth-mode="login"
+                            >
+                                تسجيل الدخول
+                            </a>
+
+                            <a
+                                href="#auth"
+                                data-auth-mode="register"
+                            >
+                                إنشاء حساب
+                            </a>
+
+                       <style>
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.af-header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    height:var(--af-header-height);
+    background:rgba(5,3,11,.78);
+    border-bottom:1px solid rgba(255,255,255,.06);
+    backdrop-filter:blur(22px);
+    -webkit-backdrop-filter:blur(22px);
+}
+
+.af-header-inner{
+    height:100%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:22px;
+}
+
+.af-brand{
+    display:inline-flex;
+    align-items:center;
+    gap:11px;
+    flex-shrink:0;
+}
+
+.af-brand-logo{
+    width:43px;
+    height:43px;
+    display:grid;
+    place-items:center;
+    border-radius:14px;
+    background:linear-gradient(135deg,#b54cff,#ff4db8);
+    box-shadow:0 10px 35px rgba(166,60,255,.3);
+    font-size:22px;
+}
+
+.af-brand-text{
+    display:flex;
+    flex-direction:column;
+    line-height:1.2;
+}
+
+.af-brand-text strong{
+    font-size:15px;
+    font-weight:900;
+}
+
+.af-brand-text small{
+    margin-top:4px;
+    color:var(--af-muted);
+    font-size:10px;
+}
+
+.af-main-nav{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:7px;
+    flex:1;
+}
+
+.af-nav-link{
+    position:relative;
+    padding:9px 13px;
+    color:var(--af-muted);
+    border-radius:10px;
+    transition:all var(--af-transition);
+}
+
+.af-nav-link:hover,
+.af-nav-link.active{
+    color:#fff;
+    background:rgba(255,255,255,.055);
+}
+
+.af-nav-link.active::after{
+    content:"";
+    position:absolute;
+    right:15px;
+    left:15px;
+    bottom:-7px;
+    height:2px;
+    border-radius:10px;
+    background:linear-gradient(90deg,var(--af-primary),var(--af-pink));
+}
+
+.af-header-actions{
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+
+.af-icon-button{
+    position:relative;
+    width:43px;
+    height:43px;
+    display:grid;
+    place-items:center;
+    border:1px solid var(--af-border);
+    border-radius:12px;
+    background:rgba(255,255,255,.035);
+    color:#fff;
+    transition:all var(--af-transition);
+}
+
+.af-icon-button:hover{
+    background:rgba(255,255,255,.07);
+    border-color:var(--af-border-strong);
+    transform:translateY(-2px);
+}
+
+.af-notification-count{
+    position:absolute;
+    top:-4px;
+    left:-4px;
+    min-width:18px;
+    height:18px;
+    padding:0 5px;
+    display:grid;
+    place-items:center;
+    border-radius:20px;
+    background:var(--af-danger);
+    color:#fff;
+    font-size:9px;
+    font-weight:800;
+}
+
+.af-menu-button{
+    display:none;
+}
+
+.af-mobile-menu{
+    position:absolute;
+    top:calc(100% + 1px);
+    right:0;
+    left:0;
+    padding:15px 0;
+    background:rgba(7,4,13,.97);
+    border-bottom:1px solid var(--af-border);
+    box-shadow:var(--af-shadow);
+}
+
+.af-mobile-link{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:13px 16px;
+    color:var(--af-text-soft);
+    border-radius:12px;
+}
+
+.af-mobile-link:hover{
+    background:rgba(255,255,255,.05);
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.af-hero{
+    position:relative;
+    min-height:680px;
+    display:flex;
+    align-items:center;
+    padding:85px 0 70px;
+    overflow:hidden;
+}
+
+.af-hero::before{
+    content:"";
+    position:absolute;
+    width:600px;
+    height:600px;
+    top:-250px;
+    left:-180px;
+    border-radius:50%;
+    background:rgba(166,60,255,.08);
+    filter:blur(80px);
+    pointer-events:none;
+}
+
+.af-hero-grid{
+    position:relative;
+    z-index:1;
+    display:grid;
+    grid-template-columns:1.05fr .95fr;
+    align-items:center;
+    gap:55px;
+}
+
+.af-hero-content{
+    max-width:680px;
+}
+
+.af-status-badge{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:7px 12px;
+    border:1px solid var(--af-border);
+    border-radius:999px;
+    background:rgba(255,255,255,.035);
+    color:var(--af-text-soft);
+    font-size:11px;
+}
+
+.af-status-dot{
+    width:7px;
+    height:7px;
+    border-radius:50%;
+    background:var(--af-success);
+    box-shadow:0 0 12px rgba(66,223,153,.7);
+}
+
+.af-hero-title{
+    margin-top:22px;
+    font-size:clamp(42px,6vw,78px);
+    line-height:1.12;
+    font-weight:900;
+    letter-spacing:-2px;
+}
+
+.af-hero-title span{
+    display:block;
+    margin-top:5px;
+    background:linear-gradient(90deg,#fff,var(--af-primary-light),var(--af-pink));
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+}
+
+.af-hero-description{
+    max-width:620px;
+    margin-top:23px;
+    color:var(--af-muted);
+    font-size:15px;
+    line-height:2;
+}
+
+.af-hero-actions{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-top:30px;
+}
+
+.af-hero-trust{
+    display:flex;
+    flex-wrap:wrap;
+    gap:22px;
+    margin-top:30px;
+}
+
+.af-trust-item{
+    display:flex;
+    align-items:center;
+    gap:7px;
+    color:var(--af-muted);
+    font-size:11px;
+}
+
+.af-trust-item span:first-child{
+    color:var(--af-primary-light);
+}
+
+.af-hero-visual{
+    min-height:500px;
+    display:grid;
+    place-items:center;
+}
+
+.af-space-orbit{
+    position:relative;
+    width:min(500px,90vw);
+    aspect-ratio:1;
+}
+
+.af-planet-glow{
+    position:absolute;
+    inset:-80px;
+    border-radius:50%;
+    background:radial-gradient(circle,rgba(166,60,255,.24),transparent 65%);
+    filter:blur(30px);
+}
+
+.af-hero-planet{
+    position:absolute;
+    top:50%;
+    left:50%;
+    width:190px;
+    height:190px;
+    transform:translate(-50%,-50%);
+    display:grid;
+    place-items:center;
+    border-radius:50%;
+    background:
+        radial-gradient(circle at 35% 30%,#e5bfff,#8c2dff 38%,#210b43 72%,#08030d);
+    box-shadow:
+        0 0 80px rgba(166,60,255,.4),
+        inset -30px -20px 55px rgba(0,0,0,.55);
+}
+
+.af-planet-icon{
+    position:relative;
+    z-index:2;
+    font-size:70px;
+    text-shadow:0 0 30px rgba(255,255,255,.4);
+}
+
+.af-orbit-ring{
+    position:absolute;
+    top:50%;
+    left:50%;
+    border:1px solid rgba(185,115,255,.22);
+    border-radius:50%;
+    transform:translate(-50%,-50%);
+}
+
+.ring-one{
+    width:280px;
+    height:130px;
+    transform:translate(-50%,-50%) rotate(-18deg);
+}
+
+.ring-two{
+    width:390px;
+    height:190px;
+    transform:translate(-50%,-50%) rotate(35deg);
+}
+
+.ring-three{
+    width:470px;
+    height:270px;
+    transform:translate(-50%,-50%) rotate(-45deg);
+}
+
+.af-space-star{
+    position:absolute;
+    color:#fff;
+    opacity:.8;
+}
+
+.star-one{top:18%;right:17%}
+.star-two{top:34%;left:10%}
+.star-three{bottom:18%;right:15%}
+.star-four{bottom:28%;left:18%}
+.star-five{top:12%;left:36%}
+
+.af-floating-card{
+    position:absolute;
+    z-index:4;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:12px 14px;
+    border:1px solid var(--af-border);
+    border-radius:15px;
+    background:rgba(9,5,17,.82);
+    backdrop-filter:blur(16px);
+    box-shadow:var(--af-shadow);
+}
+
+.af-floating-card > span{
+    width:35px;
+    height:35px;
+    display:grid;
+    place-items:center;
+    border-radius:10px;
+    background:rgba(166,60,255,.12);
+}
+
+.af-floating-card div{
+    display:flex;
+    flex-direction:column;
+}
+
+.af-floating-card strong{
+    font-size:11px;
+}
+
+.af-floating-card small{
+    color:var(--af-muted);
+    font-size:9px;
+}
+
+.card-top{
+    top:19%;
+    right:0;
+}
+
+.card-bottom{
+    bottom:19%;
+    left:0;
+}
+
+
+/* =========================================================
+   SECTIONS
+========================================================= */
+
+.af-section{
+    position:relative;
+    padding:75px 0;
+}
+
+.af-section-heading{
+    display:flex;
+    align-items:flex-end;
+    justify-content:space-between;
+    gap:25px;
+    margin-bottom:30px;
+}
+
+.af-section-kicker{
+    display:block;
+    margin-bottom:7px;
+    color:var(--af-primary-light);
+    font-size:10px;
+    font-weight:800;
+    letter-spacing:1.5px;
+}
+
+.af-section-heading h2{
+    font-size:clamp(25px,4vw,38px);
+    font-weight:900;
+}
+
+.af-section-heading p{
+    margin-top:8px;
+    color:var(--af-muted);
+}
+
+.af-section-heading-actions{
+    display:flex;
+    gap:8px;
+}
+
+
+/* =========================================================
+   QUICK CARDS
+========================================================= */
+
+.af-quick-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:12px;
+}
+
+.af-quick-card{
+    display:flex;
+    align-items:center;
+    gap:13px;
+    padding:17px;
+    border:1px solid var(--af-border);
+    border-radius:17px;
+    background:rgba(255,255,255,.025);
+}
+
+.af-quick-icon{
+    width:44px;
+    height:44px;
+    display:grid;
+    place-items:center;
+    flex-shrink:0;
+    border-radius:13px;
+    background:linear-gradient(
+        135deg,
+        rgba(166,60,255,.2),
+        rgba(255,77,184,.08)
+    );
+}
+
+.af-quick-content{
+    display:flex;
+    flex-direction:column;
+    min-width:0;
+}
+
+.af-quick-content span{
+    color:var(--af-muted);
+    font-size:10px;
+}
+
+.af-quick-content strong{
+    margin-top:2px;
+    font-size:12px;
+}
+
+
+/* =========================================================
+   EMPTY STATES
+========================================================= */
+
+.af-empty-state{
+    min-height:190px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    padding:30px;
+    text-align:center;
+    border:1px dashed var(--af-border);
+    border-radius:20px;
+    background:rgba(255,255,255,.018);
+}
+
+.af-empty-icon{
+    width:58px;
+    height:58px;
+    display:grid;
+    place-items:center;
+    margin-bottom:12px;
+    border-radius:18px;
+    background:rgba(166,60,255,.09);
+    font-size:25px;
+}
+
+.af-empty-state strong{
+    font-size:14px;
+}
+
+.af-empty-state p{
+    margin-top:5px;
+    color:var(--af-muted);
+    font-size:11px;
+}
+
+
+/* =========================================================
+   SERVICES
+========================================================= */
+
+.af-service-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:14px;
+}
+
+.af-service-card{
+    padding:23px;
+    border:1px solid var(--af-border);
+    border-radius:21px;
+    background:linear-gradient(
+        180deg,
+        rgba(255,255,255,.035),
+        rgba(255,255,255,.015)
+    );
+    transition:all var(--af-transition);
+}
+
+.af-service-card:hover{
+    transform:translateY(-5px);
+    border-color:var(--af-border-strong);
+    box-shadow:var(--af-shadow);
+}
+
+.af-service-icon{
+    width:53px;
+    height:53px;
+    display:grid;
+    place-items:center;
+    border-radius:16px;
+    background:rgba(166,60,255,.1);
+    font-size:23px;
+}
+
+.af-service-body h3{
+    margin-top:18px;
+    font-size:16px;
+}
+
+.af-service-body p{
+    min-height:66px;
+    margin-top:8px;
+    color:var(--af-muted);
+    font-size:11px;
+    line-height:1.9;
+}
+
+.af-service-button{
+    margin-top:15px;
+    padding:0;
+    border:0;
+    background:none;
+    color:var(--af-primary-light);
+    font-weight:700;
+}
+
+
+/* =========================================================
+   EXPERIENCE
+========================================================= */
+
+.af-experience-panel{
+    position:relative;
+    display:grid;
+    grid-template-columns:1fr .7fr;
+    gap:35px;
+    padding:45px;
+    overflow:hidden;
+}
+
+.af-experience-content p{
+    max-width:650px;
+    margin-top:12px;
+    color:var(--af-muted);
+    line-height:2;
+}
+
+.af-experience-list{
+    display:grid;
+    gap:12px;
+    margin-top:25px;
+}
+
+.af-experience-item{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.af-experience-item > span{
+    width:36px;
+    height:36px;
+    display:grid;
+    place-items:center;
+    border-radius:11px;
+    background:rgba(166,60,255,.1);
+}
+
+.af-experience-item div{
+    display:flex;
+    flex-direction:column;
+}
+
+.af-experience-item strong{
+    font-size:12px;
+}
+
+.af-experience-item small{
+    color:var(--af-muted);
+    font-size:10px;
+}
+
+.af-experience-visual{
+    min-height:300px;
+    position:relative;
+    display:grid;
+    place-items:center;
+}
+
+.af-glow-orb{
+    position:relative;
+    z-index:2;
+    width:160px;
+    height:160px;
+    display:grid;
+    place-items:center;
+    border-radius:50%;
+    background:radial-gradient(
+        circle at 35% 30%,
+        #e0b8ff,
+        #8126e7 45%,
+        #180824 80%
+    );
+    box-shadow:0 0 90px rgba(166,60,255,.35);
+}
+
+.af-glow-orb span{
+    font-size:60px;
+}
+
+.af-glow-ring{
+    position:absolute;
+    width:280px;
+    height:130px;
+    border:1px solid rgba(166,60,255,.25);
+    border-radius:50%;
+    transform:rotate(-25deg);
+}
+
+
+/* =========================================================
+   ACCOUNT
+========================================================= */
+
+.af-account-grid{
+    display:grid;
+    grid-template-columns:1.5fr 1fr;
+    gap:15px;
+}
+
+.af-profile-card,
+.af-wallet-card{
+    overflow:hidden;
+}
+
+.af-profile-cover{
+    height:105px;
+    background:
+        radial-gradient(
+            circle at 70% 20%,
+            rgba(255,77,184,.3),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #16082a,
+            #461078,
+            #12071d
+        );
+}
+
+.af-profile-main{
+    position:relative;
+    display:flex;
+    align-items:center;
+    gap:18px;
+    padding:0 22px 22px;
+}
+
+.af-profile-avatar-wrapper{
+    position:relative;
+    margin-top:-34px;
+}
+
+.af-profile-avatar{
+    width:78px;
+    height:78px;
+    display:grid;
+    place-items:center;
+    overflow:hidden;
+    border:4px solid #0b0612;
+    border-radius:50%;
+    background:#170b23;
+    font-size:25px;
+}
+
+.af-profile-avatar img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.af-online-indicator{
+    position:absolute;
+    right:5px;
+    bottom:4px;
+    width:14px;
+    height:14px;
+    border:3px solid #0b0612;
+    border-radius:50%;
+    background:var(--af-muted-dark);
+}
+
+.af-profile-information{
+    flex:1;
+    min-width:0;
+}
+
+.af-profile-label{
+    color:var(--af-muted);
+    font-size:9px;
+}
+
+.af-profile-information h3{
+    font-size:16px;
+}
+
+.af-profile-information p{
+    color:var(--af-muted);
+    font-size:10px;
+}
+
+
+/* =========================================================
+   WALLET
+========================================================= */
+
+.af-wallet-card{
+    padding:24px;
+}
+
+.af-wallet-header,
+.af-wallet-footer,
+.af-wallet-bar,
+.af-wallet-bar-item{
+    display:flex;
+    align-items:center;
+}
+
+.af-wallet-header{
+    justify-content:space-between;
+}
+
+.af-wallet-header span{
+    color:var(--af-muted);
+    font-size:10px;
+}
+
+.af-wallet-header h3{
+    margin-top:3px;
+    font-size:16px;
+}
+
+.af-wallet-icon{
+    width:50px;
+    height:50px;
+    display:grid;
+    place-items:center;
+    border-radius:15px;
+    background:rgba(255,200,87,.08);
+    font-size:24px;
+}
+
+.af-wallet-balance{
+    display:flex;
+    align-items:center;
+    gap:7px;
+    margin-top:35px;
+}
+
+.af-wallet-balance strong{
+    font-size:34px;
+}
+
+.af-wallet-balance span{
+    font-size:18px;
+}
+
+.af-wallet-footer{
+    justify-content:space-between;
+    gap:10px;
+    margin-top:30px;
+    padding-top:16px;
+    border-top:1px solid rgba(255,255,255,.06);
+}
+
+.af-wallet-footer span{
+    color:var(--af-muted);
+    font-size:9px;
+}
+
+.af-wallet-refresh,
+.af-text-button{
+    padding:0;
+    border:0;
+    background:none;
+    color:var(--af-primary-light);
+    font-size:10px;
+}
+
+
+/* =========================================================
+   CATEGORY
+========================================================= */
+
+.af-category-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:12px;
+}
+
+.af-category-card{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:18px;
+    border:1px solid var(--af-border);
+    border-radius:18px;
+    background:rgba(255,255,255,.025);
+    transition:all var(--af-transition);
+}
+
+.af-category-card:hover{
+    transform:translateY(-3px);
+    border-color:var(--af-border-strong);
+    background:rgba(255,255,255,.045);
+}
+
+.af-category-icon{
+    width:43px;
+    height:43px;
+    display:grid;
+    place-items:center;
+    flex-shrink:0;
+    border-radius:13px;
+    background:rgba(166,60,255,.1);
+}
+
+.af-category-content{
+    display:flex;
+    flex-direction:column;
+    flex:1;
+}
+
+.af-category-content strong{
+    font-size:12px;
+}
+
+.af-category-content small{
+    color:var(--af-muted);
+    font-size:9px;
+}
+
+.af-category-arrow{
+    color:var(--af-primary-light);
+}
+
+
+/* =========================================================
+   GIFTS
+========================================================= */
+
+.af-wallet-bar{
+    justify-content:space-between;
+    gap:20px;
+    padding:17px 20px;
+    margin-bottom:25px;
+}
+
+.af-wallet-bar-item{
+    gap:10px;
+}
+
+.af-wallet-bar-icon{
+    width:43px;
+    height:43px;
+    display:grid;
+    place-items:center;
+    border-radius:13px;
+    background:rgba(166,60,255,.1);
+}
+
+.af-wallet-bar-item div{
+    display:flex;
+    flex-direction:column;
+}
+
+.af-wallet-bar-item small{
+    color:var(--af-muted);
+    font-size:9px;
+}
+
+.af-wallet-bar-item strong{
+    font-size:14px;
+}
+
+.af-wallet-bar-divider{
+    width:1px;
+    height:35px;
+    background:rgba(255,255,255,.08);
+}
+
+.af-gifts-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+}
+
+.af-store-notice{
+    display:flex;
+    align-items:flex-start;
+    gap:12px;
+    margin-top:20px;
+    padding:16px;
+    border:1px solid var(--af-border);
+    border-radius:16px;
+    background:rgba(255,255,255,.02);
+}
+
+.af-store-notice-icon{
+    font-size:20px;
+}
+
+.af-store-notice strong{
+    font-size:12px;
+}
+
+.af-store-notice p{
+    margin-top:4px;
+    color:var(--af-muted);
+    font-size:10px;
+}
+
+
+/* =========================================================
+   VIP
+========================================================= */
+
+.af-vip-panel{
+    position:relative;
+    display:grid;
+    grid-template-columns:1fr .6fr;
+    gap:30px;
+    padding:40px;
+    overflow:hidden;
+}
+
+.af-vip-content p{
+    max-width:650px;
+    margin-top:12px;
+    color:var(--af-muted);
+    line-height:2;
+}
+
+.af-vip-data{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin:25px 0;
+}
+
+.af-vip-data-item{
+    min-width:130px;
+    padding:12px;
+    border:1px solid var(--af-border);
+    border-radius:13px;
+    background:rgba(255,255,255,.025);
+}
+
+.af-vip-data-item span{
+    display:block;
+    color:var(--af-muted);
+    font-size:9px;
+}
+
+.af-vip-data-item strong{
+    display:block;
+    margin-top:2px;
+    font-size:12px;
+}
+
+.af-vip-visual{
+    position:relative;
+    min-height:260px;
+    display:grid;
+    place-items:center;
+}
+
+.af-vip-crown{
+    position:relative;
+    z-index:2;
+    font-size:100px;
+    filter:drop-shadow(0 0 35px rgba(255,200,87,.3));
+}
+
+.af-vip-glow{
+    position:absolute;
+    width:220px;
+    height:220px;
+    border-radius:50%;
+    background:radial-gradient(
+        circle,
+        rgba(255,200,87,.2),
+        transparent 65%
+    );
+    filter:blur(20px);
+}
+
+
+/* =========================================================
+   MODALS
+========================================================= */
+
+.af-modal{
+    position:fixed;
+    inset:0;
+    z-index:3000;
+    display:grid;
+    place-items:center;
+    padding:20px;
+}
+
+.af-modal[hidden],
+.af-dropdown-panel[hidden],
+.af-app-overlay[hidden]{
+    display:none !important;
+}
+
+.af-modal-backdrop{
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,.7);
+    backdrop-filter:blur(8px);
+}
+
+.af-modal-dialog{
+    position:relative;
+    z-index:2;
+    width:min(540px,100%);
+    max-height:min(800px,90vh);
+    overflow:auto;
+    border:1px solid var(--af-border);
+    border-radius:24px;
+    background:#0a0611;
+    box-shadow:0 35px 100px rgba(0,0,0,.7);
+}
+
+.af-modal-header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:15px;
+    padding:22px 24px;
+    border-bottom:1px solid rgba(255,255,255,.06);
+}
+
+.af-modal-header h3{
+    font-size:18px;
+}
+
+.af-modal-close{
+    width:38px;
+    height:38px;
+    display:grid;
+    place-items:center;
+    border:1px solid var(--af-border);
+    border-radius:11px;
+    background:rgba(255,255,255,.03);
+    color:#fff;
+    font-size:22px;
+}
+      <script>
+"use strict";
+
+/* =========================================================
+   AFENDINA — INDEX.JS
+   FINAL FRONTEND CONTROLLER
+========================================================= */
+
+(() => {
+
+    const APP = {
+        name: "افـنـدツينا🥀🖤",
+        apiBase: "",
+        tokenKey: "afendina_token",
+        themeKey: "afendina_theme"
+    };
+
+
+    /* =====================================================
+       HELPERS
+    ===================================================== */
+
+    const $ = (selector, parent = document) =>
+        parent.querySelector(selector);
+
+    const $$ = (selector, parent = document) =>
+        Array.from(parent.querySelectorAll(selector));
+
+    const safeJSON = (value, fallback = null) => {
+        try {
+            return JSON.parse(value);
+        } catch {
+            return fallback;
+        }
+    };
+
+    const escapeHTML = (value) => {
+
+        if (value === null || value === undefined) {
+            return "";
+        }
+
+        return String(value)
+            .replaceAll("&", "&amp;")
+            .replaceAll("<", "&lt;")
+            .replaceAll(">", "&gt;")
+            .replaceAll('"', "&quot;")
+            .replaceAll("'", "&#039;");
+    };
+
+
+    const getToken = () =>
+        localStorage.getItem(APP.tokenKey);
+
+
+    const setToken = (token) => {
+
+        if (token) {
+            localStorage.setItem(APP.tokenKey, token);
+        }
+
+    };
+
+
+    const removeToken = () => {
+        localStorage.removeItem(APP.tokenKey);
+    };
+
+
+    const apiURL = (path) => {
+
+        if (!path.startsWith("/")) {
+            path = "/" + path;
+        }
+
+        return `${APP.apiBase}${path}`;
+    };
+
+
+    /* =====================================================
+       TOAST
+    ===================================================== */
+
+    let toastTimer = null;
+
+    const showToast = (message, type = "info") => {
+
+        const toast = $("#af-toast");
+
+        if (!toast) {
+            return;
+        }
+
+        const icon = $(".af-toast-icon", toast);
+        const text = $(".af-toast-message", toast);
+
+        if (text) {
+            text.textContent = message;
+        }
+
+        if (icon) {
+
+            if (type === "success") {
+                icon.textContent = "✓";
+            } else if (type === "error") {
+                icon.textContent = "!";
+            } else if (type === "warning") {
+                icon.textContent = "⚠";
+            } else {
+                icon.textContent = "i";
+            }
+
+        }
+
+        toast.classList.add("show");
+
+        clearTimeout(toastTimer);
+
+        toastTimer = setTimeout(() => {
+            toast.classList.remove("show");
+        }, 3500);
+    };
+
+
+    /* =====================================================
+       MODAL
+    ===================================================== */
+
+    const openModal = (id) => {
+
+        const modal = typeof id === "string"
+            ? document.getElementById(id)
+            : id;
+
+        if (!modal) {
+            return;
+        }
+
+        modal.hidden = false;
+        modal.setAttribute("aria-hidden", "false");
+
+        document.body.classList.add("af-modal-open");
+    };
+
+
+    const closeModal = (id) => {
+
+        const modal = typeof id === "string"
+            ? document.getElementById(id)
+            : id;
+
+        if (!modal) {
+            return;
+        }
+
+        modal.hidden = true;
+        modal.setAttribute("aria-hidden", "true");
+
+        if (!document.querySelector(".af-modal:not([hidden])")) {
+            document.body.classList.remove("af-modal-open");
+        }
+    };
+
+
+    const closeAllModals = () => {
+
+        $$(".af-modal").forEach(modal => {
+            modal.hidden = true;
+            modal.setAttribute("aria-hidden", "true");
+        });
+
+        document.body.classList.remove("af-modal-open");
+    };
+
+
+    /* =====================================================
+       MOBILE MENU
+    ===================================================== */
+
+    const mobileMenu = $("#af-mobile-menu");
+    const menuButton = $("#af-menu-button");
+
+    const toggleMobileMenu = () => {
+
+        if (!mobileMenu) {
+            return;
+        }
+
+        const isHidden = mobileMenu.hidden;
+
+        mobileMenu.hidden = !isHidden;
+
+        if (menuButton) {
+            menuButton.setAttribute(
+                "aria-expanded",
+                String(isHidden)
+            );
+        }
+    };
+
+
+    menuButton?.addEventListener(
+        "click",
+        toggleMobileMenu
+    );
+
+
+    $$(".af-mobile-link").forEach(link => {
+
+        link.addEventListener("click", () => {
+
+            if (mobileMenu) {
+                mobileMenu.hidden = true;
+            }
+
+            if (menuButton) {
+                menuButton.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+            }
+
+        });
+
+    });
+
+
+    /* =====================================================
+       SMOOTH NAVIGATION
+    ===================================================== */
+
+    const scrollToElement = (target) => {
+
+        if (!target) {
+            return;
+        }
+
+        const element =
+            typeof target === "string"
+                ? document.querySelector(target)
+                : target;
+
+        if (!element) {
+            return;
+        }
+
+        const header = $(".af-header");
+
+        const offset =
+            header
+                ? header.offsetHeight + 15
+                : 15;
+
+        const top =
+            element.getBoundingClientRect().top +
+            window.scrollY -
+            offset;
+
+        window.scrollTo({
+            top,
+            behavior: "smooth"
+        });
+    };
+
+
+    $$('a[href^="#"]').forEach(link => {
+
+        link.addEventListener("click", event => {
+
+            const href =
+                link.getAttribute("href");
+
+            if (
+                !href ||
+                href === "#" ||
+                href === "#!"
+            ) {
+                return;
+            }
+
+            const target =
+                document.querySelector(href);
+
+            if (!target) {
+                return;
+            }
+
+            event.preventDefault();
+
+            scrollToElement(target);
+
+        });
+
+    });
+
+
+    /* =====================================================
+       ACTIVE NAVIGATION
+    ===================================================== */
+
+    const navLinks =
+        $$(".af-nav-link");
+
+    const sections =
+        $$("main section[id]");
+
+    const updateActiveNavigation = () => {
+
+        if (!sections.length) {
+            return;
+        }
+
+        const position =
+            window.scrollY + 180;
+
+        let current = sections[0].id;
+
+        sections.forEach(section => {
+
+            if (position >= section.offsetTop) {
+                current = section.id;
+            }
+
+        });
+
+        navLinks.forEach(link => {
+
+            const href =
+                link.getAttribute("href");
+
+            link.classList.toggle(
+                "active",
+                href === `#${current}`
+            );
+
+        });
+
+    };
+
+
+    window.addEventListener(
+        "scroll",
+        updateActiveNavigation,
+        { passive: true }
+    );
+
+
+    /* =====================================================
+       SCROLL TOP
+    ===================================================== */
+
+    const scrollTopButton =
+        $("#af-scroll-top");
+
+    const updateScrollTop = () => {
+
+        if (!scrollTopButton) {
+            return;
+        }
+
+        scrollTopButton.classList.toggle(
+            "visible",
+            window.scrollY > 500
+        );
+
+    };
+
+
+    window.addEventListener(
+        "scroll",
+        updateScrollTop,
+        { passive: true }
+    );
+
+
+    scrollTopButton?.addEventListener(
+        "click",
+        () => {
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+
+        }
+    );
+
+
+    /* =====================================================
+       THEME
+    ===================================================== */
+
+    const themeButton =
+        $("#af-theme-toggle");
+
+    const applyTheme = (theme) => {
+
+        if (theme === "light") {
+
+            document.documentElement
+                .classList.add("light");
+
+        } else {
+
+            document.documentElement
+                .classList.remove("light");
+
+        }
+
+    };
+
+
+    const savedTheme =
+        localStorage.getItem(APP.themeKey);
+
+    if (savedTheme) {
+        applyTheme(savedTheme);
+    }
+
+
+    themeButton?.addEventListener(
+        "click",
+        () => {
+
+            const isLight =
+                document.documentElement
+                    .classList.contains("light");
+
+            const next =
+                isLight
+                    ? "dark"
+                    : "light";
+
+            localStorage.setItem(
+                APP.themeKey,
+                next
+            );
+
+            applyTheme(next);
+
+        }
+    );
+
+
+    /* =====================================================
+       PASSWORD VISIBILITY
+    ===================================================== */
+
+    $$(".af-password-toggle").forEach(button => {
+
+        button.addEventListener(
+            "click",
+            () => {
+
+                const field =
+                    button
+                        .closest(".af-password-field")
+                        ?.querySelector("input");
+
+                if (!field) {
+                    return;
+                }
+
+                const password =
+                    field.type === "password";
+
+                field.type =
+                    password
+                        ? "text"
+                        : "password";
+
+                button.textContent =
+                    password
+                        ? "🙈"
+                        : "👁";
+
+            }
+        );
+
+    });
+
+
+    /* =====================================================
+       AUTH TABS
+    ===================================================== */
+
+    const authTabs =
+        $$(".af-auth-tab");
+
+    const authForms =
+        $$(".af-auth-form");
+
+    const switchAuthMode = (mode) => {
+
+        authTabs.forEach(tab => {
+
+            tab.classList.toggle(
+                "active",
+                tab.dataset.mode === mode
+            );
+
+        });
+
+        authForms.forEach(form => {
+
+            const formMode =
+                form.dataset.mode;
+
+            form.hidden =
+                formMode !== mode;
+
+        });
+
+    };
+
+
+    authTabs.forEach(tab => {
+
+        tab.addEventListener(
+            "click",
+            () => {
+
+                switchAuthMode(
+                    tab.dataset.mode || "login"
+                );
+
+            }
+        );
+
+    });
+
+
+    $$("[data-auth-mode]").forEach(button => {
+
+        button.addEventListener(
+            "click",
+            event => {
+
+                event.preventDefault();
+
+                const mode =
+                    button.dataset.authMode ||
+                    "login";
+
+                switchAuthMode(mode);
+
+                const auth =
+                    $("#auth");
+
+                if (auth) {
+                    scrollToElement(auth);
+                }
+
+            }
+        );
+
+    });
+
+
+    /* =====================================================
+       API REQUEST
+    ===================================================== */
+
+    const apiRequest = async (
+        path,
+        options = {}
+    ) => {
+
+        const headers = {
+            "Accept": "application/json",
+            ...(options.headers || {})
+        };
+
+
+        if (
+            options.body &&
+            !(options.body instanceof FormData)
+        ) {
+
+            headers["Content-Type"] =
+                "application/json";
+
+        }
+
+
+        const token = getToken();
+
+        if (token) {
+            headers.Authorization =
+                `Bearer ${token}`;
+        }
+
+
+        const response =
+            await fetch(
+                apiURL(path),
+                {
+                    ...options,
+                    headers,
+                    credentials: "include"
+                }
+            );
+
+
+        const contentType =
+            response.headers
+                .get("content-type") || "";
+
+
+        let data;
+
+
+        if (
+            contentType
+                .toLowerCase()
+                .includes("application/json")
+        ) {
+
+            data = await response.json();
+
+        } else {
+
+            const text =
+                await response.text();
+
+            data = {
+                message: text
+            };
+
+        }
+
+
+        if (!response.ok) {
+
+            const error =
+                new Error(
+                    data?.message ||
+                    data?.error ||
+                    `HTTP ${response.status}`
+                );
+
+            error.status =
+                response.status;
+
+            error.data = data;
+
+            throw error;
+        }
+
+
+        return data;
+    };
+
+
+    /* =====================================================
+       AUTH MESSAGE
+    ===================================================== */
+
+    const setAuthMessage = (
+        message,
+        type = "error"
+    ) => {
+
+        const box =
+            $("#af-auth-alert");
+
+        if (!box) {
+            return;
+        }
+
+        box.hidden = false;
+        box.textContent = message;
+
+        box.dataset.type = type;
+
+    };
+
+
+    const clearAuthMessage = () => {
+
+        const box =
+            $("#af-auth-alert");
+
+        if (!box) {
+            return;
+        }
+
+        box.hidden = true;
+        box.textContent = "";
+
+    };
+
+
+    /* =====================================================
+       LOGIN
+    ===================================================== */
+
+    const loginForm =
+        $("#af-login-form");
+
+
+    loginForm?.addEventListener(
+        "submit",
+        async event => {
+
+            event.preventDefault();
+
+            clearAuthMessage();
+
+            const submit =
+                loginForm.querySelector(
+                    "[type='submit']"
+                );
+
+            if (submit) {
+                submit.disabled = true;
+            }
+
+
+            const formData =
+                new FormData(loginForm);
+
+
+            const email =
+                String(
+                    formData.get("email") || ""
+                ).trim();
+
+
+            const password =
+                String(
+                    formData.get("password") || ""
+                );
+
+
+            if (!email || !password) {
+
+                setAuthMessage(
+                    "أدخل بيانات تسجيل الدخول كاملة."
+                );
+
+                submit.disabled = false;
+
+                return;
+            }
+
+
+            try {
+
+                const result =
+                    await apiRequest(
+                        "/api/auth/login",
+                        {
+                            method: "POST",
+                            body: JSON.stringify({
+                                email,
+                                password
+                            })
+                        }
+                    );
+
+
+                const token =
+                    result?.token ||
+                    result?.accessToken ||
+                    result?.data?.token;
+
+
+                if (token) {
+                    setToken(token);
+                }
+
+
+                showToast(
+                    "تم تسجيل الدخول بنجاح.",
+                    "success"
+                );
+
+
+                await loadCurrentUser();
+
+                window.location.hash =
+                    "#home";
+
+
+            } catch (error) {
+
+                setAuthMessage(
+                    error.message ||
+                    "تعذر تسجيل الدخول."
+                );
+
+            } finally {
+
+                if (submit) {
+                    submit.disabled = false;
+                }
+
+            }
+
+        }
+    );
+
+
+    /* =====================================================
+       REGISTER
+    ===================================================== */
+
+    const registerForm =
+        $("#af-register-form");
+
+
+    registerForm?.addEventListener(
+        "submit",
+        async event => {
+
+            event.preventDefault();
+
+            clearAuthMessage();
+
+            const submit =
+                registerForm.querySelector(
+                    "[type='submit']"
+                );
+
+
+            if (submit) {
+                submit.disabled = true;
+            }
+
+
+            const formData =
+                new FormData(registerForm);
+
+
+            const username =
+                String(
+                    formData.get("username") || ""
+                ).trim();
+
+
+            const email =
+                String(
+                    formData.get("email") || ""
+                ).trim();
+
+
+            const password =
+                String(
+                    formData.get("password") || ""
+                );
+
+
+            const passwordConfirm =
+                String(
+                    formData.get("password_confirm") ||
+                    formData.get("passwordConfirmation") ||
+                    ""
+                );
+
+
+            if (
+                !username ||
+                !email ||
+                !password
+            ) {
+
+                setAuthMessage(
+                    "أكمل جميع البيانات المطلوبة."
+                );
+
+                submit.disabled = false;
+
+                return;
+            }
+
+
+            if (
+                passwordConfirm &&
+                password !== passwordConfirm
+            ) {
+
+                setAuthMessage(
+                    "كلمتا المرور غير متطابقتين."
+                );
+
+                submit.disabled = false;
+
+                return;
+            }
+
+
+            try {
+
+                const body = {
+                    username,
+                    email,
+                    password
+                };
+
+
+                if (passwordConfirm) {
+                    body.passwordConfirm =
+                        passwordConfirm;
+                }
+
+
+                const result =
+                    await apiRequest(
+                        "/api/auth/register",
+                        {
+                            method: "POST",
+                            body: JSON.stringify(body)
+                        }
+                    );
+
+
+                const token =
+                    result?.token ||
+                    result?.accessToken ||
+                    result?.data?.token;
+
+
+                if (token) {
+                    setToken(token);
+                }
+
+
+                showToast(
+                    "تم إنشاء الحساب بنجاح.",
+                    "success"
+                );
+
+
+                if (!token) {
+
+                    switchAuthMode("login");
+
+                    setAuthMessage(
+                        "تم إنشاء الحساب. يمكنك الآن تسجيل الدخول.",
+                        "success"
+                    );
+
+                } else {
+
+                    await loadCurrentUser();
+
+                    window.location.hash =
+                        "#home";
+
+                }
+
+
+            } catch (error) {
+
+                setAuthMessage(
+                    error.message ||
+                    "تعذر إنشاء الحساب."
+                );
+
+            } finally {
+
+                if (submit) {
+                    submit.disabled = false;
+                }
+
+            }
+
+        }
+    );
+
+
+    /* =====================================================
+       CURRENT USER
+    ===================================================== */
+
+    let currentUser = null;
+
+
+    const setText = (
+        selector,
+        value
+    ) => {
+
+        const element =
+            $(selector);
+
+        if (element) {
+            element.textContent =
+                value ?? "";
+        }
+
+    };
+
+
+    const updateUserInterface = (
+        user
+    ) => {
+
+        currentUser = user || null;
+
+
+        if (!user) {
+
+            setText(
+                "#af-user-name",
+               
+      </section>
+        class="af-app"
+    >
