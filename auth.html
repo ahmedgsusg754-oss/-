@@ -4724,3 +4724,1075 @@
 
 </body>
 </html>
+        </header>
+
+        <!-- =================================================
+             رسائل النظام
+        ================================================== -->
+
+        <div
+          id="authAlert"
+          class="alert"
+          role="alert"
+          aria-live="polite"
+        ></div>
+
+
+        <!-- =================================================
+             التبويبات
+        ================================================== -->
+
+        <div
+          class="tabs"
+          role="tablist"
+          aria-label="نوع الدخول"
+        >
+
+          <button
+            type="button"
+            class="tab active"
+            id="loginTab"
+            role="tab"
+            aria-selected="true"
+            aria-controls="loginForm"
+          >
+            تسجيل الدخول
+          </button>
+
+          <button
+            type="button"
+            class="tab"
+            id="registerTab"
+            role="tab"
+            aria-selected="false"
+            aria-controls="registerForm"
+          >
+            إنشاء حساب
+          </button>
+
+        </div>
+
+
+        <!-- =================================================
+             LOGIN
+        ================================================== -->
+
+        <form
+          id="loginForm"
+          class="form active"
+          novalidate
+          autocomplete="on"
+        >
+
+          <div class="field">
+
+            <label for="loginEmail">
+              البريد الإلكتروني
+            </label>
+
+            <div class="input-wrap">
+
+              <input
+                id="loginEmail"
+                name="email"
+                type="email"
+                inputmode="email"
+                autocomplete="email"
+                placeholder="example@email.com"
+                maxlength="254"
+                required
+              >
+
+            </div>
+
+          </div>
+
+
+          <div class="field">
+
+            <label for="loginPassword">
+              كلمة المرور
+            </label>
+
+            <div class="input-wrap">
+
+              <input
+                id="loginPassword"
+                name="password"
+                type="password"
+                autocomplete="current-password"
+                placeholder="أدخل كلمة المرور"
+                minlength="8"
+                maxlength="128"
+                required
+              >
+
+              <button
+                type="button"
+                class="password-toggle"
+                data-password-toggle="loginPassword"
+                aria-label="إظهار كلمة المرور"
+              >
+                👁
+              </button>
+
+            </div>
+
+          </div>
+
+
+          <div class="form-row">
+
+            <label class="remember">
+
+              <input
+                type="checkbox"
+                id="rememberMe"
+                name="remember"
+              >
+
+              <span>
+                تذكرني
+              </span>
+
+            </label>
+
+            <a
+              href="#"
+              class="forgot"
+              id="forgotPassword"
+            >
+              نسيت كلمة المرور؟
+            </a>
+
+          </div>
+
+
+          <button
+            type="submit"
+            class="submit-btn"
+            id="loginSubmit"
+          >
+            <span class="button-text">
+              تسجيل الدخول
+            </span>
+          </button>
+
+        </form>
+
+
+        <!-- =================================================
+             REGISTER
+        ================================================== -->
+
+        <form
+          id="registerForm"
+          class="form"
+          novalidate
+          autocomplete="on"
+          hidden
+        >
+
+          <div class="field">
+
+            <label for="registerUsername">
+              اسم المستخدم
+            </label>
+
+            <div class="input-wrap">
+
+              <input
+                id="registerUsername"
+                name="username"
+                type="text"
+                autocomplete="username"
+                placeholder="اختر اسم المستخدم"
+                minlength="3"
+                maxlength="30"
+                required
+              >
+
+            </div>
+
+          </div>
+
+
+          <div class="field">
+
+            <label for="registerEmail">
+              البريد الإلكتروني
+            </label>
+
+            <div class="input-wrap">
+
+              <input
+                id="registerEmail"
+                name="email"
+                type="email"
+                inputmode="email"
+                autocomplete="email"
+                placeholder="example@email.com"
+                maxlength="254"
+                required
+              >
+
+            </div>
+
+          </div>
+
+
+          <div class="field">
+
+            <label for="registerPassword">
+              كلمة المرور
+            </label>
+
+            <div class="input-wrap">
+
+              <input
+                id="registerPassword"
+                name="password"
+                type="password"
+                autocomplete="new-password"
+                placeholder="8 أحرف على الأقل"
+                minlength="8"
+                maxlength="128"
+                required
+              >
+
+              <button
+                type="button"
+                class="password-toggle"
+                data-password-toggle="registerPassword"
+                aria-label="إظهار كلمة المرور"
+              >
+                👁
+              </button>
+
+            </div>
+
+          </div>
+
+
+          <div class="field">
+
+            <label for="registerPasswordConfirm">
+              تأكيد كلمة المرور
+            </label>
+
+            <div class="input-wrap">
+
+              <input
+                id="registerPasswordConfirm"
+                name="passwordConfirm"
+                type="password"
+                autocomplete="new-password"
+                placeholder="أعد كتابة كلمة المرور"
+                minlength="8"
+                maxlength="128"
+                required
+              >
+
+              <button
+                type="button"
+                class="password-toggle"
+                data-password-toggle="registerPasswordConfirm"
+                aria-label="إظهار كلمة المرور"
+              >
+                👁
+              </button>
+
+            </div>
+
+          </div>
+
+
+          <div class="form-row">
+
+            <label class="remember">
+
+              <input
+                type="checkbox"
+                id="acceptTerms"
+                name="acceptTerms"
+                required
+              >
+
+              <span>
+                أوافق على الشروط وسياسة الخصوصية
+              </span>
+
+            </label>
+
+          </div>
+
+
+          <button
+            type="submit"
+            class="submit-btn"
+            id="registerSubmit"
+          >
+            <span class="button-text">
+              إنشاء الحساب
+            </span>
+          </button>
+
+        </form>
+
+
+        <!-- =================================================
+             FOOTER
+        ================================================== -->
+
+        <div
+          style="
+            margin-top:24px;
+            text-align:center;
+            color:var(--text-soft);
+            font-size:12px;
+            line-height:1.8;
+          "
+        >
+          باستخدامك الموقع أنت توافق على
+          <a
+            href="#"
+            id="termsLink"
+            style="color:#d98cff;font-weight:700;"
+          >
+            الشروط والأحكام
+          </a>
+          و
+          <a
+            href="#"
+            id="privacyLink"
+            style="color:#d98cff;font-weight:700;"
+          >
+            سياسة الخصوصية
+          </a>
+        </div>
+
+      </section>
+
+    </section>
+
+  </main>
+
+
+  <!-- =====================================================
+       JAVASCRIPT
+  ====================================================== -->
+
+  <script>
+    "use strict";
+
+    const CONFIG = {
+      apiBase: "",
+      tokenKey: "afendina_token"
+    };
+
+
+    /* =====================================================
+       ELEMENTS
+    ====================================================== */
+
+    const loginTab =
+      document.getElementById("loginTab");
+
+    const registerTab =
+      document.getElementById("registerTab");
+
+    const loginForm =
+      document.getElementById("loginForm");
+
+    const registerForm =
+      document.getElementById("registerForm");
+
+    const authTitle =
+      document.getElementById("authTitle");
+
+    const authSubtitle =
+      document.getElementById("authSubtitle");
+
+    const authAlert =
+      document.getElementById("authAlert");
+
+
+    /* =====================================================
+       ALERT
+    ====================================================== */
+
+    function showAlert(message, type = "error") {
+
+      if (!authAlert) return;
+
+      authAlert.textContent = message;
+
+      authAlert.className =
+        "alert show " + type;
+
+    }
+
+
+    function hideAlert() {
+
+      if (!authAlert) return;
+
+      authAlert.textContent = "";
+
+      authAlert.className =
+        "alert";
+
+    }
+
+
+    /* =====================================================
+       SWITCH TAB
+    ====================================================== */
+
+    function switchMode(mode) {
+
+      hideAlert();
+
+      const login =
+        mode === "login";
+
+      loginTab.classList.toggle(
+        "active",
+        login
+      );
+
+      registerTab.classList.toggle(
+        "active",
+        !login
+      );
+
+      loginTab.setAttribute(
+        "aria-selected",
+        String(login)
+      );
+
+      registerTab.setAttribute(
+        "aria-selected",
+        String(!login)
+      );
+
+      loginForm.classList.toggle(
+        "active",
+        login
+      );
+
+      registerForm.classList.toggle(
+        "active",
+        !login
+      );
+
+      loginForm.hidden = !login;
+
+      registerForm.hidden = login;
+
+
+      if (login) {
+
+        authTitle.textContent =
+          "أهلاً بك";
+
+        authSubtitle.textContent =
+          "سجّل دخولك للمتابعة إلى حسابك.";
+
+      } else {
+
+        authTitle.textContent =
+          "إنشاء حساب جديد";
+
+        authSubtitle.textContent =
+          "أنشئ حسابك وابدأ تجربتك على افـنـدツينا🥀🖤.";
+
+      }
+
+    }
+
+
+    loginTab.addEventListener(
+      "click",
+      () => switchMode("login")
+    );
+
+
+    registerTab.addEventListener(
+      "click",
+      () => switchMode("register")
+    );
+
+
+    /* =====================================================
+       PASSWORD TOGGLE
+    ====================================================== */
+
+    document
+      .querySelectorAll(
+        "[data-password-toggle]"
+      )
+      .forEach(button => {
+
+        button.addEventListener(
+          "click",
+          () => {
+
+            const targetId =
+              button.dataset.passwordToggle;
+
+            const input =
+              document.getElementById(
+                targetId
+              );
+
+            if (!input) return;
+
+            const isPassword =
+              input.type === "password";
+
+            input.type =
+              isPassword
+                ? "text"
+                : "password";
+
+            button.textContent =
+              isPassword
+                ? "🙈"
+                : "👁";
+
+            button.setAttribute(
+              "aria-label",
+              isPassword
+                ? "إخفاء كلمة المرور"
+                : "إظهار كلمة المرور"
+            );
+
+          }
+        );
+
+      });
+
+
+    /* =====================================================
+       API
+    ====================================================== */
+
+    async function apiRequest(
+      endpoint,
+      options = {}
+    ) {
+
+      const headers = {
+        "Accept":
+          "application/json",
+        ...(options.headers || {})
+      };
+
+
+      if (
+        options.body &&
+        !(options.body instanceof FormData)
+      ) {
+
+        headers[
+          "Content-Type"
+        ] =
+          "application/json";
+
+      }
+
+
+      const token =
+        localStorage.getItem(
+          CONFIG.tokenKey
+        );
+
+
+      if (token) {
+
+        headers.Authorization =
+          "Bearer " + token;
+
+      }
+
+
+      const response =
+        await fetch(
+          CONFIG.apiBase + endpoint,
+          {
+            ...options,
+            headers,
+            credentials:
+              "include"
+          }
+        );
+
+
+      let data = null;
+
+      const contentType =
+        response.headers.get(
+          "content-type"
+        ) || "";
+
+
+      if (
+        contentType.includes(
+          "application/json"
+        )
+      ) {
+
+        data =
+          await response.json();
+
+      } else {
+
+        const text =
+          await response.text();
+
+        data = {
+          message: text
+        };
+
+      }
+
+
+      if (!response.ok) {
+
+        throw new Error(
+          data?.message ||
+          data?.error ||
+          "حدث خطأ في الاتصال بالخادم."
+        );
+
+      }
+
+
+      return data;
+
+    }
+
+
+    /* =====================================================
+       SAVE TOKEN
+    ====================================================== */
+
+    function saveToken(data) {
+
+      const token =
+        data?.token ||
+        data?.accessToken ||
+        data?.data?.token;
+
+
+      if (token) {
+
+        localStorage.setItem(
+          CONFIG.tokenKey,
+          token
+        );
+
+      }
+
+      return token;
+
+    }
+
+
+    /* =====================================================
+       LOADING
+    ====================================================== */
+
+    function setLoading(
+      button,
+      loading,
+      text
+    ) {
+
+      if (!button) return;
+
+      button.disabled =
+        loading;
+
+      if (loading) {
+
+        button.innerHTML =
+          `
+          <span class="loading">
+            <span class="spinner"></span>
+            ${text}
+          </span>
+          `;
+
+      } else {
+
+        button.innerHTML =
+          `<span class="button-text">${text}</span>`;
+
+      }
+
+    }
+
+
+    /* =====================================================
+       LOGIN
+    ====================================================== */
+
+    loginForm.addEventListener(
+      "submit",
+      async event => {
+
+        event.preventDefault();
+
+        hideAlert();
+
+
+        if (
+          !loginForm.checkValidity()
+        ) {
+
+          loginForm.reportValidity();
+
+          return;
+        }
+
+
+        const email =
+          document
+            .getElementById(
+              "loginEmail"
+            )
+            .value
+            .trim();
+
+
+        const password =
+          document
+            .getElementById(
+              "loginPassword"
+            )
+            .value;
+
+
+        const button =
+          document.getElementById(
+            "loginSubmit"
+          );
+
+
+        setLoading(
+          button,
+          true,
+          "جارٍ تسجيل الدخول..."
+        );
+
+
+        try {
+
+          const result =
+            await apiRequest(
+              "/api/auth/login",
+              {
+                method: "POST",
+
+                body:
+                  JSON.stringify({
+                    email,
+                    password
+                  })
+              }
+            );
+
+
+          const token =
+            saveToken(result);
+
+
+          if (!token) {
+
+            throw new Error(
+              "تمت الاستجابة من الخادم بدون رمز جلسة."
+            );
+
+          }
+
+
+          showAlert(
+            "تم تسجيل الدخول بنجاح.",
+            "success"
+          );
+
+
+          /*
+           * الانتقال للموقع بعد نجاح المصادقة.
+           * لا يتم إرسال كلمة المرور داخل الرابط.
+           */
+
+          setTimeout(
+            () => {
+
+              window.location.href =
+                "index.html";
+
+            },
+            600
+          );
+
+
+        } catch (error) {
+
+          showAlert(
+            error.message ||
+            "تعذر تسجيل الدخول.",
+            "error"
+          );
+
+        } finally {
+
+          setLoading(
+            button,
+            false,
+            "تسجيل الدخول"
+          );
+
+        }
+
+      }
+    );
+
+
+    /* =====================================================
+       REGISTER
+    ====================================================== */
+
+    registerForm.addEventListener(
+      "submit",
+      async event => {
+
+        event.preventDefault();
+
+        hideAlert();
+
+
+        if (
+          !registerForm.checkValidity()
+        ) {
+
+          registerForm.reportValidity();
+
+          return;
+        }
+
+
+        const username =
+          document
+            .getElementById(
+              "registerUsername"
+            )
+            .value
+            .trim();
+
+
+        const email =
+          document
+            .getElementById(
+              "registerEmail"
+            )
+            .value
+            .trim();
+
+
+        const password =
+          document
+            .getElementById(
+              "registerPassword"
+            )
+            .value;
+
+
+        const passwordConfirm =
+          document
+            .getElementById(
+              "registerPasswordConfirm"
+            )
+            .value;
+
+
+        const acceptTerms =
+          document
+            .getElementById(
+              "acceptTerms"
+            )
+            .checked;
+
+
+        if (!acceptTerms) {
+
+          showAlert(
+            "يجب الموافقة على الشروط والأحكام.",
+            "error"
+          );
+
+          return;
+        }
+
+
+        if (
+          password !== passwordConfirm
+        ) {
+
+          showAlert(
+            "كلمتا المرور غير متطابقتين.",
+            "error"
+          );
+
+          return;
+        }
+
+
+        if (password.length < 8) {
+
+          showAlert(
+            "كلمة المرور يجب أن تحتوي على 8 أحرف على الأقل.",
+            "error"
+          );
+
+          return;
+        }
+
+
+        const button =
+          document.getElementById(
+            "registerSubmit"
+          );
+
+
+        setLoading(
+          button,
+          true,
+          "جارٍ إنشاء الحساب..."
+        );
+
+
+        try {
+
+          const result =
+            await apiRequest(
+              "/api/auth/register",
+              {
+                method: "POST",
+
+                body:
+                  JSON.stringify({
+                    username,
+                    email,
+                    password,
+                    passwordConfirm
+                  })
+              }
+            );
+
+
+          const token =
+            saveToken(result);
+
+
+          showAlert(
+            "تم إنشاء الحساب بنجاح.",
+            "success"
+          );
+
+
+          if (token) {
+
+            setTimeout(
+              () => {
+
+                window.location.href =
+                  "index.html";
+
+              },
+              600
+            );
+
+          } else {
+
+            setTimeout(
+              () => {
+
+                switchMode("login");
+
+                document
+                  .getElementById(
+                    "loginEmail"
+                  )
+                  .value =
+                  email;
+
+                showAlert(
+                  "تم إنشاء الحساب. سجّل الدخول للمتابعة.",
+                  "success"
+                );
+
+              },
+              700
+            );
+
+          }
+
+
+        } catch (error) {
+
+          showAlert(
+            error.message ||
+            "تعذر إنشاء الحساب.",
+            "error"
+          );
+
+        } finally {
+
+          setLoading(
+            button,
+            false,
+            "إنشاء الحساب"
+          );
+
+        }
+
+      }
+    );
+
+
+    /* =====================================================
+       FORGOT PASSWORD
+    ====================================================== */
+
+    document
+      .getElementById(
+        "forgotPassword"
+      )
+      .addEventListener(
+        "click",
+        async event => {
+
+          event.preventDefault();
+
+          const email =
+            document
+              .getElementById(
+                "loginEmail"
+              )
+              .value
+              .trim();
+
+
+          if (!email) {
+
+            showAlert(
+              "أدخل بريدك الإلكتروني أولاً.",
+              "error"
+            );
+
+            document
+ 
