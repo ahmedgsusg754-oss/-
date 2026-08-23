@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#08050e">
+<meta name="color-scheme" content="dark">
+<title>افـنـدツينا🥀🖤</title>
+<meta name="description" content="افـنـدツينا🥀🖤 - مجتمع اجتماعي للدردشة والغرف والمنشورات والرسائل والهدايا.">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap');
+:root{
+ --bg:#08050e;--bg2:#100a18;--panel:rgba(18,12,29,.92);--panel2:#1a1028;
+ --line:rgba(211,105,255,.18);--line2:rgba(255,255,255,.07);
+ --p:#9d39ff;--p2:#e347ff;--p3:#6e2fff;--txt:#fff;--muted:#a9a0b2;
+ --ok:#42e6a0;--bad:#ff5278;--warn:#ffd15c;--side:260px;--top:70px;
+ --r:18px;--shadow:0 18px 55px rgba(0,0,0,.42);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{min-height:100vh;background:
+radial-gradient(circle at 12% 8%,rgba(143,42,255,.16),transparent 28%),
+radial-gradient(circle at 90% 15%,rgba(229,58,255,.10),transparent 26%),
+radial-gradient(circle at 50% 100%,rgba(84,30,180,.12),transparent 35%),var(--bg);
+color:var(--txt);font-family:Cairo,sans-serif;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+background:linear-gradient(115deg,transparent 20%,rgba(255,255,255,.012),transparent 80%);
+animation:drift 20s linear infinite}
+@keyframes drift{from{transform:translateX(-18%)}to{transform:translateX(18%)}}
+button,input,textarea,select{font:inherit}button{border:0;cursor:pointer}a{text-decoration:none;color:inherit}
+.hidden{display:none!important}.grow{flex:1}.muted{color:var(--muted);font-size:11px}
+#boot{position:fixed;inset:0;z-index:99999;display:grid;place-items:center;background:#05030a;
+transition:.4s}#boot.done{opacity:0;visibility:hidden}.boot{text-align:center}.brandText{
+font-size:32px;font-weight:800;background:linear-gradient(90deg,#fff,#e76aff,#9448ff);
+-webkit-background-clip:text;color:transparent}.spinner{width:52px;height:52px;margin:22px auto 14px;
+border:4px solid rgba(255,255,255,.08);border-top-color:var(--p2);border-radius:50%;animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}.boot small{color:var(--muted)}
+.sidebar{position:fixed;right:0;top:0;bottom:0;width:var(--side);z-index:3000;padding:16px 13px;
+background:linear-gradient(180deg,rgba(16,9,26,.99),rgba(7,5,12,.98));border-left:1px solid var(--line);
+backdrop-filter:blur(20px);overflow:auto}.brand{display:flex;align-items:center;gap:10px;padding:8px 10px 20px;
+border-bottom:1px solid var(--line2);margin-bottom:10px}.brandIcon{width:43px;height:43px;display:grid;place-items:center;
+border-radius:14px;background:linear-gradient(135deg,var(--p),var(--p2));box-shadow:0 0 26px rgba(182,54,255,.32)}
+.brandName{font-size:15px;font-weight:800}.brandSub{font-size:9px;color:var(--muted)}.navTitle{padding:14px 11px 7px;color:#6f647a;font-size:10px}
+.nav{display:grid;gap:4px}.nav button{width:100%;min-height:46px;display:flex;align-items:center;gap:11px;padding:0 13px;
+border-radius:13px;background:transparent;color:#aaa2b3;text-align:right}.nav button:hover,.nav button.active{
+color:#fff;background:linear-gradient(90deg,rgba(143,45,255,.28),rgba(225,56,255,.07))}.nav button.active{box-shadow:inset 3px 0 var(--p2)}
+.ico{width:25px;text-align:center}.badge{min-width:19px;height:19px;padding:0 5px;display:grid;place-items:center;border-radius:20px;background:var(--p);font-size:9px}
+.sideBottom{margin-top:20px;padding-top:12px;border-top:1px solid var(--line2)}
+.main{margin-right:var(--side);min-height:100vh}.top{height:var(--top);position:sticky;top:0;z-index:2500;display:flex;align-items:center;gap:10px;
+padding:0 22px;background:rgba(8,5,14,.78);border-bottom:1px solid var(--line2);backdrop-filter:blur(20px)}
+.menu{display:none;width:40px;height:40px;border-radius:12px;background:#ffffff09;color:#fff}.search{height:42px;max-width:620px;flex:1;position:relative}
+.search input{width:100%;height:100%;padding:0 43px 0 14px;border-radius:13px;border:1px solid var(--line2);outline:0;background:#ffffff08;color:#fff}
+.search span{position:absolute;right:14px;top:50%;transform:translateY(-50%);color:#8e8498}.actions{display:flex;gap:7px;margin-right:auto}
+.iconBtn{width:42px;height:42px;display:grid;place-items:center;border-radius:12px;background:#ffffff08;color:#c5bdca;position:relative}
+.iconBtn:hover{background:rgba(170,58,255,.16);color:#fff}.dot{position:absolute;right:8px;top:8px;width:7px;height:7px;border-radius:50%;background:var(--bad);box-shadow:0 0 9px var(--bad)}
+.content{width:min(1500px,100%);margin:auto;padding:24px}.page{display:none;animation:pageIn .25s ease}.page.active{display:block}
+@keyframes pageIn{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:none}}
+.hero{position:relative;overflow:hidden;min-height:255px;padding:34px;display:flex;align-items:center;border:1px solid var(--line);
+border-radius:25px;background:radial-gradient(circle at 82% 35%,rgba(220,52,255,.19),transparent 31%),
+radial-gradient(circle at 13% 75%,rgba(98,40,255,.18),transparent 31%),linear-gradient(135deg,#1b0d29f5,#0d0815f0);box-shadow:var(--shadow)}
+.hero:after{content:"";position:absolute;width:430px;height:430px;left:-160px;bottom:-270px;border-radius:50%;background:#c735ff18;filter:blur(50px)}
+.heroInner{position:relative;z-index:2;max-width:760px}.tag{display:inline-flex;gap:7px;padding:7px 12px;border:1px solid #d454ff2d;border-radius:30px;background:#be3dff12;color:#db9cff;font-size:10px;margin-bottom:13px}
+h1{font-size:clamp(27px,4vw,44px);line-height:1.3;margin-bottom:10px}.grad{background:linear-gradient(90deg,#fff,#e66aff,#995cff);-webkit-background-clip:text;color:transparent}
+.hero p{color:#aaa0b0;line-height:1.9;font-size:13px}.buttons{display:flex;gap:9px;flex-wrap:wrap;margin-top:20px}
+.btn{min-height:42px;padding:0 17px;display:inline-flex;align-items:center;justify-content:center;gap:7px;border-radius:12px;
+background:#ffffff09;color:#fff;border:1px solid var(--line2);font-size:11px;font-weight:700;transition:.2s}.btn:hover{transform:translateY(-1px)}
+.primary{background:linear-gradient(135deg,var(--p3),var(--p2));border-color:transparent;box-shadow:0 9px 25px #a330ff2c}.small{min-height:34px;padding:0 11px;font-size:10px}.danger{color:#ff8199;background:#ff355c12;border-color:#ff355c2e}
+.layout{display:grid;grid-template-columns:1fr 320px;gap:17px;margin-top:17px}.cards4{display:grid;grid-template-columns:repeat(4,1fr);gap:13px;margin-top:17px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);box-shadow:0 10px 32px #0000002b}
+.cardHead{min-height:57px;padding:0 17px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line2)}
+.title{font-size:13px;font-weight:800}.sub{font-size:9px;color:var(--muted);margin-top:2px}.body{padding:17px}
+.quick{padding:17px;transition:.2s}.quick:hover{transform:translateY(-2px);border-color:#d65bff80}.quickIcon{width:43px;height:43px;display:grid;place-items:center;border-radius:13px;background:#ab38ff15;margin-bottom:12px;font-size:19px}
+.quickTitle{font-size:11px;font-weight:800}.quickText{font-size:9px;line-height:1.7;color:var(--muted);margin-top:3px}
+.profile{padding:20px}.profileHead{display:flex;align-items:center;gap:12px}.avatar{width:52px;height:52px;display:grid;place-items:center;
+flex:0 0 52px;border-radius:50%;overflow:hidden;border:2px solid #dc4bff88;background:#1a1223;color:#8e8496}.avatar img{width:100%;height:100%;object-fit:cover}
+.name{font-size:13px;font-weight:800}.online{font-size:9px;color:var(--ok);display:flex;align-items:center;gap:5px}.online:before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor;box-shadow:0 0 8px currentColor}
+.level{margin-top:19px}.levelRow{display:flex;justify-content:space-between;font-size:9px;color:#aaa0af;margin-bottom:7px}.progress{height:7px;background:#ffffff0b;border-radius:10px;overflow:hidden}.progress span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--p3),var(--p2));border-radius:inherit;transition:.6s}
+.wallet{margin-top:17px;padding:12px;border-radius:13px;background:#ffffff06;display:flex;align-items:center;justify-content:space-between}.wallet small{display:block;color:#8e8597;font-size:8px}.wallet strong{color:var(--warn);font-size:15px}
+.list{display:grid;gap:10px}.row{display:flex;align-items:center;gap:11px;padding:12px;border-radius:14px;border:1px solid var(--line2);background:#ffffff04}.rowIcon{width:43px;height:43px;display:grid;place-items:center;border-radius:13px;background:#a638ff16;font-size:18px}
+.empty{min-height:180px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#817688;padding:25px}.emptyIcon{width:54px;height:54px;display:grid;place-items:center;border-radius:17px;background:#ab37ff0d;color:#b34dff;font-size:22px;margin-bottom:11px}.empty b{font-size:12px;color:#c9c0ce}.empty p{font-size:9px;line-height:1.8;max-width:470px;margin-top:5px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.room{padding:15px}.roomHead{display:flex;align-items:center;gap:11px}.roomIcon{width:45px;height:45px;display:grid;place-items:center;border-radius:14px;background:#7934ff20;font-size:20px}
+.post{padding:16px}.postHead{display:flex;align-items:center;gap:9px}.postText{font-size:12px;color:#e4dfe7;line-height:1.9;margin:14px 0}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:18px}.stat{padding:16px}.stat strong{font-size:21px;display:block}.stat span{font-size:9px;color:var(--muted)}
+.gifts{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.gift{padding:13px;text-align:center}.giftArt{height:105px;border-radius:16px;display:grid;place-items:center;font-size:55px;background:radial-gradient(circle,#df45ff1c,transparent 65%)}.giftName{font-size:11px;font-weight:800;margin-top:8px}.giftPrice{font-size:9px;color:var(--warn);margin:3px 0 8px}
+.form{display:grid;gap:11px}.field{display:grid;gap:6px}.field label{font-size:10px;color:#c2b8c9}.field input,.field textarea,.field select{width:100%;padding:11px 12px;background:#ffffff06;color:#fff;border:1px solid var(--line2);border-radius:12px;outline:0}.field textarea{min-height:115px;resize:vertical}.field input:focus,.field textarea:focus{border-color:#b64cff}
+.settings{display:grid;gap:9px}.setting{display:flex;align-items:center;justify-content:space-between;padding:14px;border:1px solid var(--line2);border-radius:14px}.switch{width:46px;height:25px;border-radius:20px;background:#382d42;position:relative}.switch:after{content:"";position:absolute;width:19px;height:19px;top:3px;right:3px;border-radius:50%;background:#fff;transition:.2s}.switch.on{background:var(--p)}.switch.on:after{right:24px}
+.modal{position:fixed;inset:0;z-index:8000;display:none;align-items:center;justify-content:center;padding:18px;background:#000b;backdrop-filter:blur(8px)}.modal.show{display:flex}.modalBox{width:min(540px,100%);max-height:90vh;overflow:auto;background:var(--panel2);border:1px solid var(--line);border-radius:20px;padding:19px;box-shadow:var(--shadow)}
+.modalHead{display:flex;align-items:center;justify-content:space-between;margin-bottom:15px}.close{width:35px;height:35px;border-radius:10px;background:#ffffff08;color:#fff}
+.toast{position:fixed;left:18px;bottom:18px;z-index:9000;max-width:calc(100% - 36px);padding:12px 15px;background:#181020;border:1px solid var(--line);border-radius:13px;box-shadow:var(--shadow);opacity:0;transform:translateY(20px);pointer-events:none;transition:.25s;font-size:11px}.toast.show{opacity:1;transform:none}
+.drawerShade{position:fixed;inset:0;z-index:2900;background:#0008;display:none}.drawerShade.show{display:block}
+@media(max-width:1050px){.cards4{grid-template-columns:repeat(2,1fr)}.grid4,.gifts{grid-template-columns:repeat(3,1fr)}.grid3{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:800px){:root{--side:0px}.sidebar{width:280px;right:-290px;transition:.25s}.sidebar.open{right:0}.main{margin-right:0}.menu{display:block}.top{padding:0 11px}.content{padding:13px}.layout{grid-template-columns:1fr}.drawerShade.show{display:block}}
+@media(max-width:600px){.hero{min-height:300px;padding:25px}.hero h1{font-size:28px}.cards4,.grid3,.grid4,.gifts,.stats{grid-template-columns:1fr 1fr}.search{min-width:0}.search input{font-size:10px}.actions .iconBtn{display:none}.buttons .btn{flex:1}.top{gap:6px}.iconBtn{width:38px;height:38px}.cards4{gap:9px}}
+</style>
+</head>
+<body>
+<div id="boot"><div class="boot"><div class="brandText">افـنـدツينا🥀🖤</div><div class="spinner"></div><small>جاري تشغيل الواجهة...</small></div></div>
+
+<aside class="sidebar" id="sidebar">
+<div class="brand"><div class="brandIcon">🥀</div><div><div class="brandName">افـنـدツينا🥀🖤</div><div class="brandSub">مجتمعك الاجتماعي</div></div></div>
+<div class="navTitle">الموقع</div>
+<div class="nav">
+<button class="active" data-page="home"><span class="ico">⌂</span><span class="grow">الرئيسية</span></button>
+<button data-page="rooms"><span class="ico">◉</span><span class="grow">الغرف</span></button>
+<button data-page="posts"><span class="ico">▣</span><span class="grow">المنشورات</span></button>
+<button data-page="messages"><span class="ico">✉</span><span class="grow">الرسائل</span><span class="badge hidden" id="messageBadge">0</span></button>
+<button data-page="notifications"><span class="ico">♢</span><span class="grow">الإشعارات</span><span class="badge hidden" id="notificationBadge">0</span></button>
+</div>
+<div class="navTitle">الحساب والمتجر</div>
+<div class="nav">
+<button data-page="gifts"><span class="ico">🎁</span><span class="grow">الهدايا</span></button>
+<button data-page="profile"><span class="ico">♙</span><span class="grow">الملف الشخصي</span></button>
+<button data-page="settings"><span class="ico">⚙</span><span class="grow">الإعدادات</span></button>
+</div>
+<div class="sideBottom"><button id="logout" style="width:100%;min-height:46px;background:transparent;color:#aaa2b3;text-align:right;padding:0 13px;border-radius:13px"><span class="ico">↪</span> تسجيل الخروج</button></div>
+</aside>
+<div class="drawerShade" id="shade"></div>
+
+<main class="main">
+<header class="top">
+<button class="menu" id="menu">☰</button>
+<div class="search"><span>⌕</span><input id="search" autocomplete="off" placeholder="ابحث في الموقع..."></div>
+<div class="actions">
+<button class="iconBtn" id="theme" title="المظهر">☾</button>
+<button class="iconBtn" id="notify" title="الإشعارات">♢<i class="dot hidden" id="topDot"></i></button>
+</div>
+</header>
+
+<div class="content">
+<section class="page active" id="page-home">
+<div class="hero"><div class="heroInner"><div class="tag">✦ تجربة اجتماعية حديثة</div><h1>مرحبًا بك في <span class="grad">افـنـدツينا🥀🖤</span></h1><p>تواصل، دردش، ادخل الغرف، شارك منشوراتك واستمتع بالهدايا. لا توجد حسابات أو أرصدة أو منشورات تجريبية؛ البيانات تُعرض من النظام الفعلي فقط.</p><div class="buttons">
+<button class="btn primary" data-page="rooms">استكشف الغرف</button><button class="btn" data-page="posts">المنشورات</button><button class="btn" data-page="gifts">🎁 الهدايا</button></div></div></div>
+<div class="layout">
+<div class="card"><div class="cardHead"><div><div class="title">الوصول السريع</div><div class="sub">أقسام الموقع الأساسية</div></div></div>
+<div class="cards4" style="padding:13px;margin:0"><button class="card quick" data-page="rooms"><div class="quickIcon">◉</div><div class="quickTitle">الغرف</div><div class="quickText">الغرف الفعلية المتاحة.</div></button>
+<button class="card quick" data-page="messages"><div class="quickIcon">✉</div><div class="quickTitle">الرسائل</div><div class="quickText">محادثاتك الخاصة.</div></button>
+<button class="card quick" data-page="gifts"><div class="quickIcon">🎁</div><div class="quickTitle">الهدايا</div><div class="quickText">الهدايا والكوينز.</div></button>
+<button class="card quick" data-page="profile"><div class="quickIcon">♙</div><div class="quickTitle">ملفي</div><div class="quickText">بيانات حسابك.</div></button></div></div>
+<aside class="card profile"><div class="profileHead"><div class="avatar" id="homeAvatar">♙</div><div><div class="name" id="homeName">غير مسجل</div><div class="online">حالة الحساب</div></div></div>
+<div class="level"><div class="levelRow"><span>المستوى</span><span id="homeLevel">0</span></div><div class="progress"><span id="homeProgress"></span></div></div>
+<div class="wallet"><div><small>الرصيد</small><strong id="homeCoins">0 🪙</strong></div><button class="btn small primary" data-page="gifts">المتجر</button></div></aside>
+</div>
+</section>
+
+<section class="page" id="page-rooms">
+<div class="hero" style="min-height:190px"><div class="heroInner"><div class="tag">◉ الغرف</div><h1>اكتشف <span class="grad">الغرف</span></h1><p>تظهر هنا الغرف التي يرجعها الخادم فقط.</p></div></div>
+<div class="card" style="margin-top:17px"><div class="cardHead"><div><div class="title">الغرف المتاحة</div><div class="sub" id="roomState">جاري التحقق...</div></div><button class="btn small primary" id="refreshRooms">تحديث</button></div><div class="body"><div class="grid3" id="rooms"></div></div></div>
+</section>
+
+<section class="page" id="page-posts">
+<div class="card"><div class="cardHead"><div><div class="title">المنشورات</div><div class="sub">المحتوى الفعلي</div></div><button class="btn small primary" id="createPost">+ منشور</button></div><div class="body"><div class="list" id="posts"></div></div></div>
+</section>
+
+<section class="page" id="page-messages">
+<div class="card"><div class="cardHead"><div><div class="title">الرسائل</div><div class="sub">المحادثات الخاصة</div></div><button class="btn small" id="refreshMessages">تحديث</button></div><div class="body"><div class="empty"><div class="emptyIcon">✉</div><b>لا توجد محادثات معروضة</b><p>لن يتم اختلاق محادثات. عند ربط مسار الرسائل الفعلي ستظهر البيانات هنا.</p></div></div></div>
+</section>
+
+<section class="page" id="page-notifications">
+<div class="card"><div class="cardHead"><div><div class="title">الإشعارات</div><div class="sub">تنبيهات الحساب</div></div><button class="btn small" id="readAll">تحديد كمقروء</button></div><div class="body"><div class="empty"><div class="emptyIcon">♢</div><b>لا توجد إشعارات</b><p>ستظهر الإشعارات الحقيقية القادمة من النظام فقط.</p></div></div></div>
+</section>
+
+<section class="page" id="page-gifts">
+<div class="hero" style="min-height:190px"><div class="heroInner"><div class="tag">🎁 متجر الهدايا</div><h1>هدايا <span class="grad">بمظهر فاخر</span></h1><p>واجهة المتجر جاهزة، أما الأسعار والشراء والخصم فلا تُنفذ إلا عبر بيانات الخادم الفعلية.</p></div></div>
+<div class="card" style="margin-top:17px"><div class="cardHead"><div><div class="title">كتالوج الهدايا</div><div class="sub" id="giftState">جاري تحميل الكتالوج...</div></div><button class="btn small" id="refreshGifts">تحديث</button></div><div class="body"><div class="gifts" id="giftGrid"></div></div></div>
+</section>
+
+<section class="page" id="page-profile">
+<div class="card"><div class="cardHead"><div><div class="title">الملف الشخصي</div><div class="sub">بيانات الحساب الفعلية</div></div><button class="btn small primary" id="editProfile">تعديل</button></div><div class="body">
+<div class="profileHead"><div class="avatar" id="profileAvatar">♙</div><div><div class="name" id="profileName">غير مسجل</div><div class="muted" id="profileEmail">—</div></div></div>
+<div class="stats"><div class="card stat"><strong id="sLevel">0</strong><span>المستوى</span></div><div class="card stat"><strong id="sCoins">0</strong><span>كوينز</span></div><div class="card stat"><strong id="sPosts">0</strong><span>منشورات</span></div><div class="card stat"><strong id="sFollowers">0</strong><span>متابعون</span></div></div>
+</div></div>
+</section>
+
+<section class="page" id="page-settings">
+<div class="card"><div class="cardHead"><div><div class="title">الإعدادات</div><div class="sub">إعدادات الواجهة والحساب</div></div></div><div class="body"><div class="settings">
+<div class="setting"><div><b>الإشعارات</b><div class="muted">تشغيل تنبيهات الواجهة</div></div><button class="switch on" data-setting="notifications"></button></div>
+<div class="setting"><div><b>الحركة</b><div class="muted">المؤثرات الهادئة للخلفية والانتقالات</div></div><button class="switch on" data-setting="motion"></button></div>
+<div class="setting"><div><b>الوضع الداكن</b><div class="muted">المظهر الأساسي للموقع</div></div><button class="switch on" data-setting="dark"></button></div>
+</div></div></div>
+</section>
+</div>
+</main>
+
+<div class="modal" id="modal"><div class="modalBox"><div class="modalHead"><div class="title" id="modalTitle">نافذة</div><button class="close" id="close">×</button></div><div id="modalBody"></div></div></div>
+<div class="toast" id="toast"></div>
+
+<script>
+"use strict";
+
+/*
+  Production front-end contract:
+  - API base can be overridden with window.APP_API_BASE before this file.
+  - No demo users, posts, balances or notifications are created here.
+  - Authentication token is read from localStorage.
+*/
+const API_BASE=window.APP_API_BASE||"/api";
+const state={user:null,rooms:[],posts:[],gifts:[]};
+
+const $=s=>document.querySelector(s);
+const $$=s=>Array.from(document.querySelectorAll(s));
+const esc=v=>String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[c]));
+const getToken=()=>localStorage.getItem("token")||localStorage.getItem("accessToken")||"";
+
+function toast(text){
+ const el=$("#toast");el.textContent=text;el.classList.add("show");
+ clearTimeout(window.__toastTimer);window.__toastTimer=setTimeout(()=>el.classList.remove("show"),2800);
+}
+async function api(path,opts={}){
+ const headers={"Content-Type":"application/json",...(opts.headers||{})};
+ const t=getToken();if(t)headers.Authorization="Bearer "+t;
+ const res=await fetch(API_BASE+path,{...opts,headers});
+ const type=res.headers.get("content-type")||"";
+ const data=type.includes("application/json")?await res.json():await res.text();
+ if(!res.ok)throw new Error(data?.message||data?.error||"تعذر تنفيذ الطلب");
+ return data;
+}
+function go(page){
+ $$(".page").forEach(x=>x.classList.toggle("active",x.id==="page-"+page));
+ $$(".nav button[data-page]").forEach(x=>x.classList.toggle("active",x.dataset.page===page));
+ $("#sidebar").classList.remove("open");$("#shade").classList.remove("show");
+ if(page==="rooms")loadRooms();if(page==="posts")loadPosts();if(page==="gifts")loadGifts();
+}
+function setUser(u){
+ state.user=u||null;
+ const name=u?.username||u?.displayName||u?.name||"غير مسجل";
+ const email=u?.email||"—";
+ const coins=Number(u?.coins??u?.balance??0);
+ const level=Number(u?.level||0);
+ $("#homeName").textContent=name;$("#profileName").textContent=name;$("#profileEmail").textContent=email;
+ $("#homeCoins").textContent=coins.toLocaleString("ar-EG")+" 🪙";$("#sCoins").textContent=coins.toLocaleString("ar-EG");
+ $("#homeLevel").textContent=level;$("#sLevel").textContent=level;
+ $("#homeProgress").style.width=Math.min(100,Number(u?.levelProgress||0))+"%";
+ $("#sPosts").textContent=Number(u?.postsCount||0);$("#sFollowers").textContent=Number(u?.followersCount||0);
+ const avatar=u?.avatar||u?.avatarUrl||"";
+ ["homeAvatar","profileAvatar"].forEach(id=>{
+  $( "#"+id).innerHTML=avatar?`<img src="${esc(avatar)}" alt="">`:"♙";
+ });
+}
+async function loadMe(){
+ if(!getToken()){setUser(null);return}
+ try{const d=await api("/auth/me");setUser(d.user||d.data||d)}
+ catch(e){localStorage.removeItem("token");localStorage.removeItem("accessToken");setUser(null)}
+}
+async function loadRooms(){
+ const box=$("#rooms");$("#roomState").textContent="جاري التحميل...";
+ box.innerHTML='<div class="empty" style="grid-column:1/-1"><div class="emptyIcon">◌</div><b>جاري التحميل</b></div>';
+ try{
+  const d=await api("/rooms");state.rooms=d.rooms||d.data||[];
+  if(!state.rooms.length){$("#roomState").textContent="لا توجد غرف";box.innerHTML='<div class="empty" style="grid-column:1/-1"><div class="emptyIcon">◉</div><b>لا توجد غرف متاحة</b><p>لن يتم عرض غرف وهمية.</p></div>';return}
+  $("#roomState").textContent=state.rooms.length+" غرفة";
+  box.innerHTML=state.rooms.map(r=>`<article class="card room"><div class="roomHead"><div class="roomIcon">◉</div><div class="grow"><div class="name">${esc(r.name||"غرفة")}</div><div class="muted">${Number(r.onlineCount??r.membersCount??0)} متصل</div></div></div><div class="buttons"><button class="btn small primary" data-room="${esc(r.id||r._id||"")}">دخول</button></div></article>`).join("");
+  box.querySelectorAll("[data-room]").forEach(b=>b.onclick=()=>joinRoom(b.dataset.room));
+ }catch(e){$("#roomState").textContent="تعذر الاتصال";box.innerHTML=`<div class="empty" style="grid-column:1/-1"><div class="emptyIcon">!</div><b>تعذر تحميل الغرف</b><p>${esc(e.message)}</p></div>`}
+}
+async function joinRoom(id){
+ if(!id)return toast("معرّف الغرفة غير متوفر");
+ if(!getToken())return toast("يجب تسجيل الدخول أولًا");
+ try{await api("/rooms/"+encodeURIComponent(id)+"/join",{method:"POST"});toast("تم تنفيذ طلب الدخول");}
+ catch(e){toast(e.message)}
+}
+async function loadPosts(){
+ const box=$("#posts");box.innerHTML='<div class="empty"><div class="emptyIcon">◌</div><b>جاري التحميل</b></div>';
+ try{
+  const d=await api("/posts");state.posts=d.posts||d.data||[];
+  if(!state.posts.length){box.innerHTML='<div class="empty"><div class="emptyIcon">▣</div><b>لا توجد منشورات</b><p>لا توجد بيانات فعلية لعرضها حاليًا.</p></div>';return}
+  box.innerHTML=state.posts.map(p=>`<article class="card post"><div class="postHead"><div class="avatar">${esc((p.author?.username||p.username||"?").slice(0,1))}</div><div><div class="name">${esc(p.author?.username||p.username||"مستخدم")}</div><div class="muted">${esc(p.createdAt||"")}</div></div></div><div class="postText">${esc(p.content||p.text||"")}</div><div><button class="btn small" data-like="${esc(p.id||p._id||"")}">♡ إعجاب</button></div></article>`).join("");
+  box.querySelectorAll("[data-like]").forEach(b=>b.onclick=()=>likePost(b.dataset.like));
+ }catch(e){box.innerHTML=`<div class="empty"><div class="emptyIcon">!</div><b>تعذر تحميل المنشورات</b><p>${esc(e.message)}</p></div>`}
+}
+async function likePost(id){
+ if(!id||!getToken())return toast("يجب تسجيل الدخول أولًا");
+ try{await api("/posts/"+encodeURIComponent(id)+"/like",{method:"POST"});toast("تم تحديث الإعجاب")}catch(e){toast(e.message)}
+}
+async function loadGifts(){
+ const box=$("#giftGrid");$("#giftState").textContent="جاري التحميل...";
+ box.innerHTML='<div class="empty" style="grid-column:1/-1"><div class="emptyIcon">◌</div><b>جاري التحميل</b></div>';
+ try{
+  const d=await api("/gifts");state.gifts=d.gifts||d.data||[];
+  if(!state.gifts.length){$("#giftState").textContent="لا توجد هدايا";box.innerHTML='<div class="empty" style="grid-column:1/-1"><div class="emptyIcon">🎁</div><b>لا توجد هدايا متاحة</b><p>لم تتم إضافة كتالوج وهمي.</p></div>';return}
+  $("#giftState").textContent=state.gifts.length+" هدية";
+  box.innerHTML=state.gifts.map(g=>`<article class="card gift"><div class="giftArt">${g.image?`<img src="${esc(g.image)}" alt="" style="width:80px;height:80px;object-fit:contain">`:esc(g.emoji||"🎁")}</div><div class="giftName">${esc(g.name)}</div><div class="giftPrice">${Number(g.price??0).toLocaleString("ar-EG")} 🪙</div><button class="btn small primary" data-gift="${esc(g.id||g._id||"")}">إرسال</button></article>`).join("");
+  box.querySelectorAll("[data-gift]").forEach(b=>b.onclick=()=>sendGift(b.dataset.gift));
+ }catch(e){$("#giftState").textContent="تعذر الاتصال";box.innerHTML=`<div class="empty" style="grid-column:1/-1"><div class="emptyIcon">!</div><b>تعذر تحميل المتجر</b><p>${esc(e.message)}</p></div>`}
+}
+async function sendGift(id){
+ if(!getToken())return toast("يجب تسجيل الدخول أولًا");
+ if(!id)return toast("الهدية غير متاحة");
+ try{await api("/gifts/send",{method:"POST",body:JSON.stringify({giftId:id})});toast("تم إرسال الهدية");loadMe()}
+ catch(e){toast(e.message)}
+}
+function modal(title,body){
+ $("#modalTitle").textContent=title;$("#modalBody").innerHTML=body;$("#modal").classList.add("show");
+}
+function closeModal(){$("#modal").classList.remove("show")}
+function createPost(){
+ if(!getToken())return toast("يجب تسجيل الدخول أولًا");
+ modal("إنشاء منشور",`<form class="form" id="postForm"><div class="field"><label>المحتوى</label><textarea id="postContent" maxlength="5000" required placeholder="اكتب منشورك..."></textarea></div><button class="btn primary">نشر</button></form>`);
+ $("#postForm").onsubmit=async e=>{e.preventDefault();try{await api("/posts",{method:"POST",body:JSON.stringify({content:$("#postContent").value.trim()})});closeModal();toast("تم النشر");loadPosts()}catch(x){toast(x.message)}};
+}
+function editProfile(){
+ if(!state.user)return toast("يجب تسجيل الدخول أولًا");
+ modal("تعديل الملف",`<form class="form" id="profileForm"><div class="field"><label>الاسم الظاهر</label><input id="displayName" value="${esc(state.user.displayName||state.user.name||state.user.username||"")}"></div><div class="field"><label>النبذة</label><textarea id="bio">${esc(state.user.bio||"")}</textarea></div><button class="btn primary">حفظ</button></form>`);
+ $("#profileForm").onsubmit=async e=>{e.preventDefault();try{const d=await api("/users/me",{method:"PATCH",body:JSON.stringify({displayName:$("#displayName").value,bio:$("#bio").value})});setUser(d.user||d);closeModal();toast("تم الحفظ")}catch(x){toast(x.message)}};
+}
+function searchSite(){
+ const q=$("#search").value.trim().toLowerCase();if(!q)return;
+ const pages=[["rooms","الغرف"],["posts","المنشورات"],["messages","الرسائل"],["notifications","الإشعارات"],["gifts","الهدايا"],["profile","الملف"],["settings","الإعدادات"]];
+ const hit=pages.find(x=>x[0].includes(q)||x[1].includes(q));hit?go(hit[0]):toast("لم يتم العثور على قسم مطابق");
+}
+function bind(){
+ $$("[data-page]").forEach(b=>b.addEventListener("click",()=>go(b.dataset.page)));
+ $("#menu").onclick=()=>{$("#sidebar").classList.add("open");$("#shade").classList.add("show")};
+ $("#shade").onclick=()=>{$("#sidebar").classList.remove("open");$("#shade").classList.remove("show")};
+ $("#notify").onclick=()=>go("notifications");$("#readAll").onclick=()=>{toast("تم تحديث حالة الإشعارات");$("#notificationBadge").classList.add("hidden");$("#topDot").classList.add("hidden")};
+ $("#refreshRooms").onclick=loadRooms;$("#refreshGifts").onclick=loadGifts;$("#createPost").onclick=createPost;$("#editProfile").onclick=editProfile;
+ $("#close").onclick=closeModal;$("#modal").onclick=e=>{if(e.target.id==="modal")closeModal()};$("#search").onkeydown=e=>{if(e.key==="Enter")searchSite()};
+ $("#theme").onclick=()=>toast("المظهر الداكن مفعل");
+ $("#logout").onclick=()=>{localStorage.removeItem("token");localStorage.removeItem("accessToken");setUser(null);toast("تم تسجيل الخروج")};
+ $$(".switch").forEach(s=>s.onclick=()=>s.classList.toggle("on"));
+}
+async function start(){
+ bind();await loadMe();setTimeout(()=>$("#boot").classList.add("done"),250);
+}
+document.addEventListener("DOMContentLoaded",start);
+</script>
+</body>
+</html>
